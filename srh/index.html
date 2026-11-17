@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Anudeep Gupta · For the Sunrisers</title>
+<meta name="description" content="An independent concept by Anudeep Gupta, a Hyderabad fan who builds fan communities.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 34 34'%3E%3Ccircle cx='17' cy='17' r='17' fill='%23F26522'/%3E%3Cg fill='none' stroke='%2308090B' stroke-width='2.6' stroke-linecap='round'%3E%3Cpath d='M8 22a9 9 0 0 1 18 0'/%3E%3Cpath d='M5 25h24'/%3E%3Cpath d='M17 8v3M10 11l2 2M24 11l-2 2'/%3E%3C/g%3E%3C/svg%3E">
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<div class="disclaimer">An independent concept by Anudeep Gupta, not affiliated with the Sunrisers teams.</div>
+<nav class="nav" aria-label="Sections">
+  <a class="brand" href="#top">ANUDEEP GUPTA</a>
+  <div class="links">
+    <a href="#kit">Story</a>
+    <a href="#room">Work</a>
+    <a href="#idea">The idea</a>
+    <a class="cta" href="#finish">Book a call</a>
+  </div>
+</nav>
+
+<main id="top">
+<!-- ============ 1. NIGHT AT UPPAL ============ -->
+<section class="uppal" id="uppal" aria-label="Night at Uppal">
+  <div class="stage">
+    <canvas id="stadium" aria-hidden="true"></canvas>
+    <div class="screen" id="screen" aria-hidden="true">
+      <div class="s-top">UPPAL · TONIGHT</div>
+      <div class="s-name">ANUDEEP GUPTA</div>
+      <div class="s-line" id="screenLine">FAN MARKETING · HYDERABAD</div>
+    </div>
+    <div class="hero-copy" id="heroCopy">
+      <p class="mono" style="color:var(--orange);margin-bottom:14px">A pitch for the Sunrisers, from the stands</p>
+      <h1 class="display">Turning fans<br>into communities.</h1>
+      <p>I'm Anudeep, a Hyderabad fan who builds fan communities. Scroll to walk out of the stands, into the dressing room.</p>
+      <div class="scroll-hint mono"><span></span>Scroll</div>
+    </div>
+    <div class="stats" id="stats">
+      <div><b>1,000+</b><span>fans at HYROX Delhi, over 2 days</span></div>
+      <div><b>Top 5</b><span>of 93 teams, goSTOPS challenge</span></div>
+      <div><b>₹50L</b><span>launch plan, NIVIA India jersey</span></div>
+      <div><b>3 leagues</b><span>one Orange Army</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 2. KIT CHANGE ============ -->
+<section class="kit" id="kit" aria-label="My story, one kit at a time">
+  <div class="stage">
+    <p class="label mono" style="color:var(--orange)">My story, one kit at a time</p>
+    <div class="frame" id="frame" aria-hidden="true"></div>
+    <div class="chapters" id="chapters"></div>
+    <div class="dots" id="dots" aria-hidden="true"></div>
+  </div>
+</section>
+
+<!-- ============ 3. DRESSING ROOM ============ -->
+<section class="room" id="room" aria-labelledby="roomTitle">
+  <div class="wrap room-head">
+    <div>
+      <p class="mono" style="color:var(--orange);margin:0">The dressing room</p>
+      <h2 class="display" id="roomTitle">Pick up anything.</h2>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:14px;align-items:flex-start">
+      <p>Everything on this bench is a piece of my work. Tap an object to open the story behind it.</p>
+      <button class="listbtn" id="listBtn" aria-expanded="false" aria-controls="caseList">Show as a list</button>
+    </div>
+  </div>
+  <div class="scene-wrap"><div class="scene" id="scene">
+    <div class="wall">
+      <div class="locker"><span class="plate">HYDERABAD</span></div>
+      <div class="locker"><span class="plate">EASTERN CAPE</span></div>
+      <div class="locker"><span class="plate">ANUDEEP</span></div>
+      <div class="locker"><span class="plate">LEEDS</span></div>
+      <div class="locker"><span class="plate">ORANGE ARMY</span></div>
+      <div class="locker"><span class="plate">2027</span></div>
+    </div>
+    <div class="light" aria-hidden="true"></div>
+    <div class="floor" aria-hidden="true"></div>
+    <div class="bench" aria-hidden="true">
+      <div class="top"></div><div class="front"></div>
+      <div class="leg" style="left:6%"></div><div class="leg" style="right:6%"></div>
+    </div>
+    <div id="objects"></div>
+    <div class="hint">Hover or tap an object</div>
+  </div></div>
+  <div class="caselist" id="caseList"></div>
+</section>
+
+<dialog class="case" id="caseDialog" aria-labelledby="caseTitle">
+  <div class="c-top"><span class="mono" id="caseKicker" style="color:var(--orange)"></span><button id="caseClose" aria-label="Close">×</button></div>
+  <div class="c-body">
+    <h3 class="display" id="caseTitle"></h3>
+    <p id="caseText"></p>
+    <div class="c-nums" id="caseNums"></div>
+    <div class="role" id="caseRole"></div>
+    <a class="c-link" id="caseLink" target="_blank" rel="noopener">Open the deck</a>
+  </div>
+</dialog>
+
+<!-- ============ 4. THE IDEA ============ -->
+<section class="idea" id="idea" aria-labelledby="ideaTitle">
+  <div class="wrap">
+    <p class="mono">The big idea · a concept</p>
+    <h2 class="display" id="ideaTitle">One Orange Army,<br>three seasons.</h2>
+    <p class="lede">The Orange Army has one season. The Sunrisers group has three. My idea: bring Eastern Cape and Leeds home to Hyderabad, so the fans who live for the IPL follow all three teams, all year.</p>
+    <div class="seasons">
+      <div><small>JAN – FEB · SA20</small><b>Sunrisers Eastern Cape</b><span>3 titles in 4 seasons. Season 5 runs 17 Jan – 21 Feb 2027.</span></div>
+      <div class="home"><small>MAR – MAY · IPL</small><b>Sunrisers Hyderabad</b><span>The window Hyderabad's fan calendar is built around.</span></div>
+      <div><small>JUL – AUG · THE HUNDRED</small><b>Sunrisers Leeds</b><span>Men's games land at about 7–11 pm in India.</span></div>
+    </div>
+    <div class="plays">
+      <div><em>01</em><b>Orange Army Nights</b><span>Watch-alongs for Eastern Cape and Leeds matches at partner venues and campuses in Hyderabad, run like a home game.</span></div>
+      <div><em>02</em><b>Second screen</b><span>Short local-creator reels that introduce "your other Sunrisers", plus a live watch-along stream for fans at home.</span></div>
+      <div><em>03</em><b>Orange Army Passport</b><span>A card stamped at every Night. Stamps carry into the IPL season, so following all three teams earns something at home.</span></div>
+    </div>
+    <div class="pilot">
+      <p><b>Pilot it in SA20 2027, before the IPL:</b> 2 venues and 1–2 campuses, 4 Nights on Eastern Cape match days, Passport redeemed at the IPL opener. Estimated cost: about ₹22K–78K plus a host.</p>
+      <a href="#finish">Talk it through with me</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 5. FINISH ============ -->
+<section class="finish" id="finish" aria-labelledby="finishTitle">
+  <div class="wrap">
+    <p class="mono" style="color:var(--orange)">Your call</p>
+    <h2 class="display" id="finishTitle">Let's talk<br>about the Army.</h2>
+    <p>I'd value 15 minutes of your view on this idea, and on where someone like me could help the Sunrisers.</p>
+    <div class="btns">
+      <a class="cta" href="#" id="callLink">Book a 15-min call</a>
+      <a href="resume.pdf" target="_blank" rel="noopener">See my resume</a>
+      <a href="https://www.linkedin.com/in/itsanudeepgupta" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>An independent concept by Anudeep Gupta, not affiliated with Sunrisers Hyderabad, Sunrisers Eastern Cape or Sunrisers Leeds. Team names are used only to describe the idea.</footer>
+
+<!-- ============ CHATBOT ============ -->
+<div class="bot-teaser" id="botTeaser">Hey Riser, nice to meet you!</div>
+<button class="bot-btn" id="botBtn" aria-label="Open chat" aria-expanded="false" aria-controls="bot">
+  <svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true" fill="none" stroke="#08090B" stroke-width="2.4" stroke-linecap="round"><path d="M7 22a10 10 0 0 1 20 0"/><path d="M4 26h26"/><path d="M17 6v3M8 10l2 2M26 10l-2 2M3 17h3M28 17h3"/></svg>
+</button>
+<div class="bot" id="bot" role="dialog" aria-label="Chat with Anudeep">
+  <div class="b-head">
+    <span class="av"><svg width="24" height="24" viewBox="0 0 34 34" aria-hidden="true" fill="none" stroke="#F26522" stroke-width="2.6" stroke-linecap="round"><path d="M7 22a10 10 0 0 1 20 0"/><path d="M4 26h26"/><path d="M17 6v3M8 10l2 2M26 10l-2 2M3 17h3M28 17h3"/></svg></span>
+    <span><b>Anudeep</b><small>Orange Army · Hyderabad</small></span>
+    <button id="botClose" aria-label="Close chat">×</button>
+  </div>
+  <div class="b-msgs" id="botMsgs" aria-live="polite"></div>
+  <div class="b-choices" id="botChoices"></div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
