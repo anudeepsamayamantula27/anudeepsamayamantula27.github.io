@@ -440,6 +440,8 @@ dialog.case[open]{animation:pop .35s var(--ease)}
   .h1-b{font-size:clamp(64px,19vw,110px)}
   .hero-sub{font-size:16px;max-width:88%}
   .hero-btns{position:relative;z-index:3}
+  .hero-btns .btn-ghost{display:none}
+  .hero-me{height:47%}
   .hero-btns .btn{min-height:46px;padding:0 18px;font-size:14px}
   .hero-word{top:auto;bottom:70px;transform:none;font-size:30vw}
   .scroll-cue{display:none}
