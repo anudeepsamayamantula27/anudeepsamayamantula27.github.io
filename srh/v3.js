@@ -23,7 +23,7 @@
   /* ============================ smooth scroll ============================ */
   var lenis = null;
   if (!RM && window.Lenis && window.gsap) {
-    lenis = new Lenis({ duration: 1.1, smoothWheel: true });
+    lenis = new Lenis({ lerp: 0.14, smoothWheel: true });
     if (window.ScrollTrigger) lenis.on('scroll', ScrollTrigger.update);
     gsap.ticker.add(function (t) { lenis.raf(t * 1000); });
     gsap.ticker.lagSmoothing(0);
@@ -90,7 +90,7 @@
     setTimeout(start, 1500);
   }
   var tk = $('#tk-track');
-  var TICK = [['1,000+ fans', 'HYROX Delhi, on the ground'], ['U19 national', 'badminton, for Telangana'], ['Top 5 of 93', 'goSTOPS challenge'], ['₹50L', 'jersey launch plan with NIVIA'], ['55+ reports', 'The Business Research Company'], ['60 players', 'IPL auction draft I ran'], ['10+ tournaments', 'TITANS IBS esports'], ['3 teams', 'one Orange Army']];
+  var TICK = [['1,000+ fans', 'HYROX Delhi, on the ground'], ['U19 national', 'badminton, for Telangana'], ['Top 5 of 93', 'goSTOPS challenge'], ['₹2L+ revenue', 'The Better Store, dropshipping'], ['₹50L', 'jersey launch plan with NIVIA'], ['55+ reports', 'The Business Research Company'], ['60 players', 'IPL auction draft I ran'], ['10+ tournaments', 'TITANS IBS esports'], ['3 teams', 'one Orange Army']];
   var tkHTML = TICK.map(function (t) { return '<span>' + esc(t[0]) + ' <small>' + esc(t[1]) + '</small></span>'; }).join('');
   tk.innerHTML = tkHTML + tkHTML;
   tk.lastElementChild && $$('span', tk).slice(TICK.length).forEach(function (s) { s.setAttribute('aria-hidden', 'true'); });
@@ -138,8 +138,9 @@
     $('#case-role').textContent = c.role || '';
     var m = $('#case-media'); m.innerHTML = '';
     if (c.video) m.innerHTML = '<video src="' + c.video + '" poster="' + c.poster + '" muted loop playsinline controls ' + (RM ? '' : 'autoplay') + ' aria-label="The IPL auction draft in progress"></video>';
+    else if (c.imgs) m.innerHTML = '<div class="case-strip">' + c.imgs.map(function (i) { return '<img src="' + i + '" alt="" loading="lazy">'; }).join('') + '</div>';
     else if (c.img) m.innerHTML = '<img src="' + c.img + '" alt="" style="object-position:' + (c.pos || '50% 30%') + '">';
-    m.hidden = !(c.video || c.img);
+    m.hidden = !(c.video || c.img || c.imgs); m.classList.toggle('strip', !!c.imgs);
     var a = $('#case-link'); if (c.link) { a.href = c.link; a.textContent = c.linkText || 'Open the deck'; a.hidden = false; } else a.hidden = true;
     if (lenis) lenis.stop();
     dlg.showModal ? dlg.showModal() : dlg.setAttribute('open', '');
@@ -187,7 +188,7 @@
   }
   setKit(0);
   if (!RM && window.ScrollTrigger) {
-    ScrollTrigger.create({ trigger: walk, start: 'top top', end: function () { return '+=' + innerHeight * 3.2; }, pin: '.walk-pin', anticipatePin: 1, invalidateOnRefresh: true,
+    ScrollTrigger.create({ trigger: walk, start: 'top top', end: function () { return '+=' + innerHeight * 2.4; }, pin: '.walk-pin', anticipatePin: 1, invalidateOnRefresh: true,
       onUpdate: function (s) { setKit(Math.min(KITS.length - 1, Math.floor(s.progress * KITS.length * 0.999))); } });
   } else { walk.classList.add('static'); setKit(KITS.length - 1); chs.forEach(function (c) { c.classList.add('on'); }); }
 
@@ -269,6 +270,8 @@
   /* ============================ 5. ORANGE VAULT ============================ */
   var WORK = [
     { slug: 'one-orange-army', type: 'Concept', title: 'One Orange Army, three seasons', org: 'A concept for the Sunrisers group', big: '4', res: 'Nights in an SA20 2027 pilot', img: 'media/projects/one-orange-army/thumb.jpg', page: true },
+    { slug: 'better-store', type: 'Dropshipping', title: 'The Better Store: grades in rupees', org: 'Masters’ Union · dropshipping store', big: '₹2L+', res: 'in revenue from a dropshipping store', img: 'media/projects/better-store/stall-crouch.jpg',
+      kicker: 'Dropshipping · Masters’ Union', text: 'A dropshipping store run from a stall on campus, where the stall is the classroom and the grades are in rupees. We sold massage guns, steam irons, humidifiers, gadgets and handmade gifts face to face. When Meta ads started burning too much money, selling through Meesho instead was my idea.', nums: [['₹2L+', 'revenue'], ['Meesho', 'my idea to replace costly Meta ads']], role: 'My role: picked the products, negotiated with suppliers, set the prices, ran the social media marketing and sold to customers at the stall.', imgs: ['media/projects/better-store/stall-crouch.jpg', 'media/projects/better-store/stall-table.jpg', 'media/projects/better-store/stall-customer.jpg', 'media/projects/better-store/stall-pitch.jpg', 'media/projects/better-store/stall-team.jpg'] },
     { slug: 'nivia-india-jersey', type: 'Launch', title: 'Wear the Blue: India’s football jersey', org: 'NIVIA · live industry challenge', big: '₹50L', res: 'launch plan; 30K jerseys in 90 days, base case', img: 'media/projects/nivia-india-jersey/thumb.jpg', page: true },
     { slug: 'gostops-off-season', type: 'Strategy', title: 'Filling hostels in the off-season', org: 'goSTOPS · one-day challenge', big: 'Top 5', res: 'of 93 teams; occupancy 27.5% → 43.8%', img: 'media/projects/gostops-off-season/thumb.jpg', page: true },
     { slug: 'hyrox-delhi', type: 'Event', title: 'HYROX Delhi: 1,000+ people, 2 days', org: 'HYROX Delhi · Masters’ Union', big: '1,000+', res: 'attendees over 2 competition days', img: 'media/projects/hyrox-delhi/thumb.jpg',
@@ -286,7 +289,7 @@
   WORK.forEach(function (w) {
     var el = document.createElement(w.page ? 'a' : 'button');
     el.className = 'news';
-    if (w.page) el.href = 'case.html?p=' + w.slug; else { el.type = 'button'; el.addEventListener('click', function () { openCase({ kicker: w.kicker, title: w.title, text: w.text, nums: w.nums, role: w.role, img: w.img, video: w.video, poster: w.poster, link: w.link }); }); }
+    if (w.page) el.href = 'case.html?p=' + w.slug; else { el.type = 'button'; el.addEventListener('click', function () { openCase({ kicker: w.kicker, title: w.title, text: w.text, nums: w.nums, role: w.role, img: w.img, imgs: w.imgs, video: w.video, poster: w.poster, link: w.link }); }); }
     el.innerHTML = '<div class="news-img"><img src="' + w.img + '" alt="" loading="lazy"><span class="news-type">' + esc(w.type) + '</span></div>' +
       '<div class="news-body"><span class="news-org">' + esc(w.org) + '</span><h3>' + esc(w.title) + '</h3><div class="news-res"><b>' + esc(w.big) + '</b><span>' + esc(w.res) + '</span></div><span class="news-more">' + (w.page ? 'Read the case →' : 'Read more →') + '</span></div>';
     vTrack.appendChild(el);
@@ -354,17 +357,20 @@
 
   /* ============================ 7. GALLERY + LOGOS ============================ */
   var GAL = [
-    ['media/photos/sport-india-2026.jpg', 'Sport India Conference 2026, Vision 2036 panel, Bharat Mandapam', 'wide'],
-    ['media/photos/iamgame-awards.jpg', 'Masters’ Union cohort at the EY I Am Game Sports Awards 2026', 'tall'],
-    ['media/photos/hyrox.jpg', 'HYROX Delhi 2026, with the Masters’ Union team', 'tall'],
-    ['media/photos/iamgame-guest.jpg', 'With K. Srinivas Rao, Head of Sports Group at Times of India, at I Am Game 2026', ''],
-    ['media/photos/conclave-guest.jpg', 'With Manish, VP Commercials & Partnerships at JioStar, at I Am Game 2026', ''],
-    ['media/photos/nivia-jersey.jpg', 'With the India football jersey, NIVIA live challenge', 'tall'],
+    ['media/photos/sport-india-2026.jpg', 'Sport India Conference 2026, Vision 2036 panel, Bharat Mandapam', 'wide', '50% 40%'],
+    ['media/photos/viren-rasquinha.jpg', 'With Viren Rasquinha, former India hockey captain, at Masters’ Union', ''],
+    ['media/photos/hudle-ceo.jpg', 'With Suhail Narain, Founder and CEO of Hudle', ''],
+    ['media/photos/pbks-coo.jpg', 'With the COO of Punjab Kings', ''],
+    ['media/photos/iamgame-guest.jpg', 'With K. Srinivas Rao, Head of Sports Group at Times of India, at I Am Game 2026', '', '50% 12%'],
+    ['media/photos/iamgame-awards.jpg', 'Masters’ Union cohort at the EY I Am Game Sports Awards 2026', ''],
+    ['media/photos/conclave-guest.jpg', 'With Manish, VP Commercials & Partnerships at JioStar, at I Am Game 2026', '', '50% 15%'],
+    ['media/photos/hyrox.jpg', 'HYROX Delhi 2026, with the Masters’ Union team', ''],
+    ['media/projects/better-store/stall-selfie.jpg', 'Running The Better Store stall at Masters’ Union', 'wide', '50% 30%'],
+    ['media/photos/nivia-jersey.jpg', 'With the India football jersey, NIVIA live challenge', ''],
     ['media/photos/smg-night.jpg', 'SMG Club night, Masters’ Union', 'wide'],
-    ['media/photos/auction-draft.jpg', 'The IPL auction draft, SMG Club', 'wide'],
-    ['media/photos/titans-jersey.jpg', 'TITANS IBS esports jersey', 'tall']
+    ['media/photos/auction-draft.jpg', 'The IPL auction draft, SMG Club', 'wide']
   ];
-  $('#gal-grid').innerHTML = GAL.map(function (g) { return '<figure class="' + g[2] + '" data-reveal><img src="' + g[0] + '" alt="' + esc(g[1]) + '" loading="lazy"><figcaption>' + esc(g[1]) + '</figcaption></figure>'; }).join('');
+  $('#gal-grid').innerHTML = GAL.map(function (g) { return '<figure class="' + g[2] + '" data-reveal><img src="' + g[0] + '" alt="' + esc(g[1]) + '" loading="lazy" style="object-position:' + (g[3] || '50% 20%') + '"><figcaption>' + esc(g[1]) + '</figcaption></figure>'; }).join('');
   io($$('#gal-grid figure'), function (el) { el.classList.add('in'); }, { threshold: .15 });
   var LOGOS = [['media/logos/orgs/masters-union.svg', 'Masters’ Union · SMG Club'], ['media/logos/orgs/hyrox.svg', 'HYROX Delhi 2026'], ['media/logos/orgs/tbrc.svg', 'The Business Research Company'], ['media/logos/orgs/titans.svg', 'TITANS IBS esports'], ['media/logos/orgs/icfai.svg', 'ICFAI Business School'], ['', 'NIVIA · live challenge', 'NIVIA'], ['', 'goSTOPS · live challenge', 'goSTOPS'], ['media/logos/orgs/examate.svg', 'Examate']];
   $('#logos').innerHTML = LOGOS.map(function (l) { return '<div class="logo" data-reveal>' + (l[0] ? '<img src="' + l[0] + '" alt="" loading="lazy">' : '<b style="font:400 30px/1 var(--disp);text-transform:uppercase;color:var(--tx)">' + esc(l[2]) + '</b>') + '<span>' + esc(l[1]) + '</span></div>'; }).join('');
@@ -372,13 +378,18 @@
 
   /* ============================ 8. FANZONE: auction finale ============================ */
   var bids = $$('#bids li'), sold = $('#sold'), soldRow = $('.sold-row');
-  io([$('#bids')], function () {
-    bids.forEach(function (b, i) { setTimeout(function () { b.classList.add('on'); }, RM ? 0 : 250 + i * 550); });
-    setTimeout(function () {
+  var soldT = [];
+  function playSold() {
+    soldT.forEach(clearTimeout); soldT = [];
+    bids.forEach(function (b, i) { soldT.push(setTimeout(function () { b.classList.add('on'); }, RM ? 0 : 200 + i * 450)); });
+    soldT.push(setTimeout(function () {
       sold.classList.add('on'); soldRow.classList.add('on');
-      setTimeout(function () { var r = sold.getBoundingClientRect(); burst(r.left + r.width / 2, r.top + r.height / 2, 90, 1.3); }, 260);
-    }, RM ? 0 : 250 + bids.length * 550 + 200);
-  }, { threshold: .5 });
+      soldT.push(setTimeout(function () { var r = sold.getBoundingClientRect(); burst(r.left + r.width / 2, r.top + r.height / 2, 90, 1.3); }, 260));
+    }, RM ? 0 : 200 + bids.length * 450 + 150));
+  }
+  function resetSold() { soldT.forEach(clearTimeout); soldT = []; bids.forEach(function (b) { b.classList.remove('on'); }); sold.classList.remove('on'); soldRow.classList.remove('on'); }
+  if ('IntersectionObserver' in window) new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) playSold(); else resetSold(); }); }, { threshold: .35 }).observe($('#bids'));
+  else playSold();
 
   /* ============================ 9. HEY RISER ============================ */
   var bot = $('#bot'), botBtn = $('#bot-btn'), msgs = $('#bot-msgs'), choices = $('#bot-choices'), teaser = $('#bot-teaser');

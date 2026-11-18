@@ -137,7 +137,7 @@ p{margin:0}
 .walk-head h2{font-size:clamp(40px,5.4vw,84px)}
 .walk-stage{display:grid;grid-template-columns:minmax(0,0.9fr) minmax(0,1.1fr);gap:clamp(28px,5vw,80px);align-items:center}
 .walk-frame{position:relative;aspect-ratio:3/4;max-height:66svh;width:100%;max-width:520px;justify-self:end;border-radius:22px;overflow:hidden;background:#000;box-shadow:0 0 0 2px rgba(242,101,34,.6),0 0 60px -10px rgba(242,101,34,.7),0 40px 80px -30px rgba(0,0,0,.9)}
-.walk-shot{position:absolute;inset:0;clip-path:polygon(0 0,0 0,-30% 100%,-30% 100%);transition:clip-path .75s var(--ease)}
+.walk-shot{position:absolute;inset:0;clip-path:polygon(0 0,0 0,-30% 100%,-30% 100%);transition:clip-path .45s var(--ease)}
 .walk-shot.on,.walk-shot.past{clip-path:polygon(0 0,130% 0,100% 100%,-30% 100%)}
 .walk-shot img{width:100%;height:100%;object-fit:cover}
 .walk-shot::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(10,10,11,.85))}
@@ -146,7 +146,7 @@ p{margin:0}
 .walk-flash.go{animation:flash .7s ease}
 @keyframes flash{to{transform:translateX(120%)}}
 .walk-copy{position:relative;min-height:340px}
-.walk-ch{position:absolute;inset:0 0 auto 0;opacity:0;transform:translateY(30px);transition:opacity .45s ease,transform .6s var(--ease);pointer-events:none}
+.walk-ch{position:absolute;inset:0 0 auto 0;opacity:0;transform:translateY(20px);transition:opacity .3s ease,transform .4s var(--ease);pointer-events:none}
 .walk-ch.on{opacity:1;transform:none;pointer-events:auto}
 .walk-ch .mono{color:var(--or);margin-bottom:14px}
 .walk-ch h3{font-size:clamp(40px,5vw,80px);margin-bottom:16px}
@@ -309,7 +309,7 @@ p{margin:0}
 .room-list b{font:400 22px/1.05 var(--disp);text-transform:uppercase}
 
 /* ---------- GALLERY ---------- */
-.gal-grid{display:grid;grid-auto-flow:dense;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:200px;gap:14px;max-width:1400px}
+.gal-grid{display:grid;grid-auto-flow:dense;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:320px;gap:14px;max-width:1400px}
 .gal-grid figure{position:relative;margin:0;border-radius:16px;overflow:hidden;background:#000}
 .gal-grid figure.tall{grid-row:span 2}
 .gal-grid figure.wide{grid-column:span 2}
@@ -451,13 +451,15 @@ dialog.case[open]{animation:pop .35s var(--ease)}
   .arrows{display:none}
   .walk-pin{padding-top:80px;justify-content:flex-start}
   .walk-stage{grid-template-columns:1fr;gap:18px}
-  .walk-head{margin-bottom:14px}
+  .walk-pin{padding-top:72px}
+  .walk-head{margin-bottom:10px}
+  .walk-head .eyebrow{margin-bottom:8px}
   .walk-head h2{font-size:34px}
-  .walk-frame{justify-self:center;max-width:none;width:auto;height:34svh;max-height:none}
+  .walk-frame{justify-self:center;max-width:none;width:auto;height:29svh;max-height:none}
   .walk-num{font-size:72px}
   .logos{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .walk-copy{min-height:270px}
-  .walk-ch h3{font-size:30px;margin-bottom:8px}
+  .walk-copy{min-height:300px}
+  .walk-ch h3{font-size:26px;margin-bottom:6px}
   .walk-ch .mono{margin-bottom:8px}
   .walk-ch p.t{font-size:15px}
   .nums{gap:8px;margin-top:14px}
@@ -473,7 +475,8 @@ dialog.case[open]{animation:pop .35s var(--ease)}
   .scene::-webkit-scrollbar{display:none}
   .scene-in{right:auto;width:920px}
   .scene-hint{display:block}
-  .gal-grid{grid-auto-rows:160px}
+  .gal-grid{grid-auto-rows:240px}
+  .gal-grid figure.wide{grid-column:span 2}
   .quotes,.edu{grid-template-columns:1fr}
   .lot-name{font-size:34px}
   .sold{font-size:48px}
@@ -505,3 +508,8 @@ dialog.case[open]{animation:pop .35s var(--ease)}
 .bot-av img{width:100%;height:auto}
 @media (max-width:760px){.hd-mark{width:52px;height:39px}.hero-crest{width:84px}.bot-btn img{width:40px}}
 .fx,.fan,.sec{overflow-x:clip}
+
+.case-media.strip{aspect-ratio:auto;background:#000}
+.case-strip{display:flex;gap:8px;overflow-x:auto;scroll-snap-type:x mandatory;padding:8px;scrollbar-width:thin}
+.case-strip img{height:min(56svh,460px);width:auto!important;flex:none;border-radius:10px;scroll-snap-align:start;object-fit:cover}
+.case-nums:empty{display:none}
