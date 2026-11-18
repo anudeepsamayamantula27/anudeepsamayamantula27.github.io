@@ -486,3 +486,22 @@ dialog.case[open]{animation:pop .35s var(--ease)}
   .tk-track{animation:none}
 }
 @media print{.bot,.hd,.strip,.lights,.embers{display:none}}
+
+/* ---------- official crest ---------- */
+.hd-mark{width:62px;height:46px;border-radius:0;background:none;box-shadow:none}
+.hd-mark img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 0 10px rgba(242,101,34,.55))}
+.crest-row{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.hero-crest{width:clamp(96px,9vw,132px);height:auto;filter:drop-shadow(0 0 22px rgba(242,101,34,.6))}
+.ready .hero-crest{animation:rise 1s var(--ease) 1.2s both}
+@keyframes rise{0%{opacity:0;transform:translateY(30px) scale(.7)}100%{opacity:1;transform:none}}
+.roundel.crest{background:#0a0a0b;border-color:var(--or);padding:6px}
+.roundel.crest{height:64px;overflow:hidden}
+.roundel.crest img{width:48px;height:auto;max-height:none}
+.lot-crest{position:absolute;right:12px;top:10px;width:72px;height:auto;filter:drop-shadow(0 4px 10px rgba(0,0,0,.6))}
+.ft-brand img{height:auto;margin-bottom:10px}
+.bot-btn{background:#0a0a0b;border:2px solid var(--or)}
+.bot-btn img{width:46px;height:auto}
+.bot-av{background:#0a0a0b;padding:4px}
+.bot-av img{width:100%;height:auto}
+@media (max-width:760px){.hd-mark{width:52px;height:39px}.hero-crest{width:84px}.bot-btn img{width:40px}}
+.fx,.fan,.sec{overflow-x:clip}
