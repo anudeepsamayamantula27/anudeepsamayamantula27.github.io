@@ -3,167 +3,280 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex, nofollow">
 <title>Anudeep Gupta · For the Sunrisers</title>
-<meta name="description" content="An independent concept by Anudeep Gupta, a Hyderabad fan who builds fan communities.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap">
-<link rel="stylesheet" href="style.css">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 34 34'%3E%3Ccircle cx='17' cy='17' r='17' fill='%23F26522'/%3E%3Cg fill='none' stroke='%2308090B' stroke-width='2.6' stroke-linecap='round'%3E%3Cpath d='M8 22a9 9 0 0 1 18 0'/%3E%3Cpath d='M5 25h24'/%3E%3Cpath d='M17 8v3M10 11l2 2M24 11l-2 2'/%3E%3C/g%3E%3C/svg%3E">
+<meta name="description" content="">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#f6f1e7">
+<link rel="preload" href="fonts/anton-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/robotoflex-latin-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="media/video/hero-poster.jpg" as="image">
+<link rel="stylesheet" href="fonts/fonts.css">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="ag.css">
 </head>
-<body>
-<div class="progress" id="progress"></div>
-<div class="disclaimer">An independent concept by Anudeep Gupta, not affiliated with the Sunrisers teams.</div>
-<nav class="nav" aria-label="Sections">
-  <a class="brand" href="#top">ANUDEEP GUPTA</a>
-  <div class="links">
-    <a href="#kit">Story</a>
-    <a href="#room">Work</a>
-    <a href="#idea">The idea</a>
-    <a class="cta" href="#finish">Book a call</a>
-  </div>
-</nav>
+<body class="is-loading">
+<a class="skip" href="#main">Skip to content</a>
 
-<main id="top">
-<!-- ============ 1. NIGHT AT UPPAL ============ -->
-<section class="uppal" id="uppal" aria-label="Night at Uppal">
-  <div class="stage">
-    <canvas id="stadium" aria-hidden="true"></canvas>
-    <div class="screen" id="screen" aria-hidden="true">
-      <div class="s-top">UPPAL · TONIGHT</div>
-      <div class="s-name">ANUDEEP GUPTA</div>
-      <div class="s-line" id="screenLine">FAN MARKETING · HYDERABAD</div>
+<header class="nav" id="top">
+  <a class="nav-logo" href="#top" aria-label="Anudeep Gupta, back to top"><span class="mis" data-mis="ANUDEEP GUPTA">ANUDEEP GUPTA</span></a>
+  <nav class="nav-links" aria-label="Sections">
+    <a href="#ag-kit">Story</a><a href="#reel">Work</a><a href="#room">Room</a><a href="#brief">Brief me</a><a href="#contact">Contact</a>
+  </nav>
+  <div class="nav-right">
+    <div class="swatches" role="radiogroup" aria-label="Campaign ink">
+      <button type="button" role="radio" data-theme-pick="masala" aria-label="Orange Army inks: orange and gold"><i></i><i></i></button>
+      <button type="button" role="radio" data-theme-pick="monsoon" aria-label="Night match inks: black and orange"><i></i><i></i></button>
+      <button type="button" role="radio" data-theme-pick="night" aria-label="Sunrise inks: red and yellow"><i></i><i></i></button>
     </div>
-    <div class="hero-copy" id="heroCopy">
-      <p class="mono" style="color:var(--orange);margin-bottom:14px">A pitch for the Sunrisers, from the stands</p>
-      <h1 class="display">Turning fans<br>into communities.</h1>
-      <p>I'm Anudeep, a Hyderabad fan who builds fan communities. Scroll to walk out of the stands, into the dressing room.</p>
-      <div class="scroll-hint mono"><span></span>Scroll</div>
-    </div>
-    <div class="stats" id="stats">
-      <div><b>1,000+</b><span>fans at HYROX Delhi, over 2 days</span></div>
-      <div><b>Top 5</b><span>of 93 teams, goSTOPS challenge</span></div>
-      <div><b>₹50L</b><span>launch plan, NIVIA India jersey</span></div>
-      <div><b>3 leagues</b><span>one Orange Army</span></div>
-    </div>
+    <a class="btn btn-ink nav-cta" href="#brief" data-press>Brief me</a>
   </div>
-</section>
+</header>
 
-<div class="chant" aria-hidden="true"><div><span>Orange Army</span><span>•</span><span>Hyderabad</span><span>•</span><span>Eastern Cape</span><span>•</span><span>Leeds</span><span>•</span><span>Orange Army</span><span>•</span><span>Hyderabad</span><span>•</span><span>Eastern Cape</span><span>•</span><span>Leeds</span><span>•</span><span>Orange Army</span><span>•</span><span>Hyderabad</span><span>•</span><span>Eastern Cape</span><span>•</span><span>Leeds</span><span>•</span><span>Orange Army</span><span>•</span><span>Hyderabad</span><span>•</span><span>Eastern Cape</span><span>•</span><span>Leeds</span><span>•</span><span>Orange Army</span><span>•</span><span>Hyderabad</span><span>•</span><span>Eastern Cape</span><span>•</span><span>Leeds</span><span>•</span><span>Orange Army</span><span>•</span><span>Hyderabad</span><span>•</span><span>Eastern Cape</span><span>•</span><span>Leeds</span><span>•</span></div></div>
-<!-- ============ 2. KIT CHANGE ============ -->
-<section class="kit" id="kit" aria-label="My story, one kit at a time">
-  <div class="stage">
-    <div class="frame" id="frame" aria-hidden="true"></div>
-    <div class="col"><p class="label mono" style="color:var(--orange)">My story, one kit at a time</p>
-    <div class="chapters" id="chapters"></div></div>
-    <div class="dots" id="dots" aria-hidden="true"></div>
-  </div>
-</section>
+<main id="main">
+  <!-- HERO: the riso plate, the live brand word, the stickers -->
+  <section class="hero" id="hero" data-ink aria-label="Introduction">
+    <canvas class="plate" aria-hidden="true"></canvas>
+    <div class="plate-fallback" aria-hidden="true"></div>
+    <div class="hero-sheet" aria-hidden="true"></div>
+    <div class="hero-hud mono" aria-hidden="true">
+      <span class="hud-l"><svg class="reg-mark" viewBox="-20 -20 40 40" aria-hidden="true"><circle r="6"/><path d="M-18 0H-9M9 0H18M0 -18V-9M0 9V18"/></svg> Sheet 01 · Orange Army · <span id="ink-name">Masala</span></span>
+      <span class="hud-r">Pass <span id="passN">01</span> · off register <span id="mis-read">↔ +0.0  ↕ +0.0 mm</span> <svg class="reg-mark" viewBox="-20 -20 40 40" aria-hidden="true"><circle r="6"/><path d="M-18 0H-9M9 0H18M0 -18V-9M0 9V18"/></svg></span>
+    </div>
+    <div class="hero-copy">
+      <p class="eyebrow mono" data-intro><span class="tag">Campaign proof · <span id="hero-role"></span></span></p>
+      <h1 class="headline" id="headline">
+        <span class="hl-line hl-1" id="hl-before"></span>
+        <span class="hl-word-wrap"><span class="hl-word" id="hl-word" aria-live="polite"></span></span>
+        <span class="hl-line hl-2" id="hl-after"></span>
+      </h1>
+      <div class="tester" data-intro>
+        <label class="mono tester-label" for="brand-input" id="brand-label"></label>
+        <div class="tester-row">
+          <input id="brand-input" class="tester-input" type="text" maxlength="24" autocomplete="off" spellcheck="false">
+          <div class="presets" id="presets"></div>
+        </div>
+      </div>
+      <p class="hero-for" id="hero-for" hidden></p>
+    </div>
+    <div class="hero-foot mono" data-intro>
+      <span>Drag the print to misregister it · hover for the unprinted set</span>
+      <span class="hud-views"><span id="views-live">0</span> seconds with the Orange Army</span>
+    </div>
+    <div class="stickers" id="stickers" aria-label="Numbers you can throw around"></div>
+    <div class="lens-tag mono" aria-hidden="true">Unprinted · in the jersey</div>
+  </section>
 
-<div class="chant alt" aria-hidden="true"><div><span>Player</span><span>•</span><span>Organiser</span><span>•</span><span>Marketer</span><span>•</span><span>Fan</span><span>•</span><span>Player</span><span>•</span><span>Organiser</span><span>•</span><span>Marketer</span><span>•</span><span>Fan</span><span>•</span><span>Player</span><span>•</span><span>Organiser</span><span>•</span><span>Marketer</span><span>•</span><span>Fan</span><span>•</span><span>Player</span><span>•</span><span>Organiser</span><span>•</span><span>Marketer</span><span>•</span><span>Fan</span><span>•</span><span>Player</span><span>•</span><span>Organiser</span><span>•</span><span>Marketer</span><span>•</span><span>Fan</span><span>•</span><span>Player</span><span>•</span><span>Organiser</span><span>•</span><span>Marketer</span><span>•</span><span>Fan</span><span>•</span></div></div>
-<!-- ============ 3. DRESSING ROOM ============ -->
-<section class="room" id="room" aria-labelledby="roomTitle">
-  <div class="wrap room-head rv">
-    <div>
-      <p class="mono" style="color:var(--orange);margin:0">The dressing room</p>
-      <h2 class="display" id="roomTitle">Pick up anything.</h2>
-    </div>
-    <div style="display:flex;flex-direction:column;gap:14px;align-items:flex-start">
-      <p>Everything in this room is a piece of my work or my sport. Tap an object to open the story behind it.</p>
-      <button class="listbtn" id="listBtn" aria-expanded="false" aria-controls="caseList">Show as a list</button>
-    </div>
-  </div>
-  <div class="scene-wrap"><div class="scene" id="scene">
-    <div class="wall">
-      <div class="locker"><span class="plate">HYDERABAD</span></div>
-      <div class="locker"><span class="plate">EASTERN CAPE</span></div>
-      <div class="locker"><span class="plate">ANUDEEP</span></div>
-      <div class="locker"><span class="plate">LEEDS</span></div>
-      <div class="locker"><span class="plate">ORANGE ARMY</span></div>
-      <div class="locker"><span class="plate">2027</span></div>
-    </div>
-    <div class="light" aria-hidden="true"></div><div class="spot" aria-hidden="true"></div>
-    <div class="floor" aria-hidden="true"></div>
-    <div class="bench" aria-hidden="true">
-      <div class="top"></div><div class="front"></div>
-      <div class="leg" style="left:6%"></div><div class="leg" style="right:6%"></div>
-    </div>
-    <div id="objects"></div>
-    <div class="hint">Hover or tap an object</div>
-  </div></div>
-  <div class="caselist" id="caseList"></div>
-</section>
+  <!-- velocity marquee -->
+  <section class="marquee" aria-label="Numbers and brands" data-ink>
+    <div class="mq-row" id="mq1"><div class="mq-track"></div></div>
+    <div class="mq-row mq-rev" id="mq2"><div class="mq-track"></div></div>
+  </section>
 
-<dialog class="case" id="caseDialog" aria-labelledby="caseTitle">
-  <div class="c-top"><span class="mono" id="caseKicker" style="color:var(--orange)"></span><button id="caseClose" aria-label="Close">×</button></div>
-  <div class="c-body">
-    <h3 class="display" id="caseTitle"></h3>
-    <p id="caseText"></p>
-    <div class="c-media" id="caseMedia"></div>
-    <div class="c-nums" id="caseNums"></div>
-    <div class="role" id="caseRole"></div>
-    <a class="c-link" id="caseLink" target="_blank" rel="noopener">Open the deck</a>
-  </div>
+  <!-- kit change: the photo changes kit as you scroll -->
+  <section class="ag-kit" id="ag-kit" aria-label="My story, one kit at a time">
+    <div class="ag-kit-pin">
+      <div class="ag-kit-frame"><span class="ag-kit-tag">Kit 01 · The player</span><span class="ag-kit-num" aria-hidden="true">01</span></div>
+      <div class="ag-kit-copy"></div>
+      <div class="ag-kit-dots" aria-hidden="true"></div>
+      <p class="ag-kit-hint mono" aria-hidden="true">Keep scrolling: one kit at a time</p>
+    </div>
+  </section>
+
+  <!-- pitch: text lights up word by word with scroll -->
+  <section class="pitch" id="pitch" aria-labelledby="pitch-h">
+    <div class="pitch-pin">
+      <p class="kicker mono" id="pitch-h">The pitch</p>
+      <p class="pitch-text" id="pitch-text"></p>
+      <ol class="why" id="why"></ol>
+    </div>
+  </section>
+
+  <!-- campaign film strip: scroll scrubs the Orange Army idea in five beats -->
+  <section class="film" id="film" aria-labelledby="film-h">
+    <div class="film-pin">
+      <header class="film-head">
+        <p class="kicker mono">Case film · <span id="film-org"></span></p>
+        <h2 class="h2" id="film-h"></h2>
+      </header>
+      <div class="film-stage">
+        <div class="film-strip" id="film-strip"></div>
+      </div>
+      <div class="film-beats" id="film-beats"></div>
+      <div class="film-progress"><i id="film-bar"></i><span class="mono" id="film-count">01 / 05</span></div>
+    </div>
+  </section>
+
+  <!-- the reel: 8 projects as posts on a pinned horizontal rail -->
+  <section class="reel" id="reel" aria-labelledby="reel-h">
+    <div class="reel-pin">
+      <header class="reel-head">
+        <h2 class="h2" id="reel-h"></h2>
+        <p class="mono reel-count"><span id="reel-n">01</span> / <span id="reel-t">08</span></p>
+      </header>
+      <div class="reel-track" id="reel-track"></div>
+      <div class="reel-progress"><i id="reel-bar"></i></div>
+    </div>
+  </section>
+
+  <!-- signature: Brief me, the printing press -->
+  <section class="brief" id="brief" aria-labelledby="brief-h">
+    <header class="sec-head">
+      <p class="kicker mono">Signature · run the press</p>
+      <h2 class="h2" id="brief-h"></h2>
+      <p class="lede" id="brief-intro"></p>
+    </header>
+    <div class="brief-grid">
+      <form class="brief-form" id="brief-form" onsubmit="return false">
+        <fieldset><legend class="mono">01 · Goal</legend><div class="chips" id="goal-chips" role="radiogroup" aria-label="Goal"></div></fieldset>
+        <fieldset><legend class="mono">02 · <span id="budget-label"></span></legend>
+          <div class="budget"><input type="range" id="budget" aria-describedby="budget-out"><output id="budget-out" class="flapnum"></output></div>
+        </fieldset>
+        <fieldset><legend class="mono">03 · Channels you use</legend><div class="chips" id="chan-chips"></div></fieldset>
+        <button type="button" class="btn btn-ink btn-big" id="run-press" data-press><span>Run the press</span> <i aria-hidden="true">→</i></button>
+        <p class="mono brief-note" id="brief-note" aria-live="polite"></p>
+      </form>
+      <div class="press" id="press" aria-label="Campaign sketch">
+        <div class="press-machine" aria-hidden="true">
+          <div class="press-head"><span class="mono">ORANGE-1 · two-drum duplicator</span><span class="press-light"></span></div>
+          <div class="press-drum"><i></i></div>
+        </div>
+        <div class="press-bed">
+          <article class="sheet" id="sheet" tabindex="-1">
+            <div class="sheet-empty mono">Pick a goal, a budget and your channels, then run the press.</div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- before / after -->
+  <section class="ba" id="compare" aria-labelledby="ba-h">
+    <header class="sec-head">
+      <p class="kicker mono">Before and after</p>
+      <h2 class="h2" id="ba-h"></h2>
+      <p class="lede" id="ba-intro"></p>
+    </header>
+    <div class="ba-frame" id="ba-frame" data-cursor="drag" data-cursor-label="Drag">
+      <div class="ba-pane ba-before" id="ba-before"></div>
+      <div class="ba-pane ba-after" id="ba-after"></div>
+      <div class="ba-handle" id="ba-handle" role="slider" tabindex="0" aria-label="Compare before and after" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"><span>⟷</span></div>
+    </div>
+    <p class="mono ba-note" id="ba-note"></p>
+  </section>
+
+  <!-- the three full cases -->
+  <section class="cases" id="cases" aria-labelledby="cases-h">
+    <header class="sec-head"><p class="kicker mono">Read the full case</p><h2 class="h2" id="cases-h"></h2></header>
+    <div class="case-list" id="case-list"></div>
+  </section>
+
+  <!-- the dressing room: every object is a piece of work -->
+  <section class="ag-room" id="room" aria-labelledby="ag-room-h">
+    <header class="ag-room-head">
+      <div><p class="kicker mono">The dressing room</p><h2 class="h2" id="ag-room-h">Pick up anything.</h2>
+        <p class="lede">Everything in this room is a piece of my work or my sport. Tap an object to open the story behind it.</p></div>
+      <button type="button" class="btn" id="ag-list-btn" aria-expanded="false" aria-controls="ag-list"><span>Show as a list</span></button>
+    </header>
+    <div class="ag-scene-wrap"><div class="ag-scene" id="ag-scene">
+      <div class="ag-wall" aria-hidden="true"><div class="ag-locker"><span>HYDERABAD</span></div><div class="ag-locker"><span>EASTERN CAPE</span></div><div class="ag-locker"><span>ANUDEEP</span></div><div class="ag-locker"><span>LEEDS</span></div><div class="ag-locker"><span>ORANGE ARMY</span></div><div class="ag-locker"><span>2027</span></div></div>
+      <div class="ag-glow" aria-hidden="true"></div><div class="ag-spot" aria-hidden="true"></div><div class="ag-floor" aria-hidden="true"></div>
+      <div class="ag-bench" aria-hidden="true"><div class="t"></div><div class="f"></div><div class="l" style="left:6%"></div><div class="l" style="right:6%"></div></div>
+      <div id="ag-objects"></div>
+      <div class="ag-hint" aria-hidden="true">Hover or tap an object</div>
+    </div></div>
+    <div class="ag-list" id="ag-list"></div>
+  </section>
+
+  <!-- meet: giant name behind the cutout -->
+  <section class="meet" id="meet" aria-labelledby="meet-h">
+    <div class="meet-stage" data-ink>
+      <h2 class="meet-name" id="meet-h"><span class="mn-1" id="mn-1"></span><span class="mn-2" id="mn-2"></span></h2>
+      <img class="meet-cut" id="meet-cut" alt="" loading="lazy">
+      <p class="meet-tag mono" id="meet-tag"></p>
+    </div>
+    <div class="meet-body">
+      <div class="meet-about">
+        <p class="kicker mono">About</p>
+        <p class="big-p" id="about-intro"></p>
+        <p class="now" id="about-now"></p>
+        <ul class="values" id="values"></ul>
+      </div>
+      <div class="journey">
+        <p class="kicker mono" id="journey-h"></p>
+        <div class="jr-wrap"><svg class="jr-line" preserveAspectRatio="none" viewBox="0 0 10 100" aria-hidden="true"><path id="jr-path" d="M5 0 L5 100" /></svg><ol class="jr-list" id="journey"></ol></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- experience + education -->
+  <section class="cv" id="experience" aria-label="Experience and education">
+    <div class="cv-col"><h2 class="h3 mono" id="exp-h"></h2><div id="exp-list"></div></div>
+    <div class="cv-col"><h2 class="h3 mono" id="edu-h"></h2><div id="edu-list"></div><h3 class="h3 mono certs-h">Certifications</h3><ul class="certs" id="certs"></ul></div>
+  </section>
+
+  <!-- wins: stacked posters that fan out -->
+  <section class="wins" id="wins" aria-labelledby="wins-h">
+    <header class="sec-head"><p class="kicker mono">Hover the stack</p><h2 class="h2" id="wins-h"></h2></header>
+    <div class="win-stack" id="win-stack" data-cursor="view" data-cursor-label="Fan"></div>
+    <ol class="win-list" id="win-list"></ol>
+  </section>
+
+  <!-- skills + tools dock -->
+  <section class="skills" id="skills" aria-labelledby="skills-h">
+    <header class="sec-head"><p class="kicker mono">Kit</p><h2 class="h2" id="skills-h"></h2></header>
+    <div class="skill-cols" id="skill-cols"></div>
+    <div class="dock" id="dock" aria-label="Tools"></div>
+  </section>
+
+  <!-- outside work: flip cards that wiggle -->
+  <section class="outside" id="outside" aria-labelledby="out-h">
+    <header class="sec-head"><p class="kicker mono">Tap a card to flip it</p><h2 class="h2" id="out-h"></h2></header>
+    <div class="flip-row" id="flip-row"></div>
+  </section>
+
+  <!-- testimonials: torn notes -->
+  <section class="notes" id="testimonials" aria-labelledby="notes-h">
+    <header class="sec-head"><p class="kicker mono">Pinned to the board</p><h2 class="h2" id="notes-h"></h2></header>
+    <div class="note-row" id="note-row"></div>
+  </section>
+
+  <!-- contact -->
+  <section class="contact" id="contact" data-ink aria-labelledby="contact-h">
+    <p class="kicker mono" id="contact-h">Contact · can start <span id="avail"></span></p>
+    <button type="button" class="mail" id="mail" data-cursor="view" data-cursor-label="Copy"><span id="mail-text"></span></button>
+    <p class="mono mail-hint" id="mail-hint" aria-live="polite">Click to copy</p>
+    <div class="contact-grid" id="contact-grid"></div>
+  </section>
+</main>
+<dialog class="ag-case" id="ag-case" aria-labelledby="ag-case-title">
+  <div class="ag-case-top"><span class="mono" id="ag-case-kicker"></span><button type="button" id="ag-case-close" aria-label="Close">×</button></div>
+  <div class="ag-case-body"><h3 id="ag-case-title"></h3><p id="ag-case-text"></p><div class="ag-case-media" id="ag-case-media"></div><div class="ag-case-nums" id="ag-case-nums"></div><p class="ag-case-role" id="ag-case-role"></p><a class="btn btn-ink" id="ag-case-link" target="_blank" rel="noopener" hidden>Open the deck</a></div>
 </dialog>
 
-<div class="chant" aria-hidden="true"><div><span>Orange Army</span><span>•</span><span>Hyderabad</span><span>•</span><span>Eastern Cape</span><span>•</span><span>Leeds</span><span>•</span><span>Orange Army</span><span>•</span><span>Hyderabad</span><span>•</span><span>Eastern Cape</span><span>•</span><span>Leeds</span><span>•</span><span>Orange Army</span><span>•</span><span>Hyderabad</span><span>•</span><span>Eastern Cape</span><span>•</span><span>Leeds</span><span>•</span><span>Orange Army</span><span>•</span><span>Hyderabad</span><span>•</span><span>Eastern Cape</span><span>•</span><span>Leeds</span><span>•</span><span>Orange Army</span><span>•</span><span>Hyderabad</span><span>•</span><span>Eastern Cape</span><span>•</span><span>Leeds</span><span>•</span><span>Orange Army</span><span>•</span><span>Hyderabad</span><span>•</span><span>Eastern Cape</span><span>•</span><span>Leeds</span><span>•</span></div></div>
-<!-- ============ 4. THE IDEA ============ -->
-<section class="idea" id="idea" aria-labelledby="ideaTitle">
-  <div class="wrap">
-    <p class="mono">The big idea · a concept</p>
-    <h2 class="display" id="ideaTitle">One Orange Army,<br>three seasons.</h2>
-    <p class="lede">The Orange Army has one season. The Sunrisers group has three. My idea: bring Eastern Cape and Leeds home to Hyderabad, so the fans who live for the IPL follow all three teams, all year.</p>
-    <div class="seasons rv">
-      <div><small>JAN – FEB · SA20</small><b>Sunrisers Eastern Cape</b><span>3 titles in 4 seasons. Season 5 runs 17 Jan – 21 Feb 2027.</span></div>
-      <div class="home"><small>MAR – MAY · IPL</small><b>Sunrisers Hyderabad</b><span>The window Hyderabad's fan calendar is built around.</span></div>
-      <div><small>JUL – AUG · THE HUNDRED</small><b>Sunrisers Leeds</b><span>Men's games land at about 7–11 pm in India.</span></div>
-    </div>
-    <div class="plays rv">
-      <div><em>01</em><b>Orange Army Nights</b><span>Watch-alongs for Eastern Cape and Leeds matches at partner venues and campuses in Hyderabad, run like a home game.</span></div>
-      <div><em>02</em><b>Second screen</b><span>Short local-creator reels that introduce "your other Sunrisers", plus a live watch-along stream for fans at home.</span></div>
-      <div><em>03</em><b>Orange Army Passport</b><span>A card stamped at every Night. Stamps carry into the IPL season, so following all three teams earns something at home.</span></div>
-    </div>
-    <div class="pilot rv">
-      <p><b>Pilot it in SA20 2027, before the IPL:</b> 2 venues and 1–2 campuses, 4 Nights on Eastern Cape match days, Passport redeemed at the IPL opener. Estimated cost: about ₹22K–78K plus a host.</p>
-      <a href="#finish">Talk it through with me</a>
-    </div>
-  </div>
-</section>
 
-<!-- ============ 5. FINISH ============ -->
-<section class="finish" id="finish" aria-labelledby="finishTitle">
-  <div class="wrap">
-    <p class="mono" style="color:var(--orange)">Your call</p>
-    <h2 class="display" id="finishTitle">Let's talk<br>about the Army.</h2>
-    <p>I'd value 15 minutes of your view on this idea, and on where someone like me could help the Sunrisers.</p>
-    <div class="btns">
-      <a class="cta" href="#" id="callLink">Book a 15-min call</a>
-      <a href="resume.pdf" target="_blank" rel="noopener">See my resume</a>
-      <a href="https://www.linkedin.com/in/itsanudeepgupta" target="_blank" rel="noopener">LinkedIn</a>
-    </div>
-  </div>
-</section>
-</main>
+<footer class="foot">
+  <div class="foot-word" aria-hidden="true"><span class="mis" data-mis="ANUDEEP GUPTA">ANUDEEP GUPTA</span></div>
+  <div class="foot-row mono"><span id="foot-loc"></span><span id="demo-note"></span><span><a href="#top">Back to top ↑</a></span></div>
+</footer>
 
-<footer>An independent concept by Anudeep Gupta, not affiliated with Sunrisers Hyderabad, Sunrisers Eastern Cape or Sunrisers Leeds. Team names are used only to describe the idea.</footer>
+<canvas class="ink" aria-hidden="true"></canvas>
+<script src="vendor/gsap.min.js"></script>
+<script src="vendor/ScrollTrigger.min.js"></script>
+<script src="vendor/lenis.min.js"></script>
+<script src="js/press.js"></script>
+<script src="js/core.js"></script>
 
-<!-- ============ CHATBOT ============ -->
-<div class="bot-teaser" id="botTeaser">Hey Riser, nice to meet you!</div>
-<button class="bot-btn" id="botBtn" aria-label="Open chat" aria-expanded="false" aria-controls="bot">
-  <svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true" fill="none" stroke="#08090B" stroke-width="2.4" stroke-linecap="round"><path d="M7 22a10 10 0 0 1 20 0"/><path d="M4 26h26"/><path d="M17 6v3M8 10l2 2M26 10l-2 2M3 17h3M28 17h3"/></svg>
+<p class="ag-concept">An independent concept by Anudeep Gupta, not affiliated with Sunrisers Hyderabad, Sunrisers Eastern Cape or Sunrisers Leeds.</p>
+<div class="ag-bot-teaser" id="ag-bot-teaser">Hey Riser, nice to meet you!</div>
+<button type="button" class="ag-bot-btn" id="ag-bot-btn" aria-label="Open chat" aria-expanded="false" aria-controls="ag-bot">
+  <svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round"><path d="M7 22a10 10 0 0 1 20 0"/><path d="M4 26h26"/><path d="M17 6v3M8 10l2 2M26 10l-2 2M3 17h3M28 17h3"/></svg>
 </button>
-<div class="bot" id="bot" role="dialog" aria-label="Chat with Anudeep">
-  <div class="b-head">
-    <span class="av"><svg width="24" height="24" viewBox="0 0 34 34" aria-hidden="true" fill="none" stroke="#F26522" stroke-width="2.6" stroke-linecap="round"><path d="M7 22a10 10 0 0 1 20 0"/><path d="M4 26h26"/><path d="M17 6v3M8 10l2 2M26 10l-2 2M3 17h3M28 17h3"/></svg></span>
-    <span><b>Anudeep</b><small>Orange Army · Hyderabad</small></span>
-    <button id="botClose" aria-label="Close chat">×</button>
-  </div>
-  <div class="b-msgs" id="botMsgs" aria-live="polite"></div>
-  <div class="b-choices" id="botChoices"></div>
+<div class="ag-bot" id="ag-bot" role="dialog" aria-label="Chat with Anudeep">
+  <div class="ag-bot-head"><span class="av"><svg width="24" height="24" viewBox="0 0 34 34" aria-hidden="true" fill="none" stroke="#e8461e" stroke-width="2.8" stroke-linecap="round"><path d="M7 22a10 10 0 0 1 20 0"/><path d="M4 26h26"/><path d="M17 6v3M8 10l2 2M26 10l-2 2M3 17h3M28 17h3"/></svg></span><span><b>Anudeep</b><small>Orange Army · Hyderabad</small></span><button type="button" id="ag-bot-close" aria-label="Close chat">×</button></div>
+  <div class="ag-bot-msgs" id="ag-bot-msgs" aria-live="polite"></div>
+  <div class="ag-bot-choices" id="ag-bot-choices"></div>
 </div>
-
-<canvas id="confetti" aria-hidden="true"></canvas>
-<script src="app.js"></script>
+<script src="js/app.js"></script>
+<script src="ag.js"></script>
 </body>
 </html>
