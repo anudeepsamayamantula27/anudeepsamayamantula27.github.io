@@ -360,7 +360,7 @@
     ['media/photos/sport-india-2026.jpg', 'Sport India Conference 2026, Vision 2036 panel, Bharat Mandapam', 'wide', '50% 40%'],
     ['media/photos/viren-rasquinha.jpg', 'With Viren Rasquinha, former India hockey captain, at Masters’ Union', ''],
     ['media/photos/hudle-ceo.jpg', 'With Suhail Narain, Founder and CEO of Hudle', ''],
-    ['media/photos/pbks-coo.jpg', 'With the COO of Punjab Kings', ''],
+    ['media/photos/pbks-coo.jpg', 'With Saurabh Arora, COO of Punjab Kings', ''],
     ['media/photos/iamgame-guest.jpg', 'With K. Srinivas Rao, Head of Sports Group at Times of India, at I Am Game 2026', '', '50% 12%'],
     ['media/photos/iamgame-awards.jpg', 'Masters’ Union cohort at the EY I Am Game Sports Awards 2026', ''],
     ['media/photos/conclave-guest.jpg', 'With Manish, VP Commercials & Partnerships at JioStar, at I Am Game 2026', '', '50% 15%'],
