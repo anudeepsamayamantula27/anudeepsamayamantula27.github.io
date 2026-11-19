@@ -131,7 +131,7 @@
       "place": "Delhi NCR",
       "dates": "Jul 2026",
       "points": [
-        "Delivered on-ground execution for 1,000+ attendees over 2 days, leading volunteer logistics and attendee experience."
+        "Delivered on-ground execution for 1,000+ attendees over 3 days, leading volunteer logistics and attendee experience."
       ],
       "logo": "logos/orgs/hyrox.svg"
     },
@@ -296,13 +296,13 @@
     },
     {
       "slug": "hyrox-delhi",
-      "title": "HYROX Delhi: 1,000+ people, 2 days",
+      "title": "HYROX Delhi: 1,000+ people, 3 days",
       "org": "HYROX Delhi · Masters' Union",
       "year": "2026",
       "role": "On-ground team",
       "type": "Event",
       "summary": "On-ground execution at HYROX Delhi with the Masters' Union team, leading volunteer logistics and the attendee experience.",
-      "result": "1,000+ attendees over 2 competition days",
+      "result": "1,000+ attendees over 3 days",
       "thumbnail": "projects/hyrox-delhi/thumb.jpg",
       "has_page": false,
       "tags": [
@@ -310,7 +310,7 @@
         "Operations",
         "Fitness"
       ],
-      "duration": "2 days",
+      "duration": "3 days",
       "team": "Masters' Union event team",
       "tools": [],
       "metrics": [
