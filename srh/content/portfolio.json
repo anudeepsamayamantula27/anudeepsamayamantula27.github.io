@@ -1,1154 +1,1159 @@
 {
- "demo": false,
- "meta": {
-  "domain": "marketing",
-  "site_title": "Anudeep Gupta · For the Sunrisers",
-  "description": "An independent concept by Anudeep Gupta, a Hyderabad sports fan and Masters' Union student who builds fan communities, events and launches.",
-  "theme": "editorial",
-  "noindex": true
- },
- "person": {
-  "first_name": "Anudeep",
-  "last_name": "Gupta",
-  "pronouns": "he/him",
-  "headline": "Hyderabad sports fan who turns fan emotion into communities, events and launches",
-  "current": "PGP in Sports Management & Gaming, Masters' Union, Gurugram (founding cohort)",
-  "looking_for": "Fan engagement and brand roles across the Sunrisers teams: Hyderabad, Eastern Cape and Leeds",
-  "location": "Gurugram, India (from Hyderabad)",
-  "available_from": "Open to an internship now"
- },
- "contact": {
-  "email": "anudeep.samayamantula2027@mastersunion.org",
-  "phone": "",
-  "whatsapp": "",
-  "linkedin": "https://www.linkedin.com/in/itsanudeepgupta/",
-  "calendly": "",
-  "resume_pdf": "media/resume.pdf",
-  "instagram": "https://www.instagram.com/itsanudeepgupta/",
-  "substack": ""
- },
- "pitch": {
-  "short": "I spent two and a half years in market research at TBRC, on 55+ reports that brought in ₹1.9 Cr+ in sales. Since then I have worked with crowds, from 1,000+ people at HYROX Delhi to an IPL auction draft for 60 classmates. I grew up in Hyderabad, and I want to put the research and the crowd work together for the Orange Army.",
-  "why_hire": [
-   "I start from the numbers: 55+ market research reports at TBRC, ₹1.9 Cr+ in report sales and a green hydrogen database of 600+ projects that sold ₹17L+.",
-   "I've run the room: on-ground execution for 1,000+ attendees at HYROX Delhi, 10+ esports tournaments for 250+ players, and an IPL auction draft for 60 participants on a ₹5K budget.",
-   "I've built launch plans for sport: a ₹50L go-to-market plan for NIVIA's India jersey, and an off-season plan for goSTOPS that finished in the top 5 of 93 teams."
+  "demo": false,
+  "meta": {
+    "domain": "marketing",
+    "site_title": "Anudeep Gupta · For the Sunrisers",
+    "description": "An independent concept by Anudeep Gupta, a Hyderabad sports fan and Masters' Union student who builds fan communities, events and launches.",
+    "theme": "editorial",
+    "noindex": true
+  },
+  "person": {
+    "first_name": "Anudeep",
+    "last_name": "Gupta",
+    "pronouns": "he/him",
+    "headline": "Hyderabad sports fan who turns fan emotion into communities, events and launches",
+    "current": "PGP in Sports Management & Gaming, Masters' Union, Gurugram (founding cohort)",
+    "looking_for": "Fan engagement and brand roles across the Sunrisers teams: Hyderabad, Eastern Cape and Leeds",
+    "location": "Gurugram, India (from Hyderabad)",
+    "available_from": "Open to an internship now"
+  },
+  "contact": {
+    "email": "anudeep.samayamantula2027@mastersunion.org",
+    "phone": "",
+    "whatsapp": "",
+    "linkedin": "https://www.linkedin.com/in/itsanudeepgupta/",
+    "calendly": "",
+    "resume_pdf": "media/resume.pdf",
+    "instagram": "https://www.instagram.com/itsanudeepgupta/",
+    "substack": ""
+  },
+  "pitch": {
+    "short": "I spent two and a half years in market research at TBRC, on 55+ reports that brought in ₹1.9 Cr+ in sales. Since then I have worked with crowds, from 1,000+ people at HYROX Delhi to an IPL auction draft for 60 classmates. I grew up in Hyderabad, and I want to put the research and the crowd work together for the Orange Army.",
+    "why_hire": [
+      "I start from the numbers: 55+ market research reports at TBRC, ₹1.9 Cr+ in report sales and a green hydrogen database of 600+ projects that sold ₹17L+.",
+      "I've run the room: on-ground execution for 1,000+ attendees at HYROX Delhi, 10+ esports tournaments for 250+ players, and an IPL auction draft for 60 participants on a ₹5K budget.",
+      "I've built launch plans for sport: a ₹50L go-to-market plan for NIVIA's India jersey, and an off-season plan for goSTOPS that finished in the top 5 of 93 teams."
+    ],
+    "for_company_template": "Why {company}: I'm a Hyderabad fan, and I want to help {company} keep the Orange Army close all year, across all three Sunrisers teams."
+  },
+  "about": {
+    "intro": "I grew up in Hyderabad, played national-level badminton for Telangana as an under-19 and earned a maroon belt in Kung Fu. I studied business at ICFAI Business School, where I also ran esports tournaments and was in-game leader for a Valorant team that won first place. I then spent two and a half years at The Business Research Company as an associate consultant. In 2026 I joined the founding cohort of the PGP in Sports Management & Gaming at Masters' Union, to move from studying markets to building fan communities.",
+    "now": "On the SMG Club core committee at Masters' Union: running a 50+ member gaming community, reaching out to 30+ brands for sports-event sponsorship, and planning my One Orange Army pilot."
+  },
+  "values": [
+    "Find the number that matters first, then go and meet the fans behind it.",
+    "Go where the audience already looks: moving esports promotion to college dashboards took registrations from 9 to 40.",
+    "Run the small version before asking for the big budget."
   ],
-  "for_company_template": "Why {company}: I'm a Hyderabad fan, and I want to help {company} keep the Orange Army close all year, across all three Sunrisers teams."
- },
- "about": {
-  "intro": "I grew up in Hyderabad, played national-level badminton for Telangana as an under-19 and earned a maroon belt in Kung Fu. I studied business at ICFAI Business School, where I also ran esports tournaments and was in-game leader for a Valorant team that won first place. I then spent two and a half years at The Business Research Company as an associate consultant. In 2026 I joined the founding cohort of the PGP in Sports Management & Gaming at Masters' Union, to move from studying markets to building fan communities.",
-  "now": "On the SMG Club core committee at Masters' Union: running a 50+ member gaming community, reaching out to 30+ brands for sports-event sponsorship, and planning my One Orange Army pilot."
- },
- "values": [
-  "Find the number that matters first, then go and meet the fans behind it.",
-  "Go where the audience already looks: moving esports promotion to college dashboards took registrations from 9 to 40.",
-  "Run the small version before asking for the big budget."
- ],
- "journey": [
-  {
-   "year": "2017",
-   "title": "Class X, St. Martin's High School, Hyderabad",
-   "detail": "CGPA 10/10, one of 9 students with a perfect score. National-level badminton player and a maroon belt in Kung Fu."
-  },
-  {
-   "year": "2017–2019",
-   "title": "Class XII, Avinash College of Commerce, Hyderabad",
-   "detail": "90.5%. A 95% merit scholarship for Class XI, and runner-up in the intra-college cricket tournament."
-  },
-  {
-   "year": "2019–2022",
-   "title": "BBA, ICFAI Business School, Hyderabad",
-   "detail": "CGPA 9.75, top 5% of 650+ students, ₹3.3L merit scholarship. Event coordinator and in-game leader at TITANS IBS, the esports club."
-  },
-  {
-   "year": "2021",
-   "title": "Business Development Intern, Examate",
-   "detail": "Two social media campaigns for CAT and JEE courses; 10 students converted from 70+ leads."
-  },
-  {
-   "year": "2022–2025",
-   "title": "Associate Consultant, The Business Research Company",
-   "detail": "55+ market research reports and ₹1.9 Cr+ in report sales. Doubled weekly report output from 2 to 4."
-  },
-  {
-   "year": "2026",
-   "title": "Masters' Union, PGP in Sports Management & Gaming",
-   "detail": "Founding cohort, Pankaj Bansal Scholarship (₹5.5L). SMG Club core committee, HYROX Delhi, NIVIA, and the top 5 of 93 at goSTOPS."
-  },
-  {
-   "year": "Next",
-   "title": "The Orange Army",
-   "detail": "Fan engagement across Hyderabad, Eastern Cape and Leeds."
-  }
- ],
- "education": [
-  {
-   "school": "Masters' Union, Gurugram",
-   "degree": "PGP in Sports Management & Gaming",
-   "years": "2026–present",
-   "notes": "Founding cohort. Pankaj Bansal Scholarship for Young Leaders (₹5.5L). GRE 328. 2nd place, admission campus challenge.",
-   "logo": "logos/orgs/masters-union.svg"
-  },
-  {
-   "school": "ICFAI Business School, Hyderabad",
-   "degree": "Bachelor of Business Administration",
-   "years": "2019–2022",
-   "notes": "CGPA 9.75/10, top 5% of 650+ students. Merit scholarship (₹3.3L).",
-   "logo": "logos/orgs/icfai.svg"
-  },
-  {
-   "school": "Avinash College of Commerce, Hyderabad",
-   "degree": "Class XII (TSBIE)",
-   "years": "2017–2019",
-   "notes": "90.5%. 95% merit scholarship for Class XI.",
-   "logo": "logos/orgs/avinash.svg"
-  },
-  {
-   "school": "St. Martin's High School, Hyderabad",
-   "degree": "Class X (CBSE)",
-   "years": "2017",
-   "notes": "CGPA 10/10, one of 9 students with a perfect score.",
-   "logo": "logos/orgs/st-martins.svg"
-  }
- ],
- "experience": [
-  {
-   "org": "SMG Club, Masters' Union",
-   "role": "Core Committee Member",
-   "place": "Gurugram",
-   "dates": "2026 – present",
-   "points": [
-    "Ran an IPL auction draft for 60 participants across 10 teams on a ₹5K budget, end to end.",
-    "Built a 50+ member gaming community at Masters' Union.",
-    "Building a sponsorship pipeline through outreach to 30+ brands for upcoming sports events."
-   ],
-   "logo": "logos/orgs/masters-union.svg"
-  },
-  {
-   "org": "HYROX Delhi 2026",
-   "role": "On-ground team, Masters' Union",
-   "place": "Delhi NCR",
-   "dates": "Jul 2026",
-   "points": [
-    "Delivered on-ground execution for 1,000+ attendees over 2 days, leading volunteer logistics and attendee experience."
-   ],
-   "logo": "logos/orgs/hyrox.svg"
-  },
-  {
-   "org": "The Business Research Company",
-   "role": "Associate Consultant",
-   "place": "Hyderabad",
-   "dates": "Jul 2022 – Apr 2025",
-   "points": [
-    "Contributed to 55+ market research reports for global clients, generating ₹1.9 Cr+ in report sales.",
-    "Built a green hydrogen database of 600+ global projects that generated ₹17L+ in sales.",
-    "Doubled weekly report output from 2 to 4 with an automated Excel workflow, and mentored 3 research interns."
-   ],
-   "logo": "logos/orgs/tbrc.svg"
-  },
-  {
-   "org": "TITANS IBS, ICFAI Business School",
-   "role": "Event Coordinator, In-Game Leader & Player",
-   "place": "Hyderabad",
-   "dates": "Apr 2021 – Jun 2022",
-   "points": [
-    "Coordinated 10+ esports tournaments for 250+ participants.",
-    "Grew registrations about 4x (9 to 40) by moving promotion from social media to college academic dashboards.",
-    "Won 1st in Valorant and 2nd in Counter-Strike tournaments as in-game leader."
-   ],
-   "logo": "logos/orgs/titans.svg"
-  },
-  {
-   "org": "Examate",
-   "role": "Business Development Intern",
-   "place": "Hyderabad",
-   "dates": "May 2021 – Jul 2021",
-   "points": [
-    "Ran 2 social media campaigns for CAT and JEE courses and converted 10 students from 70+ leads."
-   ],
-   "logo": "logos/orgs/examate.svg"
-  }
- ],
- "certifications": [
-  {
-   "name": "Digital Marketing Pro",
-   "issuer": "My Captain",
-   "year": "2023"
-  },
-  {
-   "name": "IBM Data Science Specialization",
-   "issuer": "Coursera",
-   "year": "2022"
-  }
- ],
- "projects": [
-  {
-   "slug": "one-orange-army",
-   "title": "One Orange Army, three seasons",
-   "org": "A concept for the Sunrisers group",
-   "year": "2026",
-   "role": "Idea, research and pilot plan",
-   "type": "Concept",
-   "summary": "The Orange Army has one season; the Sunrisers group has three. A plan to bring Eastern Cape and Leeds home to Hyderabad with watch-along Nights, a second screen and a Passport that carries stamps into the IPL.",
-   "result": "A pilot of 4 Nights in the SA20 2027 window, at about ₹22K–78K plus a host",
-   "thumbnail": "projects/one-orange-army/thumb.jpg",
-   "has_page": true,
-   "tags": [
-    "Fan engagement",
-    "Cricket",
-    "Community",
-    "Concept"
-   ],
-   "duration": "Pilot: December to March",
-   "team": "Solo",
-   "tools": [],
-   "metrics": [
-    [
-     "3",
-     "teams, one Orange Army"
-    ],
-    [
-     "4",
-     "Nights in the SA20 pilot"
-    ],
-    [
-     "₹22K–78K",
-     "pilot cost, estimate"
-    ]
-   ]
-  },
-  {
-   "slug": "nivia-india-jersey",
-   "title": "Wear the Blue: launching India's football jersey",
-   "org": "NIVIA · live industry challenge",
-   "year": "2026",
-   "role": "Led the work, team project",
-   "type": "Launch",
-   "summary": "A go-to-market plan for the Indian national football team jersey: three kits for three fans, a price ladder that fights the fake, and a numbered-jersey platform.",
-   "result": "₹50L launch plan, modelling a 30K-jersey base case over 90 days",
-   "thumbnail": "projects/nivia-india-jersey/thumb.jpg",
-   "has_page": true,
-   "tags": [
-    "Go-to-market",
-    "Merchandise",
-    "Football",
-    "Pricing"
-   ],
-   "duration": "Aug 2026",
-   "team": "Team project; I led research, segments, pricing, budget and sales model",
-   "tools": [
-    "canva"
-   ],
-   "metrics": [
-    [
-     "₹50L",
-     "launch budget"
-    ],
-    [
-     "30K",
-     "jerseys, 90-day base case"
-    ],
-    [
-     "3",
-     "fan segments"
-    ]
-   ]
-  },
-  {
-   "slug": "gostops-off-season",
-   "title": "Filling hostels in the off-season",
-   "org": "goSTOPS · one-day challenge",
-   "year": "2026",
-   "role": "Presenter, team of four",
-   "type": "Strategy",
-   "summary": "An off-season plan for a backpacker hostel chain whose beds sit empty from July to September: a programme for graduates waiting to join work, and property buyouts for company offsites.",
-   "result": "Top 5 of 93 teams; occupancy projected from 27.5% to 43.8%",
-   "thumbnail": "projects/gostops-off-season/thumb.jpg",
-   "has_page": true,
-   "tags": [
-    "Marketing strategy",
-    "Segmentation",
-    "Travel"
-   ],
-   "duration": "One day",
-   "team": "Team of four; I presented to the judges",
-   "tools": [],
-   "metrics": [
-    [
-     "Top 5",
-     "of 93 teams"
-    ],
-    [
-     "43.8%",
-     "projected July–Sept occupancy"
-    ],
-    [
-     "₹559",
-     "revenue per bed, up from ₹300"
-    ]
-   ]
-  },
-  {
-   "slug": "hyrox-delhi",
-   "title": "HYROX Delhi: 1,000+ people, 2 days",
-   "org": "HYROX Delhi · Masters' Union",
-   "year": "2026",
-   "role": "On-ground team",
-   "type": "Event",
-   "summary": "On-ground execution at HYROX Delhi with the Masters' Union team, leading volunteer logistics and the attendee experience.",
-   "result": "1,000+ attendees over 2 competition days",
-   "thumbnail": "projects/hyrox-delhi/thumb.jpg",
-   "has_page": false,
-   "tags": [
-    "Events",
-    "Operations",
-    "Fitness"
-   ],
-   "duration": "2 days",
-   "team": "Masters' Union event team",
-   "tools": [],
-   "metrics": [
-    [
-     "1,000+",
-     "attendees"
-    ],
-    [
-     "2",
-     "days on the ground"
-    ]
-   ]
-  },
-  {
-   "slug": "ipl-auction-draft",
-   "title": "An IPL auction, run by students",
-   "org": "SMG Club · Masters' Union",
-   "year": "2026",
-   "role": "Ran it end to end",
-   "type": "Event",
-   "summary": "An IPL auction draft for the SMG Club: real player cards, live bidding and franchise strategy for ten student teams.",
-   "result": "60 participants across 10 teams on a ₹5K budget",
-   "thumbnail": "projects/ipl-auction-draft/thumb.jpg",
-   "has_page": false,
-   "tags": [
-    "Events",
-    "Cricket",
-    "Community"
-   ],
-   "duration": "One evening",
-   "team": "SMG Club core committee",
-   "tools": [],
-   "metrics": [
-    [
-     "60",
-     "participants"
-    ],
-    [
-     "10",
-     "teams"
-    ],
-    [
-     "₹5K",
-     "budget"
-    ]
-   ]
-  },
-  {
-   "slug": "titans-esports",
-   "title": "TITANS IBS: match nights that grew",
-   "org": "TITANS IBS · ICFAI Business School",
-   "year": "2021–22",
-   "role": "Event coordinator and in-game leader",
-   "type": "Community",
-   "summary": "Ran the college esports club's tournaments and led its Valorant team. Moving promotion from social feeds to college dashboards grew registrations about four times.",
-   "result": "10+ tournaments for 250+ participants; registrations up from 9 to 40",
-   "thumbnail": "projects/titans-esports/thumb.jpg",
-   "has_page": false,
-   "tags": [
-    "Esports",
-    "Community",
-    "Gaming"
-   ],
-   "duration": "Apr 2021 – Jun 2022",
-   "team": "Club committee",
-   "tools": [],
-   "metrics": [
-    [
-     "10+",
-     "tournaments"
-    ],
-    [
-     "250+",
-     "participants"
-    ],
-    [
-     "9 → 40",
-     "registrations"
-    ]
-   ]
-  },
-  {
-   "slug": "pepperfry-shopper",
-   "title": "Pepperfry: beyond the showroom",
-   "org": "Masters' Union · Consumer Behaviour",
-   "year": "2026",
-   "role": "Field research and scoring",
-   "type": "Research",
-   "summary": "A Furniture Experience Index across 19 brands and 7 touchpoints, built from 19 NCR store visits and 30 customer interviews.",
-   "result": "Pepperfry ranked #6 of 19 (73.0 against a 66.5 average), with fixes to lift it to 77.5",
-   "thumbnail": "projects/pepperfry-shopper/thumb.jpg",
-   "has_page": false,
-   "tags": [
-    "Consumer research",
-    "Mystery shopping",
-    "Retail"
-   ],
-   "duration": "One day",
-   "team": "Team project; I ran the mystery shopping and interviews and built the index scoring",
-   "tools": [],
-   "metrics": [
-    [
-     "19",
-     "stores visited"
-    ],
-    [
-     "30",
-     "customer interviews"
-    ],
-    [
-     "#6 of 19",
-     "Pepperfry's rank"
-    ]
-   ]
-  },
-  {
-   "slug": "astralis-paradox",
-   "title": "The Astralis Paradox",
-   "org": "Masters' Union · Term 1",
-   "year": "2026",
-   "role": "Solo project",
-   "type": "Strategy",
-   "summary": "Why a famous esports team was losing money, and a turnaround built on an asset-light model, D2C membership and an India creator plan.",
-   "result": "A path to reverse a DKK 5.4M annual EBITDA loss",
-   "thumbnail": "projects/astralis-paradox/thumb.jpg",
-   "has_page": false,
-   "tags": [
-    "Esports",
-    "Strategy",
-    "Finance"
-   ],
-   "duration": "Term 1",
-   "team": "Solo",
-   "tools": [],
-   "metrics": [
-    [
-     "DKK 5.4M",
-     "annual EBITDA loss diagnosed"
-    ],
-    [
-     "Solo",
-     "project"
-    ]
-   ]
-  }
- ],
- "project_pages": {
-  "one-orange-army": {
-   "context": "The Sunrisers group plays in three leagues: Sunrisers Eastern Cape in SA20 (January–February), Sunrisers Hyderabad in the IPL (March–May) and Sunrisers Leeds in The Hundred (July–August). Eastern Cape has won 3 titles in 4 seasons, and the Leeds women's team started 2026 as champions.",
-   "problem": "Hyderabad's fan calendar is built around one IPL window. The other two teams play when the Orange Army has nothing to cheer for, so the group has year-round cricket but not yet year-round fans.",
-   "my_role": "Independent concept: the idea, the research and the pilot plan",
-   "dates": "Nov 2026",
-   "what_i_did": [
-    "Mapped the three seasons against India's clock: South Africa is 3.5 hours behind IST, and Hundred men's games (2:30–6:30 pm UK) land at about 7–11 pm in India.",
-    "Designed Orange Army Nights: watch-alongs for Eastern Cape and Leeds matches at Hyderabad venues and campuses, run like a home game with screens, chants and a host.",
-    "Added a second screen: short local-creator reels that introduce 'your other Sunrisers', plus a live watch-along stream for fans at home.",
-    "Designed the Orange Army Passport: a card stamped at every Night, with stamps that carry into the IPL season.",
-    "Costed a pilot from published rate guides: LED walls at ₹5K–15K a day and nano creators at ₹2K–8K a reel."
-   ],
-   "decisions": [
+  "journey": [
     {
-     "choice": "Pilot in SA20 2027, before the IPL",
-     "why": "Season 5 runs 17 January to 21 February 2027, so the pilot's numbers are in before the IPL opener and before any decision on Leeds."
+      "year": "2017",
+      "title": "Class X, St. Martin's High School, Hyderabad",
+      "detail": "CGPA 10/10, one of 9 students with a perfect score. National-level badminton player and a maroon belt in Kung Fu."
     },
     {
-     "choice": "Start with venues that already screen SRH games",
-     "why": "Hyderabad venues such as The Game Palacio in HITEC City already run SRH screenings, so the pilot asks them to do the same for Eastern Cape games instead of building anything new."
+      "year": "2017–2019",
+      "title": "Class XII, Avinash College of Commerce, Hyderabad",
+      "detail": "90.5%. A 95% merit scholarship for Class XI, and runner-up in the intra-college cricket tournament."
     },
     {
-     "choice": "Reward fans at home",
-     "why": "Stamps are redeemed at the IPL opener, so following the other two teams earns the fan something in their own stadium."
+      "year": "2019–2022",
+      "title": "BBA, ICFAI Business School, Hyderabad",
+      "detail": "CGPA 9.75, top 5% of 650+ students, ₹3.3L merit scholarship. Event coordinator and in-game leader at TITANS IBS, the esports club."
+    },
+    {
+      "year": "2021",
+      "title": "Business Development Intern, Examate",
+      "detail": "Two social media campaigns for CAT and JEE courses; 10 students converted from 70+ leads."
+    },
+    {
+      "year": "2022–2025",
+      "title": "Associate Consultant, The Business Research Company",
+      "detail": "55+ market research reports and ₹1.9 Cr+ in report sales. Doubled weekly report output from 2 to 4."
+    },
+    {
+      "year": "2026",
+      "title": "Masters' Union, PGP in Sports Management & Gaming",
+      "detail": "Founding cohort, Pankaj Bansal Scholarship (₹5.5L). SMG Club core committee, HYROX Delhi, NIVIA, and the top 5 of 93 at goSTOPS."
+    },
+    {
+      "year": "Next",
+      "title": "The Orange Army",
+      "detail": "Fan engagement across Hyderabad, Eastern Cape and Leeds."
     }
-   ],
-   "results": [
+  ],
+  "education": [
     {
-     "metric": "Pilot cost",
-     "value": "₹22K–78K",
-     "note": "plus a host; a planning estimate from published rate guides, not quotes"
+      "school": "Masters' Union, Gurugram",
+      "degree": "PGP in Sports Management & Gaming",
+      "years": "2026–present",
+      "notes": "Founding cohort. Pankaj Bansal Scholarship for Young Leaders (₹5.5L). GRE 328. 2nd place, admission campus challenge.",
+      "logo": "logos/orgs/masters-union.svg"
     },
     {
-     "metric": "Nights in the pilot",
-     "value": "4",
-     "note": "on Eastern Cape match days"
+      "school": "ICFAI Business School, Hyderabad",
+      "degree": "Bachelor of Business Administration",
+      "years": "2019–2022",
+      "notes": "CGPA 9.75/10, top 5% of 650+ students. Merit scholarship (₹3.3L).",
+      "logo": "logos/orgs/icfai.svg"
     },
     {
-     "metric": "Numbers to read",
-     "value": "5",
-     "note": "fans per Night, Passport sign-ups, Indian follows of SEC and Leeds, reel views, stamps redeemed"
+      "school": "Avinash College of Commerce, Hyderabad",
+      "degree": "Class XII (TSBIE)",
+      "years": "2017–2019",
+      "notes": "90.5%. 95% merit scholarship for Class XI.",
+      "logo": "logos/orgs/avinash.svg"
+    },
+    {
+      "school": "St. Martin's High School, Hyderabad",
+      "degree": "Class X (CBSE)",
+      "years": "2017",
+      "notes": "CGPA 10/10, one of 9 students with a perfect score.",
+      "logo": "logos/orgs/st-martins.svg"
     }
-   ],
-   "learned": "SA20 is already looking for Indian fans: league-wide TV viewership grew 37% in season 3, and the league held an SA20 India Day in Mumbai.",
-   "next": "Read the pilot numbers in March, then decide whether to run Leeds Nights in July.",
-   "images": [
-    "projects/one-orange-army/thumb.jpg",
-    "projects/one-orange-army/crowd.jpg",
-    "kit/kit-5-riser.jpg"
-   ]
-  },
-  "nivia-india-jersey": {
-   "context": "NIVIA, an Indian sports brand founded in 1934, became the national football team's kit maker in 2026. Fans already buy unofficial jerseys at about ₹999, while official premium jerseys sit at ₹4,299–7,999.",
-   "problem": "Demand exists, but official supply is the gap. The job was to capture fans who already care and remove the friction of finding and affording the real shirt, without trying to outspend adidas.",
-   "my_role": "Led the work end to end: research, segments, pricing, budget and sales model (team project)",
-   "dates": "Aug 2026",
-   "what_i_did": [
-    "Sized the opportunity from public data: 157.2M ISL unique viewers in 2024–25, up 18% year on year.",
-    "Split the range into three kits for three fans: Home for the match fan, Away for the style fan, Training for the young player.",
-    "Built a price ladder that beats the fake, not adidas: ₹899 kids, ₹1,499 terrace, ₹2,499 match and ₹4,999 cap edition.",
-    "Created the 'Wear the Blue. Earn your number.' platform: every jersey gets a unique number and a QR claim, with a live city leaderboard.",
-    "Split the ₹50L budget across performance (₹12L), creators (₹11L), tournaments (₹9L) and out-of-home (₹8L)."
-   ],
-   "decisions": [
+  ],
+  "experience": [
     {
-     "choice": "Fight the fake, not adidas",
-     "why": "The white space sits between ₹999 unofficial shirts and premium official ones, so the hero price zone is ₹1,499–2,499."
+      "org": "SMG Club, Masters' Union",
+      "role": "Core Committee Member",
+      "place": "Gurugram",
+      "dates": "2026 – present",
+      "points": [
+        "Ran an IPL auction draft for 60 participants across 10 teams on a ₹5K budget, end to end.",
+        "Built a 50+ member gaming community at Masters' Union.",
+        "Building a sponsorship pipeline through outreach to 30+ brands for upcoming sports events."
+      ],
+      "logo": "logos/orgs/masters-union.svg"
     },
     {
-     "choice": "Seed with match fans, scale with style fans",
-     "why": "Football credibility has to come first; the Gen Z style fan brings volume once the shirt is seen as the real one."
+      "org": "HYROX Delhi 2026",
+      "role": "On-ground team, Masters' Union",
+      "place": "Delhi NCR",
+      "dates": "Jul 2026",
+      "points": [
+        "Delivered on-ground execution for 1,000+ attendees over 2 days, leading volunteer logistics and attendee experience."
+      ],
+      "logo": "logos/orgs/hyrox.svg"
     },
     {
-     "choice": "Turn the shirt into a registered number",
-     "why": "A jersey is easy to copy and a registered fan number is not. It also creates first-party data and a reason to buy the next kit."
+      "org": "The Business Research Company",
+      "role": "Associate Consultant",
+      "place": "Hyderabad",
+      "dates": "Jul 2022 – Apr 2025",
+      "points": [
+        "Contributed to 55+ market research reports for global clients, generating ₹1.9 Cr+ in report sales.",
+        "Built a green hydrogen database of 600+ global projects that generated ₹17L+ in sales.",
+        "Doubled weekly report output from 2 to 4 with an automated Excel workflow, and mentored 3 research interns."
+      ],
+      "logo": "logos/orgs/tbrc.svg"
+    },
+    {
+      "org": "TITANS IBS, ICFAI Business School",
+      "role": "Event Coordinator, In-Game Leader & Player",
+      "place": "Hyderabad",
+      "dates": "Apr 2021 – Jun 2022",
+      "points": [
+        "Coordinated 10+ esports tournaments for 250+ participants.",
+        "Grew registrations about 4x (9 to 40) by moving promotion from social media to college academic dashboards.",
+        "Won 1st in Valorant and 2nd in Counter-Strike tournaments as in-game leader."
+      ],
+      "logo": "logos/orgs/titans.svg"
+    },
+    {
+      "org": "Examate",
+      "role": "Business Development Intern",
+      "place": "Hyderabad",
+      "dates": "May 2021 – Jul 2021",
+      "points": [
+        "Ran 2 social media campaigns for CAT and JEE courses and converted 10 students from 70+ leads."
+      ],
+      "logo": "logos/orgs/examate.svg"
     }
-   ],
-   "results": [
+  ],
+  "certifications": [
     {
-     "metric": "Launch budget",
-     "value": "₹50L",
-     "note": "recommended"
+      "name": "Digital Marketing Pro",
+      "issuer": "My Captain",
+      "year": "2023"
     },
     {
-     "metric": "Base case",
-     "value": "30K",
-     "note": "jerseys over 90 days, modelled"
-    },
-    {
-     "metric": "Fan segments",
-     "value": "3",
-     "note": "match fans, style fans and young players"
+      "name": "IBM Data Science Specialization",
+      "issuer": "Coursera",
+      "year": "2022"
     }
-   ],
-   "learned": "In fan merchandise the insight was belonging, not price: \"I may never play for India. But I can be counted for India.\"",
-   "next": "Roll out in the plan's order: ASEAN Cup, then ISL, then grassroots.",
-   "images": [
-    "projects/nivia-india-jersey/thumb.jpg",
-    "projects/nivia-india-jersey/platform.jpg",
-    "projects/nivia-india-jersey/jersey.jpg",
-    "projects/nivia-india-jersey/audiences.jpg"
-   ]
-  },
-  "gostops-off-season": {
-   "context": "goSTOPS runs backpacker hostels across India. From April to June its beds are 72.5% full; from July to September only 27.5%, and revenue per available bed falls from ₹775 to ₹300.",
-   "problem": "Guests pay the same rate in July as in May. The whole gap is unsold beds: about 333,000 of 460,000 bed-nights go empty across 5,000 beds and 92 nights.",
-   "my_role": "Presented the team's strategy to the judges (team of four)",
-   "dates": "Sep 2026 · one-day challenge",
-   "what_i_did": [
-    "We found the blocked variable: in July, travellers lack the time to go, not the willingness to pay.",
-    "We built six behavioural segments and picked two whose July is free by calendar: graduates waiting to join their first job, and companies of 30 to 200 people.",
-    "We designed 'Batch of '27', a programme for graduates between placement and joining, and 'Whole House' property buyouts for company offsites.",
-    "We planned Batch Night every Friday, with a Batch Card stamped at every property.",
-    "I presented the plan to the judges."
-   ],
-   "decisions": [
+  ],
+  "projects": [
     {
-     "choice": "Sell in April, for July",
-     "why": "Anticipation is built where the audience already is, before the quiet season starts."
+      "slug": "one-orange-army",
+      "title": "One Orange Army, three seasons",
+      "org": "A concept for the Sunrisers group",
+      "year": "2026",
+      "role": "Idea, research and pilot plan",
+      "type": "Concept",
+      "summary": "The Orange Army has one season; the Sunrisers group has three. A plan to bring Eastern Cape and Leeds home to Hyderabad with watch-along Nights, a second screen and a Passport that carries stamps into the IPL.",
+      "result": "A pilot of 4 Nights in the SA20 2027 window, at about ₹22K–78K plus a host",
+      "thumbnail": "projects/one-orange-army/thumb.jpg",
+      "has_page": true,
+      "tags": [
+        "Fan engagement",
+        "Cricket",
+        "Community",
+        "Concept"
+      ],
+      "duration": "Pilot: December to March",
+      "team": "Solo",
+      "tools": [],
+      "metrics": [
+        [
+          "3",
+          "teams, one Orange Army"
+        ],
+        [
+          "4",
+          "Nights in the SA20 pilot"
+        ],
+        [
+          "₹22K–78K",
+          "pilot cost, estimate"
+        ]
+      ]
     },
     {
-     "choice": "Add, don't discount",
-     "why": "Nothing gets cheaper: a ₹400 programme and a week with a shape are added on top of the bed."
+      "slug": "nivia-india-jersey",
+      "title": "Wear the Blue: launching India's football jersey",
+      "org": "NIVIA · live industry challenge",
+      "year": "2026",
+      "role": "Led the work, team project",
+      "type": "Launch",
+      "summary": "A go-to-market plan for the Indian national football team jersey: three kits for three fans, a price ladder that fights the fake, and a numbered-jersey platform.",
+      "result": "₹50L launch plan, modelling a 30K-jersey base case over 90 days",
+      "thumbnail": "projects/nivia-india-jersey/thumb.jpg",
+      "has_page": true,
+      "tags": [
+        "Go-to-market",
+        "Merchandise",
+        "Football",
+        "Pricing"
+      ],
+      "duration": "Aug 2026",
+      "team": "Team project; I led research, segments, pricing, budget and sales model",
+      "tools": [
+        "canva"
+      ],
+      "metrics": [
+        [
+          "₹50L",
+          "launch budget"
+        ],
+        [
+          "30K",
+          "jerseys, 90-day base case"
+        ],
+        [
+          "3",
+          "fan segments"
+        ]
+      ]
+    },
+    {
+      "slug": "gostops-off-season",
+      "title": "Filling hostels in the off-season",
+      "org": "goSTOPS · one-day challenge",
+      "year": "2026",
+      "role": "Presenter, team of four",
+      "type": "Strategy",
+      "summary": "An off-season plan for a backpacker hostel chain whose beds sit empty from July to September: a programme for graduates waiting to join work, and property buyouts for company offsites.",
+      "result": "Top 5 of 93 teams; occupancy projected from 27.5% to 43.8%",
+      "thumbnail": "projects/gostops-off-season/thumb.jpg",
+      "has_page": true,
+      "tags": [
+        "Marketing strategy",
+        "Segmentation",
+        "Travel"
+      ],
+      "duration": "One day",
+      "team": "Team of four; I presented to the judges",
+      "tools": [],
+      "metrics": [
+        [
+          "Top 5",
+          "of 93 teams"
+        ],
+        [
+          "43.8%",
+          "projected July–Sept occupancy"
+        ],
+        [
+          "₹559",
+          "revenue per bed, up from ₹300"
+        ]
+      ]
+    },
+    {
+      "slug": "hyrox-delhi",
+      "title": "HYROX Delhi: 1,000+ people, 2 days",
+      "org": "HYROX Delhi · Masters' Union",
+      "year": "2026",
+      "role": "On-ground team",
+      "type": "Event",
+      "summary": "On-ground execution at HYROX Delhi with the Masters' Union team, leading volunteer logistics and the attendee experience.",
+      "result": "1,000+ attendees over 2 competition days",
+      "thumbnail": "projects/hyrox-delhi/thumb.jpg",
+      "has_page": false,
+      "tags": [
+        "Events",
+        "Operations",
+        "Fitness"
+      ],
+      "duration": "2 days",
+      "team": "Masters' Union event team",
+      "tools": [],
+      "metrics": [
+        [
+          "1,000+",
+          "attendees"
+        ],
+        [
+          "2",
+          "days on the ground"
+        ]
+      ]
+    },
+    {
+      "slug": "ipl-auction-draft",
+      "title": "An IPL auction, run by students",
+      "org": "SMG Club · Masters' Union",
+      "year": "2026",
+      "role": "Ran it end to end",
+      "type": "Event",
+      "summary": "An IPL auction draft for the SMG Club: real player cards, live bidding and franchise strategy for ten student teams.",
+      "result": "60 participants across 10 teams on a ₹5K budget",
+      "thumbnail": "projects/ipl-auction-draft/thumb.jpg",
+      "has_page": false,
+      "tags": [
+        "Events",
+        "Cricket",
+        "Community"
+      ],
+      "duration": "One evening",
+      "team": "SMG Club core committee",
+      "tools": [],
+      "metrics": [
+        [
+          "60",
+          "participants"
+        ],
+        [
+          "10",
+          "teams"
+        ],
+        [
+          "₹5K",
+          "budget"
+        ]
+      ]
+    },
+    {
+      "slug": "titans-esports",
+      "title": "TITANS IBS: match nights that grew",
+      "org": "TITANS IBS · ICFAI Business School",
+      "year": "2021–22",
+      "role": "Event coordinator and in-game leader",
+      "type": "Community",
+      "summary": "Ran the college esports club's tournaments and led its Valorant team. Moving promotion from social feeds to college dashboards grew registrations about four times.",
+      "result": "10+ tournaments for 250+ participants; registrations up from 9 to 40",
+      "thumbnail": "projects/titans-esports/thumb.jpg",
+      "has_page": false,
+      "tags": [
+        "Esports",
+        "Community",
+        "Gaming"
+      ],
+      "duration": "Apr 2021 – Jun 2022",
+      "team": "Club committee",
+      "tools": [],
+      "metrics": [
+        [
+          "10+",
+          "tournaments"
+        ],
+        [
+          "250+",
+          "participants"
+        ],
+        [
+          "9 → 40",
+          "registrations"
+        ]
+      ]
+    },
+    {
+      "slug": "pepperfry-shopper",
+      "title": "Pepperfry: beyond the showroom",
+      "org": "Masters' Union · Consumer Behaviour",
+      "year": "2026",
+      "role": "Field research and scoring",
+      "type": "Research",
+      "summary": "A Furniture Experience Index across 19 brands and 7 touchpoints, built from 19 NCR store visits and 30 customer interviews.",
+      "result": "Pepperfry ranked #6 of 19 (73.0 against a 66.5 average), with fixes to lift it to 77.5",
+      "thumbnail": "projects/pepperfry-shopper/thumb.jpg",
+      "has_page": false,
+      "tags": [
+        "Consumer research",
+        "Mystery shopping",
+        "Retail"
+      ],
+      "duration": "One day",
+      "team": "Team project; I ran the mystery shopping and interviews and built the index scoring",
+      "tools": [],
+      "metrics": [
+        [
+          "19",
+          "stores visited"
+        ],
+        [
+          "30",
+          "customer interviews"
+        ],
+        [
+          "#6 of 19",
+          "Pepperfry's rank"
+        ]
+      ]
+    },
+    {
+      "slug": "astralis-paradox",
+      "title": "The Astralis Paradox",
+      "org": "Masters' Union · Term 1",
+      "year": "2026",
+      "role": "Solo project",
+      "type": "Strategy",
+      "summary": "Why a famous esports team was losing money, and a turnaround built on an asset-light model, D2C membership and an India creator plan.",
+      "result": "A path to reverse a DKK 5.4M annual EBITDA loss",
+      "thumbnail": "projects/astralis-paradox/thumb.jpg",
+      "has_page": false,
+      "tags": [
+        "Esports",
+        "Strategy",
+        "Finance"
+      ],
+      "duration": "Term 1",
+      "team": "Solo",
+      "tools": [],
+      "metrics": [
+        [
+          "DKK 5.4M",
+          "annual EBITDA loss diagnosed"
+        ],
+        [
+          "Solo",
+          "project"
+        ]
+      ]
     }
-   ],
-   "results": [
-    {
-     "metric": "Rank",
-     "value": "Top 5",
-     "note": "of 93 teams"
+  ],
+  "project_pages": {
+    "one-orange-army": {
+      "context": "The Sunrisers group plays in three leagues: Sunrisers Eastern Cape in SA20 (January–February), Sunrisers Hyderabad in the IPL (March–May) and Sunrisers Leeds in The Hundred (July–August). Eastern Cape has won 3 titles in 4 seasons, and the Leeds women's team started 2026 as champions.",
+      "problem": "Hyderabad's fan calendar is built around one IPL window. The other two teams play when the Orange Army has nothing to cheer for, so the group has year-round cricket but not yet year-round fans.",
+      "my_role": "Independent concept: the idea, the research and the pilot plan",
+      "dates": "Nov 2026",
+      "what_i_did": [
+        "Mapped the three seasons against India's clock: South Africa is 3.5 hours behind IST, and Hundred men's games (2:30–6:30 pm UK) land at about 7–11 pm in India.",
+        "Designed Orange Army Nights: watch-alongs for Eastern Cape and Leeds matches at Hyderabad venues and campuses, run like a home game with screens, chants and a host.",
+        "Added a second screen: short local-creator reels that introduce 'your other Sunrisers', plus a live watch-along stream for fans at home.",
+        "Designed the Orange Army Passport: a card stamped at every Night, with stamps that carry into the IPL season.",
+        "Costed a pilot from published rate guides: LED walls at ₹5K–15K a day and nano creators at ₹2K–8K a reel."
+      ],
+      "decisions": [
+        {
+          "choice": "Pilot in SA20 2027, before the IPL",
+          "why": "Season 5 runs 17 January to 21 February 2027, so the pilot's numbers are in before the IPL opener and before any decision on Leeds."
+        },
+        {
+          "choice": "Start with venues that already screen SRH games",
+          "why": "Hyderabad venues such as The Game Palacio in HITEC City already run SRH screenings, so the pilot asks them to do the same for Eastern Cape games instead of building anything new."
+        },
+        {
+          "choice": "Reward fans at home",
+          "why": "Stamps are redeemed at the IPL opener, so following the other two teams earns the fan something in their own stadium."
+        }
+      ],
+      "results": [
+        {
+          "metric": "Pilot cost",
+          "value": "₹22K–78K",
+          "note": "plus a host; a planning estimate from published rate guides, not quotes"
+        },
+        {
+          "metric": "Nights in the pilot",
+          "value": "4",
+          "note": "on Eastern Cape match days"
+        },
+        {
+          "metric": "Numbers to read",
+          "value": "5",
+          "note": "fans per Night, Passport sign-ups, Indian follows of SEC and Leeds, reel views, stamps redeemed"
+        }
+      ],
+      "learned": "SA20 is already looking for Indian fans: league-wide TV viewership grew 37% in season 3, and the league held an SA20 India Day in Mumbai.",
+      "next": "Read the pilot numbers in March, then decide whether to run Leeds Nights in July.",
+      "images": [
+        "projects/one-orange-army/thumb.jpg",
+        "projects/one-orange-army/slide-2.jpg",
+        "projects/one-orange-army/slide-3.jpg",
+        "projects/one-orange-army/slide-4.jpg",
+        "projects/one-orange-army/slide-5.jpg",
+        "projects/one-orange-army/slide-6.jpg",
+        "projects/one-orange-army/slide-7.jpg",
+        "projects/one-orange-army/slide-8.jpg"
+      ]
     },
-    {
-     "metric": "Projected occupancy",
-     "value": "27.5% → 43.8%",
-     "note": "July to September"
+    "nivia-india-jersey": {
+      "context": "NIVIA, an Indian sports brand founded in 1934, became the national football team's kit maker in 2026. Fans already buy unofficial jerseys at about ₹999, while official premium jerseys sit at ₹4,299–7,999.",
+      "problem": "Demand exists, but official supply is the gap. The job was to capture fans who already care and remove the friction of finding and affording the real shirt, without trying to outspend adidas.",
+      "my_role": "Led the work end to end: research, segments, pricing, budget and sales model (team project)",
+      "dates": "Aug 2026",
+      "what_i_did": [
+        "Sized the opportunity from public data: 157.2M ISL unique viewers in 2024–25, up 18% year on year.",
+        "Split the range into three kits for three fans: Home for the match fan, Away for the style fan, Training for the young player.",
+        "Built a price ladder that beats the fake, not adidas: ₹899 kids, ₹1,499 terrace, ₹2,499 match and ₹4,999 cap edition.",
+        "Created the 'Wear the Blue. Earn your number.' platform: every jersey gets a unique number and a QR claim, with a live city leaderboard.",
+        "Split the ₹50L budget across performance (₹12L), creators (₹11L), tournaments (₹9L) and out-of-home (₹8L)."
+      ],
+      "decisions": [
+        {
+          "choice": "Fight the fake, not adidas",
+          "why": "The white space sits between ₹999 unofficial shirts and premium official ones, so the hero price zone is ₹1,499–2,499."
+        },
+        {
+          "choice": "Seed with match fans, scale with style fans",
+          "why": "Football credibility has to come first; the Gen Z style fan brings volume once the shirt is seen as the real one."
+        },
+        {
+          "choice": "Turn the shirt into a registered number",
+          "why": "A jersey is easy to copy and a registered fan number is not. It also creates first-party data and a reason to buy the next kit."
+        }
+      ],
+      "results": [
+        {
+          "metric": "Launch budget",
+          "value": "₹50L",
+          "note": "recommended"
+        },
+        {
+          "metric": "Base case",
+          "value": "30K",
+          "note": "jerseys over 90 days, modelled"
+        },
+        {
+          "metric": "Fan segments",
+          "value": "3",
+          "note": "match fans, style fans and young players"
+        }
+      ],
+      "learned": "In fan merchandise the insight was belonging, not price: \"I may never play for India. But I can be counted for India.\"",
+      "next": "Roll out in the plan's order: ASEAN Cup, then ISL, then grassroots.",
+      "images": [
+        "projects/nivia-india-jersey/thumb.jpg",
+        "projects/nivia-india-jersey/platform.jpg",
+        "projects/nivia-india-jersey/jersey.jpg",
+        "projects/nivia-india-jersey/audiences.jpg"
+      ]
     },
-    {
-     "metric": "Added revenue",
-     "value": "₹11.9 Cr",
-     "note": "projected, on ₹8.2 Cr of costs"
+    "gostops-off-season": {
+      "context": "goSTOPS runs backpacker hostels across India. From April to June its beds are 72.5% full; from July to September only 27.5%, and revenue per available bed falls from ₹775 to ₹300.",
+      "problem": "Guests pay the same rate in July as in May. The whole gap is unsold beds: about 333,000 of 460,000 bed-nights go empty across 5,000 beds and 92 nights.",
+      "my_role": "Presented the team's strategy to the judges (team of four)",
+      "dates": "Sep 2026 · one-day challenge",
+      "what_i_did": [
+        "We found the blocked variable: in July, travellers lack the time to go, not the willingness to pay.",
+        "We built six behavioural segments and picked two whose July is free by calendar: graduates waiting to join their first job, and companies of 30 to 200 people.",
+        "We designed 'Batch of '27', a programme for graduates between placement and joining, and 'Whole House' property buyouts for company offsites.",
+        "We planned Batch Night every Friday, with a Batch Card stamped at every property.",
+        "I presented the plan to the judges."
+      ],
+      "decisions": [
+        {
+          "choice": "Sell in April, for July",
+          "why": "Anticipation is built where the audience already is, before the quiet season starts."
+        },
+        {
+          "choice": "Add, don't discount",
+          "why": "Nothing gets cheaper: a ₹400 programme and a week with a shape are added on top of the bed."
+        }
+      ],
+      "results": [
+        {
+          "metric": "Rank",
+          "value": "Top 5",
+          "note": "of 93 teams"
+        },
+        {
+          "metric": "Projected occupancy",
+          "value": "27.5% → 43.8%",
+          "note": "July to September"
+        },
+        {
+          "metric": "Added revenue",
+          "value": "₹11.9 Cr",
+          "note": "projected, on ₹8.2 Cr of costs"
+        }
+      ],
+      "learned": "The rate was never the problem. Once the gap was framed as empty beds, not cheap beds, discounting stopped being an option.",
+      "next": "The stamp-at-every-property idea became the Orange Army Passport in my Sunrisers concept.",
+      "images": [
+        "projects/gostops-off-season/thumb.jpg",
+        "projects/gostops-off-season/gap.jpg",
+        "projects/gostops-off-season/batch-night.jpg",
+        "projects/gostops-off-season/numbers.jpg"
+      ]
     }
-   ],
-   "learned": "The rate was never the problem. Once the gap was framed as empty beds, not cheap beds, discounting stopped being an option.",
-   "next": "The stamp-at-every-property idea became the Orange Army Passport in my Sunrisers concept.",
-   "images": [
-    "projects/gostops-off-season/thumb.jpg",
-    "projects/gostops-off-season/gap.jpg",
-    "projects/gostops-off-season/batch-night.jpg",
-    "projects/gostops-off-season/numbers.jpg"
-   ]
-  }
- },
- "wins": [
-  {
-   "title": "Top 5 of 93 teams",
-   "detail": "goSTOPS one-day marketing challenge, Masters' Union, 2026.",
-   "image": "projects/gostops-off-season/thumb.jpg"
   },
-  {
-   "title": "National-level badminton",
-   "detail": "Represented Telangana after 3rd place in a District U16 tournament.",
-   "image": "photos/badminton.jpg"
-  },
-  {
-   "title": "1st in Valorant, 2nd in CS",
-   "detail": "As in-game leader for TITANS IBS, 2021–22.",
-   "image": "photos/titans-jersey.jpg"
-  },
-  {
-   "title": "1 of 8 from 500",
-   "detail": "Picked for the SMG Club core committee at Masters' Union.",
-   "image": "photos/mu-townhall.jpg"
-  },
-  {
-   "title": "₹5.5L scholarship",
-   "detail": "Pankaj Bansal Scholarship for Young Leaders, Masters' Union.",
-   "image": "photos/professional-arms.jpg"
-  },
-  {
-   "title": "CGPA 9.75",
-   "detail": "BBA, ICFAI Business School: top 5% of 650+ students.",
-   "image": "photos/blazer-standing.jpg"
-  }
- ],
- "skills": {
-  "Fans and events": [
-   "Fan engagement",
-   "Community building",
-   "Event operations",
-   "Sponsorship outreach",
-   "Creative strategy and campaign planning"
-  ],
-  "Strategy": [
-   "Go-to-market strategy",
-   "Market research",
-   "Consumer segmentation",
-   "Competitive benchmarking",
-   "Marketing mix"
-  ],
-  "Tools": [
-   "Power BI",
-   "Excel",
-   "Python",
-   "Canva",
-   "PowerPoint"
-  ]
- },
- "tools": [
-  {
-   "name": "Canva",
-   "logo": "logos/skills/canva.svg"
-  },
-  {
-   "name": "Power BI",
-   "logo": "logos/skills/powerbi.svg"
-  },
-  {
-   "name": "Excel",
-   "logo": "logos/skills/excel.svg"
-  },
-  {
-   "name": "Python",
-   "logo": "logos/skills/python.svg"
-  },
-  {
-   "name": "PowerPoint",
-   "logo": "logos/skills/powerpoint.svg"
-  },
-  {
-   "name": "Lovable",
-   "logo": "logos/skills/lovable.png"
-  },
-  {
-   "name": "Instagram",
-   "logo": "logos/skills/instagram.svg"
-  },
-  {
-   "name": "LinkedIn",
-   "logo": "logos/skills/linkedin.svg"
-  }
- ],
- "outside": [
-  {
-   "title": "Badminton",
-   "detail": "Represented Telangana at national level as an under-19. Still on court whenever I can.",
-   "image": "photos/badminton.jpg"
-  },
-  {
-   "title": "Match nights at Uppal",
-   "detail": "IPL nights in the stands at Uppal, Hyderabad. The crowd is the part I want to work on.",
-   "image": "photos/uppal-crowd.jpg"
-  },
-  {
-   "title": "In the room",
-   "detail": "Sport India Conference 2026 at Bharat Mandapam and I Am Game 2026, listening to the people who run sport.",
-   "image": "photos/sport-india-2026.jpg"
-  }
- ],
- "testimonials": [
-  {
-   "quote": "I particularly appreciated his ability to turn intricate data into clear, impactful reports, often identifying subtle patterns that others might overlook.",
-   "name": "Dinesh Thakur",
-   "role": "Senior Consultant, Global Insight Services (GIS)",
-   "relation": "Worked with Anudeep at TBRC"
-  },
-  {
-   "quote": "Super dependable, quick to learn, and always brought a positive vibe to the team. Took on challenges without hesitation and delivered every time.",
-   "name": "Suprateek Giri",
-   "role": "Senior Research Analyst, Global Insight Services (GIS)",
-   "relation": "Worked with Anudeep for almost three years"
-  }
- ],
- "media": {
-  "headshot": "photos/headshot.jpg",
-  "cutout": "photos/cutout.png",
-  "professional": "photos/professional-arms.jpg",
-  "professional_alt": "photos/blazer-full.jpg",
-  "candids": [
-   "photos/hyrox.jpg",
-   "photos/badminton.jpg",
-   "photos/iamgame-awards.jpg",
-   "photos/sport-india-2026.jpg"
-  ],
-  "event": "photos/hyrox.jpg",
-  "gallery": [
-   {
-    "src": "photos/srh-jersey.jpg",
-    "caption": "In the Sunrisers jersey",
-    "ratio": "3:4",
-    "kind": "profile"
-   },
-   {
-    "src": "photos/professional-arms.jpg",
-    "caption": "Professional portrait, Masters' Union",
-    "ratio": "2:3",
-    "kind": "profile"
-   },
-   {
-    "src": "photos/hyrox.jpg",
-    "caption": "HYROX Delhi 2026, with the Masters' Union team",
-    "ratio": "3:4",
-    "kind": "event"
-   },
-   {
-    "src": "photos/iamgame-awards.jpg",
-    "caption": "Masters' Union cohort at the EY I Am Game Sports Awards 2026",
-    "ratio": "9:16",
-    "kind": "event"
-   },
-   {
-    "src": "photos/sport-india-2026.jpg",
-    "caption": "Sport India Conference 2026, Vision 2036 panel, Bharat Mandapam",
-    "ratio": "4:3",
-    "kind": "event"
-   },
-   {
-    "src": "photos/iamgame-guest.jpg",
-    "caption": "With K. Srinivas Rao, Head of Sports Group at Times of India, at I Am Game 2026",
-    "ratio": "3:4",
-    "kind": "event"
-   },
-   {
-    "src": "photos/conclave-guest.jpg",
-    "caption": "With Manish, VP Commercials & Partnerships at JioStar, at I Am Game 2026",
-    "ratio": "3:4",
-    "kind": "event"
-   },
-   {
-    "src": "photos/nivia-jersey.jpg",
-    "caption": "With the India football jersey, Masters' Union library",
-    "ratio": "1:3",
-    "kind": "project"
-   },
-   {
-    "src": "photos/auction-draft.jpg",
-    "caption": "The IPL auction draft, SMG Club",
-    "ratio": "16:9",
-    "kind": "event"
-   },
-   {
-    "src": "photos/badminton.jpg",
-    "caption": "On court",
-    "ratio": "3:4",
-    "kind": "hobby"
-   },
-   {
-    "src": "photos/titans-jersey.jpg",
-    "caption": "TITANS IBS jersey",
-    "ratio": "3:4",
-    "kind": "hobby"
-   },
-   {
-    "src": "photos/uppal-crowd.jpg",
-    "caption": "IPL night at Uppal, Hyderabad",
-    "ratio": "4:3",
-    "kind": "hobby"
-   }
-  ]
- },
- "logo_note": "Masters' Union's logo is its own mark. Other organisations are shown as plain lettered tiles, not their logos.",
- "hero": {
-  "line_before": "Anudeep can make",
-  "line_after": "the team Hyderabad talks about",
-  "default_word": "Sunrisers",
-  "input_label": "Type a team",
-  "input_placeholder": "Your team here",
-  "presets": [
-   "Sunrisers Hyderabad",
-   "Eastern Cape",
-   "Leeds",
-   "Orange Army"
-  ],
-  "stickers": [
-   {
-    "big": "1,000+",
-    "small": "fans at HYROX Delhi",
-    "shape": "burst"
-   },
-   {
-    "big": "Top 5",
-    "small": "of 93 teams, goSTOPS",
-    "shape": "circle"
-   },
-   {
-    "big": "₹50L",
-    "small": "NIVIA jersey launch plan",
-    "shape": "ticket"
-   },
-   {
-    "big": "U19",
-    "small": "national badminton, Telangana",
-    "shape": "circle"
-   },
-   {
-    "big": "Now",
-    "small": "open to an internship",
-    "shape": "burst"
-   }
-  ],
-  "line_accent": "all year."
- },
- "stats_strip": [
-  {
-   "value": "1,000+",
-   "label": "attendees on the ground",
-   "from": "HYROX Delhi 2026"
-  },
-  {
-   "value": "Top 5",
-   "label": "of 93 teams",
-   "from": "goSTOPS challenge"
-  },
-  {
-   "value": "₹50L",
-   "label": "jersey launch plan",
-   "from": "NIVIA × Indian football"
-  },
-  {
-   "value": "55+",
-   "label": "market research reports",
-   "from": "TBRC"
-  },
-  {
-   "value": "₹1.9 Cr+",
-   "label": "in report sales",
-   "from": "TBRC"
-  },
-  {
-   "value": "60",
-   "label": "players in an IPL auction draft",
-   "from": "SMG Club"
-  },
-  {
-   "value": "10+",
-   "label": "esports tournaments run",
-   "from": "TITANS IBS"
-  },
-  {
-   "value": "U19",
-   "label": "national-level badminton",
-   "from": "Telangana"
-  }
- ],
- "brief_me": {
-  "title": "Brief me",
-  "intro": "Pick a goal, a budget and the channels you use. The sketch on the right is built from my own work: the case closest to your brief, the format I'd start with and the number I'd watch.",
-  "goals": [
-   {
-    "id": "stands",
-    "label": "Fill the stands",
-    "metric": "Tickets sold per campaign rupee, by channel",
-    "metric_why": "It shows which channel puts people in seats, not just which one gets seen."
-   },
-   {
-    "id": "offseason",
-    "label": "Fans between seasons",
-    "metric": "Fans who engage with all three teams in a year",
-    "metric_why": "For a three-team group, the real test is the fan who stays after the IPL ends."
-   },
-   {
-    "id": "launch",
-    "label": "Merch or launch",
-    "metric": "Units sold in the first 90 days",
-    "metric_why": "A launch is judged by its first quarter; it is the number the NIVIA plan was built around."
-   }
-  ],
-  "channels": [
-   {
-    "id": "ground",
-    "label": "On-ground events"
-   },
-   {
-    "id": "creators",
-    "label": "Creators"
-   },
-   {
-    "id": "campus",
-    "label": "Campus and communities"
-   },
-   {
-    "id": "gaming",
-    "label": "Gaming and esports"
-   },
-   {
-    "id": "social",
-    "label": "Own social pages"
-   }
-  ],
-  "budget": {
-   "min": 1,
-   "max": 100,
-   "default": 10,
-   "unit": "₹ lakh",
-   "label": "Budget for the first eight weeks"
-  },
-  "holdback": {
-   "share": 0.3,
-   "text": "kept back until the first week shows what works, then put behind it"
-  },
-  "bands": [
-   {
-    "max": 5,
-    "plan": "Small budget: one pilot, like four Nights at venues that already screen matches."
-   },
-   {
-    "max": 30,
-    "plan": "Mid budget: the pilot in two cities or several campuses, with creators added once the first numbers come in."
-   },
-   {
-    "max": 100,
-    "plan": "Large budget: a programme across all three teams' seasons, with paid push only behind what worked."
-   }
-  ],
-  "cases": [
-   {
-    "slug": "one-orange-army",
-    "goals": {
-     "stands": 2,
-     "offseason": 3,
-     "launch": 1
+  "wins": [
+    {
+      "title": "Top 5 of 93 teams",
+      "detail": "goSTOPS one-day marketing challenge, Masters' Union, 2026.",
+      "image": "projects/gostops-off-season/thumb.jpg"
     },
-    "channels": [
-     "ground",
-     "creators",
-     "campus"
-    ],
-    "budget": [
-     1,
-     10
-    ],
-    "format": "Watch-along Nights run like a home game, with a stamp card that carries into the next season",
-    "first_step": "Sign two venues that already screen matches and run four Nights on away-season match days."
-   },
-   {
-    "slug": "nivia-india-jersey",
-    "goals": {
-     "stands": 0,
-     "offseason": 1,
-     "launch": 3
+    {
+      "title": "National-level badminton",
+      "detail": "Represented Telangana after 3rd place in a District U16 tournament.",
+      "image": "photos/badminton.jpg"
     },
-    "channels": [
-     "creators",
-     "ground",
-     "social"
-    ],
-    "budget": [
-     20,
-     100
-    ],
-    "format": "A numbered product fans can claim and show off, sold through creators, tournaments and out-of-home",
-    "first_step": "Issue numbers to the first buyers and put a live city leaderboard on the launch page."
-   },
-   {
-    "slug": "gostops-off-season",
-    "goals": {
-     "stands": 2,
-     "offseason": 2,
-     "launch": 1
+    {
+      "title": "1st in Valorant, 2nd in CS",
+      "detail": "As in-game leader for TITANS IBS, 2021–22.",
+      "image": "photos/titans-jersey.jpg"
     },
-    "channels": [
-     "social",
-     "campus"
-    ],
-    "budget": [
-     5,
-     60
-    ],
-    "format": "A programme for people whose calendar is free in the quiet months, sold well before the dates",
-    "first_step": "Find the segment whose time is free in the quiet window and sell to them early."
-   },
-   {
-    "slug": "hyrox-delhi",
-    "goals": {
-     "stands": 3,
-     "offseason": 1,
-     "launch": 1
+    {
+      "title": "1 of 8 from 500",
+      "detail": "Picked for the SMG Club core committee at Masters' Union.",
+      "image": "photos/mu-townhall.jpg"
     },
-    "channels": [
-     "ground"
-    ],
-    "budget": [
-     5,
-     40
-    ],
-    "format": "A crowd experience run by a tight volunteer crew, from the gate to the last heat",
-    "first_step": "Map the attendee's day from arrival to exit and staff every point where a queue forms."
-   },
-   {
-    "slug": "ipl-auction-draft",
-    "goals": {
-     "stands": 1,
-     "offseason": 2,
-     "launch": 0
+    {
+      "title": "₹5.5L scholarship",
+      "detail": "Pankaj Bansal Scholarship for Young Leaders, Masters' Union.",
+      "image": "photos/professional-arms.jpg"
     },
-    "channels": [
-     "campus",
-     "gaming",
-     "ground"
+    {
+      "title": "CGPA 9.75",
+      "detail": "BBA, ICFAI Business School: top 5% of 650+ students.",
+      "image": "photos/blazer-standing.jpg"
+    }
+  ],
+  "skills": {
+    "Fans and events": [
+      "Fan engagement",
+      "Community building",
+      "Event operations",
+      "Sponsorship outreach",
+      "Creative strategy and campaign planning"
     ],
-    "budget": [
-     1,
-     3
+    "Strategy": [
+      "Go-to-market strategy",
+      "Market research",
+      "Consumer segmentation",
+      "Competitive benchmarking",
+      "Marketing mix"
     ],
-    "format": "A fan-run auction or draft that makes the audience the team owner",
-    "first_step": "Run one draft night on a campus with ten teams and a small budget."
-   },
-   {
-    "slug": "titans-esports",
-    "goals": {
-     "stands": 1,
-     "offseason": 2,
-     "launch": 0
-    },
-    "channels": [
-     "gaming",
-     "campus"
-    ],
-    "budget": [
-     1,
-     5
-    ],
-    "format": "Weekly community match nights, promoted where the audience already looks",
-    "first_step": "Move promotion to the channels the audience opens every day: it took registrations from 9 to 40."
-   },
-   {
-    "slug": "pepperfry-shopper",
-    "goals": {
-     "stands": 1,
-     "offseason": 1,
-     "launch": 1
-    },
-    "channels": [
-     "ground"
-    ],
-    "budget": [
-     1,
-     10
-    ],
-    "format": "Mystery-shop the fan journey and score every touchpoint",
-    "first_step": "Go to a match as a fan and score each step from ticket to exit."
-   }
-  ]
- },
- "sections": {
-  "work": "The reel: eight things I've done",
-  "brief": "Brief me",
-  "cases": "Three cases, in full",
-  "compare": "Before and after",
-  "about": "About",
-  "journey": "How I got here",
-  "experience": "Experience",
-  "education": "Education",
-  "wins": "Wins",
-  "skills": "Skills and tools",
-  "outside": "Outside work",
-  "testimonials": "What people say",
-  "contact": "Contact"
- },
- "film": {
-  "project": "one-orange-army",
-  "title": "One Orange Army, three seasons, in five beats",
-  "beats": [
-   {
-    "label": "Three teams, one calendar",
-    "from": "context",
-    "image": "projects/one-orange-army/thumb.jpg"
-   },
-   {
-    "label": "The gap",
-    "from": "problem",
-    "image": "projects/one-orange-army/crowd.jpg"
-   },
-   {
-    "label": "Orange Army Nights",
-    "from": "what_i_did.1",
-    "poster": [
-     "4",
-     "Nights in the pilot"
+    "Tools": [
+      "Power BI",
+      "Excel",
+      "Python",
+      "Canva",
+      "PowerPoint"
     ]
-   },
-   {
-    "label": "Pilot before the IPL",
-    "from": "decisions.0",
-    "poster": [
-     "17 Jan",
-     "SA20 season 5 starts"
+  },
+  "tools": [
+    {
+      "name": "Canva",
+      "logo": "logos/skills/canva.svg"
+    },
+    {
+      "name": "Power BI",
+      "logo": "logos/skills/powerbi.svg"
+    },
+    {
+      "name": "Excel",
+      "logo": "logos/skills/excel.svg"
+    },
+    {
+      "name": "Python",
+      "logo": "logos/skills/python.svg"
+    },
+    {
+      "name": "PowerPoint",
+      "logo": "logos/skills/powerpoint.svg"
+    },
+    {
+      "name": "Lovable",
+      "logo": "logos/skills/lovable.png"
+    },
+    {
+      "name": "Instagram",
+      "logo": "logos/skills/instagram.svg"
+    },
+    {
+      "name": "LinkedIn",
+      "logo": "logos/skills/linkedin.svg"
+    }
+  ],
+  "outside": [
+    {
+      "title": "Badminton",
+      "detail": "Represented Telangana at national level as an under-19. Still on court whenever I can.",
+      "image": "photos/badminton.jpg"
+    },
+    {
+      "title": "Match nights at Uppal",
+      "detail": "IPL nights in the stands at Uppal, Hyderabad. The crowd is the part I want to work on.",
+      "image": "photos/uppal-crowd.jpg"
+    },
+    {
+      "title": "In the room",
+      "detail": "Sport India Conference 2026 at Bharat Mandapam and I Am Game 2026, listening to the people who run sport.",
+      "image": "photos/sport-india-2026.jpg"
+    }
+  ],
+  "testimonials": [
+    {
+      "quote": "I particularly appreciated his ability to turn intricate data into clear, impactful reports, often identifying subtle patterns that others might overlook.",
+      "name": "Dinesh Thakur",
+      "role": "Senior Consultant, Global Insight Services (GIS)",
+      "relation": "Worked with Anudeep at TBRC"
+    },
+    {
+      "quote": "Super dependable, quick to learn, and always brought a positive vibe to the team. Took on challenges without hesitation and delivered every time.",
+      "name": "Suprateek Giri",
+      "role": "Senior Research Analyst, Global Insight Services (GIS)",
+      "relation": "Worked with Anudeep for almost three years"
+    }
+  ],
+  "media": {
+    "headshot": "photos/headshot.jpg",
+    "cutout": "photos/cutout.png",
+    "professional": "photos/professional-arms.jpg",
+    "professional_alt": "photos/blazer-full.jpg",
+    "candids": [
+      "photos/hyrox.jpg",
+      "photos/badminton.jpg",
+      "photos/iamgame-awards.jpg",
+      "photos/sport-india-2026.jpg"
+    ],
+    "event": "photos/hyrox.jpg",
+    "gallery": [
+      {
+        "src": "photos/srh-jersey.jpg",
+        "caption": "In the Sunrisers jersey",
+        "ratio": "3:4",
+        "kind": "profile"
+      },
+      {
+        "src": "photos/professional-arms.jpg",
+        "caption": "Professional portrait, Masters' Union",
+        "ratio": "2:3",
+        "kind": "profile"
+      },
+      {
+        "src": "photos/hyrox.jpg",
+        "caption": "HYROX Delhi 2026, with the Masters' Union team",
+        "ratio": "3:4",
+        "kind": "event"
+      },
+      {
+        "src": "photos/iamgame-awards.jpg",
+        "caption": "Masters' Union cohort at the EY I Am Game Sports Awards 2026",
+        "ratio": "9:16",
+        "kind": "event"
+      },
+      {
+        "src": "photos/sport-india-2026.jpg",
+        "caption": "Sport India Conference 2026, Vision 2036 panel, Bharat Mandapam",
+        "ratio": "4:3",
+        "kind": "event"
+      },
+      {
+        "src": "photos/iamgame-guest.jpg",
+        "caption": "With K. Srinivas Rao, Head of Sports Group at Times of India, at I Am Game 2026",
+        "ratio": "3:4",
+        "kind": "event"
+      },
+      {
+        "src": "photos/conclave-guest.jpg",
+        "caption": "With Manish, VP Commercials & Partnerships at JioStar, at I Am Game 2026",
+        "ratio": "3:4",
+        "kind": "event"
+      },
+      {
+        "src": "photos/nivia-jersey.jpg",
+        "caption": "With the India football jersey, Masters' Union library",
+        "ratio": "1:3",
+        "kind": "project"
+      },
+      {
+        "src": "photos/auction-draft.jpg",
+        "caption": "The IPL auction draft, SMG Club",
+        "ratio": "16:9",
+        "kind": "event"
+      },
+      {
+        "src": "photos/badminton.jpg",
+        "caption": "On court",
+        "ratio": "3:4",
+        "kind": "hobby"
+      },
+      {
+        "src": "photos/titans-jersey.jpg",
+        "caption": "TITANS IBS jersey",
+        "ratio": "3:4",
+        "kind": "hobby"
+      },
+      {
+        "src": "photos/uppal-crowd.jpg",
+        "caption": "IPL night at Uppal, Hyderabad",
+        "ratio": "4:3",
+        "kind": "hobby"
+      }
     ]
-   },
-   {
-    "label": "What it costs",
-    "from": "results",
-    "poster": [
-     "₹22K–78K",
-     "pilot, plus a host"
+  },
+  "logo_note": "Masters' Union's logo is its own mark. Other organisations are shown as plain lettered tiles, not their logos.",
+  "hero": {
+    "line_before": "Anudeep can make",
+    "line_after": "the team Hyderabad talks about",
+    "default_word": "Sunrisers",
+    "input_label": "Type a team",
+    "input_placeholder": "Your team here",
+    "presets": [
+      "Sunrisers Hyderabad",
+      "Eastern Cape",
+      "Leeds",
+      "Orange Army"
+    ],
+    "stickers": [
+      {
+        "big": "1,000+",
+        "small": "fans at HYROX Delhi",
+        "shape": "burst"
+      },
+      {
+        "big": "Top 5",
+        "small": "of 93 teams, goSTOPS",
+        "shape": "circle"
+      },
+      {
+        "big": "₹50L",
+        "small": "NIVIA jersey launch plan",
+        "shape": "ticket"
+      },
+      {
+        "big": "U19",
+        "small": "national badminton, Telangana",
+        "shape": "circle"
+      },
+      {
+        "big": "Now",
+        "small": "open to an internship",
+        "shape": "burst"
+      }
+    ],
+    "line_accent": "all year."
+  },
+  "stats_strip": [
+    {
+      "value": "1,000+",
+      "label": "attendees on the ground",
+      "from": "HYROX Delhi 2026"
+    },
+    {
+      "value": "Top 5",
+      "label": "of 93 teams",
+      "from": "goSTOPS challenge"
+    },
+    {
+      "value": "₹50L",
+      "label": "jersey launch plan",
+      "from": "NIVIA × Indian football"
+    },
+    {
+      "value": "55+",
+      "label": "market research reports",
+      "from": "TBRC"
+    },
+    {
+      "value": "₹1.9 Cr+",
+      "label": "in report sales",
+      "from": "TBRC"
+    },
+    {
+      "value": "60",
+      "label": "players in an IPL auction draft",
+      "from": "SMG Club"
+    },
+    {
+      "value": "10+",
+      "label": "esports tournaments run",
+      "from": "TITANS IBS"
+    },
+    {
+      "value": "U19",
+      "label": "national-level badminton",
+      "from": "Telangana"
+    }
+  ],
+  "brief_me": {
+    "title": "Brief me",
+    "intro": "Pick a goal, a budget and the channels you use. The sketch on the right is built from my own work: the case closest to your brief, the format I'd start with and the number I'd watch.",
+    "goals": [
+      {
+        "id": "stands",
+        "label": "Fill the stands",
+        "metric": "Tickets sold per campaign rupee, by channel",
+        "metric_why": "It shows which channel puts people in seats, not just which one gets seen."
+      },
+      {
+        "id": "offseason",
+        "label": "Fans between seasons",
+        "metric": "Fans who engage with all three teams in a year",
+        "metric_why": "For a three-team group, the real test is the fan who stays after the IPL ends."
+      },
+      {
+        "id": "launch",
+        "label": "Merch or launch",
+        "metric": "Units sold in the first 90 days",
+        "metric_why": "A launch is judged by its first quarter; it is the number the NIVIA plan was built around."
+      }
+    ],
+    "channels": [
+      {
+        "id": "ground",
+        "label": "On-ground events"
+      },
+      {
+        "id": "creators",
+        "label": "Creators"
+      },
+      {
+        "id": "campus",
+        "label": "Campus and communities"
+      },
+      {
+        "id": "gaming",
+        "label": "Gaming and esports"
+      },
+      {
+        "id": "social",
+        "label": "Own social pages"
+      }
+    ],
+    "budget": {
+      "min": 1,
+      "max": 100,
+      "default": 10,
+      "unit": "₹ lakh",
+      "label": "Budget for the first eight weeks"
+    },
+    "holdback": {
+      "share": 0.3,
+      "text": "kept back until the first week shows what works, then put behind it"
+    },
+    "bands": [
+      {
+        "max": 5,
+        "plan": "Small budget: one pilot, like four Nights at venues that already screen matches."
+      },
+      {
+        "max": 30,
+        "plan": "Mid budget: the pilot in two cities or several campuses, with creators added once the first numbers come in."
+      },
+      {
+        "max": 100,
+        "plan": "Large budget: a programme across all three teams' seasons, with paid push only behind what worked."
+      }
+    ],
+    "cases": [
+      {
+        "slug": "one-orange-army",
+        "goals": {
+          "stands": 2,
+          "offseason": 3,
+          "launch": 1
+        },
+        "channels": [
+          "ground",
+          "creators",
+          "campus"
+        ],
+        "budget": [
+          1,
+          10
+        ],
+        "format": "Watch-along Nights run like a home game, with a stamp card that carries into the next season",
+        "first_step": "Sign two venues that already screen matches and run four Nights on away-season match days."
+      },
+      {
+        "slug": "nivia-india-jersey",
+        "goals": {
+          "stands": 0,
+          "offseason": 1,
+          "launch": 3
+        },
+        "channels": [
+          "creators",
+          "ground",
+          "social"
+        ],
+        "budget": [
+          20,
+          100
+        ],
+        "format": "A numbered product fans can claim and show off, sold through creators, tournaments and out-of-home",
+        "first_step": "Issue numbers to the first buyers and put a live city leaderboard on the launch page."
+      },
+      {
+        "slug": "gostops-off-season",
+        "goals": {
+          "stands": 2,
+          "offseason": 2,
+          "launch": 1
+        },
+        "channels": [
+          "social",
+          "campus"
+        ],
+        "budget": [
+          5,
+          60
+        ],
+        "format": "A programme for people whose calendar is free in the quiet months, sold well before the dates",
+        "first_step": "Find the segment whose time is free in the quiet window and sell to them early."
+      },
+      {
+        "slug": "hyrox-delhi",
+        "goals": {
+          "stands": 3,
+          "offseason": 1,
+          "launch": 1
+        },
+        "channels": [
+          "ground"
+        ],
+        "budget": [
+          5,
+          40
+        ],
+        "format": "A crowd experience run by a tight volunteer crew, from the gate to the last heat",
+        "first_step": "Map the attendee's day from arrival to exit and staff every point where a queue forms."
+      },
+      {
+        "slug": "ipl-auction-draft",
+        "goals": {
+          "stands": 1,
+          "offseason": 2,
+          "launch": 0
+        },
+        "channels": [
+          "campus",
+          "gaming",
+          "ground"
+        ],
+        "budget": [
+          1,
+          3
+        ],
+        "format": "A fan-run auction or draft that makes the audience the team owner",
+        "first_step": "Run one draft night on a campus with ten teams and a small budget."
+      },
+      {
+        "slug": "titans-esports",
+        "goals": {
+          "stands": 1,
+          "offseason": 2,
+          "launch": 0
+        },
+        "channels": [
+          "gaming",
+          "campus"
+        ],
+        "budget": [
+          1,
+          5
+        ],
+        "format": "Weekly community match nights, promoted where the audience already looks",
+        "first_step": "Move promotion to the channels the audience opens every day: it took registrations from 9 to 40."
+      },
+      {
+        "slug": "pepperfry-shopper",
+        "goals": {
+          "stands": 1,
+          "offseason": 1,
+          "launch": 1
+        },
+        "channels": [
+          "ground"
+        ],
+        "budget": [
+          1,
+          10
+        ],
+        "format": "Mystery-shop the fan journey and score every touchpoint",
+        "first_step": "Go to a match as a fan and score each step from ticket to exit."
+      }
     ]
-   }
-  ]
- }
+  },
+  "sections": {
+    "work": "The reel: eight things I've done",
+    "brief": "Brief me",
+    "cases": "Three cases, in full",
+    "compare": "Before and after",
+    "about": "About",
+    "journey": "How I got here",
+    "experience": "Experience",
+    "education": "Education",
+    "wins": "Wins",
+    "skills": "Skills and tools",
+    "outside": "Outside work",
+    "testimonials": "What people say",
+    "contact": "Contact"
+  },
+  "film": {
+    "project": "one-orange-army",
+    "title": "One Orange Army, three seasons, in five beats",
+    "beats": [
+      {
+        "label": "Three teams, one calendar",
+        "from": "context",
+        "image": "projects/one-orange-army/thumb.jpg"
+      },
+      {
+        "label": "The gap",
+        "from": "problem",
+        "image": "projects/one-orange-army/slide-2.jpg"
+      },
+      {
+        "label": "Orange Army Nights",
+        "from": "what_i_did.1",
+        "poster": [
+          "4",
+          "Nights in the pilot"
+        ]
+      },
+      {
+        "label": "Pilot before the IPL",
+        "from": "decisions.0",
+        "poster": [
+          "17 Jan",
+          "SA20 season 5 starts"
+        ]
+      },
+      {
+        "label": "What it costs",
+        "from": "results",
+        "poster": [
+          "₹22K–78K",
+          "pilot, plus a host"
+        ]
+      }
+    ]
+  }
 }

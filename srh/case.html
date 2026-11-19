@@ -38,7 +38,7 @@
 .decs div{padding:24px;border-radius:18px;background:var(--bg2);border:1px solid var(--line)}
 .decs b{display:block;font:400 26px/1.05 var(--disp);text-transform:uppercase;margin-bottom:10px;color:var(--tx)}
 .decs p{color:var(--mut);font-size:16px}
-.pages{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px;max-width:1400px}
+.pages{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,560px),1fr));gap:16px;max-width:1400px}.pages a{display:block}.pages figure{transition:border-color .3s,transform .3s}.pages a:hover figure{border-color:#f26522;transform:translateY(-4px)}
 .pages figure{margin:0;border-radius:16px;overflow:hidden;border:1px solid var(--line);background:#000}
 .pages img{width:100%;height:auto}
 .c-end{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
@@ -90,7 +90,7 @@
   'use strict';
   var esc=function(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});};
   var $=function(id){return document.getElementById(id);};
-  var PDF={'nivia-india-jersey':'media/docs/nivia-gtm.pdf','gostops-off-season':'media/docs/gostops-gtm.pdf'};
+  var PDF={'one-orange-army':'media/docs/one-orange-army.pdf','nivia-india-jersey':'media/docs/nivia-gtm.pdf','gostops-off-season':'media/docs/gostops-gtm.pdf'};
   var slug=new URLSearchParams(location.search).get('p')||'one-orange-army';
   var mb=document.querySelector('.hd-menu'),nav=$('hd-nav');
   mb.addEventListener('click',function(){var o=nav.classList.toggle('open');mb.setAttribute('aria-expanded',String(o));});
@@ -108,7 +108,7 @@
     $('c-steps').innerHTML=(pg.what_i_did||[]).map(function(s){return '<li data-reveal><p>'+esc(s)+'</p></li>';}).join('');
     $('c-decs').innerHTML=(pg.decisions||[]).map(function(x){return '<div data-reveal><b>'+esc(x.choice)+'</b><p>'+esc(x.why)+'</p></div>';}).join('');
     var imgs=(pg.images||[]).slice(1).filter(function(i){return i.indexOf('kit/')<0;});
-    if(imgs.length)$('c-pages').innerHTML=imgs.map(function(i){return '<figure data-reveal><img src="media/'+i+'" alt="A page from the '+esc(p.title)+' work" loading="lazy"></figure>';}).join('');
+    if(imgs.length)$('c-pages').innerHTML=imgs.map(function(i){return '<a href="media/'+i+'" target="_blank" rel="noopener" aria-label="Open this page full size"><figure data-reveal><img src="media/'+i+'" alt="A page from the '+esc(p.title)+' work" loading="lazy"></figure></a>';}).join('');
     else $('c-pages-sec').hidden=true;
     $('c-learned').textContent=pg.learned||'';$('c-next').textContent=pg.next||'';
     if(PDF[slug]){$('c-pdf').href=PDF[slug];$('c-pdf').hidden=false;}
