@@ -511,5 +511,7 @@ dialog.case[open]{animation:pop .35s var(--ease)}
 
 .case-media.strip{aspect-ratio:auto;background:#000}
 .case-strip{display:flex;gap:8px;overflow-x:auto;scroll-snap-type:x mandatory;padding:8px;scrollbar-width:thin}
-.case-strip img{height:min(56svh,460px);width:auto!important;flex:none;border-radius:10px;scroll-snap-align:start;object-fit:cover}
+.case-strip img,.case-strip video{height:min(56svh,460px);width:auto!important;flex:none;border-radius:10px;scroll-snap-align:start;object-fit:cover;background:#000}
 .case-nums:empty{display:none}
+[hidden]{display:none!important}
+@media (max-width:760px){.case-strip img,.case-strip video{height:auto;width:86%!important;max-height:62svh;object-fit:contain}}
