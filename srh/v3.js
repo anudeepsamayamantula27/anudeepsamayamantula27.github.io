@@ -163,9 +163,9 @@
     { img: 'media/kit/kit-4-gamer.jpg', tag: 'Kit 04 · The gamer', num: '04', title: 'Communities that play together.',
       text: 'In-game leader and event coordinator at TITANS IBS, the esports club at ICFAI Business School. A community is built one match night at a time.',
       nums: [['10+', 'tournaments for 250+ players'], ['1st', 'place, Valorant tournament']] },
-    { img: 'media/kit/kit-5-riser.jpg', tag: 'Kit 05 · The Riser', num: '05', title: 'The one I want to wear.',
-      text: 'Hyderabad-raised and Orange Army through and through. I want to help the Sunrisers keep their fans all year, across all three teams.',
-      nums: [['3', 'teams'], ['1', 'Orange Army']] }
+    { img: 'media/kit/kit-5-riser.jpg', tag: 'Kit 05 · The Riser', num: '05', title: 'Orange Army since I was a kid.',
+      text: 'That’s me at Uppal about 11 years ago, Sunrisers headband on. Hyderabad-raised and Orange Army ever since. Now I want to help the Sunrisers keep their fans all year, across all three teams.',
+      nums: [['11 yrs', 'in the Orange Army'], ['3', 'Sunrisers teams']] }
   ];
   var walk = $('#walkout'), frame = $('#walk-frame'), wcopy = $('#walk-copy'), wbar = $('#walk-bar'), wnum = $('#walk-num'), flash = $('.walk-flash', frame);
   KITS.forEach(function (k, i) {
@@ -226,7 +226,7 @@
     sTrack.appendChild(b);
   });
   $$('.arw').forEach(function (a) { a.addEventListener('click', function () { var t = document.getElementById(a.dataset.track); t.scrollBy({ left: +a.dataset.dir * Math.min(t.clientWidth * .8, 700), behavior: RM ? 'auto' : 'smooth' }); }); });
-  if (window.gsap && !RM) gsap.from('.pcard', { y: 80, opacity: 0, rotate: 4, duration: .9, ease: 'power3.out', stagger: .08, scrollTrigger: { trigger: '#squad-track', start: 'top 85%' } });
+  if (window.gsap && !RM) gsap.from('.pcard', { y: 80, opacity: 0, duration: .9, ease: 'power3.out', stagger: .08, clearProps: 'transform,opacity', scrollTrigger: { trigger: '#squad-track', start: 'top 85%' } });
 
   /* ============================ 3. MILESTONES ============================ */
   var MILES = [['1,000+', 'attendees on the ground', 'HYROX Delhi 2026'], ['Top 5', 'of 93 teams', 'goSTOPS challenge'], ['₹50L', 'jersey launch plan', 'NIVIA × Indian football'], ['55+', 'market research reports', 'TBRC'],
@@ -265,7 +265,8 @@
   }
   setYear('today');
   segBtns.forEach(function (b) { b.addEventListener('click', function () { userPicked = true; setYear(b.dataset.year); }); });
-  io([$('#year')], function () { setTimeout(function () { if (!userPicked) setYear('plan'); }, 1600); }, { threshold: 0.7 });
+  var planBtn = $('.seg button[data-year="plan"]'); planBtn.classList.add('hint');
+  segBtns.forEach(function (b) { b.addEventListener('click', function () { planBtn.classList.remove('hint'); }); });
   io([$('#passport')], function (el) { el.classList.add('in'); }, { threshold: 0.5 });
 
   /* ============================ 5. ORANGE VAULT ============================ */
@@ -358,6 +359,7 @@
 
   /* ============================ 7. GALLERY + LOGOS ============================ */
   var GAL = [
+    ['media/photos/uppal-srh-kid.jpg', 'At Uppal for a Sunrisers game, about 11 years ago', ''],
     ['media/photos/sport-india-2026.jpg', 'Sport India Conference 2026, Vision 2036 panel, Bharat Mandapam', 'wide', '50% 40%'],
     ['media/photos/viren-rasquinha.jpg', 'With Viren Rasquinha, former India hockey captain, at Masters’ Union', ''],
     ['media/photos/hudle-ceo.jpg', 'With Suhail Narain, Founder and CEO of Hudle', ''],
