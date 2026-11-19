@@ -364,13 +364,13 @@
     ['media/photos/pbks-coo.jpg', 'With Saurabh Arora, COO of Punjab Kings', ''],
     ['media/photos/iamgame-guest.jpg', 'With K. Srinivas Rao, Head of Sports Group at Times of India, at I Am Game 2026', '', '50% 12%'],
     ['media/photos/iamgame-awards.jpg', 'Masters’ Union cohort at the EY I Am Game Sports Awards 2026', ''],
-    ['media/photos/conclave-guest.jpg', 'With Manish, VP Commercials & Partnerships at JioStar, at I Am Game 2026', '', '50% 15%'],
+    ['media/photos/conclave-guest.jpg', 'With Manish, VP Commercials & Partnerships at JioBLAST, at I Am Game 2026', '', '50% 15%'],
     ['media/photos/hyrox.jpg', 'HYROX Delhi 2026, with the Masters’ Union team', ''],
     ['media/projects/better-store/stall-pratham.jpg', 'With Pratham Mittal, founder of Masters’ Union, at The Better Store stall', ''],
     ['media/photos/pro-panja.jpg', 'With Parvinn Dabass, owner of the Pro Panja League', ''],
     ['media/photos/smg-auction-team.jpg', 'The SMG Club team after the IPL auction draft, with our guest auctioneer', ''],
     ['media/photos/nivia-jersey.jpg', 'With the India football jersey, NIVIA live challenge', ''],
-    ['media/photos/smg-night.jpg', 'SMG Club night, Masters’ Union', 'wide'],
+    ['media/photos/smg-night.jpg', 'Mentorship dinner with Karndeep Sharma, AVP Marketing at NODWIN Gaming', 'wide'],
     ['media/photos/auction-draft.jpg', 'The IPL auction draft, SMG Club', 'wide']
   ];
   $('#gal-grid').innerHTML = GAL.map(function (g) { return '<figure class="' + g[2] + '" data-reveal><img src="' + g[0] + '" alt="' + esc(g[1]) + '" loading="lazy" style="object-position:' + (g[3] || '50% 20%') + '"><figcaption>' + esc(g[1]) + '</figcaption></figure>'; }).join('');
