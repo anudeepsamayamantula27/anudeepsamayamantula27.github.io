@@ -139,7 +139,7 @@
     var m = $('#case-media'); m.innerHTML = '';
     if (c.video) m.innerHTML = '<video src="' + c.video + '" poster="' + c.poster + '" muted loop playsinline controls ' + (RM ? '' : 'autoplay') + ' aria-label="The IPL auction draft in progress"></video>';
     else if (c.imgs) m.innerHTML = '<div class="case-strip">' + c.imgs.map(function (i) { return /\.mp4$/.test(i) ? '<video src="' + i + '" muted loop playsinline controls preload="metadata"' + (RM ? '' : ' autoplay') + '></video>' : '<img src="' + i + '" alt="" loading="lazy">'; }).join('') + '</div>';
-    else if (c.img) m.innerHTML = '<img src="' + c.img + '" alt="" style="object-position:' + (c.pos || '50% 30%') + '">';
+    else if (c.img) m.innerHTML = '<img class="bg" src="' + c.img + '" alt=""><img class="fg" src="' + c.img + '" alt="">';
     m.hidden = !(c.video || c.img || c.imgs); m.classList.toggle('strip', !!c.imgs);
     var a = $('#case-link'); if (c.link) { a.href = c.link; a.textContent = c.linkText || 'Open the deck'; a.hidden = false; } else a.hidden = true;
     if (lenis) lenis.stop();
@@ -170,7 +170,7 @@
   var walk = $('#walkout'), frame = $('#walk-frame'), wcopy = $('#walk-copy'), wbar = $('#walk-bar'), wnum = $('#walk-num'), flash = $('.walk-flash', frame);
   KITS.forEach(function (k, i) {
     var s = document.createElement('div'); s.className = 'walk-shot'; s.style.zIndex = i + 1;
-    s.innerHTML = '<img src="' + k.img + '" alt="Anudeep in ' + esc(k.tag.split(' · ')[1].replace('The ', 'the ')) + ' kit" loading="' + (i ? 'lazy' : 'eager') + '">';
+    s.innerHTML = '<img class="bg" src="' + k.img + '" alt="" aria-hidden="true"><img class="fg" src="' + k.img + '" alt="Anudeep in ' + esc(k.tag.split(' · ')[1].replace('The ', 'the ')) + ' kit">';
     frame.insertBefore(s, wnum);
     var c = document.createElement('article'); c.className = 'walk-ch';
     c.innerHTML = '<p class="mono">' + esc(k.tag) + '</p><h3>' + esc(k.title) + '</h3><p class="t">' + esc(k.text) + '</p><div class="nums">' + numsHTML(k.nums) + '</div>';
@@ -193,31 +193,32 @@
   } else { walk.classList.add('static'); setKit(KITS.length - 1); chs.forEach(function (c) { c.classList.add('on'); }); }
 
   /* ============================ 2. SQUAD ============================ */
+  var RACKET = '<svg viewBox="0 0 200 220" aria-hidden="true"><g transform="rotate(-30 100 110)"><ellipse cx="100" cy="62" rx="38" ry="52" fill="rgba(255,255,255,.06)" stroke="#f26522" stroke-width="6"/><g stroke="#f3e9df" stroke-width="1.2" opacity=".75"><path d="M76 24V100M88 14V110M100 10V114M112 14V110M124 24V100"/><path d="M64 40H136M62 54H138M62 68H138M64 82H136M70 96H130"/></g><rect x="96" y="114" width="8" height="58" fill="#c9ccd3"/><rect x="92" y="170" width="16" height="44" rx="6" fill="#16171c"/></g><g transform="translate(152 44) rotate(25)"><path d="M0 0 L-14 -32 H14Z" fill="#f3e9df"/><circle cx="0" cy="6" r="8" fill="#f26522"/></g></svg>';
   var BELT = '<svg viewBox="0 0 200 160" aria-hidden="true"><path d="M10 60 Q100 40 190 60 L190 84 Q100 64 10 84Z" fill="#7a1b1b"/><path d="M10 60 Q100 40 190 60" stroke="#a52a2a" stroke-width="3" fill="none"/><path d="M86 52 L114 52 L118 92 L82 92Z" fill="#6a1414"/><path d="M90 88 L66 150 L82 150 L100 96Z" fill="#7a1b1b"/><path d="M110 88 L134 150 L118 150 L100 96Z" fill="#7a1b1b"/><circle cx="100" cy="72" r="10" fill="#f26522"/></svg>';
   var SQUAD = [
-    { num: '01', badge: 'U19', role: 'Player', name: 'Badminton', line: 'National level, under-19, for Telangana', img: 'media/photos/badminton.jpg', pos: '50% 30%',
+    { num: '01', badge: 'U19', role: 'Player', name: 'Badminton', line: 'National level, under-19, for Telangana', art: RACKET, dimg: 'media/kit/kit-1-player.jpg',
       kicker: 'Player · Badminton', title: 'Telangana, on court.', text: 'I represented Telangana in national-level badminton as an under-19, after 3rd place in a District U16 tournament. Still on court whenever I can.', nums: [['U19', 'national level'], ['3rd', 'District U16']], role2: 'What it gave me: I know how match day feels for a player, not only for a fan.' },
     { num: '02', badge: 'Belt', role: 'Fighter', name: 'Kung Fu', line: 'Maroon belt', art: BELT,
       kicker: 'Fighter · Kung Fu', title: 'Maroon belt.', text: 'I hold a maroon belt in Kung Fu. Years of training taught me discipline, and that the work no one sees is what shows up on the day.', nums: [['Maroon', 'belt in Kung Fu']], role2: '' },
-    { num: '03', badge: 'IGL', role: 'In-game leader', name: 'Esports', line: '1st in Valorant, 2nd in Counter-Strike', img: 'media/photos/titans-jersey.jpg', pos: '50% 25%',
+    { num: '03', badge: 'IGL', role: 'In-game leader', name: 'Esports', line: '1st in Valorant, 2nd in Counter-Strike', img: 'media/photos/titans-selfie.jpg', pos: '50% 30%',
       kicker: 'Player · TITANS IBS', title: 'In-game leader.', text: 'I played Valorant and Counter-Strike competitively in 2021–22 as in-game leader with TITANS IBS, and coordinated the club’s tournaments.', nums: [['1st', 'Valorant tournament'], ['2nd', 'Counter-Strike tournament'], ['10+', 'tournaments run']], role2: 'My role: player, in-game leader and event coordinator.' },
-    { num: '04', badge: '2 days', role: 'On-ground', name: 'HYROX Delhi', line: '1,000+ attendees, Masters’ Union team', img: 'media/photos/hyrox.jpg', pos: '50% 30%',
+    { num: '04', badge: '2 days', role: 'On-ground', name: 'HYROX Delhi', line: '1,000+ attendees, Masters’ Union team', img: 'media/projects/hyrox-delhi/course.jpg', pos: '50% 50%',
       kicker: 'Events · HYROX Delhi 2026', title: 'Where the crowd is.', text: 'On-ground execution at HYROX Delhi across two days with the Masters’ Union team, leading volunteer logistics and the attendee experience.', nums: [['1,000+', 'attendees'], ['2', 'days']], role2: 'My role: on-ground execution.', imgs: ['media/projects/hyrox-delhi/hall.jpg', 'media/video/hyrox.mp4', 'media/projects/hyrox-delhi/course.jpg', 'media/projects/hyrox-delhi/finish.jpg', 'media/projects/hyrox-delhi/classof.jpg', 'media/projects/hyrox-delhi/venue.jpg', 'media/projects/hyrox-delhi/letters.jpg'] },
     { num: '05', badge: 'Lot 01', role: 'Auctioneer', name: 'IPL auction', line: '60 students, 10 teams, ₹5K budget', img: 'media/photos/auction-draft.jpg', pos: '50% 50%',
       kicker: 'Events · SMG Club', title: 'I ran an IPL auction.', text: 'An IPL auction draft for the Masters’ Union SMG Club: real player cards, live bidding and franchise strategy for ten student teams.', nums: [['60', 'participants'], ['10', 'teams'], ['₹5K', 'budget']], role2: 'My role: ran it end to end.', video: 'media/video/auction.mp4', poster: 'media/photos/auction-draft.jpg' },
-    { num: '06', badge: '55+', role: 'Analyst', name: 'Research desk', line: '55+ reports, ₹1.9 Cr+ in sales', img: 'media/photos/professional-arms.jpg', pos: '50% 20%',
+    { num: '06', badge: '55+', role: 'Analyst', name: 'Research desk', line: '55+ reports, ₹1.9 Cr+ in sales', img: 'media/photos/blazer-full.jpg', pos: '50% 15%',
       kicker: 'Work · The Business Research Company', title: 'Research that sold.', text: 'Two and a half years as an associate consultant, writing market research reports for global clients, and building a green hydrogen database of 600+ projects.', nums: [['55+', 'reports'], ['₹1.9 Cr+', 'in report sales'], ['₹17L+', 'database sales']], role2: 'My role: researched and wrote the reports; built the database.' },
-    { num: '07', badge: 'Fan', role: 'Orange Army', name: 'Orange Army', line: 'Hyderabad, through and through', img: 'media/photos/srh-jersey.jpg', pos: '50% 20%',
+    { num: '07', badge: 'Fan', role: 'Orange Army', name: 'Orange Army', line: 'Hyderabad, through and through', crest: true, dimg: 'media/photos/srh-jersey.jpg',
       kicker: 'Fan · Hyderabad', title: 'Orange Army, from the stands.', text: 'IPL nights in the stands at Uppal, Hyderabad. The crowd is the part of the game I want to work on: what brings fans back, and what keeps them between seasons.', nums: [['Hyderabad', 'home ground'], ['3', 'Sunrisers teams to follow']], role2: 'Looking for: a fan engagement and brand role across the Sunrisers teams.' }
   ];
   var sTrack = $('#squad-track');
   SQUAD.forEach(function (p) {
     var b = document.createElement('button'); b.type = 'button'; b.className = 'pcard';
     b.setAttribute('aria-label', p.name + ': ' + p.line + '. Read more');
-    b.innerHTML = (p.img ? '<img src="' + p.img + '" alt="" loading="lazy" style="object-position:' + p.pos + '">' : '<div class="pc-art">' + p.art + '</div>') +
+    b.innerHTML = (p.img ? '<img src="' + p.img + '" alt="" loading="lazy" style="object-position:' + p.pos + '">' : p.crest ? '<div class="pc-art crest"><img src="media/logos/srh-logo.webp" alt=""></div>' : '<div class="pc-art">' + p.art + '</div>') +
       '<span class="pc-num" aria-hidden="true">' + p.num + '</span><span class="pc-badge" aria-hidden="true">' + esc(p.badge) + '</span>' +
       '<span class="pc-body"><span class="pc-role">' + esc(p.role) + '</span><span class="pc-name">' + esc(p.name) + '</span><span class="pc-line">' + esc(p.line) + '</span><span class="pc-more">Read more →</span></span>';
-    b.addEventListener('click', function () { openCase({ kicker: p.kicker, title: p.title, text: p.text, nums: p.nums, role: p.role2, img: p.img, imgs: p.imgs, pos: p.pos, video: p.video, poster: p.poster }); });
+    b.addEventListener('click', function () { openCase({ kicker: p.kicker, title: p.title, text: p.text, nums: p.nums, role: p.role2, img: p.dimg || p.img, imgs: p.imgs, pos: p.pos, video: p.video, poster: p.poster }); });
     if (!RM && !MOBILE) {
       b.addEventListener('pointermove', function (e) { var r = b.getBoundingClientRect(), x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height; b.style.setProperty('--ry', ((x - .5) * 14) + 'deg'); b.style.setProperty('--rx', ((.5 - y) * 10) + 'deg'); b.style.setProperty('--gx', x * 100 + '%'); b.style.setProperty('--gy', y * 100 + '%'); });
       b.addEventListener('pointerleave', function () { b.style.setProperty('--ry', '0deg'); b.style.setProperty('--rx', '0deg'); });
@@ -365,7 +366,9 @@
     ['media/photos/iamgame-awards.jpg', 'Masters’ Union cohort at the EY I Am Game Sports Awards 2026', ''],
     ['media/photos/conclave-guest.jpg', 'With Manish, VP Commercials & Partnerships at JioStar, at I Am Game 2026', '', '50% 15%'],
     ['media/photos/hyrox.jpg', 'HYROX Delhi 2026, with the Masters’ Union team', ''],
-    ['media/projects/better-store/stall-selfie.jpg', 'Running The Better Store stall at Masters’ Union', 'wide', '50% 30%'],
+    ['media/projects/better-store/stall-pratham.jpg', 'With Pratham Mittal, founder of Masters’ Union, at The Better Store stall', ''],
+    ['media/photos/pro-panja.jpg', 'With Parvinn Dabass, owner of the Pro Panja League', ''],
+    ['media/photos/smg-auction-team.jpg', 'The SMG Club team after the IPL auction draft, with our guest auctioneer', ''],
     ['media/photos/nivia-jersey.jpg', 'With the India football jersey, NIVIA live challenge', ''],
     ['media/photos/smg-night.jpg', 'SMG Club night, Masters’ Union', 'wide'],
     ['media/photos/auction-draft.jpg', 'The IPL auction draft, SMG Club', 'wide']
@@ -417,5 +420,8 @@
   msgs.addEventListener('click', function (e) { var a = e.target.closest('a'); if (a && a.getAttribute('href') === '#fixtures') toggle(false); });
   addEventListener('scroll', function () { if (scrollY > 600) teaser.classList.add('hide'); }, { passive: true });
 
-  if (window.ScrollTrigger) addEventListener('load', function () { ScrollTrigger.refresh(); });
+  if (window.ScrollTrigger) {
+    addEventListener('load', function () { ScrollTrigger.refresh(); });
+    var rt; $$('img').forEach(function (im) { if (!im.complete) im.addEventListener('load', function () { clearTimeout(rt); rt = setTimeout(function () { ScrollTrigger.refresh(); }, 200); }); });
+  }
 })();

@@ -515,3 +515,54 @@ dialog.case[open]{animation:pop .35s var(--ease)}
 .case-nums:empty{display:none}
 [hidden]{display:none!important}
 @media (max-width:760px){.case-strip img,.case-strip video{height:auto;width:86%!important;max-height:62svh;object-fit:contain}}
+
+/* ===== walk-out v4: whole photo always in frame, everything fits one screen ===== */
+.walk-pin{height:100svh;min-height:0;display:grid;grid-template-rows:auto minmax(0,1fr) auto;gap:clamp(10px,2svh,22px);padding:clamp(76px,11svh,100px) var(--pad) clamp(16px,3svh,32px);justify-content:stretch}
+.walk-head{margin:0}
+.walk-head .eyebrow{margin-bottom:clamp(6px,1.2svh,16px)}
+.walk-head h2{font-size:clamp(32px,min(5.2vw,7.5svh),84px)}
+.walk-stage{min-height:0;height:100%;grid-template-columns:auto minmax(0,1fr);align-items:center}
+.walk-frame{height:100%;max-height:100%;width:auto;max-width:none;aspect-ratio:3/4;justify-self:start}
+.walk-shot img{position:absolute;inset:0;width:100%;height:100%}
+.walk-shot img.bg{object-fit:cover;filter:blur(22px) brightness(.45) saturate(1.2);transform:scale(1.18)}
+.walk-shot img.fg{object-fit:contain}
+.walk-shot::after{background:linear-gradient(180deg,transparent 70%,rgba(10,10,11,.7))}
+.walk-num{font-size:clamp(64px,min(8vw,13svh),140px)}
+.walk-copy{min-height:0;display:grid;align-items:center;position:relative}
+.walk-ch{position:relative;inset:auto;grid-area:1/1}
+.walk-ch .mono{margin-bottom:clamp(6px,1.4svh,14px)}
+.walk-ch h3{font-size:clamp(28px,min(4.4vw,7svh),76px);margin-bottom:clamp(8px,1.6svh,16px)}
+.walk-ch p.t{font-size:clamp(15px,min(1.35vw,2.3svh),20px)}
+.walk .nums{margin-top:clamp(10px,2.2svh,22px)}
+.walk .nums div{padding:clamp(8px,1.4svh,14px) clamp(12px,1.4vw,18px)}
+.walk .nums b{font-size:clamp(24px,min(3vw,5svh),44px)}
+.walk-bar{margin-top:0}
+.walk.static .walk-pin{height:auto}
+.walk.static .walk-stage{grid-template-columns:1fr}
+@media (max-width:760px){
+  .walk-pin{padding-top:72px;grid-template-rows:auto minmax(0,1fr) auto}
+  .walk-stage{grid-template-columns:1fr;grid-template-rows:minmax(0,1fr) auto;gap:14px}
+  .walk-frame{height:100%;max-height:none;width:auto;justify-self:center}
+  .walk-copy{min-height:0}
+  .walk-ch h3{font-size:26px}
+  .walk-ch p.t{font-size:14.5px;line-height:1.45}
+  .walk .nums div{padding:8px 12px}
+  .walk .nums b{font-size:24px}
+  .walk .nums span{font-size:12px}
+}
+
+/* ===== dialog: show the whole photo ===== */
+.case-media:not(.strip){position:relative;aspect-ratio:auto;height:min(58svh,520px);overflow:hidden}
+.case-media:not(.strip) img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:blur(22px) brightness(.45);transform:scale(1.15)}
+.case-media:not(.strip) img.fg{position:relative;width:100%;height:100%;object-fit:contain}
+.case-media:not(.strip) video{object-fit:contain}
+
+/* ===== gallery: masonry, every photo shown whole ===== */
+.gal-grid{display:block;columns:3 300px;column-gap:14px}
+.gal-grid figure{break-inside:avoid;margin:0 0 14px;display:block}
+.gal-grid figure.tall,.gal-grid figure.wide{grid-row:auto;grid-column:auto}
+.gal-grid img{height:auto;width:100%}
+@media (max-width:760px){.gal-grid{columns:2 150px;column-gap:10px}.gal-grid figure{margin-bottom:10px}.gal-grid figcaption{font-size:12px;padding:24px 10px 8px}}
+
+.pc-art.crest{background:radial-gradient(60% 50% at 50% 35%,rgba(255,176,0,.35),transparent 70%),linear-gradient(160deg,#f26522,#a8300f)}
+.pc-art.crest img{width:82%;height:auto;filter:drop-shadow(0 10px 30px rgba(0,0,0,.5))}
