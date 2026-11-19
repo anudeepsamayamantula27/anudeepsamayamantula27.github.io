@@ -572,3 +572,4 @@ dialog.case[open]{animation:pop .35s var(--ease)}
 @keyframes hintpulse{0%,100%{box-shadow:0 0 0 0 rgba(242,101,34,0)}50%{box-shadow:0 0 0 3px rgba(242,101,34,.55)}}
 .pc-line{display:block}.pc-more{display:flex;width:max-content}
 .pcard .pc-art.crest img{position:static;inset:auto;width:78%;height:auto;object-fit:contain;transform:none}.pcard:hover .pc-art.crest img{transform:scale(1.05)}
+.roundel.crest{width:84px;height:84px;padding:8px}.roundel.crest img{width:66px}
