@@ -277,7 +277,7 @@ p{margin:0}
 .table tbody tr{transition:background .2s}
 .table tbody tr:hover{background:rgba(242,101,34,.08)}
 .table tbody tr:last-child th,.table tbody tr:last-child td{border-bottom:0}
-.edu{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;max-width:1280px;margin-top:16px}
+.edu{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;max-width:1280px;margin-top:16px}
 .edu div{padding:20px 22px;border-radius:18px;background:var(--card);border:1px solid var(--line);display:flex;flex-direction:column;gap:6px}
 .edu .mono{color:var(--gold)}
 .edu b{font:400 24px/1.05 var(--disp);text-transform:uppercase}
@@ -623,7 +623,7 @@ dialog.case[open]{animation:pop .35s var(--ease)}
 .lab-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 20px;max-width:1320px;margin:48px 0 18px}
 .lab-head .eyebrow{margin:0}
 .lab-note{color:var(--mut);font-size:15px}
-.lab-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,340px),1fr));gap:16px;max-width:1320px}
+.lab-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,280px),1fr));gap:16px;max-width:1320px}
 .lab-card{position:relative;display:flex;flex-direction:column;gap:10px;padding:26px;border-radius:20px;background:var(--bg2);border:1px dashed rgba(255,176,0,.45);text-decoration:none;transition:border-color .3s,transform .35s var(--ease)}
 a.lab-card:hover{border-color:var(--or);border-style:solid;transform:translateY(-5px)}
 .lab-ic{width:52px;height:52px;border-radius:14px;display:grid;place-items:center;background:rgba(242,101,34,.15);color:var(--or)}
