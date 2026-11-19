@@ -90,7 +90,7 @@
     setTimeout(start, 1500);
   }
   var tk = $('#tk-track');
-  var TICK = [['1,000+ fans', 'HYROX Delhi, on the ground'], ['U19 national', 'badminton, for Telangana'], ['Top 5 of 93', 'goSTOPS challenge'], ['₹2L+ revenue', 'The Better Store, dropshipping'], ['₹50L', 'jersey launch plan with NIVIA'], ['55+ reports', 'The Business Research Company'], ['60 players', 'IPL auction draft I ran'], ['10+ tournaments', 'TITANS IBS esports'], ['3 teams', 'one Orange Army']];
+  var TICK = [['1,000+ fans', 'HYROX Delhi, on the ground'], ['U19 national', 'badminton, for Telangana'], ['Top 5 of 93', 'goSTOPS challenge'], ['₹2L+ revenue', 'The Better Store, dropshipping'], ['₹50L', 'jersey launch plan with NIVIA'], ['55+ reports', 'The Business Research Company'], ['60 players', 'IPL auction draft I ran'], ['10+ tournaments', 'TITANS IBS esports'], ['Vortilix', 'co-founding a startup in the MU Venture Initiation Program'], ['3 teams', 'one Orange Army']];
   var tkHTML = TICK.map(function (t) { return '<span>' + esc(t[0]) + ' <small>' + esc(t[1]) + '</small></span>'; }).join('');
   tk.innerHTML = tkHTML + tkHTML;
   tk.lastElementChild && $$('span', tk).slice(TICK.length).forEach(function (s) { s.setAttribute('aria-hidden', 'true'); });
@@ -209,7 +209,9 @@
     { num: '06', badge: '55+', role: 'Analyst', name: 'Research desk', line: '55+ reports, ₹1.9 Cr+ in sales', img: 'media/photos/blazer-full.jpg', pos: '50% 15%',
       kicker: 'Work · The Business Research Company', title: 'Research that sold.', text: 'Two and a half years as an associate consultant, writing market research reports for global clients, and building a green hydrogen database of 600+ projects.', nums: [['55+', 'reports'], ['₹1.9 Cr+', 'in report sales'], ['₹17L+', 'database sales']], role2: 'My role: researched and wrote the reports; built the database.' },
     { num: '07', badge: 'Fan', role: 'Orange Army', name: 'Orange Army', line: 'Hyderabad, through and through', crest: true, dimg: 'media/photos/srh-jersey.jpg',
-      kicker: 'Fan · Hyderabad', title: 'Orange Army, from the stands.', text: 'IPL nights in the stands at Uppal, Hyderabad. The crowd is the part of the game I want to work on: what brings fans back, and what keeps them between seasons.', nums: [['Hyderabad', 'home ground'], ['3', 'Sunrisers teams to follow']], role2: 'Looking for: a fan engagement and brand role across the Sunrisers teams.' }
+      kicker: 'Fan · Hyderabad', title: 'Orange Army, from the stands.', text: 'IPL nights in the stands at Uppal, Hyderabad. The crowd is the part of the game I want to work on: what brings fans back, and what keeps them between seasons.', nums: [['Hyderabad', 'home ground'], ['3', 'Sunrisers teams to follow']], role2: 'Looking for: a fan engagement and brand role across the Sunrisers teams.' },
+    { num: '08', badge: '₹2L+', role: 'Founder', name: 'Entrepreneur', line: 'A ₹2L+ dropshipping store, and Vortilix', img: 'media/projects/better-store/stall-table.jpg', pos: '50% 20%',
+      kicker: 'Founder · Masters’ Union', title: 'Two businesses from zero.', text: 'The Better Store, a dropshipping store run from a campus stall, made ₹2L+ in revenue. Now I’m co-founding Vortilix, a nutraceutical focus shot, in the Masters’ Union Venture Initiation Program.', nums: [['₹2L+', 'Better Store revenue'], ['3', 'Vortilix co-founders']], role2: 'My role: products, suppliers, pricing and marketing at the store; marketing and go-to-market at Vortilix.', dimg: 'media/projects/better-store/stall-crouch.jpg' },
   ];
   var sTrack = $('#squad-track');
   SQUAD.forEach(function (p) {
@@ -229,7 +231,7 @@
   if (window.gsap && !RM) gsap.from('.pcard', { y: 80, opacity: 0, duration: .9, ease: 'power3.out', stagger: .08, clearProps: 'transform,opacity', scrollTrigger: { trigger: '#squad-track', start: 'top 85%' } });
 
   /* ============================ 3. MILESTONES ============================ */
-  var MILES = [['1,000+', 'attendees on the ground', 'HYROX Delhi 2026'], ['Top 5', 'of 93 teams', 'goSTOPS challenge'], ['₹50L', 'jersey launch plan', 'NIVIA × Indian football'], ['55+', 'market research reports', 'TBRC'],
+  var MILES = [['1,000+', 'attendees on the ground', 'HYROX Delhi 2026'], ['Top 5', 'of 93 teams', 'goSTOPS challenge'], ['₹50L', 'jersey launch plan', 'NIVIA × Indian football'], ['₹2L+', 'dropshipping revenue', 'The Better Store'],
     ['₹1.9 Cr+', 'in report sales', 'TBRC'], ['60', 'players in an IPL auction draft', 'SMG Club'], ['10+', 'esports tournaments run', 'TITANS IBS'], ['U19', 'national-level badminton', 'Telangana']];
   var mg = $('#miles-grid');
   mg.innerHTML = MILES.map(function (m) { return '<div class="mile" data-reveal><b data-count="' + esc(m[0]) + '">' + esc(m[0]) + '</b><span>' + esc(m[1]) + '</span><small>' + esc(m[2]) + '</small></div>'; }).join('');
@@ -272,8 +274,6 @@
   /* ============================ 5. ORANGE VAULT ============================ */
   var WORK = [
     { slug: 'one-orange-army', type: 'Concept', title: 'One Orange Army, three seasons', org: 'A concept for the Sunrisers group', big: '4', res: 'Nights in an SA20 2027 pilot', img: 'media/projects/one-orange-army/thumb.jpg', page: true },
-    { slug: 'better-store', type: 'Dropshipping', title: 'The Better Store: grades in rupees', org: 'Masters’ Union · dropshipping store', big: '₹2L+', res: 'in revenue from a dropshipping store', img: 'media/projects/better-store/stall-crouch.jpg',
-      kicker: 'Dropshipping · Masters’ Union', text: 'A dropshipping store run from a stall on campus, where the stall is the classroom and the grades are in rupees. We sold massage guns, steam irons, humidifiers, gadgets and handmade gifts face to face. When Meta ads started burning too much money, selling through Meesho instead was my idea.', nums: [['₹2L+', 'revenue'], ['Meesho', 'my idea to replace costly Meta ads']], role: 'My role: picked the products, negotiated with suppliers, set the prices, ran the social media marketing and sold to customers at the stall.', imgs: ['media/projects/better-store/stall-crouch.jpg', 'media/projects/better-store/stall-table.jpg', 'media/projects/better-store/stall-customer.jpg', 'media/projects/better-store/stall-pitch.jpg', 'media/projects/better-store/stall-team.jpg'] },
     { slug: 'nivia-india-jersey', type: 'Launch', title: 'Wear the Blue: India’s football jersey', org: 'NIVIA · live industry challenge', big: '₹50L', res: 'launch plan; 30K jerseys in 90 days, base case', img: 'media/projects/nivia-india-jersey/thumb.jpg', page: true },
     { slug: 'gostops-off-season', type: 'Strategy', title: 'Filling hostels in the off-season', org: 'goSTOPS · one-day challenge', big: 'Top 5', res: 'of 93 teams; occupancy 27.5% → 43.8%', img: 'media/projects/gostops-off-season/thumb.jpg', page: true },
     { slug: 'hyrox-delhi', type: 'Event', title: 'HYROX Delhi: 1,000+ people, 2 days', org: 'HYROX Delhi · Masters’ Union', big: '1,000+', res: 'attendees over 2 competition days', img: 'media/projects/hyrox-delhi/hall.jpg',
@@ -287,6 +287,9 @@
     { slug: 'astralis-paradox', type: 'Strategy', title: 'The Astralis Paradox', org: 'Masters’ Union · Term 1', big: 'DKK 5.4M', res: 'annual EBITDA loss diagnosed, with a turnaround', img: 'media/projects/astralis-paradox/thumb.jpg',
       kicker: 'Esports strategy · Masters’ Union', text: 'Why a famous esports team was losing money, and a turnaround built on an asset-light model, D2C membership and an India creator plan.', nums: [['DKK 5.4M', 'annual EBITDA loss diagnosed'], ['Solo', 'project']], role: 'My role: financial diagnosis, turnaround model and India creator go-to-market.' }
   ];
+  var STORE = { slug: 'better-store', type: 'Dropshipping', title: 'The Better Store: grades in rupees', org: 'Masters’ Union · dropshipping store', big: '₹2L+', res: 'in revenue from a dropshipping store', img: 'media/projects/better-store/stall-crouch.jpg',
+      kicker: 'Dropshipping · Masters’ Union', text: 'A dropshipping store run from a stall on campus, where the stall is the classroom and the grades are in rupees. We sold massage guns, steam irons, humidifiers, gadgets and handmade gifts face to face. When Meta ads started burning too much money, selling through Meesho instead was my idea.', nums: [['₹2L+', 'revenue'], ['Meesho', 'my idea to replace costly Meta ads']], role: 'My role: picked the products, negotiated with suppliers, set the prices, ran the social media marketing and sold to customers at the stall.', imgs: ['media/projects/better-store/stall-crouch.jpg', 'media/projects/better-store/stall-table.jpg', 'media/projects/better-store/stall-customer.jpg', 'media/projects/better-store/stall-pitch.jpg', 'media/projects/better-store/stall-team.jpg'] };
+  $$('[data-open="store"]').forEach(function (b) { b.addEventListener('click', function () { openCase(STORE); }); });
   var vTrack = $('#vault-track');
   WORK.forEach(function (w) {
     var el = document.createElement(w.page ? 'a' : 'button');
