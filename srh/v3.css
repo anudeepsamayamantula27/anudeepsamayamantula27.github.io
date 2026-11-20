@@ -760,3 +760,12 @@ html.walk-hold,html.walk-hold body{overflow:hidden}
   .scene{height:auto}
   .scene-in{position:relative;inset:auto;width:1040px;aspect-ratio:16/8.2}
 }
+
+/* ===== performance ===== */
+.anim-off *,.anim-off *::before,.anim-off *::after{animation-play-state:paused!important}
+.hd{backdrop-filter:none!important;-webkit-backdrop-filter:none!important;background:rgba(10,10,11,.95)!important}
+.mile{backdrop-filter:none!important;-webkit-backdrop-filter:none!important;background:rgba(18,18,20,.94)}
+@keyframes blink{50%{opacity:.3}}
+.live,.tk-live i{animation:blink 1.4s ease-in-out infinite!important;box-shadow:none!important}
+img.bg.pre{filter:none!important;transform:scale(1.08)!important}
+section.anim-off *,section.anim-off *::before,section.anim-off *::after{animation-play-state:paused!important}

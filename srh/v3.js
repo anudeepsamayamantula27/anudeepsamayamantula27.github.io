@@ -164,28 +164,36 @@
   dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });
   dlg.addEventListener('close', function () { var v = dlg.querySelector('video'); if (v) v.pause(); if (lenis) lenis.start(); });
 
+  // tiny pre-blurred copies (media/blur) stand in for live CSS blur, which is costly to repaint while scrolling
+  var blurOf = function (src) { return 'media/blur/' + src.replace('media/', '').replace(/\//g, '_').replace(/\.[a-z]+$/, '.jpg'); };
+  /* pause looping animations in sections that are off screen, so scrolling stays light */
+  if ('IntersectionObserver' in window) {
+    var po = new IntersectionObserver(function (es) { es.forEach(function (e) { e.target.classList.toggle('anim-off', !e.isIntersecting); }); }, { rootMargin: '120px 0px' });
+    $$('main section').forEach(function (sec) { po.observe(sec); });
+  }
+
   /* ============================ 1. WALK-OUT (kit change) ============================ */
   var KITS = [
-    { img: 'media/kit/kit-1-player.jpg', tag: 'Kit 01 · The player', num: '01', title: 'A player first.',
+    { img: 'media/kit/kit-1-player.webp', tag: 'Kit 01 · The player', num: '01', title: 'A player first.',
       text: 'I represented Telangana in national-level badminton as an under-19, and I hold a maroon belt in Kung Fu. I know match day from the court, not only from the stands.',
       nums: [['U19', 'national level, for Telangana'], ['Maroon', 'belt in Kung Fu']] },
-    { img: 'media/kit/kit-2-professional.jpg', tag: 'Kit 02 · The researcher', num: '02', title: 'The research desk.',
+    { img: 'media/kit/kit-2-professional.webp', tag: 'Kit 02 · The researcher', num: '02', title: 'The research desk.',
       text: 'Two and a half years at The Business Research Company, writing market research reports that clients paid for. It taught me to find the number that matters.',
       nums: [['55+', 'market research reports'], ['₹1.9 Cr+', 'in report sales']] },
-    { img: 'media/kit/kit-3-organiser.jpg', tag: 'Kit 03 · The organiser', num: '03', title: 'On the ground, with the crowd.',
+    { img: 'media/kit/kit-3-organiser.webp', tag: 'Kit 03 · The organiser', num: '03', title: 'On the ground, with the crowd.',
       text: 'On-ground execution at HYROX Delhi with the Masters’ Union team, and an IPL auction draft I ran for the SMG Club.',
       nums: [['1,000+', 'attendees at HYROX Delhi'], ['60', 'players in the auction draft']] },
-    { img: 'media/kit/kit-4-gamer.jpg', tag: 'Kit 04 · The gamer', num: '04', title: 'Communities that play together.',
+    { img: 'media/kit/kit-4-gamer.webp', tag: 'Kit 04 · The gamer', num: '04', title: 'Communities that play together.',
       text: 'In-game leader and event coordinator at TITANS IBS, the esports club at ICFAI Business School. A community is built one match night at a time.',
       nums: [['10+', 'tournaments for 250+ players'], ['1st', 'place, Valorant tournament']] },
-    { img: 'media/kit/kit-5-riser.jpg', tag: 'Kit 05 · The Riser', num: '05', title: 'Orange Army since I was a kid.',
+    { img: 'media/kit/kit-5-riser.webp', tag: 'Kit 05 · The Riser', num: '05', title: 'Orange Army since I was a kid.',
       text: 'That’s me at Uppal about 11 years ago, Sunrisers headband on. Hyderabad-raised and Orange Army ever since. Now I want to help the Sunrisers keep their fans all year, across all three teams.',
       nums: [['11 yrs', 'in the Orange Army'], ['3', 'Sunrisers teams']] }
   ];
   var walk = $('#walkout'), frame = $('#walk-frame'), wcopy = $('#walk-copy'), wbar = $('#walk-bar'), wnum = $('#walk-num'), flash = $('.walk-flash', frame);
   KITS.forEach(function (k, i) {
     var s = document.createElement('div'); s.className = 'walk-shot'; s.style.zIndex = i + 1;
-    s.innerHTML = '<img class="bg" src="' + k.img + '" alt="" aria-hidden="true"><img class="fg" src="' + k.img + '" alt="Anudeep in ' + esc(k.tag.split(' · ')[1].replace('The ', 'the ')) + ' kit">';
+    s.innerHTML = '<img class="bg pre" src="' + blurOf(k.img) + '" alt="" aria-hidden="true"><img class="fg" src="' + k.img + '" alt="Anudeep in ' + esc(k.tag.split(' · ')[1].replace('The ', 'the ')) + ' kit">';
     frame.insertBefore(s, wnum);
     var c = document.createElement('article'); c.className = 'walk-ch';
     c.innerHTML = '<p class="mono">' + esc(k.tag) + '</p><h3>' + esc(k.title) + '</h3><p class="t">' + esc(k.text) + '</p><div class="nums">' + numsHTML(k.nums) + '</div>';
@@ -258,22 +266,22 @@
   var RACKET = '<svg viewBox="0 0 200 220" aria-hidden="true"><g transform="rotate(-30 100 110)"><ellipse cx="100" cy="62" rx="38" ry="52" fill="rgba(255,255,255,.06)" stroke="#f26522" stroke-width="6"/><g stroke="#f3e9df" stroke-width="1.2" opacity=".75"><path d="M76 24V100M88 14V110M100 10V114M112 14V110M124 24V100"/><path d="M64 40H136M62 54H138M62 68H138M64 82H136M70 96H130"/></g><rect x="96" y="114" width="8" height="58" fill="#c9ccd3"/><rect x="92" y="170" width="16" height="44" rx="6" fill="#16171c"/></g><g transform="translate(152 44) rotate(25)"><path d="M0 0 L-14 -32 H14Z" fill="#f3e9df"/><circle cx="0" cy="6" r="8" fill="#f26522"/></g></svg>';
   var BELT = '<svg viewBox="0 0 200 160" aria-hidden="true"><path d="M10 60 Q100 40 190 60 L190 84 Q100 64 10 84Z" fill="#7a1b1b"/><path d="M10 60 Q100 40 190 60" stroke="#a52a2a" stroke-width="3" fill="none"/><path d="M86 52 L114 52 L118 92 L82 92Z" fill="#6a1414"/><path d="M90 88 L66 150 L82 150 L100 96Z" fill="#7a1b1b"/><path d="M110 88 L134 150 L118 150 L100 96Z" fill="#7a1b1b"/><circle cx="100" cy="72" r="10" fill="#f26522"/></svg>';
   var SQUAD = [
-    { num: '01', badge: 'U19', role: 'Player', name: 'Badminton', line: 'National level, under-19, for Telangana', art: RACKET, dimg: 'media/kit/kit-1-player.jpg',
+    { num: '01', badge: 'U19', role: 'Player', name: 'Badminton', line: 'National level, under-19, for Telangana', art: RACKET, dimg: 'media/kit/kit-1-player.webp',
       kicker: 'Player · Badminton', title: 'Telangana, on court.', text: 'I represented Telangana in national-level badminton as an under-19, after 3rd place in a District U16 tournament. Still on court whenever I can.', nums: [['U19', 'national level'], ['3rd', 'District U16']], role2: 'What it gave me: I know how match day feels for a player, not only for a fan.' },
     { num: '02', badge: 'Belt', role: 'Fighter', name: 'Kung Fu', line: 'Maroon belt', art: BELT,
       kicker: 'Fighter · Kung Fu', title: 'Maroon belt.', text: 'I hold a maroon belt in Kung Fu. Years of training taught me discipline, and that the work no one sees is what shows up on the day.', nums: [['Maroon', 'belt in Kung Fu']], role2: '' },
-    { num: '03', badge: 'IGL', role: 'In-game leader', name: 'Esports', line: '1st in Valorant, 2nd in Counter-Strike', img: 'media/photos/titans-selfie.jpg', pos: '50% 30%',
+    { num: '03', badge: 'IGL', role: 'In-game leader', name: 'Esports', line: '1st in Valorant, 2nd in Counter-Strike', img: 'media/photos/titans-selfie.webp', pos: '50% 30%',
       kicker: 'Player · TITANS IBS', title: 'In-game leader.', text: 'I played Valorant and Counter-Strike competitively in 2021–22 as in-game leader with TITANS IBS, and coordinated the club’s tournaments.', nums: [['1st', 'Valorant tournament'], ['2nd', 'Counter-Strike tournament'], ['10+', 'tournaments run']], role2: 'My role: player, in-game leader and event coordinator.' },
-    { num: '04', badge: '3 days', role: 'On-ground', name: 'HYROX Delhi', line: '1,000+ attendees, Masters’ Union team', img: 'media/projects/hyrox-delhi/course.jpg', pos: '50% 50%',
-      kicker: 'Events · HYROX Delhi 2026', title: 'Where the crowd is.', text: 'On-ground execution at HYROX Delhi across three days with the Masters’ Union team, leading volunteer logistics and the attendee experience.', nums: [['1,000+', 'attendees'], ['3', 'days']], role2: 'My role: on-ground execution.', imgs: ['media/projects/hyrox-delhi/hall.jpg', 'media/video/hyrox.mp4', 'media/projects/hyrox-delhi/course.jpg', 'media/projects/hyrox-delhi/finish.jpg', 'media/projects/hyrox-delhi/classof.jpg', 'media/projects/hyrox-delhi/venue.jpg', 'media/projects/hyrox-delhi/letters.jpg'] },
-    { num: '05', badge: 'Lot 01', role: 'Auctioneer', name: 'IPL auction', line: '60 students, 10 teams, ₹5K budget', img: 'media/photos/auction-draft.jpg', pos: '50% 50%',
-      kicker: 'Events · SMG Club', title: 'I ran an IPL auction.', text: 'An IPL auction draft for the Masters’ Union SMG Club: real player cards, live bidding and franchise strategy for ten student teams.', nums: [['60', 'participants'], ['10', 'teams'], ['₹5K', 'budget']], role2: 'My role: ran it end to end.', video: 'media/video/auction.mp4', poster: 'media/photos/auction-draft.jpg' },
-    { num: '06', badge: '55+', role: 'Analyst', name: 'Research desk', line: '55+ reports, ₹1.9 Cr+ in sales', img: 'media/photos/blazer-full.jpg', pos: '50% 15%',
+    { num: '04', badge: '3 days', role: 'On-ground', name: 'HYROX Delhi', line: '1,000+ attendees, Masters’ Union team', img: 'media/projects/hyrox-delhi/course.webp', pos: '50% 50%',
+      kicker: 'Events · HYROX Delhi 2026', title: 'Where the crowd is.', text: 'On-ground execution at HYROX Delhi across three days with the Masters’ Union team, leading volunteer logistics and the attendee experience.', nums: [['1,000+', 'attendees'], ['3', 'days']], role2: 'My role: on-ground execution.', imgs: ['media/projects/hyrox-delhi/hall.webp', 'media/video/hyrox.mp4', 'media/projects/hyrox-delhi/course.webp', 'media/projects/hyrox-delhi/finish.webp', 'media/projects/hyrox-delhi/classof.webp', 'media/projects/hyrox-delhi/venue.webp', 'media/projects/hyrox-delhi/letters.webp'] },
+    { num: '05', badge: 'Lot 01', role: 'Auctioneer', name: 'IPL auction', line: '60 students, 10 teams, ₹5K budget', img: 'media/photos/auction-draft.webp', pos: '50% 50%',
+      kicker: 'Events · SMG Club', title: 'I ran an IPL auction.', text: 'An IPL auction draft for the Masters’ Union SMG Club: real player cards, live bidding and franchise strategy for ten student teams.', nums: [['60', 'participants'], ['10', 'teams'], ['₹5K', 'budget']], role2: 'My role: ran it end to end.', video: 'media/video/auction.mp4', poster: 'media/photos/auction-draft.webp' },
+    { num: '06', badge: '55+', role: 'Analyst', name: 'Research desk', line: '55+ reports, ₹1.9 Cr+ in sales', img: 'media/photos/blazer-full.webp', pos: '50% 15%',
       kicker: 'Work · The Business Research Company', title: 'Research that sold.', text: 'Two and a half years as an associate consultant, writing market research reports for global clients, and building a green hydrogen database of 600+ projects.', nums: [['55+', 'reports'], ['₹1.9 Cr+', 'in report sales'], ['₹17L+', 'database sales']], role2: 'My role: researched and wrote the reports; built the database.' },
-    { num: '07', badge: 'Fan', role: 'Orange Army', name: 'Orange Army', line: 'Hyderabad, through and through', crest: true, dimg: 'media/photos/srh-jersey.jpg',
+    { num: '07', badge: 'Fan', role: 'Orange Army', name: 'Orange Army', line: 'Hyderabad, through and through', crest: true, dimg: 'media/photos/srh-jersey.webp',
       kicker: 'Fan · Hyderabad', title: 'Orange Army, from the stands.', text: 'IPL nights in the stands at Uppal, Hyderabad. The crowd is the part of the game I want to work on: what brings fans back, and what keeps them between seasons.', nums: [['Hyderabad', 'home ground'], ['3', 'Sunrisers teams to follow']], role2: 'Looking for: a fan engagement and brand role across the Sunrisers teams.' },
-    { num: '08', badge: '₹2L+', role: 'Founder', name: 'Entrepreneur', line: 'A ₹2L+ dropshipping store, and Vortilix', img: 'media/projects/better-store/stall-table.jpg', pos: '50% 20%',
-      kicker: 'Founder · Masters’ Union', title: 'Two businesses from zero.', text: 'The Better Store, a dropshipping store run from a campus stall, made ₹2L+ in revenue. Now I’m co-founding Vortilix, a nutraceutical focus shot, in the Masters’ Union Venture Initiation Program.', nums: [['₹2L+', 'Better Store revenue'], ['3', 'Vortilix co-founders']], role2: 'My role: products, suppliers, pricing and marketing at the store; marketing and go-to-market at Vortilix.', dimg: 'media/projects/better-store/stall-crouch.jpg' },
+    { num: '08', badge: '₹2L+', role: 'Founder', name: 'Entrepreneur', line: 'A ₹2L+ dropshipping store, and Vortilix', img: 'media/projects/better-store/stall-table.webp', pos: '50% 20%',
+      kicker: 'Founder · Masters’ Union', title: 'Two businesses from zero.', text: 'The Better Store, a dropshipping store run from a campus stall, made ₹2L+ in revenue. Now I’m co-founding Vortilix, a nutraceutical focus shot, in the Masters’ Union Venture Initiation Program.', nums: [['₹2L+', 'Better Store revenue'], ['3', 'Vortilix co-founders']], role2: 'My role: products, suppliers, pricing and marketing at the store; marketing and go-to-market at Vortilix.', dimg: 'media/projects/better-store/stall-crouch.webp' },
   ];
   var sTrack = $('#squad-track');
   SQUAD.forEach(function (p) {
@@ -335,27 +343,27 @@
 
   /* ============================ 5. ORANGE VAULT ============================ */
   var WORK = [
-    { slug: 'one-orange-army', type: 'Concept', title: 'One Orange Army, three seasons', org: 'A concept for the Sunrisers group', big: '4', res: 'Nights in an SA20 2027 pilot', img: 'media/projects/one-orange-army/thumb.jpg', page: true },
-    { slug: 'nivia-india-jersey', fit: true, type: 'Launch', title: 'Wear the Blue: India’s football jersey', org: 'NIVIA · live industry challenge', big: '₹50L', res: 'launch plan; 30K jerseys in 90 days, base case', img: 'media/projects/nivia-india-jersey/thumb.jpg', page: true },
-    { slug: 'gostops-off-season', fit: true, type: 'Strategy', title: 'Filling hostels in the off-season', org: 'goSTOPS · one-day challenge', big: 'Top 5', res: 'of 93 teams; occupancy 27.5% → 43.8%', img: 'media/projects/gostops-off-season/thumb.jpg', page: true },
-    { slug: 'hyrox-delhi', type: 'Event', title: 'HYROX Delhi: 1,000+ people, 3 days', org: 'HYROX Delhi · Masters’ Union', big: '1,000+', res: 'attendees over 3 days', img: 'media/projects/hyrox-delhi/hall.jpg',
-      kicker: 'Events · HYROX Delhi 2026', text: 'On-ground execution at HYROX Delhi with the Masters’ Union team, leading volunteer logistics and the attendee experience.', nums: [['1,000+', 'attendees'], ['3', 'days on the ground']], role: 'My role: on-ground team.', imgs: ['media/projects/hyrox-delhi/hall.jpg', 'media/video/hyrox.mp4', 'media/projects/hyrox-delhi/course.jpg', 'media/projects/hyrox-delhi/finish.jpg', 'media/projects/hyrox-delhi/classof.jpg', 'media/projects/hyrox-delhi/venue.jpg', 'media/projects/hyrox-delhi/letters.jpg'] },
-    { slug: 'titans-esports', type: 'Community', title: 'TITANS IBS: match nights that grew', org: 'TITANS IBS · ICFAI Business School', big: '4x', res: 'registrations, from 9 to 40', img: 'media/projects/titans-esports/thumb.jpg',
+    { slug: 'one-orange-army', type: 'Concept', title: 'One Orange Army, three seasons', org: 'A concept for the Sunrisers group', big: '4', res: 'Nights in an SA20 2027 pilot', img: 'media/projects/one-orange-army/thumb.webp', page: true },
+    { slug: 'nivia-india-jersey', fit: true, type: 'Launch', title: 'Wear the Blue: India’s football jersey', org: 'NIVIA · live industry challenge', big: '₹50L', res: 'launch plan; 30K jerseys in 90 days, base case', img: 'media/projects/nivia-india-jersey/thumb.webp', page: true },
+    { slug: 'gostops-off-season', fit: true, type: 'Strategy', title: 'Filling hostels in the off-season', org: 'goSTOPS · one-day challenge', big: 'Top 5', res: 'of 93 teams; occupancy 27.5% → 43.8%', img: 'media/projects/gostops-off-season/thumb.webp', page: true },
+    { slug: 'hyrox-delhi', type: 'Event', title: 'HYROX Delhi: 1,000+ people, 3 days', org: 'HYROX Delhi · Masters’ Union', big: '1,000+', res: 'attendees over 3 days', img: 'media/projects/hyrox-delhi/hall.webp',
+      kicker: 'Events · HYROX Delhi 2026', text: 'On-ground execution at HYROX Delhi with the Masters’ Union team, leading volunteer logistics and the attendee experience.', nums: [['1,000+', 'attendees'], ['3', 'days on the ground']], role: 'My role: on-ground team.', imgs: ['media/projects/hyrox-delhi/hall.webp', 'media/video/hyrox.mp4', 'media/projects/hyrox-delhi/course.webp', 'media/projects/hyrox-delhi/finish.webp', 'media/projects/hyrox-delhi/classof.webp', 'media/projects/hyrox-delhi/venue.webp', 'media/projects/hyrox-delhi/letters.webp'] },
+    { slug: 'titans-esports', type: 'Community', title: 'TITANS IBS: match nights that grew', org: 'TITANS IBS · ICFAI Business School', big: '4x', res: 'registrations, from 9 to 40', img: 'media/projects/titans-esports/thumb.webp',
       kicker: 'Community · TITANS IBS', text: 'Ran the college esports club’s tournaments and led its Valorant team. Moving promotion from social feeds to college dashboards grew registrations about four times.', nums: [['10+', 'tournaments'], ['250+', 'participants'], ['9 → 40', 'registrations']], role: 'My role: event coordinator and in-game leader.' },
-    { slug: 'pepperfry-shopper', fit: true, type: 'Research', title: 'Pepperfry: beyond the showroom', org: 'Masters’ Union · Consumer Behaviour', big: '#6', res: 'of 19 brands, with fixes to lift the score to 77.5', img: 'media/projects/pepperfry-shopper/thumb.jpg',
+    { slug: 'pepperfry-shopper', fit: true, type: 'Research', title: 'Pepperfry: beyond the showroom', org: 'Masters’ Union · Consumer Behaviour', big: '#6', res: 'of 19 brands, with fixes to lift the score to 77.5', img: 'media/projects/pepperfry-shopper/thumb.webp',
       kicker: 'Consumer research · Pepperfry', text: 'A Furniture Experience Index across 19 brands and 7 touchpoints, built from 19 NCR store visits and 30 customer interviews. Pepperfry ranked #6 of 19 (73.0 against a 66.5 average).', nums: [['19', 'stores visited'], ['30', 'customer interviews'], ['#6 of 19', 'Pepperfry’s rank']], role: 'My role: ran the mystery shopping and interviews and built the index scoring (team project).', link: 'media/docs/pepperfry-odc.pdf' },
-    { slug: 'astralis-paradox', fit: true, type: 'Strategy', title: 'The Astralis Paradox', org: 'Masters’ Union · Term 1', big: 'DKK 5.4M', res: 'annual EBITDA loss diagnosed, with a turnaround', img: 'media/projects/astralis-paradox/thumb.jpg',
+    { slug: 'astralis-paradox', fit: true, type: 'Strategy', title: 'The Astralis Paradox', org: 'Masters’ Union · Term 1', big: 'DKK 5.4M', res: 'annual EBITDA loss diagnosed, with a turnaround', img: 'media/projects/astralis-paradox/thumb.webp',
       kicker: 'Esports strategy · Masters’ Union', text: 'Why a famous esports team was losing money, and a turnaround built on an asset-light model, D2C membership and an India creator plan.', nums: [['DKK 5.4M', 'annual EBITDA loss diagnosed'], ['Solo', 'project']], role: 'My role: financial diagnosis, turnaround model and India creator go-to-market.' }
   ];
-  var STORE = { slug: 'better-store', type: 'Dropshipping', title: 'The Better Store: grades in rupees', org: 'Masters’ Union · dropshipping store', big: '₹2L+', res: 'in revenue from a dropshipping store', img: 'media/projects/better-store/stall-crouch.jpg',
-      kicker: 'Dropshipping · Masters’ Union', text: 'A dropshipping store run from a stall on campus, where the stall is the classroom and the grades are in rupees. We sold massage guns, steam irons, humidifiers, gadgets and handmade gifts face to face. When Meta ads started burning too much money, selling through Meesho instead was my idea.', nums: [['₹2L+', 'revenue'], ['Meesho', 'my idea to replace costly Meta ads']], role: 'My role: picked the products, negotiated with suppliers, set the prices, ran the social media marketing and sold to customers at the stall.', imgs: ['media/projects/better-store/stall-crouch.jpg', 'media/projects/better-store/stall-table.jpg', 'media/projects/better-store/stall-customer.jpg', 'media/projects/better-store/stall-pitch.jpg', 'media/projects/better-store/stall-team.jpg'] };
+  var STORE = { slug: 'better-store', type: 'Dropshipping', title: 'The Better Store: grades in rupees', org: 'Masters’ Union · dropshipping store', big: '₹2L+', res: 'in revenue from a dropshipping store', img: 'media/projects/better-store/stall-crouch.webp',
+      kicker: 'Dropshipping · Masters’ Union', text: 'A dropshipping store run from a stall on campus, where the stall is the classroom and the grades are in rupees. We sold massage guns, steam irons, humidifiers, gadgets and handmade gifts face to face. When Meta ads started burning too much money, selling through Meesho instead was my idea.', nums: [['₹2L+', 'revenue'], ['Meesho', 'my idea to replace costly Meta ads']], role: 'My role: picked the products, negotiated with suppliers, set the prices, ran the social media marketing and sold to customers at the stall.', imgs: ['media/projects/better-store/stall-crouch.webp', 'media/projects/better-store/stall-table.webp', 'media/projects/better-store/stall-customer.webp', 'media/projects/better-store/stall-pitch.webp', 'media/projects/better-store/stall-team.webp'] };
   $$('[data-open="store"]').forEach(function (b) { b.addEventListener('click', function () { openCase(STORE); }); });
   var vTrack = $('#vault-track');
   WORK.forEach(function (w) {
     var el = document.createElement(w.page ? 'a' : 'button');
     el.className = 'news';
     if (w.page) el.href = 'case.html?p=' + w.slug; else { el.type = 'button'; el.addEventListener('click', function () { openCase({ kicker: w.kicker, title: w.title, text: w.text, nums: w.nums, role: w.role, img: w.img, imgs: w.imgs, video: w.video, poster: w.poster, link: w.link }); }); }
-    el.innerHTML = '<div class="news-img"><img class="bg" src="' + w.img + '" alt="" loading="lazy" aria-hidden="true"><img class="fg' + (w.fit ? ' fit' : '') + '" src="' + w.img + '" alt="" loading="lazy"><span class="news-type">' + esc(w.type) + '</span></div>' +
+    el.innerHTML = '<div class="news-img"><img class="bg pre" src="' + blurOf(w.img) + '" alt="" loading="lazy" aria-hidden="true"><img class="fg' + (w.fit ? ' fit' : '') + '" src="' + w.img + '" alt="" loading="lazy"><span class="news-type">' + esc(w.type) + '</span></div>' +
       '<div class="news-body"><span class="news-org">' + esc(w.org) + '</span><h3>' + esc(w.title) + '</h3><div class="news-res"><b>' + esc(w.big) + '</b><span>' + esc(w.res) + '</span></div><span class="news-more">' + (w.page ? 'Read the case →' : 'Read more →') + '</span></div>';
     vTrack.appendChild(el);
   });
@@ -380,26 +388,26 @@
   };
   var ROOM = [
     { obj: 'hanging', left: 5, top: 3, w: 11, label: 'About me', kicker: 'About', title: 'Anudeep Gupta.',
-      text: 'Hyderabad-raised Orange Army fan and founding-cohort student of Sports Management & Gaming at Masters’ Union. I speak English, Telugu and Hindi, with some Tamil.', nums: [['1 of 8', 'SMG Club core committee'], ['4', 'languages']], role: 'Open to a full-time role, starting now.', link: 'media/resume.pdf', linkText: 'Open my resume', img: 'media/photos/srh-jersey.jpg' },
+      text: 'Hyderabad-raised Orange Army fan and founding-cohort student of Sports Management & Gaming at Masters’ Union. I speak English, Telugu and Hindi, with some Tamil.', nums: [['1 of 8', 'SMG Club core committee'], ['4', 'languages']], role: 'Open to a full-time role, starting now.', link: 'media/resume.pdf', linkText: 'Open my resume', img: 'media/photos/srh-jersey.webp' },
     { obj: 'flag', left: 21, top: 6, w: 9, label: 'One Orange Army', title: 'One Orange Army, three seasons', page: 'one-orange-army' },
-    { obj: 'tv', left: 38, top: 3, w: 24, label: 'IPL auction draft', kicker: 'Events · SMG Club', title: 'I ran an IPL auction for 60 students.', text: 'Real player cards, live bidding and franchise strategy for ten teams at the Masters’ Union SMG Club, on a ₹5K budget.', nums: [['60', 'participants'], ['10', 'teams'], ['₹5K', 'budget']], role: 'My role: ran it end to end.', video: 'media/video/auction.mp4', poster: 'media/photos/auction-draft.jpg' },
+    { obj: 'tv', left: 38, top: 3, w: 24, label: 'IPL auction draft', kicker: 'Events · SMG Club', title: 'I ran an IPL auction for 60 students.', text: 'Real player cards, live bidding and franchise strategy for ten teams at the Masters’ Union SMG Club, on a ₹5K budget.', nums: [['60', 'participants'], ['10', 'teams'], ['₹5K', 'budget']], role: 'My role: ran it end to end.', video: 'media/video/auction.mp4', poster: 'media/photos/auction-draft.webp' },
     { obj: 'board', left: 69, top: 8, w: 14, label: 'Astralis', kicker: 'Esports strategy · Masters’ Union, Term 1', title: 'Rebuilding an esports empire.',
       text: 'A strategic analysis of Astralis: why a famous esports team was losing money, and a turnaround built on an asset-light model, D2C membership and an India creator plan.', nums: [['DKK 5.4M', 'annual EBITDA loss diagnosed'], ['Solo', 'project']], role: 'My role: financial diagnosis, turnaround model and India creator go-to-market.' },
     { obj: 'laptop', left: 2, bottom: 30, w: 13, label: 'Market research', kicker: 'Work · The Business Research Company', title: 'Research that sold.',
       text: 'Two and a half years as an associate consultant, writing market research reports for global clients.', nums: [['55+', 'reports'], ['₹1.9 Cr+', 'in report sales'], ['₹17L+', 'green hydrogen database sales']], role: 'My role: researched and wrote the reports; built the database.' },
     { obj: 'notebook', left: 16.5, bottom: 30, w: 9.5, label: 'goSTOPS', title: 'Filling hostels in the off-season', page: 'gostops-off-season' },
     { obj: 'kettlebell', left: 27.5, bottom: 30, w: 5.5, label: 'HYROX Delhi', kicker: 'Events · HYROX Delhi 2026', title: 'Where the crowd is.',
-      text: 'On-ground execution at HYROX Delhi across three days with the Masters’ Union team, leading volunteer logistics and the attendee experience.', nums: [['1,000+', 'attendees'], ['3', 'days']], role: 'My role: on-ground execution.', imgs: ['media/projects/hyrox-delhi/hall.jpg', 'media/video/hyrox.mp4', 'media/projects/hyrox-delhi/course.jpg', 'media/projects/hyrox-delhi/finish.jpg', 'media/projects/hyrox-delhi/classof.jpg', 'media/projects/hyrox-delhi/venue.jpg', 'media/projects/hyrox-delhi/letters.jpg'] },
+      text: 'On-ground execution at HYROX Delhi across three days with the Masters’ Union team, leading volunteer logistics and the attendee experience.', nums: [['1,000+', 'attendees'], ['3', 'days']], role: 'My role: on-ground execution.', imgs: ['media/projects/hyrox-delhi/hall.webp', 'media/video/hyrox.mp4', 'media/projects/hyrox-delhi/course.webp', 'media/projects/hyrox-delhi/finish.webp', 'media/projects/hyrox-delhi/classof.webp', 'media/projects/hyrox-delhi/venue.webp', 'media/projects/hyrox-delhi/letters.webp'] },
     { obj: 'jersey', left: 35, bottom: 30, w: 11.5, label: 'NIVIA launch', title: 'Launching the India jersey', page: 'nivia-india-jersey' },
     { obj: 'bag', left: 48, bottom: 30, w: 7, label: 'The Better Store', store: true },
     { obj: 'clipboard', left: 57, bottom: 30, w: 6, label: 'Pepperfry', kicker: 'Consumer behaviour · Pepperfry', title: 'Scouting the shopper.',
       text: 'A Furniture Experience Index across 19 brands and 7 touchpoints, from 19 store visits and 30 customer interviews. Pepperfry ranked #6 of 19.', nums: [['19', 'stores visited'], ['30', 'interviews'], ['73.0', 'Pepperfry score vs 66.5 average']], role: 'My role: ran the mystery shopping and customer interviews, and built the index scoring (team project).', link: 'media/docs/pepperfry-odc.pdf' },
     { obj: 'trophy', left: 64.5, bottom: 30, w: 5, label: 'Esports', kicker: 'Player · Valorant and Counter-Strike', title: 'In-game leader.',
-      text: 'I played Valorant and Counter-Strike competitively in 2021–22, as in-game leader with TITANS IBS.', nums: [['1st', 'Valorant tournament'], ['2nd', 'Counter-Strike tournament']], role: 'My role: player and in-game leader.', img: 'media/photos/titans-jersey.jpg' },
+      text: 'I played Valorant and Counter-Strike competitively in 2021–22, as in-game leader with TITANS IBS.', nums: [['1st', 'Valorant tournament'], ['2nd', 'Counter-Strike tournament']], role: 'My role: player and in-game leader.', img: 'media/photos/titans-jersey.webp' },
     { obj: 'headset', left: 71, bottom: 30, w: 9.5, label: 'TITANS IBS', kicker: 'Community · TITANS IBS', title: 'Match nights, every week.',
       text: 'Coordinated the esports club’s tournaments, from brackets to match-night community. Moving promotion to college dashboards grew registrations about four times.', nums: [['10+', 'tournaments'], ['250+', 'participants'], ['9 → 40', 'registrations']], role: 'My role: event coordinator.' },
     { obj: 'racket', left: 85, bottom: 24, w: 7, label: 'Badminton', kicker: 'Player · Badminton', title: 'Telangana, on court.',
-      text: 'I represented Telangana in national-level badminton as an under-19, after 3rd place in a District U16 tournament. I also hold a maroon belt in Kung Fu.', nums: [['U19', 'national level'], ['3rd', 'District U16']], role: 'What it gave me: I know how match day feels for a player, not only for a fan.', img: 'media/photos/badminton.jpg' }
+      text: 'I represented Telangana in national-level badminton as an under-19, after 3rd place in a District U16 tournament. I also hold a maroon belt in Kung Fu.', nums: [['U19', 'national level'], ['3rd', 'District U16']], role: 'What it gave me: I know how match day feels for a player, not only for a fan.', img: 'media/photos/badminton.webp' }
   ];
   var objs = $('#scene-objs'), rlist = $('#room-list'), tvVid = null;
   ROOM.forEach(function (c) {
@@ -408,7 +416,7 @@
     b.style.left = c.left + '%'; b.style.width = c.w + '%';
     if (c.top != null) b.style.top = c.top + '%'; else b.style.bottom = c.bottom + '%';
     if (c.obj === 'tv') {
-      b.innerHTML = '<span class="tv-box"><video muted loop playsinline preload="metadata" poster="' + c.poster + '" src="' + c.video + '" aria-hidden="true"></video><span class="tv-live mono"><i class="live" aria-hidden="true"></i>Live · Auction night</span><span class="tv-cap"><b>I ran an IPL auction for 60 students.</b><span>Tap to watch →</span></span></span><span class="tv-feet" aria-hidden="true"><i></i><i></i></span>';
+      b.innerHTML = '<span class="tv-box"><video muted loop playsinline preload="none" poster="' + c.poster + '" data-src="' + c.video + '" aria-hidden="true"></video><span class="tv-live mono"><i class="live" aria-hidden="true"></i>Live · Auction night</span><span class="tv-cap"><b>I ran an IPL auction for 60 students.</b><span>Tap to watch →</span></span></span><span class="tv-feet" aria-hidden="true"><i></i><i></i></span>';
       tvVid = b.querySelector('video');
     } else b.innerHTML = SVG[c.obj] + '<span class="obj-lab">' + esc(c.label) + '</span>';
     var open = function () { if (c.store) openCase(STORE); else if (c.page) location.href = 'case.html?p=' + c.page; else openCase(c); };
@@ -423,7 +431,7 @@
   var sceneEl = $('#scene'), tvBtn = $('.obj-tv');
   var centreTV = function () { if (sceneEl.scrollWidth > sceneEl.clientWidth + 4 && tvBtn) sceneEl.scrollLeft = tvBtn.offsetLeft + tvBtn.offsetWidth / 2 - sceneEl.clientWidth / 2; };
   centreTV(); addEventListener('load', centreTV);
-  if (tvVid && 'IntersectionObserver' in window && !RM) new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { var p = tvVid.play(); if (p && p.catch) p.catch(function () {}); } else tvVid.pause(); }); }, { threshold: .3 }).observe(tvVid);
+  if (tvVid && 'IntersectionObserver' in window && !RM) new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { if (!tvVid.src) tvVid.src = tvVid.dataset.src; var p = tvVid.play(); if (p && p.catch) p.catch(function () {}); } else tvVid.pause(); }); }, { threshold: .3 }).observe(tvVid);
   var lbtn = $('#room-list-btn');
   lbtn.addEventListener('click', function () { var on = rlist.classList.toggle('on'); lbtn.setAttribute('aria-expanded', String(on)); lbtn.querySelector('span').textContent = on ? 'Hide the list' : 'Show as a list'; if (window.ScrollTrigger) ScrollTrigger.refresh(); });
   var scene = $('#scene');
@@ -433,21 +441,21 @@
 
   /* ============================ 7. GALLERY + LOGOS ============================ */
   var GAL = [
-    ['media/photos/uppal-srh-kid.jpg', 'At Uppal for a Sunrisers game, about 11 years ago', ''],
-    ['media/photos/sport-india-2026.jpg', 'Sport India Conference 2026, Vision 2036 panel, Bharat Mandapam', 'wide', '50% 40%'],
-    ['media/photos/viren-rasquinha.jpg', 'With Viren Rasquinha, former India hockey captain, at Masters’ Union', ''],
-    ['media/photos/hudle-ceo.jpg', 'With Suhail Narain, Founder and CEO of Hudle', ''],
-    ['media/photos/pbks-coo.jpg', 'With Saurabh Arora, COO of Punjab Kings', ''],
-    ['media/photos/iamgame-guest.jpg', 'With K. Srinivas Rao, Head of Sports Group at Times of India, at I Am Game 2026', '', '50% 12%'],
-    ['media/photos/iamgame-awards.jpg', 'Masters’ Union cohort at the EY I Am Game Sports Awards 2026', ''],
-    ['media/photos/conclave-guest.jpg', 'With Manish, VP Commercials & Partnerships at JioBLAST, at I Am Game 2026', '', '50% 15%'],
-    ['media/photos/hyrox.jpg', 'HYROX Delhi 2026, with the Masters’ Union team', ''],
-    ['media/projects/better-store/stall-pratham.jpg', 'With Pratham Mittal, founder of Masters’ Union, at The Better Store stall', ''],
-    ['media/photos/pro-panja.jpg', 'With Parvinn Dabass, owner of the Pro Panja League', ''],
-    ['media/photos/smg-auction-team.jpg', 'The SMG Club team after the IPL auction draft, with our guest auctioneer', ''],
-    ['media/photos/nivia-jersey.jpg', 'With the India football jersey, NIVIA live challenge', ''],
-    ['media/photos/smg-night.jpg', 'Mentorship dinner with Karndeep Sharma, AVP Marketing at NODWIN Gaming', 'wide'],
-    ['media/photos/auction-draft.jpg', 'The IPL auction draft, SMG Club', 'wide']
+    ['media/photos/uppal-srh-kid.webp', 'At Uppal for a Sunrisers game, about 11 years ago', ''],
+    ['media/photos/sport-india-2026.webp', 'Sport India Conference 2026, Vision 2036 panel, Bharat Mandapam', 'wide', '50% 40%'],
+    ['media/photos/viren-rasquinha.webp', 'With Viren Rasquinha, former India hockey captain, at Masters’ Union', ''],
+    ['media/photos/hudle-ceo.webp', 'With Suhail Narain, Founder and CEO of Hudle', ''],
+    ['media/photos/pbks-coo.webp', 'With Saurabh Arora, COO of Punjab Kings', ''],
+    ['media/photos/iamgame-guest.webp', 'With K. Srinivas Rao, Head of Sports Group at Times of India, at I Am Game 2026', '', '50% 12%'],
+    ['media/photos/iamgame-awards.webp', 'Masters’ Union cohort at the EY I Am Game Sports Awards 2026', ''],
+    ['media/photos/conclave-guest.webp', 'With Manish, VP Commercials & Partnerships at JioBLAST, at I Am Game 2026', '', '50% 15%'],
+    ['media/photos/hyrox.webp', 'HYROX Delhi 2026, with the Masters’ Union team', ''],
+    ['media/projects/better-store/stall-pratham.webp', 'With Pratham Mittal, founder of Masters’ Union, at The Better Store stall', ''],
+    ['media/photos/pro-panja.webp', 'With Parvinn Dabass, owner of the Pro Panja League', ''],
+    ['media/photos/smg-auction-team.webp', 'The SMG Club team after the IPL auction draft, with our guest auctioneer', ''],
+    ['media/photos/nivia-jersey.webp', 'With the India football jersey, NIVIA live challenge', ''],
+    ['media/photos/smg-night.webp', 'Mentorship dinner with Karndeep Sharma, AVP Marketing at NODWIN Gaming', 'wide'],
+    ['media/photos/auction-draft.webp', 'The IPL auction draft, SMG Club', 'wide']
   ];
   $('#gal-grid').innerHTML = GAL.map(function (g) { return '<figure class="' + g[2] + '" data-reveal><img src="' + g[0] + '" alt="' + esc(g[1]) + '" loading="lazy" style="object-position:' + (g[3] || '50% 20%') + '"><figcaption>' + esc(g[1]) + '</figcaption></figure>'; }).join('');
   io($$('#gal-grid figure'), function (el) { el.classList.add('in'); }, { threshold: .15 });

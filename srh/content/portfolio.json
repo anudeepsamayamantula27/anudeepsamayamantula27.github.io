@@ -197,7 +197,7 @@
       "type": "Concept",
       "summary": "The Orange Army has one season; the Sunrisers group has three. A plan to bring Eastern Cape and Leeds home to Hyderabad with watch-along Nights, a second screen and a Passport that carries stamps into the IPL.",
       "result": "A pilot of 4 Nights in the SA20 2027 window, at about ₹22K–78K plus a host",
-      "thumbnail": "projects/one-orange-army/thumb.jpg",
+      "thumbnail": "projects/one-orange-army/thumb.webp",
       "has_page": true,
       "tags": [
         "Fan engagement",
@@ -232,7 +232,7 @@
       "type": "Launch",
       "summary": "A go-to-market plan for the Indian national football team jersey: three kits for three fans, a price ladder that fights the fake, and a numbered-jersey platform.",
       "result": "₹50L launch plan, modelling a 30K-jersey base case over 90 days",
-      "thumbnail": "projects/nivia-india-jersey/thumb.jpg",
+      "thumbnail": "projects/nivia-india-jersey/thumb.webp",
       "has_page": true,
       "tags": [
         "Go-to-market",
@@ -269,7 +269,7 @@
       "type": "Strategy",
       "summary": "An off-season plan for a backpacker hostel chain whose beds sit empty from July to September: a programme for graduates waiting to join work, and property buyouts for company offsites.",
       "result": "Top 5 of 93 teams; occupancy projected from 27.5% to 43.8%",
-      "thumbnail": "projects/gostops-off-season/thumb.jpg",
+      "thumbnail": "projects/gostops-off-season/thumb.webp",
       "has_page": true,
       "tags": [
         "Marketing strategy",
@@ -303,7 +303,7 @@
       "type": "Event",
       "summary": "On-ground execution at HYROX Delhi with the Masters' Union team, leading volunteer logistics and the attendee experience.",
       "result": "1,000+ attendees over 3 days",
-      "thumbnail": "projects/hyrox-delhi/thumb.jpg",
+      "thumbnail": "projects/hyrox-delhi/thumb.webp",
       "has_page": false,
       "tags": [
         "Events",
@@ -333,7 +333,7 @@
       "type": "Event",
       "summary": "An IPL auction draft for the SMG Club: real player cards, live bidding and franchise strategy for ten student teams.",
       "result": "60 participants across 10 teams on a ₹5K budget",
-      "thumbnail": "projects/ipl-auction-draft/thumb.jpg",
+      "thumbnail": "projects/ipl-auction-draft/thumb.webp",
       "has_page": false,
       "tags": [
         "Events",
@@ -367,7 +367,7 @@
       "type": "Community",
       "summary": "Ran the college esports club's tournaments and led its Valorant team. Moving promotion from social feeds to college dashboards grew registrations about four times.",
       "result": "10+ tournaments for 250+ participants; registrations up from 9 to 40",
-      "thumbnail": "projects/titans-esports/thumb.jpg",
+      "thumbnail": "projects/titans-esports/thumb.webp",
       "has_page": false,
       "tags": [
         "Esports",
@@ -401,7 +401,7 @@
       "type": "Research",
       "summary": "A Furniture Experience Index across 19 brands and 7 touchpoints, built from 19 NCR store visits and 30 customer interviews.",
       "result": "Pepperfry ranked #6 of 19 (73.0 against a 66.5 average), with fixes to lift it to 77.5",
-      "thumbnail": "projects/pepperfry-shopper/thumb.jpg",
+      "thumbnail": "projects/pepperfry-shopper/thumb.webp",
       "has_page": false,
       "tags": [
         "Consumer research",
@@ -435,7 +435,7 @@
       "type": "Strategy",
       "summary": "Why a famous esports team was losing money, and a turnaround built on an asset-light model, D2C membership and an India creator plan.",
       "result": "A path to reverse a DKK 5.4M annual EBITDA loss",
-      "thumbnail": "projects/astralis-paradox/thumb.jpg",
+      "thumbnail": "projects/astralis-paradox/thumb.webp",
       "has_page": false,
       "tags": [
         "Esports",
@@ -504,14 +504,14 @@
       "learned": "SA20 is already looking for Indian fans: league-wide TV viewership grew 37% in season 3, and the league held an SA20 India Day in Mumbai.",
       "next": "Read the pilot numbers in March, then decide whether to run Leeds Nights in July.",
       "images": [
-        "projects/one-orange-army/thumb.jpg",
-        "projects/one-orange-army/slide-2.jpg",
-        "projects/one-orange-army/slide-3.jpg",
-        "projects/one-orange-army/slide-4.jpg",
-        "projects/one-orange-army/slide-5.jpg",
-        "projects/one-orange-army/slide-6.jpg",
-        "projects/one-orange-army/slide-7.jpg",
-        "projects/one-orange-army/slide-8.jpg"
+        "projects/one-orange-army/thumb.webp",
+        "projects/one-orange-army/slide-2.webp",
+        "projects/one-orange-army/slide-3.webp",
+        "projects/one-orange-army/slide-4.webp",
+        "projects/one-orange-army/slide-5.webp",
+        "projects/one-orange-army/slide-6.webp",
+        "projects/one-orange-army/slide-7.webp",
+        "projects/one-orange-army/slide-8.webp"
       ]
     },
     "nivia-india-jersey": {
@@ -560,10 +560,10 @@
       "learned": "In fan merchandise the insight was belonging, not price: \"I may never play for India. But I can be counted for India.\"",
       "next": "Roll out in the plan's order: ASEAN Cup, then ISL, then grassroots.",
       "images": [
-        "projects/nivia-india-jersey/thumb.jpg",
-        "projects/nivia-india-jersey/platform.jpg",
-        "projects/nivia-india-jersey/jersey.jpg",
-        "projects/nivia-india-jersey/audiences.jpg"
+        "projects/nivia-india-jersey/thumb.webp",
+        "projects/nivia-india-jersey/platform.webp",
+        "projects/nivia-india-jersey/jersey.webp",
+        "projects/nivia-india-jersey/audiences.webp"
       ]
     },
     "gostops-off-season": {
@@ -608,10 +608,10 @@
       "learned": "The rate was never the problem. Once the gap was framed as empty beds, not cheap beds, discounting stopped being an option.",
       "next": "The stamp-at-every-property idea became the Orange Army Passport in my Sunrisers concept.",
       "images": [
-        "projects/gostops-off-season/thumb.jpg",
-        "projects/gostops-off-season/gap.jpg",
-        "projects/gostops-off-season/batch-night.jpg",
-        "projects/gostops-off-season/numbers.jpg"
+        "projects/gostops-off-season/thumb.webp",
+        "projects/gostops-off-season/gap.webp",
+        "projects/gostops-off-season/batch-night.webp",
+        "projects/gostops-off-season/numbers.webp"
       ]
     }
   },
@@ -619,17 +619,17 @@
     {
       "title": "Top 5 of 93 teams",
       "detail": "goSTOPS one-day marketing challenge, Masters' Union, 2026.",
-      "image": "projects/gostops-off-season/thumb.jpg"
+      "image": "projects/gostops-off-season/thumb.webp"
     },
     {
       "title": "National-level badminton",
       "detail": "Represented Telangana after 3rd place in a District U16 tournament.",
-      "image": "photos/badminton.jpg"
+      "image": "photos/badminton.webp"
     },
     {
       "title": "1st in Valorant, 2nd in CS",
       "detail": "As in-game leader for TITANS IBS, 2021–22.",
-      "image": "photos/titans-jersey.jpg"
+      "image": "photos/titans-jersey.webp"
     },
     {
       "title": "1 of 8 from 500",
@@ -639,7 +639,7 @@
     {
       "title": "₹5.5L scholarship",
       "detail": "Pankaj Bansal Scholarship for Young Leaders, Masters' Union.",
-      "image": "photos/professional-arms.jpg"
+      "image": "photos/professional-arms.webp"
     },
     {
       "title": "CGPA 9.75",
@@ -708,17 +708,17 @@
     {
       "title": "Badminton",
       "detail": "Represented Telangana at national level as an under-19. Still on court whenever I can.",
-      "image": "photos/badminton.jpg"
+      "image": "photos/badminton.webp"
     },
     {
       "title": "Match nights at Uppal",
       "detail": "IPL nights in the stands at Uppal, Hyderabad. The crowd is the part I want to work on.",
-      "image": "photos/uppal-crowd.jpg"
+      "image": "photos/uppal-crowd.webp"
     },
     {
       "title": "In the room",
       "detail": "Sport India Conference 2026 at Bharat Mandapam and I Am Game 2026, listening to the people who run sport.",
-      "image": "photos/sport-india-2026.jpg"
+      "image": "photos/sport-india-2026.webp"
     }
   ],
   "testimonials": [
@@ -738,84 +738,84 @@
   "media": {
     "headshot": "photos/headshot.jpg",
     "cutout": "photos/cutout.png",
-    "professional": "photos/professional-arms.jpg",
-    "professional_alt": "photos/blazer-full.jpg",
+    "professional": "photos/professional-arms.webp",
+    "professional_alt": "photos/blazer-full.webp",
     "candids": [
-      "photos/hyrox.jpg",
-      "photos/badminton.jpg",
-      "photos/iamgame-awards.jpg",
-      "photos/sport-india-2026.jpg"
+      "photos/hyrox.webp",
+      "photos/badminton.webp",
+      "photos/iamgame-awards.webp",
+      "photos/sport-india-2026.webp"
     ],
-    "event": "photos/hyrox.jpg",
+    "event": "photos/hyrox.webp",
     "gallery": [
       {
-        "src": "photos/srh-jersey.jpg",
+        "src": "photos/srh-jersey.webp",
         "caption": "In the Sunrisers jersey",
         "ratio": "3:4",
         "kind": "profile"
       },
       {
-        "src": "photos/professional-arms.jpg",
+        "src": "photos/professional-arms.webp",
         "caption": "Professional portrait, Masters' Union",
         "ratio": "2:3",
         "kind": "profile"
       },
       {
-        "src": "photos/hyrox.jpg",
+        "src": "photos/hyrox.webp",
         "caption": "HYROX Delhi 2026, with the Masters' Union team",
         "ratio": "3:4",
         "kind": "event"
       },
       {
-        "src": "photos/iamgame-awards.jpg",
+        "src": "photos/iamgame-awards.webp",
         "caption": "Masters' Union cohort at the EY I Am Game Sports Awards 2026",
         "ratio": "9:16",
         "kind": "event"
       },
       {
-        "src": "photos/sport-india-2026.jpg",
+        "src": "photos/sport-india-2026.webp",
         "caption": "Sport India Conference 2026, Vision 2036 panel, Bharat Mandapam",
         "ratio": "4:3",
         "kind": "event"
       },
       {
-        "src": "photos/iamgame-guest.jpg",
+        "src": "photos/iamgame-guest.webp",
         "caption": "With K. Srinivas Rao, Head of Sports Group at Times of India, at I Am Game 2026",
         "ratio": "3:4",
         "kind": "event"
       },
       {
-        "src": "photos/conclave-guest.jpg",
+        "src": "photos/conclave-guest.webp",
         "caption": "With Manish, VP Commercials & Partnerships at JioStar, at I Am Game 2026",
         "ratio": "3:4",
         "kind": "event"
       },
       {
-        "src": "photos/nivia-jersey.jpg",
+        "src": "photos/nivia-jersey.webp",
         "caption": "With the India football jersey, Masters' Union library",
         "ratio": "1:3",
         "kind": "project"
       },
       {
-        "src": "photos/auction-draft.jpg",
+        "src": "photos/auction-draft.webp",
         "caption": "The IPL auction draft, SMG Club",
         "ratio": "16:9",
         "kind": "event"
       },
       {
-        "src": "photos/badminton.jpg",
+        "src": "photos/badminton.webp",
         "caption": "On court",
         "ratio": "3:4",
         "kind": "hobby"
       },
       {
-        "src": "photos/titans-jersey.jpg",
+        "src": "photos/titans-jersey.webp",
         "caption": "TITANS IBS jersey",
         "ratio": "3:4",
         "kind": "hobby"
       },
       {
-        "src": "photos/uppal-crowd.jpg",
+        "src": "photos/uppal-crowd.webp",
         "caption": "IPL night at Uppal, Hyderabad",
         "ratio": "4:3",
         "kind": "hobby"
@@ -1128,12 +1128,12 @@
       {
         "label": "Three teams, one calendar",
         "from": "context",
-        "image": "projects/one-orange-army/thumb.jpg"
+        "image": "projects/one-orange-army/thumb.webp"
       },
       {
         "label": "The gap",
         "from": "problem",
-        "image": "projects/one-orange-army/slide-2.jpg"
+        "image": "projects/one-orange-army/slide-2.webp"
       },
       {
         "label": "Orange Army Nights",
