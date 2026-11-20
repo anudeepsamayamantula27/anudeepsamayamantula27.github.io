@@ -106,8 +106,7 @@
   var tk = $('#tk-track');
   var TICK = [['1,000+ fans', 'HYROX Delhi, on the ground'], ['U19 national', 'badminton, for Telangana'], ['Top 5 of 93', 'goSTOPS challenge'], ['₹2L+ revenue', 'The Better Store, dropshipping'], ['₹50L', 'jersey launch plan with NIVIA'], ['55+ reports', 'The Business Research Company'], ['60 players', 'IPL auction draft I ran'], ['10+ tournaments', 'TITANS IBS esports'], ['Vortilix', 'co-founding a startup in the MU Venture Initiation Program'], ['3 teams', 'one Orange Army']];
   var tkHTML = TICK.map(function (t) { return '<span>' + esc(t[0]) + ' <small>' + esc(t[1]) + '</small></span>'; }).join('');
-  tk.innerHTML = tkHTML + tkHTML;
-  tk.lastElementChild && $$('span', tk).slice(TICK.length).forEach(function (s) { s.setAttribute('aria-hidden', 'true'); });
+  tk.innerHTML = '<div class="tk-g">' + tkHTML + '</div><div class="tk-g" aria-hidden="true">' + tkHTML + '</div>';
 
   var cv = $('#embers'), ctx = cv.getContext('2d'), embers = [], heroVisible = true;
   function sizeEm() { cv.width = hero.clientWidth * DPR; cv.height = hero.clientHeight * DPR; }

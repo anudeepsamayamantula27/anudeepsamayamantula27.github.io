@@ -712,3 +712,11 @@ a.lab-card:hover{border-color:var(--or);border-style:solid;transform:translateY(
 }
 @media (max-width:760px){.hero-crest{display:none}.hero{padding-top:20px}.hero h1{margin:16px 0 12px}.hero-btns{margin-top:18px}.hero-me{margin-top:10px}}
 .tk-track{flex:none}.tk-win{min-width:0}
+
+/* ticker v2: two halves that loop together (iOS Safari drops very wide animated layers) */
+.tk-track{display:flex;width:auto;animation:none!important;transform:none}
+.tk-g{display:flex;flex:none;animation:tickg 38s linear infinite;will-change:transform;-webkit-backface-visibility:hidden;backface-visibility:hidden}
+@keyframes tickg{from{transform:translate3d(0,0,0)}to{transform:translate3d(-100%,0,0)}}
+@media (max-width:760px){.tk-g{animation-duration:30s}}
+@media (prefers-reduced-motion:reduce){.tk-g{animation:none}}
+@media (max-width:760px){.tk-g span small{display:none}.tk-g span{padding:0 18px}.tk-g span::after{margin-left:18px}}
