@@ -21,7 +21,8 @@
   };
 
   /* ============================ smooth scroll ============================ */
-  var lenis = null;
+  var lenis = null, navJump = false, navTimer = null;
+  function markJump() { navJump = true; clearTimeout(navTimer); navTimer = setTimeout(function () { navJump = false; }, 2200); }
   if (!RM && window.Lenis && window.gsap) {
     lenis = new Lenis({ lerp: 0.14, smoothWheel: true });
     if (window.ScrollTrigger) lenis.on('scroll', ScrollTrigger.update);
@@ -41,13 +42,14 @@
     mb.hidden = true; btn.setAttribute('aria-expanded', 'false'); btn.textContent = 'See the full story';
     if (window.ScrollTrigger) ScrollTrigger.refresh();
   }
-  (function () { var btn = document.getElementById('more-btn'); if (btn) btn.addEventListener('click', function () { if (document.getElementById('more-body').hidden) { openMore(); var t = document.getElementById('squad'); setTimeout(function () { if (lenis) lenis.scrollTo(t, { offset: -70 }); else t.scrollIntoView({ behavior: 'smooth' }); }, 80); } else closeMore(); }); })();
+  (function () { var btn = document.getElementById('more-btn'); if (btn) btn.addEventListener('click', function () { if (document.getElementById('more-body').hidden) { openMore(); var t = document.getElementById('squad'); setTimeout(function () { markJump(); if (lenis) lenis.scrollTo(t, { offset: -70 }); else t.scrollIntoView({ behavior: 'smooth' }); }, 80); } else closeMore(); }); })();
   document.addEventListener('click', function (e) {
     var a = e.target.closest('a[href^="#"]'); if (!a) return;
     var id = a.getAttribute('href'); if (id.length < 2) return;
     var t = document.querySelector(id); if (!t) return;
     var mb = document.getElementById('more-body'); if (mb && mb.hidden && mb.contains(t)) openMore();
     e.preventDefault(); closeMenu();
+    markJump();
     if (lenis) lenis.scrollTo(t, { offset: id === '#top' ? -200 : -70 }); else t.scrollIntoView({ behavior: RM ? 'auto' : 'smooth' });
   });
 
@@ -201,8 +203,55 @@
   }
   setKit(0);
   if (!RM && window.ScrollTrigger) {
-    ScrollTrigger.create({ trigger: walk, start: 'top top', end: function () { return '+=' + innerHeight * 2.4; }, pin: '.walk-pin', anticipatePin: 1, invalidateOnRefresh: true,
-      onUpdate: function (s) { setKit(Math.min(KITS.length - 1, Math.floor(s.progress * KITS.length * 0.999))); } });
+    var N = KITS.length, wasActive = false, locking = false, trig = null;
+    var idxAt = function (p) { return Math.min(N - 1, Math.floor(p * N * 0.999)); };
+    var kitPos = function (i) { return trig.start + (trig.end - trig.start) * ((i + 0.5) / N); };
+    // move to one kit and settle there
+    var goId = 0, lastWheel = 0, used = false, quiet = null, root = document.documentElement;
+    var coarse = window.matchMedia && matchMedia('(pointer: coarse)').matches;
+    var hush = function () { used = true; lastWheel = Date.now(); clearTimeout(quiet); quiet = setTimeout(function () { used = false; }, 260); };
+    var go = function (i) {
+      locking = true; setKit(i); hush();
+      if (coarse) { root.classList.add('walk-hold'); setTimeout(function () { root.classList.remove('walk-hold'); }, 650); }   // stops phone momentum
+      var my = ++goId, done = function () { if (my === goId) locking = false; };   // only the latest move unlocks
+      if (lenis) lenis.scrollTo(kitPos(i), { duration: 0.55, force: true, lock: true, onComplete: done });
+      else { window.scrollTo({ top: kitPos(i), behavior: 'auto' }); setTimeout(done, 400); }
+      setTimeout(done, 1000);
+    };
+    trig = ScrollTrigger.create({ trigger: walk, start: 'top top', end: function () { return '+=' + innerHeight * 2.4; }, pin: '.walk-pin', anticipatePin: 1, invalidateOnRefresh: true,
+      onUpdate: function (st) {
+        var t = idxAt(st.progress);
+        if (navJump || (!st.isActive && !wasActive)) { wasActive = st.isActive; if (!locking) setKit(t); return; }
+        var entering = st.isActive && !wasActive; wasActive = st.isActive;
+        if (locking) return;
+        var edge = st.direction > 0 ? 0 : N - 1;
+        if (entering) { go(edge); return; }   // scrolling in always stops on the first (or last) kit
+        if (t === cur) return;
+        go(cur + (t > cur ? 1 : -1));       // any other change moves one kit and stops there, so momentum can't skip kits
+      } });
+    // one kit per gesture: wheel/trackpad flick or touch swipe
+    var inWalk = function () { return trig && trig.isActive && !navJump; };
+    window.addEventListener('wheel', function (e) {
+      if (!inWalk() || !e.deltaY) return;
+      var now = Date.now(), gap = now - lastWheel; lastWheel = now;
+      if (used && gap < 260) { e.preventDefault(); e.stopImmediatePropagation(); clearTimeout(quiet); quiet = setTimeout(function () { used = false; }, 260); return; }
+      var next = cur + (e.deltaY > 0 ? 1 : -1);
+      if (next < 0 || next > N - 1) return;               // let the page move on past the first or last kit
+      e.preventDefault(); e.stopImmediatePropagation();
+      if (locking) return;
+      used = true; go(next);
+    }, { capture: true, passive: false });
+    var ty0 = null, tUsed = false;
+    window.addEventListener('touchstart', function (e) { ty0 = inWalk() ? e.touches[0].clientY : null; tUsed = false; }, { passive: true });
+    window.addEventListener('touchmove', function (e) {
+      if (ty0 === null || !inWalk()) return;
+      var dy = ty0 - e.touches[0].clientY; if (Math.abs(dy) < 6) return;
+      var next = cur + (dy > 0 ? 1 : -1);
+      if (!tUsed && (next < 0 || next > N - 1)) { ty0 = null; return; }
+      e.preventDefault();
+      if (!tUsed && !locking && Math.abs(dy) > 40) { tUsed = true; go(next); }
+    }, { passive: false });
+    window.addEventListener('touchend', function () { ty0 = null; tUsed = false; }, { passive: true });
   } else { walk.classList.add('static'); setKit(KITS.length - 1); chs.forEach(function (c) { c.classList.add('on'); }); }
 
   /* ============================ 2. SQUAD ============================ */

@@ -724,3 +724,6 @@ a.lab-card:hover{border-color:var(--or);border-style:solid;transform:translateY(
 .track-bar .mono{color:var(--mut)}
 .swipe-hint{display:none}
 @media (max-width:760px){.swipe-hint{display:inline}}
+
+/* walk-out: hold phone momentum while a kit settles */
+html.walk-hold,html.walk-hold body{overflow:hidden}
