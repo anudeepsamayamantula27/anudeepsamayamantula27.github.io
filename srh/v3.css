@@ -711,3 +711,4 @@ a.lab-card:hover{border-color:var(--or);border-style:solid;transform:translateY(
   .bot-teaser{display:none}
 }
 @media (max-width:760px){.hero-crest{display:none}.hero{padding-top:20px}.hero h1{margin:16px 0 12px}.hero-btns{margin-top:18px}.hero-me{margin-top:10px}}
+.tk-track{flex:none}.tk-win{min-width:0}
