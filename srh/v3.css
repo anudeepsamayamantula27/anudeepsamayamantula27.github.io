@@ -671,3 +671,32 @@ a.lab-card:hover{border-color:var(--or);border-style:solid;transform:translateY(
 .more-bar b{color:var(--tx)}
 .more-body{margin:0 calc(var(--pad) * -1)}
 @media (max-width:1020px){.fit-grid,.plan{grid-template-columns:1fr}.plan::before{display:none}}
+
+/* ===== thesis ===== */
+.thesis{max-width:1280px;margin-bottom:clamp(60px,8vw,110px)}
+.thesis .lede{margin-bottom:26px}
+.gap{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:18px;align-items:center}
+.gap-card{padding:26px 28px;border-radius:22px;background:linear-gradient(150deg,#ff7a2f,#e24f17 60%,#b8350f);color:#0a0a0b;box-shadow:0 30px 60px -28px rgba(242,101,34,.8)}
+.gap-card .mono{color:rgba(10,10,11,.75);margin-bottom:6px}
+.gap-card b{display:block;font:400 clamp(80px,9vw,140px)/.9 var(--disp)}
+.gap-card span{display:block;margin-top:8px;font-size:17px;font-weight:600}
+.gap-card.dim{background:var(--card);color:var(--tx);border:1px solid var(--line);box-shadow:none}
+.gap-card.dim .mono{color:var(--gold)}
+.gap-card.dim b{color:var(--mut)}
+.gap-card.dim span{color:#d6d2cc;font-weight:500}
+.gap-vs{font:400 34px/1 var(--disp);color:var(--or);text-transform:uppercase}
+.bars{display:grid;gap:10px;margin:26px 0 22px;max-width:900px}
+.bar{display:grid;grid-template-columns:56px 1fr 84px;gap:12px;align-items:center}
+.bar span{font:700 13px/1 var(--mono);letter-spacing:.1em;color:var(--mut)}
+.bar i{display:block;height:16px;border-radius:8px;background:#2a2a2e;position:relative;overflow:hidden}
+.bar i::after{content:"";position:absolute;inset:0;width:var(--w);background:#55555c;border-radius:8px;transform-origin:left;transform:scaleX(0);transition:transform 1.2s var(--ease)}
+.thesis.in .bar i::after{transform:scaleX(1)}
+.bar.me span{color:var(--or)}
+.bar.me i::after{background:linear-gradient(90deg,var(--or),var(--gold))}
+.bar b{font:400 22px/1 var(--disp);color:var(--tx)}
+.bar.me b{color:var(--or)}
+.why{max-width:900px;color:#d6d2cc;font-size:17px}
+.why b{color:var(--tx)}
+.src{margin-top:14px;color:var(--dim);font-size:11px;line-height:1.6;max-width:900px;text-transform:none;letter-spacing:.04em}
+.fx-sub{font-size:clamp(40px,5vw,76px)}
+@media (max-width:760px){.gap{grid-template-columns:1fr}.gap-vs{text-align:center}.bar{grid-template-columns:44px 1fr 66px}.bar b{font-size:18px}}
