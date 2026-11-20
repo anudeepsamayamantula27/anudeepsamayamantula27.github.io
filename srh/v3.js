@@ -360,9 +360,6 @@
     vTrack.appendChild(el);
   });
   if (window.gsap && !RM) gsap.from('.news', { y: 60, opacity: 0, duration: .8, ease: 'power3.out', stagger: .07, scrollTrigger: { trigger: '#vault-track', start: 'top 88%' } });
-  var vid = $('#auction-vid');
-  if (vid && 'IntersectionObserver' in window && !RM) new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { var p = vid.play(); if (p && p.catch) p.catch(function () {}); } else vid.pause(); }); }, { threshold: .4 }).observe(vid);
-  else if (vid) vid.setAttribute('controls', '');
 
   /* ============================ 6. DRESSING ROOM ============================ */
   var SVG = {
@@ -376,49 +373,63 @@
     board: '<svg viewBox="0 0 200 130"><rect x="2" y="2" width="196" height="126" rx="6" fill="#f4f1ea" stroke="#9aa0aa" stroke-width="5"/><circle cx="46" cy="44" r="9" fill="none" stroke="#1f2a44" stroke-width="3"/><circle cx="96" cy="84" r="9" fill="none" stroke="#1f2a44" stroke-width="3"/><path d="M130 34 l16 16 M146 34 l-16 16 M150 78 l16 16 M166 78 l-16 16" stroke="#f26522" stroke-width="4" stroke-linecap="round"/><path d="M56 48 C 80 40, 84 70, 90 76" fill="none" stroke="#1f2a44" stroke-width="3" stroke-dasharray="6 5"/><path d="M106 82 C 130 76, 140 60, 148 56" fill="none" stroke="#f26522" stroke-width="3"/><text x="100" y="120" text-anchor="middle" font-family="Anton,Impact,sans-serif" font-size="13" fill="#1f2a44">TURNAROUND PLAN</text></svg>',
     headset: '<svg viewBox="0 0 160 110"><path d="M22 70 C 22 18, 138 18, 138 70" fill="none" stroke="#2b2d35" stroke-width="12" stroke-linecap="round"/><path d="M22 70 C 22 18, 138 18, 138 70" fill="none" stroke="#f26522" stroke-width="3"/><rect x="6" y="58" width="34" height="46" rx="14" fill="#16171c"/><rect x="120" y="58" width="34" height="46" rx="14" fill="#16171c"/><rect x="12" y="66" width="22" height="30" rx="10" fill="#f26522"/><rect x="126" y="66" width="22" height="30" rx="10" fill="#f26522"/><path d="M26 98 Q40 108 58 104" stroke="#2b2d35" stroke-width="4" fill="none"/><circle cx="60" cy="104" r="5" fill="#2b2d35"/></svg>',
     hanging: '<svg viewBox="0 0 200 230"><path d="M100 4 a10 10 0 1 1 -8 16" fill="none" stroke="#c9ccd3" stroke-width="4"/><path d="M100 22 L30 62 H170Z" fill="none" stroke="#c9ccd3" stroke-width="4"/><path d="M58 52 L28 64 L6 120 L36 132 L46 106 L46 222 L154 222 L154 106 L164 132 L194 120 L172 64 L142 52 Q100 72 58 52Z" fill="#f26522"/><path d="M58 52 Q100 72 142 52" fill="none" stroke="#08090B" stroke-width="6"/><text x="100" y="118" text-anchor="middle" font-family="Anton,Impact,sans-serif" font-size="26" fill="#08090B">ANUDEEP</text><path d="M46 222 H154" stroke="#08090B" stroke-width="6"/></svg>',
+    kettlebell: '<svg viewBox="0 0 100 110"><path d="M30 44 C 22 10, 78 10, 70 44" fill="none" stroke="#2b2d35" stroke-width="12" stroke-linecap="round"/><path d="M30 44 C 22 10, 78 10, 70 44" fill="none" stroke="#4a4d57" stroke-width="3"/><ellipse cx="50" cy="72" rx="40" ry="36" fill="#1b1d24"/><ellipse cx="38" cy="60" rx="12" ry="9" fill="#3a3d47"/><rect x="34" y="66" width="32" height="18" rx="4" fill="#f26522"/><text x="50" y="80" text-anchor="middle" font-family="Anton,Impact,sans-serif" font-size="14" fill="#0a0a0b">24</text><ellipse cx="50" cy="106" rx="30" ry="4" fill="#000" opacity=".4"/></svg>',
+    bag: '<svg viewBox="0 0 100 120"><path d="M34 34 C 34 8, 66 8, 66 34" fill="none" stroke="#6b3a1d" stroke-width="5"/><path d="M12 32 H88 L94 116 H6Z" fill="#c9965f"/><path d="M12 32 H88 L90 46 H10Z" fill="#b5824c"/><rect x="18" y="56" width="64" height="38" rx="4" fill="#F5F2EE"/><text x="50" y="72" text-anchor="middle" font-family="Anton,Impact,sans-serif" font-size="12" fill="#1f2a44">THE BETTER</text><text x="50" y="88" text-anchor="middle" font-family="Anton,Impact,sans-serif" font-size="14" fill="#f26522">STORE</text><text x="50" y="108" text-anchor="middle" font-family="Anton,Impact,sans-serif" font-size="11" fill="#6b3a1d">₹2L+</text></svg>',
+    flag: '<svg viewBox="0 0 140 170"><rect x="10" y="4" width="7" height="164" rx="3" fill="#c9ccd3"/><circle cx="13.5" cy="5" r="6" fill="#f2b632"/><path d="M17 12 C 50 4, 80 24, 132 12 L132 86 C 80 98, 50 78, 17 86Z" fill="#f26522"/><path d="M17 12 C 50 4, 80 24, 132 12 L132 22 C 80 34, 50 14, 17 22Z" fill="#ff8a4c" opacity=".6"/><text x="74" y="46" text-anchor="middle" font-family="Anton,Impact,sans-serif" font-size="19" fill="#0a0a0b">ONE ORANGE</text><text x="74" y="70" text-anchor="middle" font-family="Anton,Impact,sans-serif" font-size="22" fill="#0a0a0b">ARMY</text></svg>',
     paddle: '<svg viewBox="0 0 80 160"><rect x="34" y="70" width="12" height="86" rx="5" fill="#6b3a1d"/><circle cx="40" cy="42" r="36" fill="#F5F2EE" stroke="#08090B" stroke-width="3"/><text x="40" y="56" text-anchor="middle" font-family="Anton,Impact,sans-serif" font-size="38" fill="#f26522">01</text></svg>'
   };
   var ROOM = [
-    { obj: 'laptop', left: 3, bottom: 30, w: 15, label: 'Laptop · Market research', kicker: 'Work · The Business Research Company', title: 'Research that sold.',
-      text: 'Two and a half years as an associate consultant, writing market research reports for global clients.', nums: [['55+', 'reports'], ['₹1.9 Cr+', 'in report sales'], ['₹17L+', 'green hydrogen database sales']], role: 'My role: researched and wrote the reports; built the database.' },
-    { obj: 'notebook', left: 19, bottom: 30, w: 11, label: 'Notebook · goSTOPS', title: 'Filling hostels in the off-season', page: 'gostops-off-season' },
-    { obj: 'ball', left: 31, bottom: 31, w: 6, label: 'Cricket ball · HYROX Delhi', kicker: 'Events · HYROX Delhi 2026', title: 'Where the crowd is.',
-      text: 'On-ground execution at HYROX Delhi across three days with the Masters’ Union team, leading volunteer logistics and the attendee experience.', nums: [['1,000+', 'attendees'], ['3', 'days']], role: 'My role: on-ground execution.', imgs: ['media/projects/hyrox-delhi/hall.jpg', 'media/video/hyrox.mp4', 'media/projects/hyrox-delhi/course.jpg', 'media/projects/hyrox-delhi/finish.jpg', 'media/projects/hyrox-delhi/classof.jpg', 'media/projects/hyrox-delhi/venue.jpg', 'media/projects/hyrox-delhi/letters.jpg'] },
-    { obj: 'jersey', left: 38, bottom: 30, w: 13, label: 'Jersey · NIVIA launch', title: 'Launching the India jersey', page: 'nivia-india-jersey' },
-    { obj: 'clipboard', left: 53, bottom: 30, w: 7, label: 'Scouting clipboard · Pepperfry', kicker: 'Consumer behaviour · Pepperfry', title: 'Scouting the shopper.',
-      text: 'A Furniture Experience Index across 19 brands and 7 touchpoints, from 19 store visits and 30 customer interviews. Pepperfry ranked #6 of 19.', nums: [['19', 'stores visited'], ['30', 'interviews'], ['73.0', 'Pepperfry score vs 66.5 average']], role: 'My role: ran the mystery shopping and customer interviews, and built the index scoring (team project).', link: 'media/docs/pepperfry-odc.pdf' },
-    { obj: 'trophy', left: 62, bottom: 30, w: 6, label: 'Trophy · Competitive esports', kicker: 'Player · Valorant and Counter-Strike', title: 'In-game leader.',
-      text: 'I played Valorant and Counter-Strike competitively in 2021–22, as in-game leader with TITANS IBS.', nums: [['1st', 'Valorant tournament'], ['2nd', 'Counter-Strike tournament']], role: 'My role: player and in-game leader.', img: 'media/photos/titans-jersey.jpg' },
-    { obj: 'headset', left: 70, bottom: 30, w: 11, label: 'Headset · Esports events', kicker: 'Community · TITANS IBS', title: 'Match nights, every week.',
-      text: 'Coordinated the esports club’s tournaments, from brackets to match-night community. Moving promotion to college dashboards grew registrations about four times.', nums: [['10+', 'tournaments'], ['250+', 'participants'], ['9 → 40', 'registrations']], role: 'My role: event coordinator.' },
-    { obj: 'racket', left: 85, bottom: 24, w: 8, label: 'Racket · Badminton', kicker: 'Player · Badminton', title: 'Telangana, on court.',
-      text: 'I represented Telangana in national-level badminton as an under-19, after 3rd place in a District U16 tournament. I also hold a maroon belt in Kung Fu.', nums: [['U19', 'national level'], ['3rd', 'District U16']], role: 'What it gave me: I know how match day feels for a player, not only for a fan.', img: 'media/photos/badminton.jpg' },
-    { obj: 'board', left: 8, top: 9, w: 14, label: 'Tactics board · Astralis', kicker: 'Esports strategy · Masters’ Union, Term 1', title: 'Rebuilding an esports empire.',
+    { obj: 'hanging', left: 5, top: 3, w: 11, label: 'About me', kicker: 'About', title: 'Anudeep Gupta.',
+      text: 'Hyderabad-raised Orange Army fan and founding-cohort student of Sports Management & Gaming at Masters’ Union. I speak English, Telugu and Hindi, with some Tamil.', nums: [['1 of 8', 'SMG Club core committee'], ['4', 'languages']], role: 'Open to a full-time role, starting now.', link: 'media/resume.pdf', linkText: 'Open my resume', img: 'media/photos/srh-jersey.jpg' },
+    { obj: 'flag', left: 21, top: 6, w: 9, label: 'One Orange Army', title: 'One Orange Army, three seasons', page: 'one-orange-army' },
+    { obj: 'tv', left: 38, top: 3, w: 24, label: 'IPL auction draft', kicker: 'Events · SMG Club', title: 'I ran an IPL auction for 60 students.', text: 'Real player cards, live bidding and franchise strategy for ten teams at the Masters’ Union SMG Club, on a ₹5K budget.', nums: [['60', 'participants'], ['10', 'teams'], ['₹5K', 'budget']], role: 'My role: ran it end to end.', video: 'media/video/auction.mp4', poster: 'media/photos/auction-draft.jpg' },
+    { obj: 'board', left: 69, top: 8, w: 14, label: 'Astralis', kicker: 'Esports strategy · Masters’ Union, Term 1', title: 'Rebuilding an esports empire.',
       text: 'A strategic analysis of Astralis: why a famous esports team was losing money, and a turnaround built on an asset-light model, D2C membership and an India creator plan.', nums: [['DKK 5.4M', 'annual EBITDA loss diagnosed'], ['Solo', 'project']], role: 'My role: financial diagnosis, turnaround model and India creator go-to-market.' },
-    { obj: 'hanging', left: 43, top: 5, w: 13, label: 'My jersey · About me', kicker: 'About', title: 'Anudeep Gupta.',
-      text: 'Hyderabad-raised Orange Army fan and founding-cohort student of Sports Management & Gaming at Masters’ Union. I speak English, Telugu and Hindi, with some Tamil.', nums: [['1 of 8', 'SMG Club core committee'], ['4', 'languages']], role: 'Looking for: a fan engagement and brand role across the Sunrisers teams.', link: 'media/resume.pdf', linkText: 'Open my resume', img: 'media/photos/srh-jersey.jpg' },
-    { obj: 'paddle', left: 74, top: 10, w: 6, label: 'Paddle · IPL auction draft', kicker: 'Events · SMG Club', title: 'I ran an IPL auction.',
-      text: 'An IPL auction draft for the Masters’ Union SMG Club: real player cards, live bidding and franchise strategy.', nums: [['60', 'participants'], ['10', 'teams'], ['₹5K', 'budget']], role: 'My role: ran it end to end.', video: 'media/video/auction.mp4', poster: 'media/photos/auction-draft.jpg' }
+    { obj: 'laptop', left: 2, bottom: 30, w: 13, label: 'Market research', kicker: 'Work · The Business Research Company', title: 'Research that sold.',
+      text: 'Two and a half years as an associate consultant, writing market research reports for global clients.', nums: [['55+', 'reports'], ['₹1.9 Cr+', 'in report sales'], ['₹17L+', 'green hydrogen database sales']], role: 'My role: researched and wrote the reports; built the database.' },
+    { obj: 'notebook', left: 16.5, bottom: 30, w: 9.5, label: 'goSTOPS', title: 'Filling hostels in the off-season', page: 'gostops-off-season' },
+    { obj: 'kettlebell', left: 27.5, bottom: 30, w: 5.5, label: 'HYROX Delhi', kicker: 'Events · HYROX Delhi 2026', title: 'Where the crowd is.',
+      text: 'On-ground execution at HYROX Delhi across three days with the Masters’ Union team, leading volunteer logistics and the attendee experience.', nums: [['1,000+', 'attendees'], ['3', 'days']], role: 'My role: on-ground execution.', imgs: ['media/projects/hyrox-delhi/hall.jpg', 'media/video/hyrox.mp4', 'media/projects/hyrox-delhi/course.jpg', 'media/projects/hyrox-delhi/finish.jpg', 'media/projects/hyrox-delhi/classof.jpg', 'media/projects/hyrox-delhi/venue.jpg', 'media/projects/hyrox-delhi/letters.jpg'] },
+    { obj: 'jersey', left: 35, bottom: 30, w: 11.5, label: 'NIVIA launch', title: 'Launching the India jersey', page: 'nivia-india-jersey' },
+    { obj: 'bag', left: 48, bottom: 30, w: 7, label: 'The Better Store', store: true },
+    { obj: 'clipboard', left: 57, bottom: 30, w: 6, label: 'Pepperfry', kicker: 'Consumer behaviour · Pepperfry', title: 'Scouting the shopper.',
+      text: 'A Furniture Experience Index across 19 brands and 7 touchpoints, from 19 store visits and 30 customer interviews. Pepperfry ranked #6 of 19.', nums: [['19', 'stores visited'], ['30', 'interviews'], ['73.0', 'Pepperfry score vs 66.5 average']], role: 'My role: ran the mystery shopping and customer interviews, and built the index scoring (team project).', link: 'media/docs/pepperfry-odc.pdf' },
+    { obj: 'trophy', left: 64.5, bottom: 30, w: 5, label: 'Esports', kicker: 'Player · Valorant and Counter-Strike', title: 'In-game leader.',
+      text: 'I played Valorant and Counter-Strike competitively in 2021–22, as in-game leader with TITANS IBS.', nums: [['1st', 'Valorant tournament'], ['2nd', 'Counter-Strike tournament']], role: 'My role: player and in-game leader.', img: 'media/photos/titans-jersey.jpg' },
+    { obj: 'headset', left: 71, bottom: 30, w: 9.5, label: 'TITANS IBS', kicker: 'Community · TITANS IBS', title: 'Match nights, every week.',
+      text: 'Coordinated the esports club’s tournaments, from brackets to match-night community. Moving promotion to college dashboards grew registrations about four times.', nums: [['10+', 'tournaments'], ['250+', 'participants'], ['9 → 40', 'registrations']], role: 'My role: event coordinator.' },
+    { obj: 'racket', left: 85, bottom: 24, w: 7, label: 'Badminton', kicker: 'Player · Badminton', title: 'Telangana, on court.',
+      text: 'I represented Telangana in national-level badminton as an under-19, after 3rd place in a District U16 tournament. I also hold a maroon belt in Kung Fu.', nums: [['U19', 'national level'], ['3rd', 'District U16']], role: 'What it gave me: I know how match day feels for a player, not only for a fan.', img: 'media/photos/badminton.jpg' }
   ];
-  var objs = $('#scene-objs'), rlist = $('#room-list');
-  ROOM.forEach(function (c, i) {
-    var b = document.createElement('button'); b.type = 'button'; b.className = 'obj' + (c.top != null ? ' top' : '') + (i === 1 || i === 10 ? ' pulse' : '');
-    b.setAttribute('aria-label', c.label + (c.page ? ': open the full case' : ''));
+  var objs = $('#scene-objs'), rlist = $('#room-list'), tvVid = null;
+  ROOM.forEach(function (c) {
+    var b = document.createElement('button'); b.type = 'button'; b.className = 'obj obj-' + c.obj + (c.top != null ? ' top' : '') + '';
+    b.setAttribute('aria-label', c.label + (c.page ? ': open the full case' : ': open'));
     b.style.left = c.left + '%'; b.style.width = c.w + '%';
     if (c.top != null) b.style.top = c.top + '%'; else b.style.bottom = c.bottom + '%';
-    b.innerHTML = SVG[c.obj] + '<span class="obj-tip">' + esc(c.label) + '</span>';
-    b.addEventListener('click', function () { openCase(c); });
+    if (c.obj === 'tv') {
+      b.innerHTML = '<span class="tv-box"><video muted loop playsinline preload="metadata" poster="' + c.poster + '" src="' + c.video + '" aria-hidden="true"></video><span class="tv-live mono"><i class="live" aria-hidden="true"></i>Live · Auction night</span><span class="tv-cap"><b>I ran an IPL auction for 60 students.</b><span>Tap to watch →</span></span></span><span class="tv-feet" aria-hidden="true"><i></i><i></i></span>';
+      tvVid = b.querySelector('video');
+    } else b.innerHTML = SVG[c.obj] + '<span class="obj-lab">' + esc(c.label) + '</span>';
+    var open = function () { if (c.store) openCase(STORE); else if (c.page) location.href = 'case.html?p=' + c.page; else openCase(c); };
+    b.addEventListener('click', open);
     objs.appendChild(b);
     var lb = document.createElement('button'); lb.type = 'button';
-    lb.innerHTML = '<span class="mono">' + esc(c.label) + '</span><b>' + esc(c.title) + '</b>';
-    lb.addEventListener('click', function () { openCase(c); });
+    lb.innerHTML = '<span class="mono">' + esc(c.label) + '</span><b>' + esc(c.store ? STORE.title : c.title) + '</b>';
+    lb.addEventListener('click', open);
     rlist.appendChild(lb);
   });
+  // phones: start the swipeable room centred on the TV
+  var sceneEl = $('#scene'), tvBtn = $('.obj-tv');
+  var centreTV = function () { if (sceneEl.scrollWidth > sceneEl.clientWidth + 4 && tvBtn) sceneEl.scrollLeft = tvBtn.offsetLeft + tvBtn.offsetWidth / 2 - sceneEl.clientWidth / 2; };
+  centreTV(); addEventListener('load', centreTV);
+  if (tvVid && 'IntersectionObserver' in window && !RM) new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { var p = tvVid.play(); if (p && p.catch) p.catch(function () {}); } else tvVid.pause(); }); }, { threshold: .3 }).observe(tvVid);
   var lbtn = $('#room-list-btn');
   lbtn.addEventListener('click', function () { var on = rlist.classList.toggle('on'); lbtn.setAttribute('aria-expanded', String(on)); lbtn.querySelector('span').textContent = on ? 'Hide the list' : 'Show as a list'; if (window.ScrollTrigger) ScrollTrigger.refresh(); });
   var scene = $('#scene');
   scene.addEventListener('pointermove', function (e) { var r = scene.getBoundingClientRect(); scene.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100) + '%'); scene.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100) + '%'); });
-  if (window.gsap && !RM) gsap.from('.obj', { y: -40, opacity: 0, duration: .7, ease: 'bounce.out', stagger: .06, scrollTrigger: { trigger: '#scene', start: 'top 75%' } });
+  $$('.obj', objs).forEach(function (o, i) { o.style.transitionDelay = (i * 0.05) + 's'; });
+  io([scene], function (el) { el.classList.add('in'); setTimeout(function () { $$('.obj', objs).forEach(function (o) { o.style.transitionDelay = ''; }); }, 1600); }, { threshold: .2 });
 
   /* ============================ 7. GALLERY + LOGOS ============================ */
   var GAL = [

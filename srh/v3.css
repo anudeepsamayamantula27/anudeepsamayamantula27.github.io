@@ -727,3 +727,36 @@ a.lab-card:hover{border-color:var(--or);border-style:solid;transform:translateY(
 
 /* walk-out: hold phone momentum while a kit settles */
 html.walk-hold,html.walk-hold body{overflow:hidden}
+
+/* ===== locker room (main highlights) ===== */
+.room .lede{max-width:620px}
+.obj-lab{position:absolute;left:50%;top:calc(100% + 6px);transform:translateX(-50%);white-space:nowrap;padding:5px 9px;border-radius:999px;background:rgba(10,10,11,.82);border:1px solid rgba(242,101,34,.55);color:var(--tx);font:700 11px/1 var(--body);letter-spacing:.02em;pointer-events:none;transition:background .2s,color .2s;z-index:4}
+.obj:hover .obj-lab,.obj:focus-visible .obj-lab{background:var(--or);color:#0a0a0b;border-color:var(--or)}
+.obj-tv{z-index:3}
+.obj-tv:hover,.obj-tv:focus-visible{transform:translateY(-4px) scale(1.02)}
+.tv-box{position:relative;display:block;aspect-ratio:16/9;border-radius:10px;overflow:hidden;background:#000;border:7px solid #15161b;outline:2px solid #2b2d35;box-shadow:0 18px 30px -10px rgba(0,0,0,.8),0 0 40px rgba(242,101,34,.18)}
+.tv-box video{width:100%;height:100%;object-fit:cover;display:block}
+.tv-box::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,.08),transparent 30%,transparent 55%,rgba(0,0,0,.75));pointer-events:none}
+.tv-live{position:absolute;left:10px;top:10px;z-index:2;display:inline-flex;align-items:center;gap:7px;padding:6px 9px;border-radius:999px;background:rgba(10,10,11,.75);color:var(--tx);font-size:10.5px}
+.tv-cap{position:absolute;left:12px;right:12px;bottom:10px;z-index:2;display:flex;justify-content:space-between;align-items:flex-end;gap:10px;text-align:left}
+.tv-cap b{font:400 clamp(14px,1.45vw,21px)/1.05 var(--disp);text-transform:uppercase;color:#fff;max-width:72%}
+.tv-cap span{flex:none;font:700 11px/1 var(--body);color:#0a0a0b;background:var(--or);padding:6px 9px;border-radius:999px}
+.tv-feet{display:flex;justify-content:space-between;padding:0 22%}
+.tv-feet i{display:block;width:8%;height:9px;background:#15161b;border-radius:0 0 3px 3px}
+.room-list button{background:var(--card)}
+@media (max-width:760px){
+  .obj-lab{font-size:9.5px;padding:4px 7px;top:calc(100% + 4px)}
+  .tv-box{border-width:5px}
+  .tv-live{font-size:9px;padding:4px 7px;left:6px;top:6px}
+  .tv-cap{left:8px;right:8px;bottom:6px}
+  .tv-cap b{font-size:13px}
+  .tv-cap span{font-size:9px;padding:4px 7px}
+}
+/* room drop-in (separate from the hover transform) */
+.scene .obj{opacity:0;translate:0 -36px;transition:transform .3s var(--ease),filter .3s,opacity .5s ease,translate .7s cubic-bezier(.34,1.56,.64,1)}
+.scene.in .obj{opacity:1;translate:0 0}
+@media (prefers-reduced-motion:reduce){.scene .obj{opacity:1;translate:none}}
+@media (max-width:760px){
+  .scene{height:auto}
+  .scene-in{position:relative;inset:auto;width:1040px;aspect-ratio:16/8.2}
+}

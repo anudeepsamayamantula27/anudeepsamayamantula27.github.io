@@ -13,7 +13,7 @@
 <link rel="preload" href="fonts/anton-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="media/photos/hero-cutout.webp" as="image">
 <link rel="stylesheet" href="fonts/fonts.css">
-<link rel="stylesheet" href="v3.css?v=1795169348">
+<link rel="stylesheet" href="v3.css?v=1795169786">
 <noscript><style>.hero-copy>*,.hero-me,.hero-heat,.hero-word,.hero-shards,[data-reveal],.bids li{opacity:1!important;transform:none!important}</style></noscript>
 </head>
 <body class="intro">
@@ -29,7 +29,7 @@
   <nav class="hd-nav" id="hd-nav" aria-label="Sections">
     <a href="#proposal">Proposal</a>
     <a href="#fixtures">Thesis</a>
-    <a href="#vault">Orange Vault</a>
+    <a href="#room">Locker room</a>
     <a href="#biz">Founder</a>
     <a href="#gallery">Gallery</a>
     <a href="#fanzone">Fanzone</a>
@@ -209,25 +209,20 @@
 </section>
 
 <!-- ============================== ORANGE VAULT (work) ============================== -->
-<section class="sec vault" id="vault" aria-labelledby="vault-h">
+<section class="sec room" id="room" aria-labelledby="room-h">
   <header class="sec-head row">
-    <div><p class="eyebrow">Orange Vault</p><h2 id="vault-h">Match <span class="fire">highlights</span></h2>
-    <p class="lede">The work I've done, in sport and outside it.</p></div>
+    <div><p class="eyebrow">Locker room · Match highlights</p><h2 id="room-h">Everything in here <span class="fire">is a story</span></h2>
+    <p class="lede">Tap any object to open the work behind it. The TV is replaying the IPL auction I ran.</p></div>
+    <button type="button" class="btn btn-ghost" id="room-list-btn" aria-expanded="false" aria-controls="room-list"><span>Show as a list</span></button>
   </header>
-  <div class="feature" data-reveal>
-    <div class="feature-vid">
-      <video id="auction-vid" src="media/video/auction.mp4" poster="media/photos/auction-draft.jpg" muted loop playsinline preload="metadata" aria-label="The IPL auction draft in progress"></video>
-      <span class="vid-tag mono"><i class="live" aria-hidden="true"></i>Watch</span>
-    </div>
-    <div class="feature-copy">
-      <p class="eyebrow">Featured</p>
-      <h3>I ran an IPL auction for 60 students.</h3>
-      <p>Real player cards, live bidding and franchise strategy for ten teams at the Masters' Union SMG Club, on a ₹5K budget. I ran it end to end.</p>
-      <ul class="chips"><li><b>60</b> participants</li><li><b>10</b> teams</li><li><b>₹5K</b> budget</li></ul>
-    </div>
-  </div>
-  <div class="track-bar"><p class="mono">More match highlights<span class="swipe-hint"> · swipe →</span></p><div class="arrows"><button type="button" class="arw" data-track="vault-track" data-dir="-1" aria-label="Previous work">←</button><button type="button" class="arw" data-track="vault-track" data-dir="1" aria-label="Next work">→</button></div></div>
-  <div class="track vault-track" id="vault-track" tabindex="0" aria-label="Work"></div>
+  <div class="scene" id="scene"><div class="scene-in">
+    <div class="scene-light" aria-hidden="true"></div>
+    <div class="scene-shelf" aria-hidden="true"></div>
+    <div class="scene-bench" aria-hidden="true"></div>
+    <div class="scene-objs" id="scene-objs"></div>
+  </div></div>
+  <p class="scene-hint mono">Swipe to look around the room →</p>
+  <div class="room-list" id="room-list"></div>
 </section>
 
 <!-- ============================== BUILT FROM SCRATCH ============================== -->
@@ -368,10 +363,19 @@
 <!-- ============================== FULL STORY (extended cut) ============================== -->
 <section class="more" id="more" aria-label="The full story">
   <div class="more-bar">
-    <p><b>That's the 60-second version.</b> Want the full story? My squad of skills, the numbers, my career scorecard, the dressing room and everyone I've worked with.</p>
+    <p><b>That's the 60-second version.</b> Want the full story? Every project as a card, my squad of skills, the numbers, my career scorecard and everyone I've worked with.</p>
     <button type="button" class="btn btn-ghost" id="more-btn" aria-expanded="false" aria-controls="more-body">See the full story</button>
   </div>
   <div class="more-body" id="more-body" hidden>
+<section class="sec vault" id="cards" aria-labelledby="cards-h">
+  <header class="sec-head row">
+    <div><p class="eyebrow">Orange Vault</p><h2 id="cards-h">Every match, <span class="fire">card by card</span></h2>
+    <p class="lede">The same work as the locker room, laid out as cards.</p></div>
+  </header>
+  <div class="track-bar"><p class="mono">Match highlights<span class="swipe-hint"> · swipe →</span></p><div class="arrows"><button type="button" class="arw" data-track="vault-track" data-dir="-1" aria-label="Previous work">←</button><button type="button" class="arw" data-track="vault-track" data-dir="1" aria-label="Next work">→</button></div></div>
+  <div class="track vault-track" id="vault-track" tabindex="0" aria-label="Work"></div>
+</section>
+
 <!-- ============================== SQUAD ============================== -->
 <section class="sec squad" id="squad" aria-labelledby="squad-h">
   <header class="sec-head row">
@@ -421,21 +425,7 @@
 </section>
 
 <!-- ============================== DRESSING ROOM ============================== -->
-<section class="sec room" id="room" aria-labelledby="room-h">
-  <header class="sec-head row">
-    <div><p class="eyebrow">Dressing room</p><h2 id="room-h">Everything in here <span class="fire">is a story</span></h2>
-    <p class="lede">Tap any object to open the work behind it.</p></div>
-    <button type="button" class="btn btn-ghost" id="room-list-btn" aria-expanded="false" aria-controls="room-list"><span>Show as a list</span></button>
-  </header>
-  <div class="scene" id="scene"><div class="scene-in">
-    <div class="scene-light" aria-hidden="true"></div>
-    <div class="scene-shelf" aria-hidden="true"></div>
-    <div class="scene-bench" aria-hidden="true"></div>
-    <div class="scene-objs" id="scene-objs"></div>
-  </div></div>
-  <p class="scene-hint mono">Swipe to look around the room</p>
-  <div class="room-list" id="room-list"></div>
-</section>
+
 
 <!-- ============================== PARTNERS ============================== -->
 <section class="sec partners" aria-labelledby="partners-h">
@@ -451,7 +441,7 @@
 <footer class="ft">
   <div class="ft-top">
     <div class="ft-brand"><img src="media/logos/srh-logo-sm.webp" alt="" width="72"><b>Anudeep Gupta</b><span>Hyderabad · Masters' Union, Gurugram</span></div>
-    <nav class="ft-nav" aria-label="Footer"><a href="#proposal">Proposal</a><a href="#fixtures">Thesis</a><a href="#vault">Orange Vault</a><a href="#biz">Founder</a><a href="#gallery">Gallery</a><a href="#ask">Let's talk</a><a href="#more">Full story</a></nav>
+    <nav class="ft-nav" aria-label="Footer"><a href="#proposal">Proposal</a><a href="#fixtures">Thesis</a><a href="#room">Locker room</a><a href="#biz">Founder</a><a href="#gallery">Gallery</a><a href="#ask">Let's talk</a><a href="#more">Full story</a></nav>
     <nav class="ft-soc" aria-label="Socials"><a href="https://www.linkedin.com/in/itsanudeepgupta/" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.instagram.com/itsanudeepgupta/" target="_blank" rel="noopener">Instagram</a><a href="https://x.com/_anudeep_gupta_" target="_blank" rel="noopener">X</a></nav>
   </div>
   <p class="ft-note">An independent concept by Anudeep Gupta, made to apply for a role. Not affiliated with, or endorsed by, Sunrisers Hyderabad, Sunrisers Eastern Cape or Sunrisers Leeds. Team names belong to their owners.</p>
@@ -491,6 +481,6 @@
 <script src="vendor/gsap.min.js"></script>
 <script src="vendor/ScrollTrigger.min.js"></script>
 <script src="vendor/lenis.min.js"></script>
-<script src="v3.js?v=1795169348"></script>
+<script src="v3.js?v=1795169786"></script>
 </body>
 </html>
