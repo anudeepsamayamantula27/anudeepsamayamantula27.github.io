@@ -207,13 +207,13 @@
     var idxAt = function (p) { return Math.min(N - 1, Math.floor(p * N * 0.999)); };
     var kitPos = function (i) { return trig.start + (trig.end - trig.start) * ((i + 0.5) / N); };
     // move to one kit and settle there
-    var goId = 0, lastWheel = 0, used = false, quiet = null, root = document.documentElement;
+    var lastDone = 0, goId = 0, lastWheel = 0, used = false, quiet = null, root = document.documentElement;
     var coarse = window.matchMedia && matchMedia('(pointer: coarse)').matches;
     var hush = function () { used = true; lastWheel = Date.now(); clearTimeout(quiet); quiet = setTimeout(function () { used = false; }, 260); };
     var go = function (i) {
       locking = true; setKit(i); hush();
       if (coarse) { root.classList.add('walk-hold'); setTimeout(function () { root.classList.remove('walk-hold'); }, 650); }   // stops phone momentum
-      var my = ++goId, done = function () { if (my === goId) locking = false; };   // only the latest move unlocks
+      var my = ++goId, done = function () { if (my === goId && locking) { locking = false; lastDone = Date.now(); } };   // only the latest move unlocks
       if (lenis) lenis.scrollTo(kitPos(i), { duration: 0.55, force: true, lock: true, onComplete: done });
       else { window.scrollTo({ top: kitPos(i), behavior: 'auto' }); setTimeout(done, 400); }
       setTimeout(done, 1000);
@@ -234,7 +234,7 @@
     window.addEventListener('wheel', function (e) {
       if (!inWalk() || !e.deltaY) return;
       var now = Date.now(), gap = now - lastWheel; lastWheel = now;
-      if (used && gap < 260) { e.preventDefault(); e.stopImmediatePropagation(); clearTimeout(quiet); quiet = setTimeout(function () { used = false; }, 260); return; }
+      if ((used && gap < 260) || now - lastDone < 320) { e.preventDefault(); e.stopImmediatePropagation(); clearTimeout(quiet); quiet = setTimeout(function () { used = false; }, 260); return; }
       var next = cur + (e.deltaY > 0 ? 1 : -1);
       if (next < 0 || next > N - 1) return;               // let the page move on past the first or last kit
       e.preventDefault(); e.stopImmediatePropagation();
