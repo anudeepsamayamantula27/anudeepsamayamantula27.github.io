@@ -700,3 +700,14 @@ a.lab-card:hover{border-color:var(--or);border-style:solid;transform:translateY(
 .src{margin-top:14px;color:var(--dim);font-size:11px;line-height:1.6;max-width:900px;text-transform:none;letter-spacing:.04em}
 .fx-sub{font-size:clamp(40px,5vw,76px)}
 @media (max-width:760px){.gap{grid-template-columns:1fr}.gap-vs{text-align:center}.bar{grid-template-columns:44px 1fr 66px}.bar b{font-size:18px}}
+
+/* ===== phone hero: stack the photo under the copy so nothing covers it ===== */
+@media (max-width:760px){
+  .hero{flex-direction:column;align-items:stretch;min-height:0;padding-bottom:52px}
+  .hero-copy{order:1}
+  .hero-me{order:2;position:relative;right:auto;left:auto;bottom:auto;align-self:center;width:min(100%,430px);height:auto;max-height:none;margin:22px auto 0;transform:translateY(30px);opacity:0}
+  .ready .hero-me{transform:none;opacity:1}
+  .hero-word{bottom:auto;top:56%}
+  .bot-teaser{display:none}
+}
+@media (max-width:760px){.hero-crest{display:none}.hero{padding-top:20px}.hero h1{margin:16px 0 12px}.hero-btns{margin-top:18px}.hero-me{margin-top:10px}}
