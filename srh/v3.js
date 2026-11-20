@@ -29,10 +29,24 @@
     gsap.ticker.lagSmoothing(0);
   }
   if (window.gsap && window.ScrollTrigger) gsap.registerPlugin(ScrollTrigger);
+  function openMore() {
+    var mb = document.getElementById('more-body'), btn = document.getElementById('more-btn');
+    if (!mb || !mb.hidden) return;
+    mb.hidden = false; btn.setAttribute('aria-expanded', 'true'); btn.textContent = 'Hide the full story';
+    if (window.ScrollTrigger) ScrollTrigger.refresh();
+    if (lenis) lenis.resize && lenis.resize();
+  }
+  function closeMore() {
+    var mb = document.getElementById('more-body'), btn = document.getElementById('more-btn');
+    mb.hidden = true; btn.setAttribute('aria-expanded', 'false'); btn.textContent = 'See the full story';
+    if (window.ScrollTrigger) ScrollTrigger.refresh();
+  }
+  (function () { var btn = document.getElementById('more-btn'); if (btn) btn.addEventListener('click', function () { if (document.getElementById('more-body').hidden) { openMore(); var t = document.getElementById('squad'); setTimeout(function () { if (lenis) lenis.scrollTo(t, { offset: -70 }); else t.scrollIntoView({ behavior: 'smooth' }); }, 80); } else closeMore(); }); })();
   document.addEventListener('click', function (e) {
     var a = e.target.closest('a[href^="#"]'); if (!a) return;
     var id = a.getAttribute('href'); if (id.length < 2) return;
     var t = document.querySelector(id); if (!t) return;
+    var mb = document.getElementById('more-body'); if (mb && mb.hidden && mb.contains(t)) openMore();
     e.preventDefault(); closeMenu();
     if (lenis) lenis.scrollTo(t, { offset: id === '#top' ? -200 : -70 }); else t.scrollIntoView({ behavior: RM ? 'auto' : 'smooth' });
   });
@@ -46,7 +60,7 @@
     var navIO = new IntersectionObserver(function (es) {
       es.forEach(function (e) { if (e.isIntersecting) links.forEach(function (l) { l.classList.toggle('on', l.getAttribute('href') === '#' + e.target.id); }); });
     }, { rootMargin: '-45% 0px -50% 0px' });
-    ['squad', 'fixtures', 'vault', 'room', 'gallery', 'fanzone'].forEach(function (id) { var s = document.getElementById(id); if (s) navIO.observe(s); });
+    ['proposal', 'fixtures', 'vault', 'biz', 'gallery', 'fanzone', 'more'].forEach(function (id) { var s = document.getElementById(id); if (s) navIO.observe(s); });
   }
 
   /* ============================ effects canvas (bursts) ============================ */
