@@ -277,7 +277,7 @@ p{margin:0}
 .table tbody tr{transition:background .2s}
 .table tbody tr:hover{background:rgba(242,101,34,.08)}
 .table tbody tr:last-child th,.table tbody tr:last-child td{border-bottom:0}
-.edu{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;max-width:1280px;margin-top:16px}
+.edu{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;max-width:1280px;margin-top:16px}
 .edu div{padding:20px 22px;border-radius:18px;background:var(--card);border:1px solid var(--line);display:flex;flex-direction:column;gap:6px}
 .edu .mono{color:var(--gold)}
 .edu b{font:400 24px/1.05 var(--disp);text-transform:uppercase}
@@ -633,3 +633,14 @@ a.lab-card:hover{border-color:var(--or);border-style:solid;transform:translateY(
 .lab-card p{color:#d6d2cc;font-size:15.5px}
 .lab-card .lab-me{color:var(--mut);font-size:14.5px}
 .lab-go{margin-top:auto;padding-top:8px;font:700 13px/1 var(--body);text-transform:uppercase;letter-spacing:.06em;color:var(--or)}
+
+.certs{max-width:1280px;margin-top:34px}
+.certs .eyebrow{margin-bottom:14px}
+.cert-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.cert{display:flex;gap:16px;align-items:flex-start;padding:20px 22px;border-radius:18px;background:var(--card);border:1px solid var(--line);border-left:4px solid var(--or);transition:border-color .3s,transform .3s var(--ease)}
+.cert:hover{border-color:var(--or);transform:translateY(-3px)}
+.cert-ic{flex:none;width:46px;height:46px;border-radius:12px;display:grid;place-items:center;background:rgba(242,101,34,.15);color:var(--or);font:400 20px/1 var(--disp)}
+.cert .mono{color:var(--gold);margin-bottom:6px}
+.cert b{display:block;font:400 22px/1.05 var(--disp);text-transform:uppercase}
+.cert div>span{display:block;margin-top:4px;color:var(--mut);font-size:14.5px}
+@media (max-width:1020px){.cert-row{grid-template-columns:1fr}}
