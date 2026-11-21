@@ -28,10 +28,10 @@
     "substack": ""
   },
   "pitch": {
-    "short": "I spent two and a half years in market research at TBRC, on 55+ reports that brought in ₹1.9 Cr+ in sales. Since then I have worked with crowds, from 1,000+ people at HYROX Delhi to an IPL auction draft for 60 classmates. I grew up in Hyderabad, and I want to put the research and the crowd work together for the Orange Army.",
+    "short": "I spent two and a half years in market research at TBRC, on 55+ reports that brought in ₹1.9 Cr+ in sales. Since then I have worked with crowds, from running the Masters' Union zone at HYROX Delhi (10,500 athletes) to an IPL auction draft for 60 classmates. I grew up in Hyderabad, and I want to put the research and the crowd work together for the Orange Army.",
     "why_hire": [
       "I start from the numbers: 55+ market research reports at TBRC, ₹1.9 Cr+ in report sales and a green hydrogen database of 600+ projects that sold ₹17L+.",
-      "I've run the room: on-ground execution for 1,000+ attendees at HYROX Delhi, 10+ esports tournaments for 250+ players, and an IPL auction draft for 60 participants on a ₹5K budget.",
+      "I've run the room: ran the Masters' Union zone at HYROX Delhi (10,500 athletes), 10+ esports tournaments for 250+ players, and an IPL auction draft for 60 participants on a ₹5K budget.",
       "I've built launch plans for sport: a ₹50L go-to-market plan for NIVIA's India jersey, and an off-season plan for goSTOPS that finished in the top 5 of 93 teams."
     ],
     "for_company_template": "Why {company}: I'm a Hyderabad fan, and I want to help {company} keep the Orange Army close all year, across all three Sunrisers teams."
@@ -127,11 +127,13 @@
     },
     {
       "org": "HYROX Delhi 2026",
-      "role": "On-ground team, Masters' Union",
+      "role": "Volunteer, ran the Masters' Union zone",
       "place": "Delhi NCR",
       "dates": "Jul 2026",
       "points": [
-        "Delivered on-ground execution for 1,000+ attendees over 3 days, leading volunteer logistics and attendee experience."
+        "Took charge of the Masters' Union zone (5 activations) at a 10,500-athlete event, 7 AM to 9 PM for 3 days.",
+        "Cleared a jammed finisher queue by getting HYROX's official timing data to fix mismatched time tags.",
+        "Pulled walk-past athletes into the zone with a volunteer holding a 'free goodies & photo shoot' placard."
       ],
       "logo": "logos/orgs/hyrox.svg"
     },
@@ -296,13 +298,13 @@
     },
     {
       "slug": "hyrox-delhi",
-      "title": "HYROX Delhi: 1,000+ people, 3 days",
+      "title": "HYROX Delhi: running the MU zone",
       "org": "HYROX Delhi · Masters' Union",
       "year": "2026",
       "role": "On-ground team",
       "type": "Event",
-      "summary": "On-ground execution at HYROX Delhi with the Masters' Union team, leading volunteer logistics and the attendee experience.",
-      "result": "1,000+ attendees over 3 days",
+      "summary": "Took charge of the Masters' Union zone at HYROX Delhi (10,500 athletes): fixed a jammed finisher queue and pulled walk-past athletes in.",
+      "result": "Ran the Masters' Union zone at a 10,500-athlete event",
       "thumbnail": "projects/hyrox-delhi/thumb.webp",
       "has_page": false,
       "tags": [
@@ -315,8 +317,8 @@
       "tools": [],
       "metrics": [
         [
-          "1,000+",
-          "attendees"
+          "10,500",
+          "athletes at the event"
         ],
         [
           "2",
@@ -837,8 +839,8 @@
     ],
     "stickers": [
       {
-        "big": "1,000+",
-        "small": "fans at HYROX Delhi",
+        "big": "10,500",
+        "small": "athletes at HYROX Delhi",
         "shape": "burst"
       },
       {
@@ -866,8 +868,8 @@
   },
   "stats_strip": [
     {
-      "value": "1,000+",
-      "label": "attendees on the ground",
+      "value": "5",
+      "label": "activations I ran at HYROX Delhi",
       "from": "HYROX Delhi 2026"
     },
     {
