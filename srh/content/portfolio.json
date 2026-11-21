@@ -131,9 +131,9 @@
       "place": "Delhi NCR",
       "dates": "Jul 2026",
       "points": [
-        "Took charge of the Masters' Union zone (5 activations) at a 10,500-athlete event, 7 AM to 9 PM for 3 days.",
-        "Cleared a jammed finisher queue by getting HYROX's official timing data to fix mismatched time tags.",
-        "Pulled walk-past athletes into the zone with a volunteer holding a 'free goodies & photo shoot' placard."
+        "Delivered 8,000+ finisher goodies bags (~80% of 10,500 athletes) in 3 days by coordinating a ~20-volunteer zone.",
+        "Cut wrong finisher time tags from ~100 to zero by pushing to switch from AI-read scorecards to HYROX's official timing data.",
+        "Kept peak queues of 80-100 athletes moving by shifting volunteers between the goodies and stamp stations."
       ],
       "logo": "logos/orgs/hyrox.svg"
     },
@@ -868,8 +868,8 @@
   },
   "stats_strip": [
     {
-      "value": "5",
-      "label": "activations I ran at HYROX Delhi",
+      "value": "8,000+",
+      "label": "finisher bags at HYROX Delhi",
       "from": "HYROX Delhi 2026"
     },
     {
