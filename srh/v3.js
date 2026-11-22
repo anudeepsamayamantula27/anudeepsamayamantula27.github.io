@@ -443,6 +443,7 @@
   var GAL = [
     ['media/photos/uppal-srh-kid.webp', 'At Uppal for a Sunrisers game, about 11 years ago', ''],
     ['media/photos/sport-india-2026.webp', 'Sport India Conference 2026, Vision 2036 panel, Bharat Mandapam', 'wide', '50% 40%'],
+    ['media/photos/neel-shah.webp', 'With Neel Shah, CEO of Dream Sports Foundation, after his session at Masters’ Union', '', '50% 15%'],
     ['media/photos/viren-rasquinha.webp', 'With Viren Rasquinha, former India hockey captain, at Masters’ Union', ''],
     ['media/photos/hudle-ceo.webp', 'With Suhail Narain, Founder and CEO of Hudle', ''],
     ['media/photos/pbks-coo.webp', 'With Saurabh Arora, COO of Punjab Kings', ''],
