@@ -28,9 +28,9 @@
     "substack": ""
   },
   "pitch": {
-    "short": "I spent two and a half years in market research at TBRC, on 55+ reports that brought in ₹1.9 Cr+ in sales. Since then I have worked with crowds, from running the Masters' Union zone at HYROX Delhi (10,500 athletes) to an IPL auction draft for 60 classmates. I grew up in Hyderabad, and I want to put the research and the crowd work together for the Orange Army.",
+    "short": "I spent two and a half years in market research at TBRC, writing 55+ reports for global clients. Since then I have worked with crowds, from running the Masters' Union zone at HYROX Delhi (10,500 athletes) to an IPL auction draft for 60 classmates. I grew up in Hyderabad, and I want to put the research and the crowd work together for the Orange Army.",
     "why_hire": [
-      "I start from the numbers: 55+ market research reports at TBRC, ₹1.9 Cr+ in report sales and a green hydrogen database of 600+ projects that sold ₹17L+.",
+      "I start from the numbers: 55+ market research reports at TBRC, listed at about $4K each, and a green hydrogen database of 600+ projects, licensed at $10K.",
       "I've run the room: ran the Masters' Union zone at HYROX Delhi (10,500 athletes), 10+ esports tournaments for 250+ players, and an IPL auction draft for 60 participants on a ₹5K budget.",
       "I've built launch plans for sport: a ₹50L go-to-market plan for NIVIA's India jersey, and an off-season plan for goSTOPS that finished in the top 5 of 93 teams."
     ],
@@ -69,7 +69,7 @@
     {
       "year": "2022–2025",
       "title": "Associate Consultant, The Business Research Company",
-      "detail": "55+ market research reports and ₹1.9 Cr+ in report sales. Doubled weekly report output from 2 to 4."
+      "detail": "55+ market research reports, listed at about $4K each. Doubled weekly report output from 2 to 4."
     },
     {
       "year": "2026",
@@ -143,8 +143,8 @@
       "place": "Hyderabad",
       "dates": "Jul 2022 – Apr 2025",
       "points": [
-        "Contributed to 55+ market research reports for global clients, generating ₹1.9 Cr+ in report sales.",
-        "Built a green hydrogen database of 600+ global projects that generated ₹17L+ in sales.",
+        "Wrote 55+ market research reports for global clients, each listed at about $4K.",
+        "Built a green hydrogen database of 600+ global projects, licensed at $10K.",
         "Doubled weekly report output from 2 to 4 with an automated Excel workflow, and mentored 3 research interns."
       ],
       "logo": "logos/orgs/tbrc.svg"
@@ -888,8 +888,8 @@
       "from": "TBRC"
     },
     {
-      "value": "₹1.9 Cr+",
-      "label": "in report sales",
+      "value": "2 → 4",
+      "label": "reports a week, after my workflow",
       "from": "TBRC"
     },
     {
