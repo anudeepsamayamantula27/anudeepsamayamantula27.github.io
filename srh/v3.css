@@ -769,3 +769,7 @@ html.walk-hold,html.walk-hold body{overflow:hidden}
 .live,.tk-live i{animation:blink 1.4s ease-in-out infinite!important;box-shadow:none!important}
 img.bg.pre{filter:none!important;transform:scale(1.08)!important}
 section.anim-off *,section.anim-off *::before,section.anim-off *::after{animation-play-state:paused!important}
+
+/* faster kit switch */
+.walk-shot{transition:clip-path .3s var(--ease)}
+.walk-ch{transition:opacity .2s ease,transform .28s var(--ease)}

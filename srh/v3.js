@@ -220,9 +220,9 @@
     var hush = function () { used = true; lastWheel = Date.now(); clearTimeout(quiet); quiet = setTimeout(function () { used = false; }, 260); };
     var go = function (i) {
       locking = true; setKit(i); hush();
-      if (coarse) { root.classList.add('walk-hold'); setTimeout(function () { root.classList.remove('walk-hold'); }, 650); }   // stops phone momentum
-      var my = ++goId, done = function () { if (my === goId && locking) { locking = false; lastDone = Date.now(); } };   // only the latest move unlocks
-      if (lenis) lenis.scrollTo(kitPos(i), { duration: 0.55, force: true, lock: true, onComplete: done });
+      if (coarse) { root.classList.add('walk-hold'); setTimeout(function () { root.classList.remove('walk-hold'); }, 450); }   // stops phone momentum
+      var my = ++goId, done = function () { if (my === goId && locking) { locking = false; lastDone = Date.now(); peakSince = 0; } };   // only the latest move unlocks
+      if (lenis) lenis.scrollTo(kitPos(i), { duration: 0.35, force: true, lock: true, onComplete: done });
       else { window.scrollTo({ top: kitPos(i), behavior: 'auto' }); setTimeout(done, 400); }
       setTimeout(done, 1000);
     };
@@ -239,15 +239,20 @@
       } });
     // one kit per gesture: wheel/trackpad flick or touch swipe
     var inWalk = function () { return trig && trig.isActive && !navJump; };
+    // one kit per wheel gesture. A new gesture starts after a short pause, a fresh push, or steady scrolling that
+    // isn't fading like trackpad momentum, so repeated scrolls keep switching kits but one hard flick moves only one.
+    var lastAbs = 0, peakSince = 0;
     window.addEventListener('wheel', function (e) {
       if (!inWalk() || !e.deltaY) return;
-      var now = Date.now(), gap = now - lastWheel; lastWheel = now;
-      if ((used && gap < 260) || now - lastDone < 320) { e.preventDefault(); e.stopImmediatePropagation(); clearTimeout(quiet); quiet = setTimeout(function () { used = false; }, 260); return; }
+      var now = Date.now(), gap = now - lastWheel, abs = Math.abs(e.deltaY), prev = lastAbs;
+      lastWheel = now; lastAbs = abs;
+      if (!locking && now - lastDone > 0) peakSince = Math.max(peakSince, abs);
+      var fresh = gap > 180 || (abs > prev * 1.4 && abs > 8) || (now - lastDone > 450 && abs >= 20 && abs >= peakSince * 0.9);
       var next = cur + (e.deltaY > 0 ? 1 : -1);
+      if (locking || !fresh) { e.preventDefault(); e.stopImmediatePropagation(); return; }
       if (next < 0 || next > N - 1) return;               // let the page move on past the first or last kit
       e.preventDefault(); e.stopImmediatePropagation();
-      if (locking) return;
-      used = true; go(next);
+      go(next);
     }, { capture: true, passive: false });
     var ty0 = null, tUsed = false;
     window.addEventListener('touchstart', function (e) { ty0 = inWalk() ? e.touches[0].clientY : null; tUsed = false; }, { passive: true });
@@ -257,7 +262,7 @@
       var next = cur + (dy > 0 ? 1 : -1);
       if (!tUsed && (next < 0 || next > N - 1)) { ty0 = null; return; }
       e.preventDefault();
-      if (!tUsed && !locking && Math.abs(dy) > 40) { tUsed = true; go(next); }
+      if (!tUsed && !locking && Math.abs(dy) > 28) { tUsed = true; go(next); }
     }, { passive: false });
     window.addEventListener('touchend', function () { ty0 = null; tUsed = false; }, { passive: true });
   } else { walk.classList.add('static'); setKit(KITS.length - 1); chs.forEach(function (c) { c.classList.add('on'); }); }
