@@ -106,7 +106,7 @@
     setTimeout(start, 1500);
   }
   var tk = $('#tk-track');
-  var TICK = [['10,500 athletes', 'HYROX Delhi, I ran the MU zone'], ['U19 national', 'badminton, for Telangana'], ['Top 5 of 93', 'goSTOPS challenge'], ['₹2L+ revenue', 'The Better Store, dropshipping'], ['₹50L', 'jersey launch plan with NIVIA'], ['55+ reports', 'The Business Research Company'], ['60 players', 'IPL auction draft I ran'], ['10+ tournaments', 'TITANS IBS esports'], ['Vortilix', 'co-founding a startup in the MU Venture Initiation Program'], ['3 teams', 'one Orange Army']];
+  var TICK = [['10,500 athletes', 'HYROX Delhi, I ran the MU zone'], ['U19 national', 'badminton, for Telangana'], ['Top 5 of 93', 'goSTOPS challenge'], ['₹2L+ revenue', 'The Better Store, dropshipping'], ['Top 3 of 15', 'NIVIA jersey challenge'], ['55+ reports', 'The Business Research Company'], ['60 players', 'IPL auction draft I ran'], ['10+ tournaments', 'TITANS IBS esports'], ['Vortilix', 'co-founding a startup in the MU Venture Initiation Program'], ['3 teams', 'one Orange Army']];
   var tkHTML = TICK.map(function (t) { return '<span>' + esc(t[0]) + ' <small>' + esc(t[1]) + '</small></span>'; }).join('');
   tk.innerHTML = '<div class="tk-g">' + tkHTML + '</div><div class="tk-g" aria-hidden="true">' + tkHTML + '</div>';
 
@@ -306,7 +306,7 @@
   if (window.gsap && !RM) gsap.from('.pcard', { y: 80, opacity: 0, duration: .9, ease: 'power3.out', stagger: .08, clearProps: 'transform,opacity', scrollTrigger: { trigger: '#squad-track', start: 'top 85%' } });
 
   /* ============================ 3. MILESTONES ============================ */
-  var MILES = [['8,000+', 'finisher bags delivered', 'HYROX Delhi 2026 · 10,500 athletes'], ['Top 5', 'of 93 teams', 'goSTOPS challenge'], ['₹50L', 'jersey launch plan', 'NIVIA × Indian football'], ['₹2L+', 'dropshipping revenue', 'The Better Store'],
+  var MILES = [['8,000+', 'finisher bags delivered', 'HYROX Delhi 2026 · 10,500 athletes'], ['Top 5', 'of 93 teams', 'goSTOPS challenge'], ['Top 3', 'of 15 teams, ₹50L launch plan', 'NIVIA × Indian football'], ['₹2L+', 'dropshipping revenue', 'The Better Store'],
     ['2 → 4', 'reports a week, my workflow', 'TBRC'], ['60', 'players in an IPL auction draft', 'SMG Club'], ['10+', 'esports tournaments run', 'TITANS IBS'], ['U19', 'national-level badminton', 'Telangana']];
   var mg = $('#miles-grid');
   mg.innerHTML = MILES.map(function (m) { return '<div class="mile" data-reveal><b data-count="' + esc(m[0]) + '">' + esc(m[0]) + '</b><span>' + esc(m[1]) + '</span><small>' + esc(m[2]) + '</small></div>'; }).join('');
@@ -349,7 +349,7 @@
   /* ============================ 5. ORANGE VAULT ============================ */
   var WORK = [
     { slug: 'one-orange-army', type: 'Concept', title: 'One Orange Army, three seasons', org: 'A concept for the Sunrisers group', big: '4', res: 'Nights in an SA20 2027 pilot', img: 'media/projects/one-orange-army/thumb.webp', page: true },
-    { slug: 'nivia-india-jersey', fit: true, type: 'Launch', title: 'Wear the Blue: India’s football jersey', org: 'NIVIA · live industry challenge', big: '₹50L', res: 'launch plan; 30K jerseys in 90 days, base case', img: 'media/projects/nivia-india-jersey/thumb.webp', page: true },
+    { slug: 'nivia-india-jersey', fit: true, type: 'Launch', title: 'Wear the Blue: India’s football jersey', org: 'NIVIA · live industry challenge', big: 'Top 3', res: 'of 15 teams; ₹50L plan, 30K jerseys in 90 days, base case', img: 'media/projects/nivia-india-jersey/thumb.webp', page: true },
     { slug: 'gostops-off-season', fit: true, type: 'Strategy', title: 'Filling hostels in the off-season', org: 'goSTOPS · one-day challenge', big: 'Top 5', res: 'of 93 teams; occupancy 27.5% → 43.8%', img: 'media/projects/gostops-off-season/thumb.webp', page: true },
     { slug: 'hyrox-delhi', type: 'Event', title: 'HYROX Delhi: running the MU zone', org: 'HYROX Delhi · Masters’ Union', big: '8,000+', res: 'finisher bags; wrong time tags cut from ~100 to zero', img: 'media/projects/hyrox-delhi/hall.webp',
       kicker: 'Events · HYROX Delhi 2026', text: 'At HYROX Delhi (10,500 athletes over three days), I volunteered and took charge of the Masters’ Union zone, 7 AM to 9 PM each day. We handed out 8,000+ finisher goodies bags, about 80% of all athletes. The personalised time tags were being typed up from AI-read photos of scorecards, and about 100 came out wrong. I fixed them on the spot from athletes’ own timestamp photos, then pushed to switch to HYROX’s official timing data. From day two, wrong tags dropped to zero. At peak, I moved volunteers between stations so queues of 80–100 athletes cleared in 10–15 minutes.', nums: [['8,000+', 'goodies bags, ~80% of athletes'], ['~100 → 0', 'wrong time tags'], ['~20', 'volunteers in the zone']], role: 'My role: volunteer who took charge of the Masters’ Union zone.', imgs: ['media/projects/hyrox-delhi/hall.webp', 'media/video/hyrox.mp4', 'media/projects/hyrox-delhi/course.webp', 'media/projects/hyrox-delhi/finish.webp', 'media/projects/hyrox-delhi/classof.webp', 'media/projects/hyrox-delhi/venue.webp', 'media/projects/hyrox-delhi/letters.webp'] },

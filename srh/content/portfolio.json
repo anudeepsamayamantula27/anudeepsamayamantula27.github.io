@@ -235,7 +235,7 @@
       "role": "Led the work, team project",
       "type": "Launch",
       "summary": "A go-to-market plan for the Indian national football team jersey: three kits for three fans, a price ladder that fights the fake, and a numbered-jersey platform.",
-      "result": "₹50L launch plan, modelling a 30K-jersey base case over 90 days",
+      "result": "Top 3 of 15 teams, with a ₹50L launch plan modelling a 30K-jersey base case over 90 days",
       "thumbnail": "projects/nivia-india-jersey/thumb.webp",
       "has_page": true,
       "tags": [
@@ -545,6 +545,11 @@
         }
       ],
       "results": [
+        {
+          "metric": "Challenge result",
+          "value": "Top 3",
+          "note": "of 15 teams"
+        },
         {
           "metric": "Launch budget",
           "value": "₹50L",
