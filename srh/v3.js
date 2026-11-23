@@ -498,17 +498,83 @@
     { label: 'See my idea for SRH', run: function () { say('One Orange Army, three seasons: bringing Eastern Cape and Leeds home to Hyderabad.', 'b', '#fixtures', 'Jump to the idea'); } }
   ];
   R.forEach(function (r) { var b = document.createElement('button'); b.type = 'button'; b.textContent = r.label; b.addEventListener('click', function () { say(r.label, 'u'); setTimeout(r.run, 350); }); choices.appendChild(b); });
+  // typed questions: answered from a fixed set of facts (runs in the browser, no AI service, so it never makes things up)
+  var KB = [
+    { k: ['10th', 'tenth', 'class x', 'class 10', 'ssc', 'school', 'st martin', 'cbse'], a: 'Class X at St. Martin’s High School, Hyderabad (CBSE, 2017): a perfect 10/10 CGPA, one of 9 students to get it. I was also playing national-level badminton and earned a maroon belt in Kung Fu.' },
+    { k: ['12th', 'twelfth', 'class xii', 'class 12', 'intermediate', 'inter ', 'junior college', 'avinash', 'tsbie'], a: 'Class XII at Avinash College of Commerce, Hyderabad (TSBIE, 2017–19): 90.5%. I won a 95% merit scholarship (₹50K) for Class XI and was runner-up in the college cricket tournament.' },
+    { k: ['bba', 'degree', 'graduation', 'graduate', 'undergrad', 'bachelor', 'icfai', 'ibs', 'college'], a: 'BBA at ICFAI Business School, Hyderabad (2019–22): CGPA 9.75/10, in the top 5% of 650+ students, with a ₹3.3L merit scholarship.' },
+    { k: ['masters union', 'masters', 'mu ', 'pgp', 'mba', 'currently studying', 'studying now', 'sports management', 'gre', 'scholarship'], a: 'I’m in the founding cohort of the PGP in Sports Management & Gaming at Masters’ Union, Gurugram, on the Pankaj Bansal Scholarship for Young Leaders (₹5.5L). GRE 328. I was 1 of 8 picked for the SMG Club core committee from about 500 students.' },
+    { w: 0.8, k: ['study', 'studied', 'education', 'qualification', 'academic'], a: 'Quick version: Class X at St. Martin’s (10/10 CGPA), Class XII at Avinash College (90.5%), a BBA at ICFAI Business School (9.75/10), and now the Sports Management & Gaming PGP at Masters’ Union. Ask about any of them for more.' },
+    { k: ['how many years', 'years of experience', 'experience', 'how long', 'worked for', 'work ex', 'job', 'career', 'worked'], a: 'Nearly 3 years: I was an Associate Consultant at The Business Research Company (TBRC), Hyderabad, from July 2022 to April 2025. Before that I interned at Examate and Unschool.' },
+    { w: 1.3, k: ['tbrc', 'business research', 'research company', 'consultant', 'research', 'report'], a: 'At TBRC I proposed a green hydrogen database that became a new product, bought by 2 clients at $10K each. I also proposed an automated drafting workflow that doubled weekly output from 2 to 4 reports, and cut delivery from 7 to 2–3 business days across 55+ reports in 10 industries.' },
+    { k: ['intern', 'examate', 'unschool'], a: 'Examate (2021): I converted 10 of 70+ qualified leads into course enrolments and helped grow the intern team 20%. Unschool: ₹45K+ in sales from 40+ course conversions, which earned a Certificate of Excellence.' },
+    { k: ['hyrox'], a: 'At HYROX Delhi (10,500 athletes over 3 days) I took charge of the Masters’ Union zone. Wrong finisher time tags dropped from about 100 to zero after I pushed to use HYROX’s official timing data, and peak queues of 80–100 athletes cleared in 10–15 minutes.' },
+    { k: ['nivia', 'jersey', 'football'], a: 'NIVIA live challenge: my team came Top 3 of 15 with a ₹50L launch plan for India’s football jersey, modelling 30K sales in 90 days.' },
+    { k: ['gostops', 'hostel', 'occupancy'], a: 'goSTOPS one-day challenge: Top 5 of 93 teams, with a plan to lift July–September occupancy from 27.5% to 43.8%.' },
+    { k: ['astralis', 'esports strategy'], a: 'The Astralis Paradox: a solo strategy project on why a famous esports team was losing DKK 5.4M a year, with a turnaround built on an asset-light model, D2C membership and an India creator plan.' },
+    { k: ['esports', 'gaming', 'valorant', 'counter strike', 'cs ', 'titans', 'games'], a: 'I was in-game leader for TITANS IBS: 1st in a Valorant tournament and 2nd in Counter-Strike. I also ran 10+ esports tournaments for 250+ players, and grew registrations about 4x (9 to 40) by moving promotion to college dashboards.' },
+    { k: ['badminton', 'sport', 'sports', 'play', 'kung fu', 'athlete', 'cricket'], a: 'I represented Telangana in national-level badminton (U19) after placing 3rd in a District U16 tournament. I also hold a maroon belt in Kung Fu, and played competitive Valorant and Counter-Strike.' },
+    { k: ['auction', 'ipl auction', 'smg club', 'club'], a: 'I ran an IPL auction draft for 60 students across 10 teams, on a ₹5K budget, for the Masters’ Union SMG Club. I’m on the club’s core committee and lead its 50+ member gaming community.' },
+    { k: ['business', 'entrepreneur', 'startup', 'founder', 'dropshipping', 'better store', 'vortilix', 'revenue'], a: 'Two businesses from zero: The Better Store, a dropshipping store that made ₹2L+ in revenue (moving to Meesho was my idea), and Vortilix, a focus-shot startup I co-founded where I lead marketing, pricing and go-to-market.' },
+    { k: ['app', 'built', 'build', 'vaadyle', 'meet2tracker', 'ashta chamma', 'product', 'code', 'lovable'], a: 'I’ve built Vaadyle (a daily Indian-music puzzle), Meet2Tracker (meeting notes to action items) and Ashta Chamma (an ancient Indian board game, like Ludo). They’re live, but not yet marketed.' },
+    { k: ['skill', 'tools', 'excel', 'power bi', 'python', 'canva', 'good at'], a: 'Skills: GTM strategy, campaign planning, market research, consumer segmentation, content and performance marketing, event operations and community building. Tools: Excel, Power BI, Python, Canva and PowerPoint.' },
+    { k: ['certificat', 'course', 'bloomberg', 'ibm', 'coursera'], a: 'Certifications: Bloomberg Finance Fundamentals (Nov 2026), Digital Marketing Pro from My Captain (2023) and the IBM Data Science Specialization on Coursera (2022).' },
+    { k: ['language', 'telugu', 'hindi', 'tamil', 'speak'], a: 'English, Telugu and Hindi, plus some Tamil.' },
+    { k: ['why srh', 'why sunrisers', 'sunrisers', 'srh', 'orange army', 'fan'], a: 'I grew up in Hyderabad in the Orange Army; I was at Uppal in a Sunrisers headband about 11 years ago. I want to help the Sunrisers keep fans engaged all year, across Hyderabad, Eastern Cape and Leeds.', href: '#fixtures', link: 'See my idea for SRH' },
+    { k: ['idea', 'thesis', 'plan', 'one orange army', 'proposal'], a: 'One Orange Army: bring Sunrisers Eastern Cape and Leeds home to Hyderabad with watch-along nights and a fan passport, so fans stay with the group between IPL seasons.', href: '#fixtures', link: 'Read the idea' },
+    { k: ['available', 'join', 'notice', 'start', 'role', 'hire', 'internship', 'full time', 'full-time', 'looking for', 'opportunit', 'apply', 'vacanc', 'open to', 'open for'], a: 'I’m open to a full-time role or an internship, starting now.' },
+    { w: 0.7, k: ['where', 'location', 'based', 'live', 'from', 'hometown', 'city'], a: 'I’m from Hyderabad, and I’m currently in Gurugram for Masters’ Union.' },
+    { k: ['contact', 'reach', 'email', 'call', 'linkedin', 'connect', 'talk', 'phone', 'number'], a: 'The quickest way is LinkedIn. Message me and I’ll set up a 15-minute call.', href: LINKEDIN, link: 'Message me on LinkedIn' },
+    { k: ['resume', 'cv'], a: 'Here’s my one-page resume.', href: 'media/resume.pdf', link: 'Open my resume' },
+    { k: ['salary', 'ctc', 'pay', 'compensation', 'expect'], a: 'Happy to talk about that on a call. Right now, getting started with the right team matters more to me.' },
+    { k: ['hobby', 'hobbies', 'free time', 'fun'], a: 'Badminton, competitive gaming (Valorant), building small apps, and IPL nights in the stands.' },
+    { w: 0.3, k: ['who are you', 'about you', 'about anudeep', 'tell me about', 'introduce', 'yourself', 'who is'], a: 'I’m Anudeep Gupta, from Hyderabad: nearly 3 years in market research at TBRC, now in Masters’ Union’s Sports Management & Gaming programme, and a lifelong Orange Army fan. I want to work with the Sunrisers.' },
+    { w: 0.4, k: ['hi ', 'hello', 'hey ', 'namaste'], a: 'Hey Riser! Ask me anything about my studies, work, projects or sports.' },
+    { w: 0.4, k: ['thank', 'great ', 'cool ', 'nice '], a: 'Thank you! If you’d like to talk, LinkedIn is the quickest way to reach me.', href: LINKEDIN, link: 'Message me on LinkedIn' }
+  ];
+  var answer = function (q) {
+    var t = ' ' + q.toLowerCase().replace(/[’']/g, '').replace(/[^a-z0-9+\- ]/g, ' ').replace(/\s+/g, ' ') + ' ';
+    var best = null, bestScore = 0;
+    KB.forEach(function (e) {
+      var sc = 0;
+      e.k.forEach(function (k) { var kk = k.trim(); var re = new RegExp('(^|[^a-z0-9])' + kk.replace(/[+]/g, '\\+') + (k.slice(-1) === ' ' ? '([^a-z0-9]|$)' : '')); if (re.test(t)) sc += kk.split(' ').length * (kk.length > 3 ? 2 : 1); });
+      sc *= (e.w || 1);
+      if (sc > bestScore) { bestScore = sc; best = e; }
+    });
+    if (best) say(best.a, 'b', best.href, best.link);
+    else say('I don’t have that one in my notes yet. Try asking about my studies, work, projects or sports, or message me on LinkedIn.', 'b', LINKEDIN, 'Message me on LinkedIn');
+  };
+  $('#bot-ask').addEventListener('submit', function (e) {
+    e.preventDefault(); var inp = $('#bot-q'), q = inp.value.trim(); if (!q) return;
+    say(q, 'u'); inp.value = ''; setTimeout(function () { answer(q); }, 350);
+  });
   var greeted = false;
   var toggle = function (open) {
     var o = open == null ? !bot.classList.contains('open') : open;
-    bot.classList.toggle('open', o); botBtn.setAttribute('aria-expanded', String(o)); teaser.classList.add('hide');
-    if (o && !greeted) { greeted = true; say('Hey Riser, nice to meet you! Like you, I’m a Riser too.'); setTimeout(function () { say('What would you like to do?'); }, 500); }
+    bot.classList.toggle('open', o); botBtn.setAttribute('aria-expanded', String(o)); teaser.classList.add('hide'); teaser.classList.remove('peek'); if (o) bot.classList.add('seen');
+    if (o && !greeted) { greeted = true; say('Hey Riser, nice to meet you! Like you, I’m a Riser too.'); setTimeout(function () { say('Ask me anything, like where I studied or how long I worked, or tap an option below.'); }, 500); }
   };
   botBtn.addEventListener('click', function () { toggle(); });
   $('#bot-x').addEventListener('click', function () { toggle(false); });
   teaser.addEventListener('click', function () { toggle(true); });
   msgs.addEventListener('click', function (e) { var a = e.target.closest('a'); if (a && a.getAttribute('href') === '#fixtures') toggle(false); });
-  addEventListener('scroll', function () { if (scrollY > 600) teaser.classList.add('hide'); }, { passive: true });
+  var firstHide = function () { if (scrollY > 600) { teaser.classList.add('hide'); removeEventListener('scroll', firstHide); } };
+  addEventListener('scroll', firstHide, { passive: true });
+  // bring the chat back into view at key moments, so visitors notice it (once per section, never after they've opened it)
+  var peekT = null;
+  var peek = function (text) {
+    if (bot.classList.contains('open') || bot.classList.contains('seen')) return;
+    teaser.textContent = text; teaser.classList.remove('hide'); teaser.classList.add('peek');
+    clearTimeout(peekT); peekT = setTimeout(function () { teaser.classList.add('hide'); teaser.classList.remove('peek'); }, 7000);
+  };
+  if ('IntersectionObserver' in window) {
+    [['proposal', 'Short on time? Ask me anything →'], ['room', 'Want the 60-second version? Chat with me →'], ['fanzone', 'Ready to talk? Book a call here →']].forEach(function (p) {
+      var el = document.getElementById(p[0]); if (!el) return;
+      var ob = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { peek(p[1]); ob.disconnect(); } }); }, { threshold: 0.35 });
+      ob.observe(el);
+    });
+  }
+
 
   if (window.ScrollTrigger) {
     addEventListener('load', function () { ScrollTrigger.refresh(); });
