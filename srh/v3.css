@@ -803,3 +803,4 @@ section.anim-off *,section.anim-off *::before,section.anim-off *::after{animatio
 .deck b{font:400 22px/1.05 var(--disp);text-transform:uppercase}
 .deck small{color:var(--mut);font-size:13.5px;line-height:1.35}
 @media (max-width:760px){.decks{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.deck b{font-size:18px}.deck small{font-size:12.5px}}
+.why + .why{margin-top:12px}
