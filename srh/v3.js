@@ -393,7 +393,7 @@
   };
   var ROOM = [
     { obj: 'hanging', left: 5, top: 3, w: 11, label: 'About me', kicker: 'About', title: 'Anudeep Gupta.',
-      text: 'Hyderabad-raised Orange Army fan and founding-cohort student of Sports Management & Gaming at Masters’ Union. I speak English, Telugu and Hindi, with some Tamil.', nums: [['1 of 8', 'SMG Club core committee'], ['4', 'languages']], role: 'Open to a full-time role, starting now.', link: 'media/resume.pdf', linkText: 'Open my resume', img: 'media/photos/srh-jersey.webp' },
+      text: 'Hyderabad-raised Orange Army fan and founding-cohort student of Sports Management & Gaming at Masters’ Union. I speak English, Telugu and Hindi, with some Tamil.', nums: [['1 of 8', 'SMG Club core committee'], ['4', 'languages']], role: 'Open to a full-time role or internship, starting now.', link: 'media/resume.pdf', linkText: 'Open my resume', img: 'media/photos/srh-jersey.webp' },
     { obj: 'flag', left: 21, top: 6, w: 9, label: 'One Orange Army', title: 'One Orange Army, three seasons', page: 'one-orange-army' },
     { obj: 'tv', left: 38, top: 3, w: 24, label: 'IPL auction draft', kicker: 'Events · SMG Club', title: 'I ran an IPL auction for 60 students.', text: 'Real player cards, live bidding and franchise strategy for ten teams at the Masters’ Union SMG Club, on a ₹5K budget.', nums: [['60', 'participants'], ['10', 'teams'], ['₹5K', 'budget']], role: 'My role: ran it end to end.', video: 'media/video/auction.mp4', poster: 'media/photos/auction-draft.webp' },
     { obj: 'board', left: 69, top: 8, w: 14, label: 'Astralis', kicker: 'Esports strategy · Masters’ Union, Term 1', title: 'Rebuilding an esports empire.',
