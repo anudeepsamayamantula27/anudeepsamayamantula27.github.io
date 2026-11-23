@@ -11,6 +11,7 @@
   var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
   var esc = function (s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); };
   var LINKEDIN = 'https://www.linkedin.com/in/itsanudeepgupta/';
+  var BOOK = 'https://calendar.app.google/GHTx8vktZ8kw6CNe8';
   var INSTAGRAM = 'https://www.instagram.com/itsanudeepgupta/';
   var X = 'https://x.com/_anudeep_gupta_';
   var numsHTML = function (nums) { return nums.map(function (n) { return '<div><b>' + esc(n[0]) + '</b><span>' + esc(n[1]) + '</span></div>'; }).join(''); };
@@ -492,7 +493,7 @@
     msgs.appendChild(m); msgs.scrollTop = msgs.scrollHeight; return m;
   };
   var R = [
-    { label: 'Book a call', run: function () { say('Send me a message on LinkedIn and I’ll set up a 15-minute call at a time that suits you.', 'b', LINKEDIN, 'Message me on LinkedIn'); } },
+    { label: 'Book a call', run: function () { say('Pick any free slot in my calendar. It’s a 15-minute Google Meet, and you’ll get the invite straight away.', 'b', BOOK, 'Book a 15-min call'); } },
     { label: 'See my resume', run: function () { say('Here’s my one-page resume.', 'b', 'media/resume.pdf', 'Open the PDF'); } },
     { label: 'My socials', run: function () { say('LinkedIn is the best place to reach me.', 'b', LINKEDIN, 'linkedin.com/in/itsanudeepgupta'); setTimeout(function () { var m = say('I’m also on Instagram and X.', 'b', INSTAGRAM, 'instagram.com/itsanudeepgupta'); var a = document.createElement('a'); a.href = X; a.target = '_blank'; a.rel = 'noopener'; a.textContent = 'x.com/_anudeep_gupta_'; m.appendChild(a); }, 300); } },
     { label: 'See my idea for SRH', run: function () { say('One Orange Army, three seasons: bringing Eastern Cape and Leeds home to Hyderabad.', 'b', '#fixtures', 'Jump to the idea'); } }
@@ -524,13 +525,13 @@
     { k: ['idea', 'thesis', 'plan', 'one orange army', 'proposal'], a: 'One Orange Army: bring Sunrisers Eastern Cape and Leeds home to Hyderabad with watch-along nights and a fan passport, so fans stay with the group between IPL seasons.', href: '#fixtures', link: 'Read the idea' },
     { k: ['available', 'join', 'notice', 'start', 'role', 'hire', 'internship', 'full time', 'full-time', 'looking for', 'opportunit', 'apply', 'vacanc', 'open to', 'open for'], a: 'I’m open to a full-time role or an internship, starting now.' },
     { w: 0.7, k: ['where', 'location', 'based', 'live', 'from', 'hometown', 'city'], a: 'I’m from Hyderabad, and I’m currently in Gurugram for Masters’ Union.' },
-    { k: ['contact', 'reach', 'email', 'call', 'linkedin', 'connect', 'talk', 'phone', 'number'], a: 'The quickest way is LinkedIn. Message me and I’ll set up a 15-minute call.', href: LINKEDIN, link: 'Message me on LinkedIn' },
+    { k: ['contact', 'reach', 'email', 'call', 'linkedin', 'connect', 'talk', 'phone', 'number'], a: 'Book a 15-minute call straight into my calendar, or message me on LinkedIn: linkedin.com/in/itsanudeepgupta.', href: BOOK, link: 'Book a 15-min call' },
     { k: ['resume', 'cv'], a: 'Here’s my one-page resume.', href: 'media/resume.pdf', link: 'Open my resume' },
     { k: ['salary', 'ctc', 'pay', 'compensation', 'expect'], a: 'Happy to talk about that on a call. Right now, getting started with the right team matters more to me.' },
     { k: ['hobby', 'hobbies', 'free time', 'fun'], a: 'Badminton, competitive gaming (Valorant), building small apps, and IPL nights in the stands.' },
     { w: 0.3, k: ['who are you', 'about you', 'about anudeep', 'tell me about', 'introduce', 'yourself', 'who is'], a: 'I’m Anudeep Gupta, from Hyderabad: nearly 3 years in market research at TBRC, now in Masters’ Union’s Sports Management & Gaming programme, and a lifelong Orange Army fan. I want to work with the Sunrisers.' },
     { w: 0.4, k: ['hi ', 'hello', 'hey ', 'namaste'], a: 'Hey Riser! Ask me anything about my studies, work, projects or sports.' },
-    { w: 0.4, k: ['thank', 'great ', 'cool ', 'nice '], a: 'Thank you! If you’d like to talk, LinkedIn is the quickest way to reach me.', href: LINKEDIN, link: 'Message me on LinkedIn' }
+    { w: 0.4, k: ['thank', 'great ', 'cool ', 'nice '], a: 'Thank you! If you’d like to talk, pick a slot in my calendar.', href: BOOK, link: 'Book a 15-min call' }
   ];
   var answer = function (q) {
     var t = ' ' + q.toLowerCase().replace(/[’']/g, '').replace(/[^a-z0-9+\- ]/g, ' ').replace(/\s+/g, ' ') + ' ';
