@@ -829,3 +829,6 @@ section.anim-off *,section.anim-off *::before,section.anim-off *::after{animatio
 .svy-grid span{display:block;margin-top:8px;color:#cfcac4;font-size:13.5px;line-height:1.4}
 @media (max-width:1000px){.svy-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media (max-width:560px){.svy-grid{grid-template-columns:1fr 1fr;gap:8px}.svy-grid li{padding:13px}.svy-grid span{font-size:12.5px}.svy-grid li:last-child{grid-column:1/-1}}
+
+/* new arms-crossed hero photo is tall and narrow: size by height on phones */
+@media (max-width:760px){.hero .hero-me{width:auto;height:min(56vh,470px);max-width:100%}}
