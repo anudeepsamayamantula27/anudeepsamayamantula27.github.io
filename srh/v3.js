@@ -338,7 +338,7 @@
       var lit = st === 'today' ? TEAM[i] === 'SRH' : !!TEAM[i];
       setTimeout(function () { m.classList.toggle('lit', lit); }, RM ? 0 : i * 60);
     });
-    cap.textContent = st === 'today' ? 'Today: Hyderabad cheers for 3 months a year' : 'With One Orange Army: 7 months of Sunrisers cricket to cheer for';
+    cap.textContent = st === 'today' ? 'Today: Hyderabad gathers for 3 months a year' : 'With One Orange Army: 7 months of Sunrisers cricket to cheer for';
     if (st === 'plan') { var r = monthsEl.getBoundingClientRect(); setTimeout(function () { burst(r.left + r.width * .3, r.top + 40, 30, .8); burst(r.left + r.width * .6, r.top + 40, 30, .8); }, 500); }
   }
   setYear('today');
@@ -526,6 +526,7 @@
     { k: ['certificat', 'course', 'bloomberg', 'ibm', 'coursera'], a: 'Certifications: Bloomberg Finance Fundamentals (Nov 2026), Digital Marketing Pro from My Captain (2023) and the IBM Data Science Specialization on Coursera (2022).' },
     { k: ['language', 'telugu', 'hindi', 'tamil', 'speak'], a: 'English, Telugu and Hindi, plus some Tamil.' },
     { k: ['why srh', 'why sunrisers', 'sunrisers', 'srh', 'orange army', 'fan'], a: 'I grew up in Hyderabad in the Orange Army; I was at Uppal in a Sunrisers headband about 11 years ago. I want to help the Sunrisers keep fans engaged all year, across Hyderabad, Eastern Cape and Leeds.', href: '#fixtures', link: 'See my idea for SRH' },
+    { k: ['survey', 'fans said', 'data', 'research', 'findings', 'results'], a: 'I surveyed 312 IPL fans in Nov 2026, 220 of them SRH fans, via SRH fan accounts on X. 98% already knew about Eastern Cape and Leeds, but 37% have never been to the home stadium, 76% own no official merch, and 59% rated a Hyderabad watch-along 4 or 5 out of 5.', href: '#fixtures', link: 'See the results' },
     { k: ['idea', 'thesis', 'plan', 'one orange army', 'proposal'], a: 'One Orange Army: bring Sunrisers Eastern Cape and Leeds home to Hyderabad with watch-along nights and a fan passport, so fans stay with the group between IPL seasons.', href: '#fixtures', link: 'Read the idea' },
     { w: 1.3, k: ['classes', 'student', 'still studying', 'manage', 'attendance', 'online', 'commit full', 'work full', 'how will you', 'how can you', 'balance', 'course end', 'graduate when'], a: 'Masters’ Union lets placed students take classes online, so I can work full-time from day one. Happy to walk you through how I’d balance both on a call.', href: BOOK, link: 'Book a 15-min call' },
     { k: ['available', 'join', 'notice', 'start', 'role', 'hire', 'internship', 'full time', 'full-time', 'looking for', 'opportunit', 'apply', 'vacanc', 'open to', 'open for'], a: 'I’m open to a full-time role or an internship, starting now.' },

@@ -819,3 +819,13 @@ section.anim-off *,section.anim-off *::before,section.anim-off *::after{animatio
 .tldr-proof span{display:block;margin-top:8px;color:#cfcac4;font-size:14px;line-height:1.4}
 @media (max-width:900px){.tldr-in{grid-template-columns:1fr}.tldr-btns .btn{flex:1 1 auto}}
 @media (max-width:480px){.tldr-proof{grid-template-columns:1fr 1fr;gap:8px}.tldr-proof li{padding:14px}.tldr-proof span{font-size:12.5px}}
+
+/* survey results */
+.svy{margin:22px 0 18px;max-width:1100px}
+.svy-cap{margin-bottom:10px}
+.svy-grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}
+.svy-grid li{padding:16px;border-radius:14px;background:var(--card);border:1px solid var(--line);border-top:3px solid var(--or)}
+.svy-grid b{display:block;font:400 clamp(28px,2.6vw,40px)/1 var(--disp);color:var(--or)}
+.svy-grid span{display:block;margin-top:8px;color:#cfcac4;font-size:13.5px;line-height:1.4}
+@media (max-width:1000px){.svy-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:560px){.svy-grid{grid-template-columns:1fr 1fr;gap:8px}.svy-grid li{padding:13px}.svy-grid span{font-size:12.5px}.svy-grid li:last-child{grid-column:1/-1}}
