@@ -170,11 +170,19 @@
     if (c.video) m.innerHTML = '<video src="' + c.video + '" poster="' + c.poster + '" muted loop playsinline controls ' + (RM ? '' : 'autoplay') + ' aria-label="The IPL auction draft in progress"></video>';
     else if (c.imgs) m.innerHTML = '<div class="case-strip">' + c.imgs.map(function (i) { return /\.mp4$/.test(i) ? '<video src="' + i + '" muted loop playsinline controls preload="metadata"' + (RM ? '' : ' autoplay') + '></video>' : '<img src="' + i + '" alt="" loading="lazy">'; }).join('') + '</div>';
     else if (c.decks) m.innerHTML = $('#dbm-tpl').innerHTML;
+    else if (c.group) {
+      m.innerHTML = '<div class="decks subs">' + c.group.map(function (lab) {
+        var x = byLabel[lab], d = x.store ? STORE : x, n = (d.nums && d.nums[0]) || ['', ''];
+        return '<button type="button" class="deck sub" data-sub="' + esc(lab) + '"><span class="sub-art">' + SVG[x.obj] + '</span><span class="mono">' + esc(x.kicker || d.kicker || '') + '</span><b>' + esc(lab) + '</b><small><em>' + esc(n[0]) + '</em> ' + esc(n[1]) + '</small><span class="sub-go">Open →</span></button>';
+      }).join('') + '</div>';
+      $$('[data-sub]', m).forEach(function (bt) { bt.addEventListener('click', function () { openOf(byLabel[bt.dataset.sub])(); }); });
+    }
     else if (c.img) m.innerHTML = '<img class="bg" src="' + c.img + '" alt=""><img class="fg" src="' + c.img + '" alt="">';
-    m.hidden = !(c.video || c.img || c.imgs || c.decks); m.classList.toggle('strip', !!(c.imgs || c.decks)); m.classList.toggle('decks-on', !!c.decks);
+    m.hidden = !(c.video || c.img || c.imgs || c.decks || c.group); m.classList.toggle('strip', !!(c.imgs || c.decks || c.group)); m.classList.toggle('decks-on', !!(c.decks || c.group));
     var a = $('#case-link'); if (c.link) { a.href = c.link; a.textContent = c.linkText || 'Open the deck'; a.hidden = false; } else a.hidden = true;
     if (lenis) lenis.stop();
-    dlg.showModal ? dlg.showModal() : dlg.setAttribute('open', '');
+    if (!dlg.open) { dlg.showModal ? dlg.showModal() : dlg.setAttribute('open', ''); }
+    dlg.scrollTop = 0; var dc = dlg.querySelector('.case-body, .case-in'); if (dc) dc.scrollTop = 0;
   }
   $('#case-x').addEventListener('click', function () { dlg.close(); });
   dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });
@@ -442,6 +450,14 @@
     binders: "<svg viewBox='0 0 264 150'><rect x='8' y='14' width='38' height='128' rx='4' fill='#f26522' stroke='rgba(0,0,0,.35)' stroke-width='2'/><rect x='15' y='30' width='24' height='40' rx='3' fill='#F5F2EE'/><text x='27' y='60' text-anchor='middle' font-family='Anton,Impact,sans-serif' font-size='22' fill='#0a0a0b'>A</text><circle cx='27' cy='120' r='6' fill='none' stroke='rgba(0,0,0,.4)' stroke-width='3'/><rect x='50' y='20' width='38' height='122' rx='4' fill='#1f2a44' stroke='rgba(0,0,0,.35)' stroke-width='2'/><rect x='57' y='36' width='24' height='40' rx='3' fill='#F5F2EE'/><text x='69' y='66' text-anchor='middle' font-family='Anton,Impact,sans-serif' font-size='22' fill='#0a0a0b'>M</text><circle cx='69' cy='120' r='6' fill='none' stroke='rgba(0,0,0,.4)' stroke-width='3'/><rect x='92' y='12' width='38' height='130' rx='4' fill='#f2b632' stroke='rgba(0,0,0,.35)' stroke-width='2'/><rect x='99' y='28' width='24' height='40' rx='3' fill='#F5F2EE'/><text x='111' y='58' text-anchor='middle' font-family='Anton,Impact,sans-serif' font-size='22' fill='#0a0a0b'>T</text><circle cx='111' cy='120' r='6' fill='none' stroke='rgba(0,0,0,.4)' stroke-width='3'/><rect x='134' y='18' width='38' height='124' rx='4' fill='#e9e1d3' stroke='rgba(0,0,0,.35)' stroke-width='2'/><rect x='141' y='34' width='24' height='40' rx='3' fill='#F5F2EE'/><text x='153' y='64' text-anchor='middle' font-family='Anton,Impact,sans-serif' font-size='22' fill='#0a0a0b'>S</text><circle cx='153' cy='120' r='6' fill='none' stroke='rgba(0,0,0,.4)' stroke-width='3'/><rect x='176' y='14' width='38' height='128' rx='4' fill='#d8341b' stroke='rgba(0,0,0,.35)' stroke-width='2'/><rect x='183' y='30' width='24' height='40' rx='3' fill='#F5F2EE'/><text x='195' y='60' text-anchor='middle' font-family='Anton,Impact,sans-serif' font-size='22' fill='#0a0a0b'>I</text><circle cx='195' cy='120' r='6' fill='none' stroke='rgba(0,0,0,.4)' stroke-width='3'/><rect x='218' y='22' width='38' height='120' rx='4' fill='#2b5cf0' stroke='rgba(0,0,0,.35)' stroke-width='2'/><rect x='225' y='38' width='24' height='40' rx='3' fill='#F5F2EE'/><text x='237' y='68' text-anchor='middle' font-family='Anton,Impact,sans-serif' font-size='22' fill='#0a0a0b'>C</text><circle cx='237' cy='120' r='6' fill='none' stroke='rgba(0,0,0,.4)' stroke-width='3'/><g transform='translate(238 22) rotate(12)'><circle r='18' fill='#f2b632' stroke='#0a0a0b' stroke-width='2'/><text y='8' text-anchor='middle' font-family='Anton,Impact,sans-serif' font-size='22' fill='#0a0a0b'>A</text></g></svg>",
     paddle: '<svg viewBox="0 0 80 160"><rect x="34" y="70" width="12" height="86" rx="5" fill="#6b3a1d"/><circle cx="40" cy="42" r="36" fill="#F5F2EE" stroke="#08090B" stroke-width="3"/><text x="40" y="56" text-anchor="middle" font-family="Anton,Impact,sans-serif" font-size="38" fill="#f26522">01</text></svg>'
   };
+  var svgIn = function (k) { return SVG[k].replace(/^<svg[^>]*>/, '').replace(/<\/svg>$/, ''); };
+  SVG.venture = '<svg viewBox="0 0 190 140"><g transform="translate(4 18)">' + svgIn('bag') + '</g><g transform="translate(104 2) scale(.46)">' + svgIn('vortilix') + '</g></svg>';
+  SVG.apps = '<svg viewBox="0 0 120 180"><rect x="8" y="4" width="104" height="172" rx="18" fill="#16171c" stroke="#3a3d47" stroke-width="3"/><rect x="17" y="22" width="86" height="134" rx="6" fill="#0b1626"/><rect x="48" y="10" width="24" height="5" rx="2.5" fill="#2b2d35"/>'
+    + '<rect x="26" y="34" width="30" height="30" rx="8" fill="#f26522"/><path d="M33 49l5 5 10-11" stroke="#fff" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>'
+    + '<rect x="64" y="34" width="30" height="30" rx="8" fill="#f2b632"/><path d="M75 57V41l12-3v15" stroke="#0a0a0b" stroke-width="3.5" fill="none"/><circle cx="72" cy="57" r="3.5" fill="#0a0a0b"/><circle cx="84" cy="54" r="3.5" fill="#0a0a0b"/>'
+    + '<rect x="26" y="74" width="30" height="30" rx="8" fill="#e9d7b5"/><path d="M36 74v30M46 74v30M26 84h30M26 94h30" stroke="#8a5330" stroke-width="2"/><path d="M38 86l6 6M44 86l-6 6" stroke="#d8341b" stroke-width="2"/>'
+    + '<rect x="64" y="74" width="30" height="30" rx="8" fill="none" stroke="#3a3d47" stroke-width="2" stroke-dasharray="4 3"/><path d="M79 82v14M72 89h14" stroke="#3a3d47" stroke-width="2.5"/>'
+    + '<text x="60" y="138" text-anchor="middle" font-family="Anton,Impact,sans-serif" font-size="15" fill="#f3e9df" letter-spacing="1">3 APPS</text></svg>';
   var ROOM = [
     { obj: 'hanging', left: 5, top: 2.2, w: 11, label: 'About me', cat: 'personal', kicker: 'About', title: 'Anudeep Gupta.',
       text: 'Hyderabad-raised Orange Army fan and founding-cohort student of Sports Management & Gaming at Masters’ Union. I speak English, Telugu and Hindi, with some Tamil.', nums: [['1 of 8', 'SMG Club core committee'], ['4', 'languages']], role: 'Open to a full-time role or internship, starting now.', link: 'media/resume.pdf', linkText: 'Open my resume', img: 'media/photos/portrait-arms.webp?v=1795635861' },
@@ -469,30 +485,52 @@
     { row: 2, obj: 'vinyl', left: 42, bottom: 13, w: 10.5, label: 'Vaadyle', cat: 'ai', kicker: 'Built with AI tools · daily music puzzle', title: 'Vaadyle.', text: 'An Indian-music daily puzzle. Everyone gets the same song, revealed one instrument at a time, with streaks and a share card, like Wordle.', nums: [['Daily', 'one song for everyone'], ['Stems', 'every song split by instrument']], role: 'I built the game and the landing page, and split every song into stems.', link: 'https://vaadyle.lovable.app', linkText: 'Play Vaadyle' },
     { row: 2, obj: 'ashta', left: 54.5, bottom: 13, w: 10.5, label: 'Ashta Chamma', cat: 'ai', kicker: 'Built with AI tools · browser game', title: 'Ashta Chamma.', text: 'The ancient Indian board game, a lot like Ludo, rebuilt so anyone can play it in the browser.', nums: [['Online', 'the board game, playable in the browser']], role: 'I built the game end to end.', link: 'https://ashta-chamma.lovable.app', linkText: 'Play Ashta Chamma' },
     { row: 2, obj: 'binders', left: 71, bottom: 13, w: 23, label: 'Decoding Business Models', cat: 'strategy', kicker: 'Strategy · Masters’ Union coursework', title: 'Six businesses. All graded A.', text: 'Decoding Business Models: six businesses my teams designed and pitched, one per business model. Tap a deck to open it.', decks: true },
+    { obj: 'venture', label: 'Entrepreneurship', cat: 'business', kicker: 'Entrepreneurship · built from scratch', title: 'Two businesses, from zero.', text: 'A dropshipping store that sold ₹2L+, and a focus-shot startup now in testing. Tap one to open it.', group: ['The Better Store', 'Vortilix'] },
+    { obj: 'apps', label: 'Apps I built', cat: 'ai', kicker: 'Apps I built · with AI tools', title: 'Three apps, all live.', text: 'A meeting-to-task-tracker tool, a daily Indian-music puzzle and an online version of an ancient board game. Tap one to open it.', group: ['Meet2Tracker', 'Vaadyle', 'Ashta Chamma'] },
   ];
-  var objs = $('#scene-objs'), objs2 = $('#scene-objs'), rlist = $('#room-list'), tvVid = null;
+  var rlist = $('#room-list'), tvVid = null;
+  var WALLS = {
+    L: [['Strategy & research', ['Market research', 'Astralis', 'goSTOPS', 'NIVIA launch']]],
+    B: [['The player', ['About me', 'Badminton', 'Esports']], ['', ['IPL auction draft']], ['Fans & events', ['One Orange Army', 'HYROX Delhi', 'TITANS IBS']]],
+    R: [['Coursework', ['Pepperfry', 'Decoding Business Models']], ['Built from scratch', ['Entrepreneurship', 'Apps I built']]]
+  };
+  var SHORT = { 'Decoding Business Models': 'Business models', 'The Better Store': 'Better Store', 'IPL auction draft': 'IPL auction', 'Market research': 'Market research' };
+  var byLabel = {}; ROOM.forEach(function (c) { byLabel[c.label] = c; });
+  var openOf = function (c) { return function () { if (c.store) openCase(STORE); else if (c.page) openPage(c.page); else openCase(c); }; };
+  Object.keys(WALLS).forEach(function (w) {
+    var wall = $('#lr-' + w);
+    WALLS[w].forEach(function (g) {
+      var grp = document.createElement('div'); grp.className = 'lr-grp' + (g[0] ? '' : ' lr-grp-tv'); grp.style.flexGrow = g[1].length * (g[0] ? 1 : 3);
+      grp.innerHTML = '<p class="lr-tag mono">' + esc(g[0]) + '</p><div class="lr-lks"></div>';
+      var row = grp.querySelector('.lr-lks');
+      g[1].forEach(function (lab) {
+        var c = byLabel[lab]; if (!c) return;
+        var b = document.createElement('button'); b.type = 'button';
+        b.className = 'lk' + (c.obj === 'tv' ? ' lk-tv' : '');
+        b.setAttribute('aria-label', c.label + (c.page ? ': open the full case' : ': open'));
+        var pl = SHORT[lab] || lab, plate = '<span class="lk-plate' + (/^\S{12,}$/.test(pl) ? ' long' : '') + '"><b>' + esc(pl) + '</b></span>';
+        if (c.obj === 'tv') {
+          b.innerHTML = plate + '<span class="lk-cub"><span class="tv-box"><video muted loop playsinline preload="none" poster="' + c.poster + '" data-src="' + c.video + '" aria-hidden="true"></video><span class="tv-live mono"><i class="live" aria-hidden="true"></i>Live · Auction night</span><span class="tv-cap"><b>I ran an IPL auction for 60 students.</b><span>Tap to watch →</span></span></span></span>';
+          tvVid = b.querySelector('video');
+        } else b.innerHTML = plate + '<span class="lk-cub"><i class="lk-rod" aria-hidden="true"></i>' + SVG[c.obj] + '</span><span class="lk-seat" aria-hidden="true"></span>';
+        b.dataset.cat = c.cat || '';
+        b.addEventListener('click', openOf(c));
+        row.appendChild(b);
+      });
+      wall.appendChild(grp);
+    });
+  });
   ROOM.forEach(function (c) {
-    var b = document.createElement('button'); b.type = 'button'; b.className = 'obj obj-' + c.obj + (c.top != null ? ' top' : '') + '';
-    b.setAttribute('aria-label', c.label + (c.page ? ': open the full case' : ': open'));
-    b.style.left = c.left + '%'; b.style.width = c.w + '%';
-    if (c.top != null) b.style.top = c.top + '%'; else b.style.bottom = c.bottom + '%';
-    if (c.obj === 'tv') {
-      b.innerHTML = '<span class="tv-box"><video muted loop playsinline preload="none" poster="' + c.poster + '" data-src="' + c.video + '" aria-hidden="true"></video><span class="tv-live mono"><i class="live" aria-hidden="true"></i>Live · Auction night</span><span class="tv-cap"><b>I ran an IPL auction for 60 students.</b><span>Tap to watch →</span></span></span><span class="tv-feet" aria-hidden="true"><i></i><i></i></span>';
-      tvVid = b.querySelector('video');
-    } else b.innerHTML = SVG[c.obj] + '<span class="obj-lab">' + esc(c.label) + '</span>';
-    var open = function () { if (c.store) openCase(STORE); else if (c.page) openPage(c.page); else openCase(c); };
-    b.dataset.cat = c.cat || '';
-    b.addEventListener('click', open);
-    (c.row === 2 ? objs2 : objs).appendChild(b);
+    if (c.group) return;
     var lb = document.createElement('button'); lb.type = 'button';
     lb.innerHTML = '<span class="mono">' + esc(c.label) + '</span><b>' + esc(c.store ? STORE.title : c.title) + '</b>';
     lb.dataset.cat = c.cat || '';
-    lb.addEventListener('click', open);
+    lb.addEventListener('click', openOf(c));
     rlist.appendChild(lb);
   });
   // phones: start the swipeable room centred on the TV
-  var sceneEl = $('#scene'), tvBtn = $('.obj-tv');
-  var centreTV = function () { if (sceneEl.scrollWidth > sceneEl.clientWidth + 4 && tvBtn) sceneEl.scrollLeft = tvBtn.offsetLeft + tvBtn.offsetWidth / 2 - sceneEl.clientWidth / 2; };
+  var sceneEl = $('#lr-stage'), tvBtn = $('.lk-tv');
+  var centreTV = function () { if (sceneEl.scrollWidth > sceneEl.clientWidth + 4 && tvBtn) sceneEl.scrollLeft = tvBtn.getBoundingClientRect().left - sceneEl.getBoundingClientRect().left + sceneEl.scrollLeft + tvBtn.offsetWidth / 2 - sceneEl.clientWidth / 2; };
   centreTV(); addEventListener('load', centreTV);
   if (tvVid && 'IntersectionObserver' in window && !RM) new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { if (!tvVid.src) tvVid.src = tvVid.dataset.src; var p = tvVid.play(); if (p && p.catch) p.catch(function () {}); } else tvVid.pause(); }); }, { threshold: .3 }).observe(tvVid);
   // shelf labels: filter the room by kind of work
@@ -500,15 +538,15 @@
     chip.addEventListener('click', function () {
       var cat = chip.dataset.cat;
       $$('#room-cats button').forEach(function (x) { x.setAttribute('aria-pressed', String(x === chip)); });
-      $$('.scene-objs .obj, #room-list button').forEach(function (o) { o.classList.toggle('dim', cat !== 'all' && o.dataset.cat !== cat); });
+      $$('#scene .lk, #room-list button').forEach(function (o) { o.classList.toggle('dim', cat !== 'all' && o.dataset.cat !== cat); });
     });
   });
   var lbtn = $('#room-list-btn');
   lbtn.addEventListener('click', function () { var on = rlist.classList.toggle('on'); lbtn.setAttribute('aria-expanded', String(on)); lbtn.querySelector('span').textContent = on ? 'Hide the list' : 'Show as a list'; if (window.ScrollTrigger) ScrollTrigger.refresh(); });
   var scene = $('#scene');
   scene.addEventListener('pointermove', function (e) { var r = scene.getBoundingClientRect(); scene.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100) + '%'); scene.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100) + '%'); });
-  $$('.obj', objs).forEach(function (o, i) { o.style.transitionDelay = (i * 0.04) + 's'; });
-  io([scene], function (el) { el.classList.add('in'); setTimeout(function () { $$('.obj', el).forEach(function (o) { o.style.transitionDelay = ''; }); }, 1600); }, { threshold: .2 });
+  $$('.lk', scene).forEach(function (o, i) { o.style.transitionDelay = (i * 0.035) + 's'; });
+  io([scene], function (el) { el.classList.add('in'); setTimeout(function () { $$('.lk', el).forEach(function (o) { o.style.transitionDelay = ''; }); }, 1600); }, { threshold: .2 });
 
   /* ============================ 7. GALLERY + LOGOS ============================ */
   var GAL = [

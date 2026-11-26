@@ -13,7 +13,7 @@
 <link rel="preload" href="fonts/anton-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="media/photos/hero-hips.webp?v=1795635861" as="image">
 <link rel="stylesheet" href="fonts/fonts.css">
-<link rel="stylesheet" href="v3.css?v=1795682763">
+<link rel="stylesheet" href="v3.css?v=1795683443">
 <noscript><style>.hero-copy>*,.hero-me,.hero-heat,.hero-word,.hero-shards,[data-reveal],.bids li{opacity:1!important;transform:none!important}</style></noscript>
 </head>
 <body class="intro">
@@ -257,21 +257,18 @@
     <button type="button" data-cat="strategy" aria-pressed="false">Strategy &amp; research</button>
     <button type="button" data-cat="events" aria-pressed="false">Events &amp; community</button>
     <button type="button" data-cat="business" aria-pressed="false">Entrepreneurship</button>
-    <button type="button" data-cat="ai" aria-pressed="false">AI products</button>
+    <button type="button" data-cat="ai" aria-pressed="false">Apps I built</button>
     <button type="button" data-cat="personal" aria-pressed="false">Personal &amp; hobbies</button>
   </div>
-  <div class="scene" id="scene"><div class="scene-in">
-    <div class="scene-light" aria-hidden="true"></div>
-    <div class="scene-shelf" aria-hidden="true"></div>
-    <div class="scene-shelf scene-shelf-2" aria-hidden="true"></div>
-    <div class="scene-bench" aria-hidden="true"></div>
-    <div class="scene-split" style="left:26%" aria-hidden="true"></div>
-    <div class="scene-split" style="left:66%" aria-hidden="true"></div>
-    <p class="scene-plaque mono" style="left:2%;width:24%">Entrepreneurship</p>
-    <p class="scene-plaque mono" style="left:26%;width:40%">AI products</p>
-    <p class="scene-plaque mono" style="left:66%;width:32%">Coursework · all graded A</p>
-    <div class="scene-objs" id="scene-objs"></div>
-  </div></div>
+  <div class="lr" id="scene">
+    <div class="lr-ceil" aria-hidden="true"><i></i><i></i><i></i></div>
+    <div class="lr-stage" id="lr-stage">
+      <div class="lr-wall lr-left" id="lr-L"></div>
+      <div class="lr-wall lr-back" id="lr-B"></div>
+      <div class="lr-wall lr-right" id="lr-R"></div>
+    </div>
+    <div class="lr-floor" aria-hidden="true"></div>
+  </div>
   <p class="scene-hint mono">Swipe to look around the room →</p>
   <div class="room-list" id="room-list"></div>
 </section>
@@ -456,6 +453,6 @@
 <script src="vendor/gsap.min.js"></script>
 <script src="vendor/ScrollTrigger.min.js"></script>
 <script src="vendor/lenis.min.js"></script>
-<script src="v3.js?v=1795682763"></script>
+<script src="v3.js?v=1795683443"></script>
 </body>
 </html>
