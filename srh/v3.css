@@ -1205,3 +1205,12 @@ dialog.case .cert .cert-art.cert-bb b{font-size:clamp(15px,1.35vw,20px);max-widt
 .cert-ibm a{text-align:left}
 @media (max-width:760px){dialog.case .cert .cert-art.cert-bb{display:none}}
 dialog.case .cert .cert-art.cert-bb b{font:700 clamp(14px,1.25vw,19px)/1 var(--body);text-transform:none;letter-spacing:0;overflow:visible}
+
+/* room depth scales with its width, so the outer lockers never spill past the edges */
+.lr-stage{perspective:calc(min(100vw - 24px, 1640px) * 1.1)}
+button.deck.cert{font:inherit;text-align:left;cursor:pointer;color:var(--tx)}
+button.deck.cert:hover{border-color:var(--or)}
+.cert small em{font-style:normal;color:var(--or)}
+.case-back{align-self:flex-start;margin-top:10px}
+#case-link+.case-back{margin-left:0}
+dialog.case .case-body .case-btns{display:flex;gap:10px;flex-wrap:wrap}

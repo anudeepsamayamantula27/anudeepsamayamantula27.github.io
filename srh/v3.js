@@ -218,7 +218,7 @@
   /* projects that used to open their own page now open in the same pop-up */
   var CASE_PDF = { 'one-orange-army': ['media/docs/one-orange-army.pdf', 'Open the full plan (PDF)'], 'nivia-india-jersey': ['media/docs/nivia-gtm.pdf', 'Open the deck'], 'gostops-off-season': ['media/docs/gostops-gtm.pdf', 'Open the deck'] };
   var portfolioP = null;
-  function openPage(slug) {
+  function openPage(slug, back) {
     portfolioP = portfolioP || fetch('content/portfolio.json').then(function (r) { return r.json(); });
     portfolioP.then(function (d) {
       var p = (d.projects || []).filter(function (x) { return x.slug === slug; })[0], pg = (d.project_pages || {})[slug] || {};
@@ -226,7 +226,7 @@
       var nums = (pg.results || []).slice(0, 3).map(function (r) { return [r.value, r.metric]; });
       var text = p.summary + (pg.problem ? ' ' + pg.problem : '');
       var pdf = CASE_PDF[slug];
-      openCase({ kicker: p.org + (p.year ? ' · ' + p.year : ''), title: p.title, text: text, nums: nums, role: 'My role: ' + (pg.my_role || p.role), img: 'media/' + p.thumbnail, link: pdf && pdf[0], linkText: pdf && pdf[1] });
+      openCase({ kicker: p.org + (p.year ? ' · ' + p.year : ''), title: p.title, text: text, nums: nums, role: 'My role: ' + (pg.my_role || p.role), img: 'media/' + p.thumbnail, link: pdf && pdf[0], linkText: pdf && pdf[1], back: back });
     });
   }
   var dlg = $('#case');
@@ -240,18 +240,22 @@
     else if (c.imgs) m.innerHTML = '<div class="case-strip">' + c.imgs.map(function (i) { return /\.mp4$/.test(i) ? '<video src="' + i + '" muted loop playsinline controls preload="metadata"' + (RM ? '' : ' autoplay') + '></video>' : '<img src="' + i + '" alt="" loading="lazy">'; }).join('') + '</div>';
     if (c.imgs && c.imgs.length > 1) stripNav(m);
     else if (c.decks) m.innerHTML = $('#dbm-tpl').innerHTML;
-    else if (c.certs) m.innerHTML = CERTS_HTML;
+    else if (c.certs) {
+      m.innerHTML = CERTS_HTML;
+      $$('[data-cert]', m).forEach(function (bt) { bt.addEventListener('click', function () { var back = c; openCase({ kicker: bt.dataset.ctag, title: bt.dataset.cname + '.', text: '', img: bt.dataset.cert, wideImg: true, back: back }); }); });
+    }
     else if (c.group) {
       m.innerHTML = '<div class="decks subs">' + c.group.map(function (lab) {
         var x = byLabel[lab], d = x.store ? STORE : x, n = (d.nums && d.nums[0]) || ['', ''];
         return '<button type="button" class="deck sub" data-sub="' + esc(lab) + '"><span class="sub-art">' + SVG[x.obj] + '</span><span class="mono">' + esc(x.kicker || d.kicker || '') + '</span><b>' + esc(lab) + '</b><small><em>' + esc(n[0]) + '</em> ' + esc(n[1]) + '</small><span class="sub-go">Open →</span></button>';
       }).join('') + '</div>';
-      $$('[data-sub]', m).forEach(function (bt) { bt.addEventListener('click', function () { openOf(byLabel[bt.dataset.sub])(); }); });
+      $$('[data-sub]', m).forEach(function (bt) { bt.addEventListener('click', function () { var x = byLabel[bt.dataset.sub]; if (x.page) openPage(x.page, c); else openCase(Object.assign({}, x.store ? STORE : x, { back: c })); }); });
     }
     else if (c.img) m.innerHTML = '<img class="bg" src="' + c.img + '" alt=""><img class="fg" src="' + c.img + '" alt="">';
     m.hidden = !(c.video || c.img || c.imgs || c.decks || c.group || c.certs); m.classList.toggle('strip', !!(c.imgs || c.decks || c.group || c.certs)); m.classList.toggle('decks-on', !!(c.decks || c.group || c.certs));
     dlg.classList.remove('split', 'wide', 'solo');
-    dlg.classList.add(m.hidden ? 'solo' : (c.video || c.imgs || c.decks || c.group || c.certs) ? 'wide' : 'split');
+    dlg.classList.add(m.hidden ? 'solo' : (c.video || c.imgs || c.decks || c.group || c.certs || c.wideImg) ? 'wide' : 'split');
+    var bk = $('#case-back'); bk.hidden = !c.back; bk.onclick = c.back ? function () { openCase(c.back); } : null;
     $('#case-kitnav').hidden = !c.kit;
     var a = $('#case-link'); if (c.link) { a.href = c.link; a.textContent = c.linkText || 'Open the deck'; a.hidden = false; } else a.hidden = true;
     if (lenis) lenis.stop();
@@ -519,14 +523,15 @@
     + '<text x="60" y="138" text-anchor="middle" font-family="Anton,Impact,sans-serif" font-size="15" fill="#f3e9df" letter-spacing="1">3 APPS</text></svg>';
   SVG.idcard = '<svg viewBox="0 0 120 190"><path d="M40 0 L60 70 L80 0" fill="none" stroke="#f26522" stroke-width="9"/><rect x="50" y="62" width="20" height="16" rx="3" fill="#9aa0aa"/><rect x="14" y="74" width="92" height="112" rx="10" fill="#F5F2EE" stroke="#2b2d35" stroke-width="3"/><rect x="14" y="74" width="92" height="26" rx="10" fill="#f26522"/><rect x="14" y="90" width="92" height="10" fill="#f26522"/><circle cx="60" cy="124" r="15" fill="#1f2a44"/><circle cx="60" cy="119" r="6" fill="#F5F2EE"/><path d="M49 134 a11 9 0 0 1 22 0" fill="#F5F2EE"/><rect x="30" y="148" width="60" height="6" rx="3" fill="#1f2a44"/><rect x="38" y="160" width="44" height="5" rx="2.5" fill="#9aa0aa"/><text x="60" y="93" text-anchor="middle" font-family="Anton,Impact,sans-serif" font-size="13" fill="#fff" letter-spacing="1">INTERN</text></svg>';
   SVG.certframe = '<svg viewBox="0 0 150 140"><rect x="6" y="6" width="138" height="100" rx="4" fill="#8a5330"/><rect x="14" y="14" width="122" height="84" fill="#F5F2EE"/><rect x="30" y="26" width="90" height="7" rx="3" fill="#1f2a44"/><rect x="40" y="42" width="70" height="4" rx="2" fill="#9aa0aa"/><rect x="34" y="52" width="82" height="4" rx="2" fill="#9aa0aa"/><rect x="44" y="62" width="62" height="4" rx="2" fill="#9aa0aa"/><path d="M100 96 l-8 36 l12 -8 l8 12 l4 -38z" fill="#d8341b"/><circle cx="108" cy="88" r="17" fill="#f2b632" stroke="#c98f1c" stroke-width="3"/><path d="M100 88 l6 6 l10 -12" stroke="#fff" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  SVG.beyond = '<svg viewBox="0 0 200 150"><g transform="translate(0 40) scale(.8)">' + svgIn('notebook') + '</g><g transform="translate(112 0) scale(.78)">' + svgIn('clipboard') + '</g></svg>';
   var CERTS_HTML = (function () {
     var ibm = [['What is Data Science?', 'GMTYDWHUAJGJ'], ['Tools for Data Science', '45SHMAXSBZ96'], ['Data Science Methodology', 'QR3PQE5XLM3N'], ['Python for Data Science, AI & Development', '92NQBLSQN6TT'], ['Python Project for Data Science', '7LYQHYNYSLWM']];
-    var card = function (art, tag, name, sub) { return '<div class="deck cert"><span class="cert-art">' + art + '</span><span class="mono">' + tag + '</span><b>' + name + '</b><small>' + sub + '</small></div>'; };
+    var card = function (art, tag, name, sub, full) { return '<' + (full ? 'button type="button" data-cert="' + full + '" data-cname="' + name + '" data-ctag="' + tag + '"' : 'div') + ' class="deck cert"><span class="cert-art">' + art + '</span><span class="mono">' + tag + '</span><b>' + name + '</b><small>' + sub + (full ? ' · <em>view ↗</em>' : '') + '</small></' + (full ? 'button' : 'div') + '>'; };
     return '<div class="decks certs">'
       + card('<b class="gre">328</b>', 'Test · Oct 2025', 'GRE General Test', 'Quant 165 · Verbal 163')
-      + card('<img src="media/projects/certs/google-ads-search.webp" alt="Google Ads Search Certification" loading="lazy">', 'Google · Jun 2023', 'Google Ads Search', 'Building and optimising Search campaigns')
-      + card('<img src="media/projects/certs/google-ads-display.webp" alt="Google Ads Display Certification" loading="lazy">', 'Google · Jun 2023', 'Google Ads Display', 'Building and optimising Display campaigns')
-      + card('<img src="media/projects/certs/mycaptain.webp" alt="MyCaptain Digital Marketing Pro certificate" loading="lazy">', 'MyCaptain · Nov 2022 cohort', 'Digital Marketing Pro', '4 months: SEO, social media, Meta and Google ads')
+      + card('<img src="media/projects/certs/google-ads-search.webp" alt="Google Ads Search Certification" loading="lazy">', 'Google · Jun 2023', 'Google Ads Search', 'Building and optimising Search campaigns', 'media/projects/certs/google-ads-search.webp')
+      + card('<img src="media/projects/certs/google-ads-display.webp" alt="Google Ads Display Certification" loading="lazy">', 'Google · Jun 2023', 'Google Ads Display', 'Building and optimising Display campaigns', 'media/projects/certs/google-ads-display.webp')
+      + card('<img src="media/projects/certs/mycaptain.webp" alt="MyCaptain Digital Marketing Pro certificate" loading="lazy">', 'MyCaptain · Nov 2022 cohort', 'Digital Marketing Pro', '4 months: SEO, social media, Meta and Google ads', 'media/projects/certs/mycaptain.webp')
       + '<a class="deck cert" href="https://portal.bloombergforeducation.com/certificates/Tzw7zJTBorZHnyxkRcoKu7MP" target="_blank" rel="noopener"><span class="cert-art cert-bb"><b>Bloomberg</b><small>Finance Fundamentals</small></span><span class="mono">Bloomberg for Education · Nov 2026</span><b>Bloomberg Finance Fundamentals</b><small>Finance and investing basics · verify ↗</small></a>'
       + '<div class="deck cert cert-ibm"><span class="mono">IBM via Coursera · Jan–Feb 2022</span><b>Data science, 5 courses</b><ul>' + ibm.map(function (x) { return '<li><a href="https://coursera.org/verify/' + x[1] + '" target="_blank" rel="noopener">' + x[0] + ' <span>verify ↗</span></a></li>'; }).join('') + '</ul></div>'
       + '</div>';
@@ -540,7 +545,7 @@
       text: 'A strategic analysis of Astralis: why a famous esports team was losing money, and a turnaround built on an asset-light model, D2C membership and an India creator plan.', nums: [['DKK 5.4M', 'annual EBITDA loss diagnosed'], ['Solo', 'project']], role: 'My role: financial diagnosis, turnaround model and India creator go-to-market.' },
     { obj: 'laptop', left: 2, bottom: 47.8, w: 13, label: 'Market research', cat: 'strategy', kicker: 'Work · The Business Research Company', title: 'The research desk.',
       text: 'Nearly 3 years as an associate consultant: 55+ market research reports across 10 industries and 5 regions. I proposed a green hydrogen database that TBRC turned into a new product, sold to 2 clients at $10K each. I proposed an automated drafting workflow that doubled weekly output from 2 to 4, and cut report delivery from 7 to 2–3 business days. I also ran first-level QC on every report and wrote proposal sample pages for 500–600 reports for the sales team.', nums: [['2', 'clients for my database, at $10K each'], ['7 → 2–3', 'business days to deliver a report'], ['2 → 4', 'reports a week, my workflow']], role: 'My role: researched, wrote and QC’d reports; proposed the database and the workflow.' },
-    { obj: 'notebook', left: 16.5, bottom: 47.8, w: 9.5, label: 'goSTOPS', cat: 'strategy', title: 'Filling hostels in the off-season', page: 'gostops-off-season' },
+    { obj: 'notebook', left: 16.5, bottom: 47.8, w: 9.5, label: 'goSTOPS', cat: 'strategy', kicker: 'Hostels · goSTOPS live challenge', nums: [['Top 5', 'of 93 teams']], title: 'Filling hostels in the off-season', page: 'gostops-off-season' },
     { obj: 'kettlebell', left: 28.5, bottom: 47.8, w: 5.5, label: 'HYROX Delhi', cat: 'events', kicker: 'Events · HYROX Delhi 2026', title: 'Where the crowd is.',
       text: 'At HYROX Delhi (10,500 athletes over three days), I volunteered and took charge of the Masters’ Union zone, 7 AM to 9 PM each day. We handed out 8,000+ finisher goodies bags, about 80% of all athletes. The personalised time tags were being typed up from AI-read photos of scorecards, and about 100 came out wrong. I fixed them on the spot from athletes’ own timestamp photos, then pushed to switch to HYROX’s official timing data. From day two, wrong tags dropped to zero. At peak, I moved volunteers between stations so queues of 80–100 athletes cleared in 10–15 minutes.', nums: [['8,000+', 'goodies bags, ~80% of athletes'], ['~100 → 0', 'wrong time tags'], ['~20', 'volunteers in the zone']], role: 'My role: volunteer who took charge of the Masters’ Union zone.', imgs: ['media/projects/hyrox-delhi/hall.webp', 'media/video/hyrox.mp4', 'media/projects/hyrox-delhi/course.webp', 'media/projects/hyrox-delhi/finish.webp', 'media/projects/hyrox-delhi/classof.webp', 'media/projects/hyrox-delhi/venue.webp', 'media/projects/hyrox-delhi/letters.webp'] },
     { obj: 'jersey', left: 37.5, bottom: 47.8, w: 11.5, label: 'NIVIA launch', cat: 'strategy', title: 'Launching the India jersey', page: 'nivia-india-jersey' },
@@ -559,6 +564,7 @@
     { row: 2, obj: 'vinyl', left: 42, bottom: 13, w: 10.5, label: 'Vaadyle', cat: 'ai', kicker: 'Built with AI tools · daily music puzzle', title: 'Vaadyle.', text: 'An Indian-music daily puzzle. Everyone gets the same song, revealed one instrument at a time, with streaks and a share card, like Wordle.', nums: [['Daily', 'one song for everyone'], ['Stems', 'every song split by instrument']], role: 'I built the game and the landing page, and split every song into stems.', link: 'https://vaadyle.lovable.app', linkText: 'Play Vaadyle' },
     { row: 2, obj: 'ashta', left: 54.5, bottom: 13, w: 10.5, label: 'Ashta Chamma', cat: 'ai', kicker: 'Built with AI tools · browser game', title: 'Ashta Chamma.', text: 'The ancient Indian board game, a lot like Ludo, rebuilt so anyone can play it in the browser.', nums: [['Online', 'the board game, playable in the browser']], role: 'I built the game end to end.', link: 'https://ashta-chamma.lovable.app', linkText: 'Play Ashta Chamma' },
     { row: 2, obj: 'binders', left: 71, bottom: 13, w: 23, label: 'Decoding Business Models', cat: 'strategy', kicker: 'Strategy · Masters’ Union coursework', title: 'Six businesses. All graded A.', text: 'Decoding Business Models: six businesses my teams designed and pitched, one per business model. Tap a deck to open it.', decks: true },
+    { obj: 'beyond', label: 'Beyond sports', cat: 'strategy', kicker: 'Strategy · non-sports brands', title: 'Beyond sports.', text: 'Strategy for two brands outside sport: filling a hostel chain’s empty beds in the off-season, and scoring how furniture brands treat their shoppers. Tap one to open it.', group: ['goSTOPS', 'Pepperfry'] },
     { obj: 'idcard', label: 'Examate', cat: 'strategy', kicker: 'Internship · Examate, Hyderabad · May–Jul 2021', title: 'Business development intern.', text: 'I ran 2 social media campaigns for Examate’s CAT and JEE courses and converted 10 students from 70+ qualified leads. I also recruited 5 interns through screening and phone interviews.', nums: [['70+', 'qualified leads'], ['10', 'students enrolled'], ['+20%', 'team size, 5 interns hired']], role: 'My role: Business Development Intern.', img: 'media/projects/internships/examate-cert.webp' },
     { obj: 'idcard', label: 'Unschool', cat: 'strategy', kicker: 'Internship · Unschool (online) · Dec 2020', title: 'Social media marketing intern.', text: 'A two-week online internship in the Unschool Community Program. I drove ₹45K+ in course sales from 40+ conversions and earned a Certificate of Excellence.', nums: [['₹45K+', 'in course sales'], ['40+', 'conversions']], role: 'My role: Social Media Marketing Intern.', img: 'media/projects/internships/unschool-cert.webp' },
     { obj: 'idcard', label: 'IMUN', cat: 'strategy', kicker: 'Internship · International Model United Nations · 2021', title: 'Campus ambassador.', text: 'As an IMUN Campus Ambassador, I created digital content for its sustainability campaigns on the UN Sustainable Development Goals, and promoted IMUN’s online conferences.', nums: [], role: 'My role: Campus Ambassador Intern.' },
@@ -569,11 +575,11 @@
   ];
   var rlist = $('#room-list'), tvVid = null;
   var WALLS = {
-    L: [['Work', ['Market research', 'Internships']], ['Strategy & research', ['Astralis', 'goSTOPS', 'NIVIA launch']]],
+    L: [['Work', ['Market research', 'Internships']], ['Strategy & research', ['Astralis', 'NIVIA launch', 'Beyond sports']]],
     B: [['The player', ['About me', 'Badminton', 'Esports']], ['', ['IPL auction draft']], ['Fans & events', ['One Orange Army', 'HYROX Delhi', 'TITANS IBS']]],
-    R: [['Learning', ['Pepperfry', 'Decoding Business Models', 'Certifications']], ['Built by me', ['Entrepreneurship', 'Apps I built']]]
+    R: [['Learning', ['Decoding Business Models', 'Certifications']], ['Built by me', ['Entrepreneurship', 'Apps I built']]]
   };
-  var SHORT = { 'Decoding Business Models': 'Business models', 'The Better Store': 'Better Store', 'IPL auction draft': 'IPL auction', 'Market research': 'Market research' };
+  var SHORT = { 'Decoding Business Models': 'Business models', 'Market research': 'Research',  'The Better Store': 'Better Store', 'IPL auction draft': 'IPL auction', 'Market research': 'Market research' };
   var byLabel = {}; ROOM.forEach(function (c) { byLabel[c.label] = c; });
   var openOf = function (c) { return function () { if (c.store) openCase(STORE); else if (c.page) openPage(c.page); else openCase(c); }; };
   Object.keys(WALLS).forEach(function (w) {
