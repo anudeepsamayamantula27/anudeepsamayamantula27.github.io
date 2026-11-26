@@ -864,3 +864,37 @@ a.bz:hover,.bz:has(button.bz-go:hover){border-color:var(--or);transform:translat
 .bz-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
 @media (max-width:1020px){.bz-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:620px){.bz-grid{grid-template-columns:1fr}}
+/* thesis as a swipeable 8-slide deck */
+.tdeck{max-width:1320px;margin-top:8px}
+.ts-chaps{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.ts-chaps button{font:600 13px/1 var(--body);padding:10px 14px;border-radius:999px;border:1px solid var(--line);background:var(--bg2);color:#d6d2cc;cursor:pointer}
+.ts-chaps button.on{background:var(--or);border-color:var(--or);color:#140a05}
+.ts-track{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;outline:none;overscroll-behavior-x:contain}
+.ts-track::-webkit-scrollbar{display:none}
+.tslide{flex:0 0 100%;min-width:0;max-width:100%;overflow:hidden;scroll-snap-align:start;box-sizing:border-box;min-height:clamp(440px,62vh,560px);padding:clamp(24px,3.4vw,48px);border-radius:24px;background:linear-gradient(160deg,#17110d,#0e0c0b);border:1px solid var(--line);display:flex;flex-direction:column;gap:18px}
+.ts-n{color:var(--mut);font-size:12px;letter-spacing:.14em;text-transform:uppercase;margin:0}
+.ts-n b{color:var(--or)}
+.tslide h3{font-size:clamp(38px,5vw,72px);line-height:.95;margin:0}
+.ts-line{color:#d6d2cc;font-size:clamp(16px,1.4vw,19px);max-width:760px;margin:auto 0 0}
+.ts-nums{list-style:none;margin:6px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.ts-nums.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+.ts-nums li{padding:20px;border-radius:18px;background:rgba(255,255,255,.03);border:1px solid var(--line);border-top:3px solid var(--or)}
+.ts-nums b{display:block;font:400 clamp(48px,6vw,88px)/1 var(--disp);color:var(--or)}
+.ts-nums span{display:block;margin-top:8px;color:#cfcac4;font-size:15px;line-height:1.4}
+.ts-crests{display:flex;gap:clamp(14px,3vw,36px);align-items:center;margin:10px 0}
+.ts-crests .roundel{width:clamp(86px,11vw,140px);height:clamp(86px,11vw,140px)}
+.tslide .gap{margin:0}
+.tslide .year{margin:0}
+.ts-pilot{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:20px;align-items:center}
+.ts-pilot .pilot-nums{margin:0}
+.ts-btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:auto}
+.ts-ctrl{display:flex;align-items:center;gap:14px;margin-top:14px}
+.ts-arrow{width:48px;height:48px;border-radius:50%;border:1px solid var(--line);background:var(--bg2);color:var(--tx);font-size:20px;cursor:pointer;transition:background .2s,border-color .2s}
+.ts-arrow:hover{background:var(--or);border-color:var(--or);color:#140a05}
+.ts-arrow:disabled{opacity:.3;cursor:default;background:var(--bg2);color:var(--tx)}
+.ts-dots{display:flex;gap:6px;flex:1}
+.ts-dots i{height:4px;flex:1;max-width:46px;border-radius:2px;background:rgba(255,255,255,.14);transition:background .3s}
+.ts-dots i.on{background:var(--or)}
+.ts-count{color:var(--mut);font-size:13px}
+.ts-src{margin-top:14px;max-width:1320px}
+@media (max-width:760px){.ts-nums,.ts-nums.two{grid-template-columns:1fr}.ts-pilot{grid-template-columns:1fr}.tslide{min-height:0}.ts-nums li{padding:16px}}

@@ -362,6 +362,31 @@
   segBtns.forEach(function (b) { b.addEventListener('click', function () { planBtn.classList.remove('hint'); }); });
   io([$('#passport')], function (el) { el.classList.add('in'); }, { threshold: 0.5 });
 
+  /* ============================ thesis deck ============================ */
+  (function () {
+    var tr = $('#ts-track'); if (!tr) return;
+    var slides = $$('.tslide', tr), dots = $('#ts-dots'), cnt = $('#ts-count'), prev = $('#ts-prev'), next = $('#ts-next'), chaps = $$('.ts-chaps button');
+    dots.innerHTML = slides.map(function () { return '<i></i>'; }).join('');
+    var di = $$('i', dots), cur = 0;
+    function idx() { var x = tr.scrollLeft, b = 0, d = 1e9; slides.forEach(function (s, i) { var e = Math.abs(s.offsetLeft - slides[0].offsetLeft - x); if (e < d) { d = e; b = i; } }); return b; }
+    function paint() {
+      cur = Math.max(0, Math.min(slides.length - 1, idx()));
+      di.forEach(function (d, i) { d.classList.toggle('on', i <= cur); });
+      cnt.textContent = String(cur + 1).padStart(2, '0') + ' / ' + String(slides.length).padStart(2, '0');
+      prev.disabled = cur === 0; next.disabled = cur === slides.length - 1;
+      var c = cur < 2 ? 0 : cur < 3 ? 1 : cur < 6 ? 2 : 3; chaps.forEach(function (b, i) { b.classList.toggle('on', i === c); });
+      if (cur === 6 && !userPicked) setYear('plan');
+    }
+    function go(i) { i = Math.max(0, Math.min(slides.length - 1, i)); cur = i; tr.scrollTo({ left: slides[i].offsetLeft - slides[0].offsetLeft, behavior: RM ? 'auto' : 'smooth' }); }
+    prev.addEventListener('click', function () { go(cur - 1); });
+    next.addEventListener('click', function () { go(cur + 1); });
+    chaps.forEach(function (b) { b.addEventListener('click', function () { go(+b.dataset.go); }); });
+    tr.addEventListener('keydown', function (e) { if (e.key === 'ArrowRight') { e.preventDefault(); go(cur + 1); } if (e.key === 'ArrowLeft') { e.preventDefault(); go(cur - 1); } });
+    var t; tr.addEventListener('scroll', function () { clearTimeout(t); t = setTimeout(paint, 60); }, { passive: true });
+    addEventListener('resize', function () { go(cur); });
+    paint();
+  })();
+
   /* ============================ 5. ORANGE VAULT ============================ */
   var WORK = [
     { slug: 'one-orange-army', type: 'Concept', title: 'One Orange Army, three seasons', org: 'A concept for the Sunrisers group', big: '4', res: 'Nights in an SA20 2027 pilot', img: 'media/projects/one-orange-army/thumb.webp', page: true },

@@ -13,7 +13,7 @@
 <link rel="preload" href="fonts/anton-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="media/photos/hero-hips.webp?v=1795635861" as="image">
 <link rel="stylesheet" href="fonts/fonts.css">
-<link rel="stylesheet" href="v3.css?v=1795679452">
+<link rel="stylesheet" href="v3.css?v=1795681674">
 <noscript><style>.hero-copy>*,.hero-me,.hero-heat,.hero-word,.hero-shards,[data-reveal],.bids li{opacity:1!important;transform:none!important}</style></noscript>
 </head>
 <body class="intro">
@@ -144,50 +144,77 @@
 
 <!-- ============================== FIXTURES (the idea) ============================== -->
 <section class="sec fx" id="fixtures" aria-labelledby="fx-h">
-  <div class="thesis" data-reveal>
+  <header class="sec-head">
     <p class="eyebrow">My hypothesis for the Sunrisers</p>
     <h2 id="fx-h">From watched <span class="fire">to valued.</span></h2>
-    <p class="lede">The Orange Army watches like a top-four fan base. That's an opportunity: turn more of those viewers into year-round fans, and SRH's value can catch up.</p>
-    <div class="gap">
-      <div class="gap-card">
-        <p class="mono">Watched · IPL 2026</p>
-        <b>4th</b>
-        <span>most-watched team, about 290 million average viewers a match</span>
-      </div>
-      <div class="gap-vs" aria-hidden="true">vs</div>
-      <div class="gap-card dim">
-        <p class="mono">Valued · 2026</p>
-        <b>5th</b>
-        <span>in brand value at $168M, with room to grow towards CSK's $244M</span>
-      </div>
-    </div>
-    <div class="bars" aria-label="2026 brand values in US dollars, millions">
-      <div class="bar"><span>KKR</span><i style="--w:98%"></i><b>$245M</b></div>
-      <div class="bar"><span>CSK</span><i style="--w:97.6%"></i><b>$244M</b></div>
-      <div class="bar me"><span>SRH</span><i style="--w:67.2%"></i><b>$168M</b></div>
-    </div>
-    <p class="why"><b>My hypothesis.</b> Part of the difference is history: CSK has five titles, SRH one. Part may be fixable: between IPL seasons, I assumed Hyderabad fans had little to follow, even though the group also plays in SA20 and The Hundred. So I tested it.</p>
-    <div class="svy" data-reveal>
-      <p class="eyebrow svy-cap">What 246 SRH fans told me · my survey, 23–26 Nov 2026</p>
-      <ul class="svy-grid">
-        <li><b>98%</b><span>already knew about Sunrisers Eastern Cape and Leeds, and 67% follow them regularly</span></li>
-        <li><b>37%</b><span>have never watched SRH at the home stadium. Getting tickets was the most-named problem</span></li>
-        <li><b>75%</b><span>own no official SRH merch: 43% own none and 32% only unofficial copies</span></li>
-        <li><b>61%</b><span>of the 141 living in Hyderabad rated a local watch-along for Eastern Cape or Leeds 4 or 5 out of 5</span></li>
-        <li><b>54%</b><span>would pay for a yearly fan membership, most of them up to &#8377;500</span></li>
-      </ul>
-    </div>
-    <p class="why"><b>What changed my mind.</b> I was wrong about awareness: these fans already follow all three teams, on their phones. The gap is turning that loyalty into something SRH can count: from the outside, I found little that brings Hyderabad fans together between seasons (the fan meet I found was in March, as the IPL began), many have never made it to the stadium, and few own official merch. That is a revenue gap, and it is the one One Orange Army is built for.</p>
-    <p class="why"><b>What I'd test next.</b> These are engaged fans reached through SRH fan accounts on X, so next I'm surveying casual fans on Reddit. Then, with SRH's own data: off-season app and social activity, repeat ticket and merchandise buyers, and sign-ups from the small pilot below. If sign-ups miss their target, I'd drop the idea.</p>
-    <p class="src mono">Sources: viewers, The Sunday Guardian, 9 May 2026 · brand values, Houlihan Lokey 2026 via CricTracker, 30 Jul 2026 · survey: my own, 339 real responses (246 SRH fans) via SRH fan accounts on X and r/SunrisersHyderabad, about 20,000 automated entries excluded; "would go" and "would pay" answers overstate real behaviour</p>
-  </div>
-  <header class="sec-head fx-pilot-head">
-    <p class="eyebrow">The pilot · One Orange Army</p>
-    <h3 class="fx-sub">One Orange Army. <span class="fire">Three seasons.</span></h3>
-    <p class="lede">The Sunrisers group plays cricket in seven months of the year. 67% of the SRH fans I surveyed already follow Eastern Cape or Leeds regularly, but alone, on their phones. The pilot gives them a place in Hyderabad to cheer together.</p>
+    <p class="lede">The problem, how I tested it, what fans said, and what I'd do. Swipe or use the arrows.</p>
   </header>
-
-  <div class="year" id="year">
+  <div class="tdeck" id="tdeck" data-reveal>
+    <div class="ts-chaps" role="tablist" aria-label="Jump to a part of the case">
+      <button type="button" data-go="0">Problem</button><button type="button" data-go="2">Test</button><button type="button" data-go="3">Findings</button><button type="button" data-go="6">Solution</button>
+    </div>
+    <div class="ts-track" id="ts-track" tabindex="0" data-lenis-prevent>
+      <article class="tslide" aria-roledescription="slide" aria-label="1 of 8: The problem">
+        <p class="ts-n mono"><b>01</b> / 08 · The problem</p>
+        <h3>Watched 4th. <span class="fire">Valued 5th.</span></h3>
+        <div class="gap">
+          <div class="gap-card"><p class="mono">Watched · IPL 2026</p><b>4th</b><span>most-watched team, about 290M average viewers a match</span></div>
+          <div class="gap-vs" aria-hidden="true">vs</div>
+          <div class="gap-card dim"><p class="mono">Valued · 2026</p><b>5th</b><span>in brand value: $168M, against CSK's $244M</span></div>
+        </div>
+        <p class="ts-line">SRH draws a top-four audience but is valued $76M behind CSK. Some of that is history (5 titles against 1). Some may be fixable.</p>
+      </article>
+      <article class="tslide" aria-roledescription="slide" aria-label="2 of 8: My hypothesis">
+        <p class="ts-n mono"><b>02</b> / 08 · My hypothesis</p>
+        <h3>Fans have nothing to follow <span class="fire">between seasons.</span></h3>
+        <div class="ts-crests">
+          <span class="roundel crest home"><img src="media/logos/srh-logo-sm.webp" alt="Sunrisers Hyderabad" loading="lazy"></span>
+          <span class="roundel crest"><img src="media/logos/sec-logo.webp" alt="Sunrisers Eastern Cape" loading="lazy"></span>
+          <span class="roundel crest"><img src="media/logos/leeds-logo.webp" alt="Sunrisers Leeds" loading="lazy"></span>
+        </div>
+        <p class="ts-line">The Sunrisers group also plays in SA20 (Eastern Cape) and The Hundred (Leeds). I assumed Hyderabad fans didn't know, or didn't care. So I tested it.</p>
+      </article>
+      <article class="tslide" aria-roledescription="slide" aria-label="3 of 8: How I tested it">
+        <p class="ts-n mono"><b>03</b> / 08 · How I tested it</p>
+        <h3>339 fans <span class="fire">in 3 days.</span></h3>
+        <ul class="ts-nums">
+          <li><b>339</b><span>real responses</span></li>
+          <li><b>246</b><span>SRH fans</span></li>
+          <li><b>141</b><span>living in Hyderabad</span></li>
+        </ul>
+        <p class="ts-line">A 3-minute survey I designed, shared by SRH fan accounts on X and by r/SunrisersHyderabad. About 20,000 bot entries were filtered out.</p>
+      </article>
+      <article class="tslide" aria-roledescription="slide" aria-label="4 of 8: What I found">
+        <p class="ts-n mono"><b>04</b> / 08 · What I found</p>
+        <h3>I was <span class="fire">wrong.</span></h3>
+        <ul class="ts-nums two">
+          <li><b>98%</b><span>of SRH fans already knew about Eastern Cape and Leeds</span></li>
+          <li><b>67%</b><span>follow them regularly</span></li>
+        </ul>
+        <p class="ts-line">Awareness isn't the gap. These fans already follow all three teams, alone, on their phones.</p>
+      </article>
+      <article class="tslide" aria-roledescription="slide" aria-label="5 of 8: The real gap">
+        <p class="ts-n mono"><b>05</b> / 08 · The real gap</p>
+        <h3>Loyal fans. <span class="fire">Little revenue.</span></h3>
+        <ul class="ts-nums two">
+          <li><b>37%</b><span>have never watched SRH at the home stadium; getting tickets is the top complaint</span></li>
+          <li><b>75%</b><span>own no official SRH merch (43% none, 32% only copies)</span></li>
+        </ul>
+        <p class="ts-line">The gap is turning that loyalty into tickets, merch and memberships SRH can count.</p>
+      </article>
+      <article class="tslide" aria-roledescription="slide" aria-label="6 of 8: The demand">
+        <p class="ts-n mono"><b>06</b> / 08 · The demand</p>
+        <h3>They'd show up. <span class="fire">Some would pay.</span></h3>
+        <ul class="ts-nums two">
+          <li><b>61%</b><span>of Hyderabad fans rate a local watch-along for Eastern Cape or Leeds 4–5 out of 5</span></li>
+          <li><b>54%</b><span>would pay for a yearly fan membership, mostly up to &#8377;500</span></li>
+        </ul>
+        <p class="ts-line">People say yes more easily than they turn up, so the pilot has to prove it.</p>
+      </article>
+      <article class="tslide" aria-roledescription="slide" aria-label="7 of 8: My solution">
+        <p class="ts-n mono"><b>07</b> / 08 · My solution</p>
+        <h3>One Orange Army: <span class="fire">3 months → 7.</span></h3>
+        <div class="year" id="year">
     <div class="year-top">
       <p class="mono year-cap" id="year-cap">Today: Hyderabad gathers for 3 months a year</p>
       <div class="seg" role="group" aria-label="Compare the fan calendar">
@@ -197,29 +224,12 @@
     </div>
     <div class="months" id="months"></div>
   </div>
-
-  <div class="fixtures">
-    <article class="fixture" data-reveal>
-      <p class="fx-when mono">SA20 · 17 Jan – 21 Feb 2027</p>
-      <div class="fx-match"><span class="roundel crest"><img src="media/logos/sec-logo.webp" alt="Sunrisers Eastern Cape"></span><div><h3>Sunrisers Eastern Cape</h3><p>3 titles in 4 seasons</p></div></div>
-      <p class="fx-what"><b>Orange Army Nights.</b> Watch-alongs at Hyderabad venues and campuses, run like a home game: big screens, chants, a host. The pilot is 4 Nights.</p>
-      <span class="fx-status">Pilot</span>
-    </article>
-    <article class="fixture" data-reveal>
-      <p class="fx-when mono">IPL · March – May</p>
-      <div class="fx-match"><span class="roundel home crest"><img src="media/logos/srh-logo-sm.webp" alt="Sunrisers Hyderabad"></span><div><h3>Sunrisers Hyderabad</h3><p>Home at Uppal</p></div></div>
-      <p class="fx-what"><b>The Passport pays off.</b> Stamps collected at every Night are redeemed at the IPL opener, so following the other two teams earns fans something in their own stadium.</p>
-      <span class="fx-status">Home season</span>
-    </article>
-    <article class="fixture" data-reveal>
-      <p class="fx-when mono">The Hundred · July – August</p>
-      <div class="fx-match"><span class="roundel crest"><img src="media/logos/leeds-logo.webp" alt="Sunrisers Leeds"></span><div><h3>Sunrisers Leeds</h3><p>Games land around 7–11 pm in India</p></div></div>
-      <p class="fx-what"><b>Leeds Nights.</b> Only if the SA20 numbers say yes. The call gets made in March, before the IPL.</p>
-      <span class="fx-status">Next</span>
-    </article>
-  </div>
-
-  <div class="passport-row">
+        <p class="ts-line">Watch-along Nights in Hyderabad for Eastern Cape and Leeds matches, and a Passport whose stamps are redeemed at the IPL opener.</p>
+      </article>
+      <article class="tslide" aria-roledescription="slide" aria-label="8 of 8: How I'd test it">
+        <p class="ts-n mono"><b>08</b> / 08 · How I'd test it</p>
+        <h3>4 Nights. <span class="fire">Then go or stop.</span></h3>
+        <div class="ts-pilot">
     <div class="passport" id="passport" aria-label="The Orange Army Passport, with stamps from each team">
       <div class="pp-head"><span class="mono">Orange Army</span><b>Passport</b></div>
       <div class="pp-stamps">
@@ -230,16 +240,23 @@
       </div>
       <p class="pp-foot mono">Stamped at every Night · carried into the IPL</p>
     </div>
-    <div class="pilot">
-      <h3>The pilot</h3>
-      <ul class="pilot-nums">
-        <li><b>4</b><span>Nights on Eastern Cape match days</span></li>
-        <li><b>₹22K–78K</b><span>plus a host. My estimate from published rate guides, not quotes</span></li>
-        <li><b>5</b><span>numbers to read: fans per Night, Passport sign-ups, Indian follows of Eastern Cape and Leeds, reel views, stamps redeemed</span></li>
-      </ul>
-      <button type="button" class="btn btn-fire" data-open-page="one-orange-army">Read the full plan</button>
+          <ul class="pilot-nums">
+            <li><b>4</b><span>Nights on Eastern Cape match days, SA20, 17 Jan – 21 Feb 2027</span></li>
+            <li><b>&#8377;22K–78K</b><span>plus a host (my estimate)</span></li>
+            <li><b>5</b><span>numbers: fans per Night, Passport sign-ups, follows, reel views, stamps redeemed</span></li>
+          </ul>
+        </div>
+        <div class="ts-btns"><button type="button" class="btn btn-fire" data-open-page="one-orange-army">Read the full plan</button><a class="btn btn-ghost" href="https://calendar.app.google/GHTx8vktZ8kw6CNe8" target="_blank" rel="noopener">Book a 15-min call</a></div>
+      </article>
+    </div>
+    <div class="ts-ctrl">
+      <button type="button" class="ts-arrow" id="ts-prev" aria-label="Previous slide">←</button>
+      <div class="ts-dots" id="ts-dots" aria-hidden="true"></div>
+      <span class="ts-count mono" id="ts-count">01 / 08</span>
+      <button type="button" class="ts-arrow" id="ts-next" aria-label="Next slide">→</button>
     </div>
   </div>
+  <p class="src mono ts-src">Sources: viewers, The Sunday Guardian, 9 May 2026 · brand values, Houlihan Lokey 2026 via CricTracker, 30 Jul 2026 · survey: my own, 339 real responses (246 SRH fans) via SRH fan accounts on X and r/SunrisersHyderabad, 23–26 Nov 2026; about 20,000 automated entries excluded. “Would go” and “would pay” answers overstate real behaviour · pilot cost is my estimate, not quotes.</p>
 </section>
 
 <!-- ============================== ORANGE VAULT (work) ============================== -->
@@ -515,6 +532,6 @@
 <script src="vendor/gsap.min.js"></script>
 <script src="vendor/ScrollTrigger.min.js"></script>
 <script src="vendor/lenis.min.js"></script>
-<script src="v3.js?v=1795679429"></script>
+<script src="v3.js?v=1795681674"></script>
 </body>
 </html>
