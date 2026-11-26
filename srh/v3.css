@@ -1056,34 +1056,6 @@ a.bz:hover,.bz:has(button.bz-go:hover){border-color:var(--or);transform:translat
 .hero.glitching .hero-me{opacity:0!important;transition:none!important}
 @media (max-width:760px){.hero-glitch{z-index:2}}
 
-/* hero: role pins wired onto the figure */
-.hero-pins{position:absolute;z-index:3;pointer-events:none}
-.pin-wires{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
-.pin-wires path{fill:none;stroke:#fff3d6;stroke-width:1.8;vector-effect:non-scaling-stroke;opacity:0;filter:drop-shadow(0 0 2px #ffb000) drop-shadow(0 0 5px rgba(242,101,34,.9));transition:opacity .6s ease}
-.pin-dot{position:absolute;width:10px;height:10px;margin:-5px 0 0 -5px;border-radius:50%;background:#fff;border:2px solid #0a0a0b;box-shadow:0 0 0 2px var(--gold),0 0 14px 2px var(--or);opacity:0;transform:scale(0);transition:transform .35s cubic-bezier(.34,1.56,.64,1),opacity .2s}
-.pin{position:absolute;top:var(--y);display:grid;grid-template-columns:auto 1fr;grid-template-rows:auto auto;column-gap:10px;align-items:baseline;padding:9px 13px 10px;border-radius:12px;background:rgba(12,10,10,.82);border:1px solid rgba(242,101,34,.55);box-shadow:0 12px 30px -10px rgba(0,0,0,.8);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);opacity:0;translate:0 10px;transition:opacity .4s ease,translate .5s var(--ease)}
-.pin-l{right:calc(100% - var(--x))}
-.pin-r{left:var(--x)}
-.pin .mono{grid-column:1/3;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
-.pin b{font:400 26px/1 var(--disp);color:var(--or)}
-.pin small{font-size:12px;color:#d6d2cc;max-width:120px;line-height:1.25}
-.hero.pins-on .pin{opacity:1;translate:0 0}
-.hero.pins-on .pin-dot{opacity:1;transform:scale(1)}
-.hero.pins-on .pin-wires path{opacity:1}
-.hero.pins-on .pin:nth-of-type(2),.hero.pins-on .pin-dot:nth-of-type(2),.hero.pins-on .pin-wires path:nth-child(2){transition-delay:.35s}
-.hero.pins-on .pin:nth-of-type(3),.hero.pins-on .pin-dot:nth-of-type(3),.hero.pins-on .pin-wires path:nth-child(3){transition-delay:.7s}
-.hero.glitching .hero-pins{animation:pinFlick .6s steps(6)}
-@keyframes pinFlick{0%,100%{opacity:1}20%{opacity:.3}40%{opacity:1}60%{opacity:.5}}
-@media (max-width:760px){
-  .pin{padding:6px 8px 7px;column-gap:6px;border-radius:9px}
-  .pin .mono{font-size:8.5px;letter-spacing:.1em}
-  .pin b{font-size:18px}
-  .pin small{font-size:9.5px;max-width:70px}
-}
-@media (min-width:761px) and (max-width:1280px){
-  .hero-pins .pin{left:var(--x2)!important;right:auto!important;top:var(--y2)!important}
-}
-
 /* contact: tap-to-copy key */
 .copy-key{display:inline-flex;align-items:center;gap:12px;max-width:100%;margin-top:14px;padding:10px 14px 10px 10px;border-radius:14px;background:var(--bg2);border:1px solid var(--line);border-bottom-width:4px;color:var(--tx);font:inherit;cursor:pointer;transition:transform .12s,border-color .2s}
 .copy-key:hover{border-color:var(--or)}
@@ -1101,4 +1073,3 @@ a.bz:hover,.bz:has(button.bz-go:hover){border-color:var(--or);transform:translat
 .copy-keys .copy-key:first-child .ck-ic{font-size:18px}
 @media (max-width:760px){.copy-keys,.ck-row{width:100%}.ck-row .copy-key{flex:1 1 100%}.ck-wa{width:100%;justify-content:center}}
 .copy-key b{text-align:left}
-.hero-pins{display:none!important} /* paused: redesign pending */

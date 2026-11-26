@@ -165,20 +165,6 @@
       }
       requestAnimationFrame(frame);
     }
-    // role pins wired onto the figure: head, crest, sponsor logo
-    var pinsEl = $('#hero-pins'), ANCH = [[40, 14], [62, 48], [36, 49]];
-    function wire() {
-      place(pinsEl);
-      var bw = pinsEl.offsetWidth || 1, bh = pinsEl.offsetHeight || 1, cards = $$('.pin', pinsEl), paths = $$('.pin-wires path', pinsEl), dots = $$('.pin-dot', pinsEl);
-      cards.forEach(function (c, i) {
-        var left = (c.offsetLeft + c.offsetWidth / 2) / bw * 100 < ANCH[i][0], ex = (left ? c.offsetLeft + c.offsetWidth : c.offsetLeft) / bw * 100, ey = (c.offsetTop + c.offsetHeight / 2) / bh * 100;
-        var ax = ANCH[i][0], ay = ANCH[i][1], mx = (ex + ax) / 2;
-        paths[i].setAttribute('d', 'M' + ex.toFixed(2) + ' ' + ey.toFixed(2) + ' C' + mx.toFixed(2) + ' ' + ey.toFixed(2) + ' ' + mx.toFixed(2) + ' ' + ay + ' ' + ax + ' ' + ay);
-        dots[i].style.left = ax + '%'; dots[i].style.top = ay + '%';
-      });
-    }
-    wire(); addEventListener('resize', wire); addEventListener('load', wire); me.addEventListener('load', wire);
-    setTimeout(function () { wire(); hero.classList.add('pins-on'); }, RM ? 0 : 2300);
     setTimeout(function () { hero.classList.add('swapping'); }, 3200);
     setInterval(function () { if (!seen || document.hidden || !hero.classList.contains('swapping')) return; strike(); }, 4500);
   })();
@@ -220,7 +206,7 @@
     requestAnimationFrame(emLoop);
     if (!MOBILE) hero.addEventListener('pointermove', function (e) {
       var r = hero.getBoundingClientRect(), dx = (e.clientX - r.left) / r.width - .5, dy = (e.clientY - r.top) / r.height - .5;
-      me.style.translate = me2.style.translate = $('#hero-glitch').style.translate = $('#hero-pins').style.translate = (dx * -18) + 'px ' + (dy * -8) + 'px';
+      me.style.translate = me2.style.translate = $('#hero-glitch').style.translate = (dx * -18) + 'px ' + (dy * -8) + 'px';
       word.style.translate = (dx * 30) + 'px ' + (dy * 14) + 'px';
     });
   }
