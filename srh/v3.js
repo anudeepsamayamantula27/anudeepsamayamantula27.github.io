@@ -579,7 +579,7 @@
     B: [['The player', ['Badminton', 'Esports']], ['', ['IPL auction draft', 'About me']], ['Fans & events', ['One Orange Army', 'HYROX Delhi', 'TITANS IBS']]],
     R: [['Learning', ['Decoding Business Models', 'Certifications']], ['Built by me', ['Entrepreneurship', 'Apps I built']]]
   };
-  var SHORT = { 'Decoding Business Models': 'Business models', 'Internships': 'Intern gigs', 'Entrepreneurship': 'Ventures', 'Certifications': 'Certs',  'The Better Store': 'Better Store', 'IPL auction draft': 'IPL auction', 'Market research': 'Market research' };
+  var SHORT = { 'Decoding Business Models': 'Business models', 'Internships': 'Early work', 'Entrepreneurship': 'Ventures', 'Certifications': 'Certs',  'The Better Store': 'Better Store', 'IPL auction draft': 'IPL auction', 'Market research': 'Market research' };
   var byLabel = {}; ROOM.forEach(function (c) { byLabel[c.label] = c; });
   var openOf = function (c) { return function () { if (c.store) openCase(STORE); else if (c.page) openPage(c.page); else openCase(c); }; };
   Object.keys(WALLS).forEach(function (w) {
