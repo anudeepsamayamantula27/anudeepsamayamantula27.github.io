@@ -898,3 +898,17 @@ a.bz:hover,.bz:has(button.bz-go:hover){border-color:var(--or);transform:translat
 .ts-count{color:var(--mut);font-size:13px}
 .ts-src{margin-top:14px;max-width:1320px}
 @media (max-width:760px){.ts-nums,.ts-nums.two{grid-template-columns:1fr}.ts-pilot{grid-template-columns:1fr}.tslide{min-height:0}.ts-nums li{padding:16px}}
+/* locker room · second row (entrepreneurship, AI products, coursework) */
+.scene-2{aspect-ratio:16/5;margin-top:14px}
+.scene-2 .scene-bench{height:24%}
+.scene-split{position:absolute;top:0;bottom:24%;width:6px;margin-left:-3px;background:linear-gradient(90deg,#2a1a10,#5a3a22,#2a1a10);box-shadow:0 0 18px rgba(0,0,0,.6)}
+.scene-plaque{position:absolute;top:8%;margin:0;text-align:center;color:var(--gold);font-size:12px;letter-spacing:.16em;text-transform:uppercase}
+.scene-plaque::after{content:"";display:block;width:36px;height:2px;margin:8px auto 0;background:var(--or)}
+.case-media.decks-on{padding:16px;background:#0b0b0c}
+.case-media.decks-on .deck img{height:auto;object-fit:cover}
+@media (max-width:760px){
+  .scene-2{aspect-ratio:auto}
+  .scene-2 .scene-in{aspect-ratio:16/5}
+  .scene-plaque{font-size:10px}
+  .case-media.decks-on{padding:10px}
+}
