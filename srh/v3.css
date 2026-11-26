@@ -898,20 +898,6 @@ a.bz:hover,.bz:has(button.bz-go:hover){border-color:var(--or);transform:translat
 .ts-count{color:var(--mut);font-size:13px}
 .ts-src{margin-top:14px;max-width:1320px}
 @media (max-width:760px){.ts-nums,.ts-nums.two{grid-template-columns:1fr}.ts-pilot{grid-template-columns:1fr}.tslide{min-height:0}.ts-nums li{padding:16px}}
-/* locker room · second row (entrepreneurship, AI products, coursework) */
-.scene-2{aspect-ratio:16/5;margin-top:14px}
-.scene-2 .scene-bench{height:24%}
-.scene-split{position:absolute;top:0;bottom:24%;width:6px;margin-left:-3px;background:linear-gradient(90deg,#2a1a10,#5a3a22,#2a1a10);box-shadow:0 0 18px rgba(0,0,0,.6)}
-.scene-plaque{position:absolute;top:8%;margin:0;text-align:center;color:var(--gold);font-size:12px;letter-spacing:.16em;text-transform:uppercase}
-.scene-plaque::after{content:"";display:block;width:36px;height:2px;margin:8px auto 0;background:var(--or)}
-.case-media.decks-on{padding:16px;background:#0b0b0c}
-.case-media.decks-on .deck img{height:auto;object-fit:cover}
-@media (max-width:760px){
-  .scene-2{aspect-ratio:auto}
-  .scene-2 .scene-in{aspect-ratio:16/5}
-  .scene-plaque{font-size:10px}
-  .case-media.decks-on{padding:10px}
-}
 /* proposal v2: visual, less text */
 .fit2{gap:14px}
 .fit-top{display:flex;align-items:center;justify-content:space-between}
@@ -931,3 +917,51 @@ a.bz:hover,.bz:has(button.bz-go:hover){border-color:var(--or);transform:translat
 .plan2 .plan-step b{margin:8px 0 4px;font-size:28px}
 .plan2 .plan-step p{font-size:15px}
 @media (max-width:1020px){.plan2::before{display:block;left:51px;right:auto;top:30px;bottom:30px;width:3px;height:auto}}
+
+/* locker room: one room, three rows */
+.scene{aspect-ratio:16/11}
+.scene-shelf{top:24.6%}
+.scene-shelf-2{top:52.2%;left:0;right:0;height:16px;border-radius:0}
+.scene-bench{height:13%}
+.scene-split{position:absolute;top:calc(52.2% + 16px);bottom:13%;width:6px;margin-left:-3px;background:linear-gradient(90deg,#2a1a10,#5a3a22,#2a1a10);box-shadow:0 0 18px rgba(0,0,0,.6)}
+.scene-plaque{position:absolute;top:58.5%;margin:0;text-align:center;color:var(--gold);font-size:12px;letter-spacing:.16em;text-transform:uppercase}
+.scene-plaque::after{content:"";display:block;width:36px;height:2px;margin:8px auto 0;background:var(--or)}
+.case-media.decks-on{padding:16px;background:#0b0b0c}
+@media (max-width:760px){
+  .scene{aspect-ratio:auto}
+  .scene-in{aspect-ratio:16/11}
+  .scene-plaque{font-size:10px}
+  .case-media.decks-on{padding:10px}
+}
+/* deck: chapters left, arrows right, on one line above the slides */
+.ts-bar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:10px}
+.ts-bar .ts-chaps{margin:0}
+.ts-bar .ts-ctrl{margin:0;gap:10px;flex:none}
+.ts-dots{flex:none;margin:0 0 14px;gap:6px}
+.ts-dots i{max-width:none}
+@media (max-width:760px){
+  .ts-bar{gap:8px}
+  .ts-bar .ts-chaps{gap:5px;flex-wrap:nowrap}
+  .ts-bar .ts-chaps button{padding:8px 9px;font-size:11.5px}
+  .ts-bar .ts-count{display:none}
+  .ts-bar .ts-arrow{width:36px;height:36px;font-size:16px}
+  .ts-bar .ts-ctrl{gap:6px}
+}
+/* proposal v3: glance, don't read */
+.fit3{gap:18px;padding:24px}
+.fit3 .fit-top{justify-content:flex-start;gap:16px}
+.fit3 .fit-top h3{font-size:clamp(26px,2.2vw,32px);line-height:1}
+.fit3 .fit-chips{margin:0;padding-top:16px}
+.fit3 .fit-chips li{grid-template-columns:auto;gap:2px}
+.fit3 .fit-chips{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.fit3 .fit-chips b{font-size:clamp(26px,2.3vw,34px)}
+.fit3 .fit-chips span{font-size:12.5px}
+.start{list-style:none;margin:18px 0 0;padding:16px 20px;max-width:1320px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;border-radius:18px;background:var(--bg2);border:1px solid var(--line)}
+.start li{display:flex;align-items:center;gap:12px}
+.start li+li:not(.start-lab)::before{content:"→";color:var(--or);font-size:22px;margin-right:2px}
+.start li:nth-child(2)::before{content:none}
+.start-lab{color:var(--gold);font-size:12px;letter-spacing:.14em;text-transform:uppercase;margin-right:6px}
+.start .plan-ic{width:46px;height:46px}
+.start .plan-ic svg{width:22px;height:22px}
+.start b{font:400 24px/1 var(--disp);text-transform:uppercase}
+@media (max-width:760px){.start{flex-direction:column;align-items:flex-start}.start li+li:not(.start-lab)::before{content:none}.fit3 .fit-chips b{font-size:28px}}
