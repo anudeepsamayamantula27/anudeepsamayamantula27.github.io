@@ -13,7 +13,7 @@
 <link rel="preload" href="fonts/anton-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="media/photos/hero-hips.webp?v=1795635861" as="image">
 <link rel="stylesheet" href="fonts/fonts.css">
-<link rel="stylesheet" href="v3.css?v=1795679303">
+<link rel="stylesheet" href="v3.css?v=1795679452">
 <noscript><style>.hero-copy>*,.hero-me,.hero-heat,.hero-word,.hero-shards,[data-reveal],.bids li{opacity:1!important;transform:none!important}</style></noscript>
 </head>
 <body class="intro">
@@ -249,6 +249,13 @@
     <p class="lede">Tap any object to open the work behind it. The TV is replaying the IPL auction I ran.</p></div>
     <button type="button" class="btn btn-ghost" id="room-list-btn" aria-expanded="false" aria-controls="room-list"><span>Show as a list</span></button>
   </header>
+  <div class="room-cats" id="room-cats" role="group" aria-label="Filter the room by kind of work">
+    <button type="button" data-cat="all" aria-pressed="true">All</button>
+    <button type="button" data-cat="strategy" aria-pressed="false">Strategy &amp; research</button>
+    <button type="button" data-cat="events" aria-pressed="false">Events &amp; community</button>
+    <button type="button" data-cat="business" aria-pressed="false">Entrepreneurship</button>
+    <button type="button" data-cat="personal" aria-pressed="false">Personal &amp; hobbies</button>
+  </div>
   <div class="scene" id="scene"><div class="scene-in">
     <div class="scene-light" aria-hidden="true"></div>
     <div class="scene-shelf" aria-hidden="true"></div>
@@ -262,79 +269,69 @@
 <!-- ============================== BUILT FROM SCRATCH ============================== -->
 <section class="sec biz" id="biz" aria-labelledby="biz-h">
   <header class="sec-head">
-    <p class="eyebrow">The entrepreneur · built from scratch</p>
-    <h2 id="biz-h">Two businesses. <span class="fire">Zero to one.</span></h2>
-    <p class="lede">Not projects on paper. Real products, real customers and real money, started from nothing.</p>
+    <p class="eyebrow">Entrepreneurship · built from scratch</p>
+    <h2 id="biz-h">Things I built. <span class="fire">Zero to one.</span></h2>
+    <p class="lede">Real products, real customers and real money, started from nothing.</p>
   </header>
-  <div class="biz-grid">
-    <article class="biz-card" data-reveal>
-      <div class="biz-media">
-        <img class="bz1" src="media/projects/better-store/stall-crouch.webp" alt="Anudeep at The Better Store stall" loading="lazy">
-        <img class="bz2" src="media/projects/better-store/stall-pitch.webp" alt="Showing a product to a customer at the stall" loading="lazy">
-        <img class="bz3" src="media/projects/better-store/stall-table.webp" alt="Anudeep behind the stall table" loading="lazy">
-        <span class="biz-tag"><i class="live" aria-hidden="true"></i>Dropshipping · sold</span>
-      </div>
-      <div class="biz-body">
+  <div class="bz-grid">
+    <article class="bz" data-reveal>
+      <div class="bz-media"><img src="media/projects/better-store/stall-crouch.webp" alt="Anudeep at The Better Store stall" loading="lazy"></div>
+      <div class="bz-body">
+        <span class="bz-tag mono">Dropshipping · sold</span>
         <h3>The Better Store</h3>
-        <div class="biz-big"><b>₹2L+</b><span>in revenue</span></div>
-        <p>A dropshipping store run from a stall on the Masters' Union campus, where the stall is the classroom and the grades are in rupees.</p>
-        <ul class="biz-list">
-          <li>Picked the products and negotiated with suppliers</li>
-          <li>Set the prices and ran the social media marketing</li>
-          <li>Sold face to face to students, faculty and visitors</li>
-          <li>When Meta ads burned too much money, moving to Meesho was my idea</li>
-        </ul>
-        <button type="button" class="btn btn-fire" data-open="store">See the stall</button>
+        <div class="bz-big"><b>₹2L+</b><span>in revenue</span></div>
+        <p>A dropshipping store run from a campus stall: I picked products, set prices and sold face to face.</p>
+        <p class="bz-me">My call: moving from Meta ads to Meesho when ads burned too much money.</p>
+        <button type="button" class="bz-go" data-open="store">See the stall →</button>
       </div>
     </article>
-    <article class="biz-card" data-reveal>
-      <div class="biz-media art">
-        <svg viewBox="0 0 240 300" aria-hidden="true"><defs><linearGradient id="vx" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#ff8a2a"/><stop offset="1" stop-color="#d8341b"/></linearGradient></defs><ellipse cx="120" cy="282" rx="70" ry="10" fill="rgba(0,0,0,.45)"/><rect x="96" y="20" width="48" height="34" rx="6" fill="#1b1b1f" stroke="#ffb000" stroke-width="3"/><path d="M92 54 H148 L160 88 V262 Q160 276 146 276 H94 Q80 276 80 262 V88Z" fill="url(#vx)"/><rect x="80" y="130" width="80" height="84" fill="#0a0a0b"/><text x="120" y="166" text-anchor="middle" font-family="Anton,Impact,sans-serif" font-size="21" fill="#f5f2ee" letter-spacing="1">VORTILIX</text><text x="120" y="192" text-anchor="middle" font-family="Space Mono,monospace" font-size="10" fill="#ffb000">FOCUS SHOT</text><path d="M100 70 Q108 100 100 118" stroke="rgba(255,255,255,.35)" stroke-width="5" fill="none" stroke-linecap="round"/></svg>
-        <span class="biz-tag"><i class="live" aria-hidden="true"></i>Startup · building now</span>
-      </div>
-      <div class="biz-body">
+    <article class="bz" data-reveal>
+      <div class="bz-media"><div class="bz-art"><svg viewBox="0 0 240 300" aria-hidden="true"><defs><linearGradient id="vx" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#ff8a2a"/><stop offset="1" stop-color="#d8341b"/></linearGradient></defs><ellipse cx="120" cy="282" rx="70" ry="10" fill="rgba(0,0,0,.45)"/><rect x="96" y="20" width="48" height="34" rx="6" fill="#1b1b1f" stroke="#ffb000" stroke-width="3"/><path d="M92 54 H148 L160 88 V262 Q160 276 146 276 H94 Q80 276 80 262 V88Z" fill="url(#vx)"/><rect x="80" y="130" width="80" height="84" fill="#0a0a0b"/><text x="120" y="166" text-anchor="middle" font-family="Anton,Impact,sans-serif" font-size="21" fill="#f5f2ee" letter-spacing="1">VORTILIX</text><text x="120" y="192" text-anchor="middle" font-family="Space Mono,monospace" font-size="10" fill="#ffb000">FOCUS SHOT</text><path d="M100 70 Q108 100 100 118" stroke="rgba(255,255,255,.35)" stroke-width="5" fill="none" stroke-linecap="round"/></svg></div></div>
+      <div class="bz-body">
+        <span class="bz-tag mono">Startup · building now</span>
         <h3>Vortilix</h3>
-        <div class="biz-big"><b>3</b><span>co-founders, Masters' Union Venture Initiation Program</span></div>
-        <p>A nutraceutical focus shot I'm co-founding with two classmates. Samples are being tested now, before we decide on a production run.</p>
-        <ul class="biz-list">
-          <li>I run marketing, pricing, promotion and the go-to-market plan</li>
-          <li>Launch plan: Masters' Union students first, then TETR and DLF CyberPark</li>
-          <li>Gym partnerships are next on the list</li>
-        </ul>
-        <span class="biz-status mono">In progress · no sales claimed yet</span>
+        <div class="bz-big"><b>3</b><span>co-founders, Masters' Union Venture Initiation Program</span></div>
+        <p>A nutraceutical focus shot. Samples are being tested before a production run.</p>
+        <p class="bz-me">I run marketing, pricing and the go-to-market plan.</p>
+        <span class="bz-go muted">In progress · no sales claimed yet</span>
       </div>
     </article>
+    <a class="bz" href="https://meet2tracker.app" target="_blank" rel="noopener" data-reveal>
+      <div class="bz-media"><div class="bz-ic"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="6" width="32" height="36" rx="4"/><path d="M15 17l3 3 6-6M15 30l3 3 6-6M28 18h6M28 31h6"/></svg></div></div>
+      <div class="bz-body">
+        <span class="bz-tag mono">SaaS · launched 15 Nov 2026</span>
+        <h3>Meet2Tracker</h3>
+        <div class="bz-big"><b>₹0</b><span>launch: plan, two videos, five channels</span></div>
+        <p>Paste a meeting transcript, get a task tracker with owners and deadlines.</p>
+        <p class="bz-me">Built with Darshan Kulkarni; I ran the launch. Day one: about 680 views, no signups yet.</p>
+        <span class="bz-go">Visit meet2tracker.app →</span>
+      </div>
+    </a>
+    <a class="bz" href="https://vaadyle.lovable.app" target="_blank" rel="noopener" data-reveal>
+      <div class="bz-media"><div class="bz-ic"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M18 34V12l20-4v22"/><circle cx="13" cy="34" r="5"/><circle cx="33" cy="30" r="5"/></svg></div></div>
+      <div class="bz-body">
+        <span class="bz-tag mono">Product · built</span>
+        <h3>Vaadyle</h3>
+        <div class="bz-big"><b>Daily</b><span>Indian-music puzzle, one instrument at a time</span></div>
+        <p>Everyone gets the same song, revealed stem by stem. Streaks and a share card, like Wordle.</p>
+        <p class="bz-me">I built the game and landing page, and split every song into stems.</p>
+        <span class="bz-go">Play at vaadyle.lovable.app →</span>
+      </div>
+    </a>
+    <a class="bz" href="https://ashta-chamma.lovable.app" target="_blank" rel="noopener" data-reveal>
+      <div class="bz-media"><div class="bz-ic"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3"><rect x="6" y="6" width="36" height="36" rx="4"/><path d="M18 6v36M30 6v36M6 18h36M6 30h36"/><path d="M21 21l6 6M27 21l-6 6" stroke-linecap="round"/></svg></div></div>
+      <div class="bz-body">
+        <span class="bz-tag mono">Game · built</span>
+        <h3>Ashta Chamma</h3>
+        <div class="bz-big"><b>Online</b><span>the ancient Indian board game, rebuilt</span></div>
+        <p>A game a lot like Ludo, now playable in the browser.</p>
+        <p class="bz-me">I built the game end to end.</p>
+        <span class="bz-go">Play at ashta-chamma.lovable.app →</span>
+      </div>
+    </a>
   </div>
-  <div class="lab-head"><p class="eyebrow">Also built · launching next</p><p class="lab-note">Built end to end and only just launching, so the numbers are honest and early.</p></div>
-  <div class="lab-grid">
-    <a class="lab-card" href="https://vaadyle.lovable.app" target="_blank" rel="noopener" data-reveal>
-      <span class="lab-ic" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M18 34V12l20-4v22"/><circle cx="13" cy="34" r="5"/><circle cx="33" cy="30" r="5"/></svg></span>
-      <span class="lab-tag mono">Product · built</span>
-      <h3>Vaadyle</h3>
-      <p>A daily Indian-music puzzle. Everyone gets the same song, revealed one instrument at a time, and has to guess it. Share card, streaks and stats, like Wordle.</p>
-      <p class="lab-me">I built the game and the landing page, and split every song into instrument stems.</p>
-      <span class="lab-go">Play at vaadyle.lovable.app →</span>
-    </a>
-    <a class="lab-card" href="https://meet2tracker.app" target="_blank" rel="noopener" data-reveal>
-      <span class="lab-ic" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="6" width="32" height="36" rx="4"/><path d="M15 17l3 3 6-6M15 30l3 3 6-6M28 18h6M28 31h6"/></svg></span>
-      <span class="lab-tag mono">SaaS · launched 15 Nov 2026</span>
-      <h3>Meet2Tracker</h3>
-      <p>Paste a meeting transcript, get a task tracker with owners and deadlines. Free plan, and Pro at ₹499 once, no subscription.</p>
-      <p class="lab-me">Built with Darshan Kulkarni. I ran the launch: plan, two launch videos and posts on five channels for ₹0. Day one: about 680 views, 2 site visits, no signups yet.</p>
-      <span class="lab-go">Visit meet2tracker.app →</span>
-    </a>
-    <a class="lab-card" href="https://ashta-chamma.lovable.app" target="_blank" rel="noopener" data-reveal>
-      <span class="lab-ic" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3"><rect x="6" y="6" width="36" height="36" rx="4"/><path d="M18 6v36M30 6v36M6 18h36M6 30h36"/><path d="M21 21l6 6M27 21l-6 6" stroke-linecap="round"/></svg></span>
-      <span class="lab-tag mono">Game · built</span>
-      <h3>Ashta Chamma</h3>
-      <p>The ancient Indian board game, a lot like Ludo, rebuilt so you can play it online.</p>
-      <p class="lab-me">I built the game end to end.</p>
-      <span class="lab-go">Play at ashta-chamma.lovable.app →</span>
-    </a>
-    <div class="lab-card lab-wide" data-reveal>
-      <span class="lab-tag mono">Coursework · Masters' Union · all six graded A</span>
-      <h3>Decoding Business Models</h3>
-      <p>Six businesses my teams designed and pitched from scratch, one per business model, each graded A. For each: who pays, how it makes money, and how it grows. Tap a deck to open it.</p>
+  <div class="lab-head"><p class="eyebrow">Strategy · coursework, all six graded A</p><p class="lab-note">Decoding Business Models: six businesses my teams designed and pitched, one per business model. Tap a deck to open it.</p></div>
+    <div class="dbm" data-reveal>
       <div class="decks"><a class="deck" href="media/docs/dbm/athletiq-edtech.pdf?v=2" target="_blank" rel="noopener"><img src="media/projects/dbm/athletiq-edtech.webp?v=2" alt="Cover of the AthletIQ deck" loading="lazy" width="640" height="360"><span class="mono">Sports-tech · edtech · Grade A</span><b>AthletIQ</b><small>Shared coaches and sports tech for school athletes</small></a><a class="deck" href="media/docs/dbm/messmafia-d2c.pdf?v=2" target="_blank" rel="noopener"><img src="media/projects/dbm/messmafia-d2c.webp?v=2" alt="Cover of the MessMafia deck" loading="lazy" width="640" height="360"><span class="mono">D2C · Grade A</span><b>MessMafia</b><small>Healthy add-hot-water meals for busy students</small></a><a class="deck" href="media/docs/dbm/twyde-marketplace.pdf?v=2" target="_blank" rel="noopener"><img src="media/projects/dbm/twyde-marketplace.webp?v=2" alt="Cover of the TWYDE deck" loading="lazy" width="640" height="360"><span class="mono">Marketplace · Grade A</span><b>TWYDE</b><small>A Zoomcar-style marketplace for idle two-wheelers</small></a><a class="deck" href="media/docs/dbm/skoolms-saas.pdf?v=2" target="_blank" rel="noopener"><img src="media/projects/dbm/skoolms-saas.webp?v=2" alt="Cover of the skooLMS deck" loading="lazy" width="640" height="360"><span class="mono">SaaS · Grade A</span><b>skooLMS</b><small>The internal operating system for schools</small></a><a class="deck" href="media/docs/dbm/insurequest-fintech.pdf?v=2" target="_blank" rel="noopener"><img src="media/projects/dbm/insurequest-fintech.webp?v=2" alt="Cover of the Insurequest deck" loading="lazy" width="640" height="360"><span class="mono">Fintech · Grade A</span><b>Insurequest</b><small>Can insurance risk become a retail asset class?</small></a><a class="deck" href="media/docs/dbm/chandni-chowk-fnb.pdf?v=2" target="_blank" rel="noopener"><img src="media/projects/dbm/chandni-chowk-fnb.webp?v=2" alt="Cover of the Chandni Chowk and Co. deck" loading="lazy" width="640" height="360"><span class="mono">F&amp;B · Grade A</span><b>Chandni Chowk &amp; Co.</b><small>Old Delhi legends, franchised into tier-2 India</small></a></div>
     </div>
   </div>
@@ -518,6 +515,6 @@
 <script src="vendor/gsap.min.js"></script>
 <script src="vendor/ScrollTrigger.min.js"></script>
 <script src="vendor/lenis.min.js"></script>
-<script src="v3.js?v=1795679303"></script>
+<script src="v3.js?v=1795679429"></script>
 </body>
 </html>

@@ -835,3 +835,32 @@ section.anim-off *,section.anim-off *::before,section.anim-off *::after{animatio
 /* press-wall hero photo (framed, not a cut-out) */
 .hero .hero-me.framed{height:min(78%,700px);bottom:64px;border-radius:22px;border:2px solid rgba(242,101,34,.55);filter:drop-shadow(0 0 36px rgba(242,101,34,.35)) drop-shadow(0 24px 36px rgba(0,0,0,.6))}
 @media (max-width:760px){.hero .hero-me.framed{height:auto;width:min(86%,360px);bottom:auto;margin-top:18px}}
+/* entrepreneurship: one consistent card for every build */
+.bz-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:18px;max-width:1320px}
+.bz{display:flex;flex-direction:column;border-radius:20px;overflow:hidden;background:var(--bg2);border:1px solid var(--line);text-decoration:none;color:inherit;transition:border-color .3s,transform .35s}
+a.bz:hover,.bz:has(button.bz-go:hover){border-color:var(--or);transform:translateY(-5px)}
+.bz-media{aspect-ratio:16/10;background:linear-gradient(135deg,#2a1208,#120a07);display:grid;place-items:center;overflow:hidden}
+.bz-media img{width:100%;height:100%;object-fit:cover}
+.bz-art svg{height:150px;width:auto}
+.bz-ic{width:92px;height:92px;border-radius:24px;display:grid;place-items:center;background:rgba(242,101,34,.15);color:var(--or)}
+.bz-ic svg{width:52px;height:52px}
+.bz-body{display:flex;flex-direction:column;gap:9px;padding:22px 22px 24px;flex:1}
+.bz-tag{color:var(--gold);font-size:11px}
+.bz h3{font-size:32px}
+.bz-big{display:flex;align-items:baseline;gap:10px}
+.bz-big b{font:400 30px/1 var(--disp);color:var(--or)}
+.bz-big span{color:var(--mut);font-size:13.5px}
+.bz p{color:#d6d2cc;font-size:15px;margin:0}
+.bz .bz-me{color:var(--mut);font-size:14px}
+.bz-go{margin-top:auto;padding-top:10px;font:700 13px/1 var(--body);text-transform:uppercase;letter-spacing:.06em;color:var(--or);background:none;border:0;text-align:left;cursor:pointer;padding-left:0}
+.bz-go.muted{color:var(--mut);cursor:default}
+.dbm{max-width:1320px}
+/* locker-room shelf labels */
+.room-cats{display:flex;flex-wrap:wrap;gap:8px;max-width:1320px;margin:0 0 16px}
+.room-cats button{font:600 13px/1 var(--body);padding:10px 14px;border-radius:999px;border:1px solid var(--line);background:var(--bg2);color:#d6d2cc;cursor:pointer;transition:background .2s,color .2s,border-color .2s}
+.room-cats button[aria-pressed="true"]{background:var(--or);border-color:var(--or);color:#140a05}
+.scene-objs .obj{transition:opacity .3s,filter .3s}
+.scene-objs .obj.dim,.room-list button.dim{opacity:.18;filter:grayscale(1)}
+.bz-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media (max-width:1020px){.bz-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:620px){.bz-grid{grid-template-columns:1fr}}

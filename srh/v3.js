@@ -412,26 +412,26 @@
     paddle: '<svg viewBox="0 0 80 160"><rect x="34" y="70" width="12" height="86" rx="5" fill="#6b3a1d"/><circle cx="40" cy="42" r="36" fill="#F5F2EE" stroke="#08090B" stroke-width="3"/><text x="40" y="56" text-anchor="middle" font-family="Anton,Impact,sans-serif" font-size="38" fill="#f26522">01</text></svg>'
   };
   var ROOM = [
-    { obj: 'hanging', left: 5, top: 3, w: 11, label: 'About me', kicker: 'About', title: 'Anudeep Gupta.',
+    { obj: 'hanging', left: 5, top: 3, w: 11, label: 'About me', cat: 'personal', kicker: 'About', title: 'Anudeep Gupta.',
       text: 'Hyderabad-raised Orange Army fan and founding-cohort student of Sports Management & Gaming at Masters’ Union. I speak English, Telugu and Hindi, with some Tamil.', nums: [['1 of 8', 'SMG Club core committee'], ['4', 'languages']], role: 'Open to a full-time role or internship, starting now.', link: 'media/resume.pdf', linkText: 'Open my resume', img: 'media/photos/portrait-arms.webp?v=1795635861' },
-    { obj: 'flag', left: 21, top: 6, w: 9, label: 'One Orange Army', title: 'One Orange Army, three seasons', page: 'one-orange-army' },
-    { obj: 'tv', left: 38, top: 3, w: 24, label: 'IPL auction draft', kicker: 'Events · SMG Club', title: 'An auction students asked to repeat.', text: 'An IPL auction for the Masters’ Union SMG Club. Ten student teams planned their budgets around live bidding and surprise wildcards, like a star player ruled out injured mid-auction. It ran on time and within its ₹5K budget. Masters’ Union’s Student Union President rated it the best event across the 13 student clubs, and students asked us to run another.', nums: [['Top', 'event of MU’s 13 clubs, per the Student Union President'], ['Repeat', 'event requested by students'], ['60', 'students, 10 teams']], role: 'My role: ran it end to end.', video: 'media/video/auction.mp4', poster: 'media/photos/auction-draft.webp' },
-    { obj: 'board', left: 69, top: 8, w: 14, label: 'Astralis', kicker: 'Esports strategy · Masters’ Union, Term 1', title: 'Rebuilding an esports empire.',
+    { obj: 'flag', left: 21, top: 6, w: 9, label: 'One Orange Army', cat: 'strategy', title: 'One Orange Army, three seasons', page: 'one-orange-army' },
+    { obj: 'tv', left: 38, top: 3, w: 24, label: 'IPL auction draft', cat: 'events', kicker: 'Events · SMG Club', title: 'An auction students asked to repeat.', text: 'An IPL auction for the Masters’ Union SMG Club. Ten student teams planned their budgets around live bidding and surprise wildcards, like a star player ruled out injured mid-auction. It ran on time and within its ₹5K budget. Masters’ Union’s Student Union President rated it the best event across the 13 student clubs, and students asked us to run another.', nums: [['Top', 'event of MU’s 13 clubs, per the Student Union President'], ['Repeat', 'event requested by students'], ['60', 'students, 10 teams']], role: 'My role: ran it end to end.', video: 'media/video/auction.mp4', poster: 'media/photos/auction-draft.webp' },
+    { obj: 'board', left: 69, top: 8, w: 14, label: 'Astralis', cat: 'strategy', kicker: 'Esports strategy · Masters’ Union, Term 1', title: 'Rebuilding an esports empire.',
       text: 'A strategic analysis of Astralis: why a famous esports team was losing money, and a turnaround built on an asset-light model, D2C membership and an India creator plan.', nums: [['DKK 5.4M', 'annual EBITDA loss diagnosed'], ['Solo', 'project']], role: 'My role: financial diagnosis, turnaround model and India creator go-to-market.' },
-    { obj: 'laptop', left: 2, bottom: 30, w: 13, label: 'Market research', kicker: 'Work · The Business Research Company', title: 'The research desk.',
+    { obj: 'laptop', left: 2, bottom: 30, w: 13, label: 'Market research', cat: 'strategy', kicker: 'Work · The Business Research Company', title: 'The research desk.',
       text: 'Nearly 3 years as an associate consultant: 55+ market research reports across 10 industries and 5 regions. I proposed a green hydrogen database that TBRC turned into a new product, sold to 2 clients at $10K each. I proposed an automated drafting workflow that doubled weekly output from 2 to 4, and cut report delivery from 7 to 2–3 business days. I also ran first-level QC on every report and wrote proposal sample pages for 500–600 reports for the sales team.', nums: [['2', 'clients for my database, at $10K each'], ['7 → 2–3', 'business days to deliver a report'], ['2 → 4', 'reports a week, my workflow']], role: 'My role: researched, wrote and QC’d reports; proposed the database and the workflow.' },
-    { obj: 'notebook', left: 16.5, bottom: 30, w: 9.5, label: 'goSTOPS', title: 'Filling hostels in the off-season', page: 'gostops-off-season' },
-    { obj: 'kettlebell', left: 27.5, bottom: 30, w: 5.5, label: 'HYROX Delhi', kicker: 'Events · HYROX Delhi 2026', title: 'Where the crowd is.',
+    { obj: 'notebook', left: 16.5, bottom: 30, w: 9.5, label: 'goSTOPS', cat: 'strategy', title: 'Filling hostels in the off-season', page: 'gostops-off-season' },
+    { obj: 'kettlebell', left: 27.5, bottom: 30, w: 5.5, label: 'HYROX Delhi', cat: 'events', kicker: 'Events · HYROX Delhi 2026', title: 'Where the crowd is.',
       text: 'At HYROX Delhi (10,500 athletes over three days), I volunteered and took charge of the Masters’ Union zone, 7 AM to 9 PM each day. We handed out 8,000+ finisher goodies bags, about 80% of all athletes. The personalised time tags were being typed up from AI-read photos of scorecards, and about 100 came out wrong. I fixed them on the spot from athletes’ own timestamp photos, then pushed to switch to HYROX’s official timing data. From day two, wrong tags dropped to zero. At peak, I moved volunteers between stations so queues of 80–100 athletes cleared in 10–15 minutes.', nums: [['8,000+', 'goodies bags, ~80% of athletes'], ['~100 → 0', 'wrong time tags'], ['~20', 'volunteers in the zone']], role: 'My role: volunteer who took charge of the Masters’ Union zone.', imgs: ['media/projects/hyrox-delhi/hall.webp', 'media/video/hyrox.mp4', 'media/projects/hyrox-delhi/course.webp', 'media/projects/hyrox-delhi/finish.webp', 'media/projects/hyrox-delhi/classof.webp', 'media/projects/hyrox-delhi/venue.webp', 'media/projects/hyrox-delhi/letters.webp'] },
-    { obj: 'jersey', left: 35, bottom: 30, w: 11.5, label: 'NIVIA launch', title: 'Launching the India jersey', page: 'nivia-india-jersey' },
-    { obj: 'bag', left: 48, bottom: 30, w: 7, label: 'The Better Store', store: true },
-    { obj: 'clipboard', left: 57, bottom: 30, w: 6, label: 'Pepperfry', kicker: 'Consumer behaviour · Pepperfry', title: 'Scouting the shopper.',
+    { obj: 'jersey', left: 35, bottom: 30, w: 11.5, label: 'NIVIA launch', cat: 'strategy', title: 'Launching the India jersey', page: 'nivia-india-jersey' },
+    { obj: 'bag', left: 48, bottom: 30, w: 7, label: 'The Better Store', cat: 'business', store: true },
+    { obj: 'clipboard', left: 57, bottom: 30, w: 6, label: 'Pepperfry', cat: 'strategy', kicker: 'Consumer behaviour · Pepperfry', title: 'Scouting the shopper.',
       text: 'A Furniture Experience Index across 19 brands and 7 touchpoints, from 19 store visits and 30 customer interviews. Pepperfry ranked #6 of 19.', nums: [['19', 'stores visited'], ['30', 'interviews'], ['73.0', 'Pepperfry score vs 66.5 average']], role: 'My role: ran the mystery shopping and customer interviews, and built the index scoring (team project).', link: 'media/docs/pepperfry-odc.pdf' },
-    { obj: 'trophy', left: 64.5, bottom: 30, w: 5, label: 'Esports', kicker: 'Player · Valorant and Counter-Strike', title: 'In-game leader.',
+    { obj: 'trophy', left: 64.5, bottom: 30, w: 5, label: 'Esports', cat: 'personal', kicker: 'Player · Valorant and Counter-Strike', title: 'In-game leader.',
       text: 'I played Valorant and Counter-Strike competitively in 2021–22, as in-game leader with TITANS IBS.', nums: [['1st', 'Valorant tournament'], ['2nd', 'Counter-Strike tournament']], role: 'My role: player and in-game leader.' },
-    { obj: 'headset', left: 71, bottom: 30, w: 9.5, label: 'TITANS IBS', kicker: 'Community · TITANS IBS', title: 'Match nights, every week.',
+    { obj: 'headset', left: 71, bottom: 30, w: 9.5, label: 'TITANS IBS', cat: 'events', kicker: 'Community · TITANS IBS', title: 'Match nights, every week.',
       text: 'Coordinated the esports club’s tournaments, from brackets to match-night community. Moving promotion to college dashboards grew registrations about four times.', nums: [['10+', 'tournaments'], ['250+', 'participants'], ['9 → 40', 'registrations']], role: 'My role: event coordinator.' },
-    { obj: 'racket', left: 85, bottom: 24, w: 7, label: 'Badminton', kicker: 'Player · Badminton', title: 'Telangana, on court.',
+    { obj: 'racket', left: 85, bottom: 24, w: 7, label: 'Badminton', cat: 'personal', kicker: 'Player · Badminton', title: 'Telangana, on court.',
       text: 'I represented Telangana in national-level badminton as an under-19, after 3rd place in a District U16 tournament. I also hold a maroon belt in Kung Fu.', nums: [['U19', 'national level'], ['3rd', 'District U16']], role: 'What it gave me: I know how match day feels for a player, not only for a fan.', img: 'media/photos/badminton.webp' }
   ];
   var objs = $('#scene-objs'), rlist = $('#room-list'), tvVid = null;
@@ -445,10 +445,12 @@
       tvVid = b.querySelector('video');
     } else b.innerHTML = SVG[c.obj] + '<span class="obj-lab">' + esc(c.label) + '</span>';
     var open = function () { if (c.store) openCase(STORE); else if (c.page) openPage(c.page); else openCase(c); };
+    b.dataset.cat = c.cat || '';
     b.addEventListener('click', open);
     objs.appendChild(b);
     var lb = document.createElement('button'); lb.type = 'button';
     lb.innerHTML = '<span class="mono">' + esc(c.label) + '</span><b>' + esc(c.store ? STORE.title : c.title) + '</b>';
+    lb.dataset.cat = c.cat || '';
     lb.addEventListener('click', open);
     rlist.appendChild(lb);
   });
@@ -457,6 +459,14 @@
   var centreTV = function () { if (sceneEl.scrollWidth > sceneEl.clientWidth + 4 && tvBtn) sceneEl.scrollLeft = tvBtn.offsetLeft + tvBtn.offsetWidth / 2 - sceneEl.clientWidth / 2; };
   centreTV(); addEventListener('load', centreTV);
   if (tvVid && 'IntersectionObserver' in window && !RM) new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { if (!tvVid.src) tvVid.src = tvVid.dataset.src; var p = tvVid.play(); if (p && p.catch) p.catch(function () {}); } else tvVid.pause(); }); }, { threshold: .3 }).observe(tvVid);
+  // shelf labels: filter the room by kind of work
+  $$('#room-cats button').forEach(function (chip) {
+    chip.addEventListener('click', function () {
+      var cat = chip.dataset.cat;
+      $$('#room-cats button').forEach(function (x) { x.setAttribute('aria-pressed', String(x === chip)); });
+      $$('#scene-objs .obj, #room-list button').forEach(function (o) { o.classList.toggle('dim', cat !== 'all' && o.dataset.cat !== cat); });
+    });
+  });
   var lbtn = $('#room-list-btn');
   lbtn.addEventListener('click', function () { var on = rlist.classList.toggle('on'); lbtn.setAttribute('aria-expanded', String(on)); lbtn.querySelector('span').textContent = on ? 'Hide the list' : 'Show as a list'; if (window.ScrollTrigger) ScrollTrigger.refresh(); });
   var scene = $('#scene');
