@@ -165,6 +165,20 @@
       }
       requestAnimationFrame(frame);
     }
+    // role pins wired onto the figure: head, crest, sponsor logo
+    var pinsEl = $('#hero-pins'), ANCH = [[40, 14], [62, 48], [36, 49]];
+    function wire() {
+      place(pinsEl);
+      var bw = pinsEl.offsetWidth || 1, bh = pinsEl.offsetHeight || 1, cards = $$('.pin', pinsEl), paths = $$('.pin-wires path', pinsEl), dots = $$('.pin-dot', pinsEl);
+      cards.forEach(function (c, i) {
+        var left = (c.offsetLeft + c.offsetWidth / 2) / bw * 100 < ANCH[i][0], ex = (left ? c.offsetLeft + c.offsetWidth : c.offsetLeft) / bw * 100, ey = (c.offsetTop + c.offsetHeight / 2) / bh * 100;
+        var ax = ANCH[i][0], ay = ANCH[i][1], mx = (ex + ax) / 2;
+        paths[i].setAttribute('d', 'M' + ex.toFixed(2) + ' ' + ey.toFixed(2) + ' C' + mx.toFixed(2) + ' ' + ey.toFixed(2) + ' ' + mx.toFixed(2) + ' ' + ay + ' ' + ax + ' ' + ay);
+        dots[i].style.left = ax + '%'; dots[i].style.top = ay + '%';
+      });
+    }
+    wire(); addEventListener('resize', wire); addEventListener('load', wire); me.addEventListener('load', wire);
+    setTimeout(function () { wire(); hero.classList.add('pins-on'); }, RM ? 0 : 2300);
     setTimeout(function () { hero.classList.add('swapping'); }, 3200);
     setInterval(function () { if (!seen || document.hidden || !hero.classList.contains('swapping')) return; strike(); }, 4500);
   })();
@@ -206,7 +220,7 @@
     requestAnimationFrame(emLoop);
     if (!MOBILE) hero.addEventListener('pointermove', function (e) {
       var r = hero.getBoundingClientRect(), dx = (e.clientX - r.left) / r.width - .5, dy = (e.clientY - r.top) / r.height - .5;
-      me.style.translate = me2.style.translate = $('#hero-glitch').style.translate = (dx * -18) + 'px ' + (dy * -8) + 'px';
+      me.style.translate = me2.style.translate = $('#hero-glitch').style.translate = $('#hero-pins').style.translate = (dx * -18) + 'px ' + (dy * -8) + 'px';
       word.style.translate = (dx * 30) + 'px ' + (dy * 14) + 'px';
     });
   }
@@ -300,6 +314,16 @@
   $('#kit-prev').addEventListener('click', function () { openKit(kitAt - 1); });
   $('#kit-next').addEventListener('click', function () { openKit(kitAt + 1); });
 
+
+  // tap-to-copy contact keys (mail apps often aren't set up on laptops)
+  $$('[data-copy]').forEach(function (k) {
+    var st = $('.ck-st', k), def = st.textContent, t = null;
+    k.addEventListener('click', function () {
+      var v = k.dataset.copy, ok = function () { st.textContent = 'Copied ✓'; k.classList.add('done'); clearTimeout(t); t = setTimeout(function () { st.textContent = def; k.classList.remove('done'); }, 1800); };
+      if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(v).then(ok, fb); else fb();
+      function fb() { var a = document.createElement('textarea'); a.value = v; a.style.position = 'fixed'; a.style.opacity = '0'; document.body.appendChild(a); a.select(); try { document.execCommand('copy'); ok(); } catch (e) {} a.remove(); }
+    });
+  });
   /* ============================ 2. SQUAD ============================ */
   var RACKET = '<svg viewBox="0 0 200 220" aria-hidden="true"><g transform="rotate(-30 100 110)"><ellipse cx="100" cy="62" rx="38" ry="52" fill="rgba(255,255,255,.06)" stroke="#f26522" stroke-width="6"/><g stroke="#f3e9df" stroke-width="1.2" opacity=".75"><path d="M76 24V100M88 14V110M100 10V114M112 14V110M124 24V100"/><path d="M64 40H136M62 54H138M62 68H138M64 82H136M70 96H130"/></g><rect x="96" y="114" width="8" height="58" fill="#c9ccd3"/><rect x="92" y="170" width="16" height="44" rx="6" fill="#16171c"/></g><g transform="translate(152 44) rotate(25)"><path d="M0 0 L-14 -32 H14Z" fill="#f3e9df"/><circle cx="0" cy="6" r="8" fill="#f26522"/></g></svg>';
   var BELT = '<svg viewBox="0 0 200 160" aria-hidden="true"><path d="M10 60 Q100 40 190 60 L190 84 Q100 64 10 84Z" fill="#7a1b1b"/><path d="M10 60 Q100 40 190 60" stroke="#a52a2a" stroke-width="3" fill="none"/><path d="M86 52 L114 52 L118 92 L82 92Z" fill="#6a1414"/><path d="M90 88 L66 150 L82 150 L100 96Z" fill="#7a1b1b"/><path d="M110 88 L134 150 L118 150 L100 96Z" fill="#7a1b1b"/><circle cx="100" cy="72" r="10" fill="#f26522"/></svg>';
