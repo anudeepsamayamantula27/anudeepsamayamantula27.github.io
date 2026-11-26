@@ -1094,3 +1094,10 @@ a.bz:hover,.bz:has(button.bz-go:hover){border-color:var(--or);transform:translat
 .copy-key.done{border-color:#3ecf8e}.copy-key.done .ck-st{color:#3ecf8e}
 @media (max-width:760px){.copy-key{display:flex;width:100%;box-sizing:border-box}.copy-key b{flex:1;font-size:12.5px}.ck-st{font-size:9.5px}}
 .fan>*{min-width:0}
+.copy-keys{display:flex;flex-direction:column;align-items:flex-start;gap:0;max-width:100%}
+.ck-row{display:flex;flex-wrap:wrap;align-items:center;gap:10px;max-width:100%}
+.ck-row .copy-key{margin-top:10px}
+.ck-wa{margin-top:10px}
+.copy-keys .copy-key:first-child .ck-ic{font-size:18px}
+@media (max-width:760px){.copy-keys,.ck-row{width:100%}.ck-row .copy-key{flex:1 1 100%}.ck-wa{width:100%;justify-content:center}}
+.copy-key b{text-align:left}
