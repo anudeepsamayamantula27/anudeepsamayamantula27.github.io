@@ -1137,3 +1137,16 @@ dialog.case.wide .subs{grid-template-columns:repeat(auto-fit,minmax(170px,1fr))}
   dialog.case.wide .sub b{font-size:13px}
 }
 dialog.case.split .case-media:not(.strip) img.bg{filter:blur(24px) brightness(.62) saturate(1.2)}
+
+/* photo strips: arrows + counter */
+.case-media{position:relative}
+.strip-nav{position:absolute;left:50%;bottom:14px;transform:translateX(-50%);z-index:3;display:flex;align-items:center;gap:10px;padding:5px;border-radius:999px;background:rgba(10,10,11,.78);border:1px solid var(--line);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.strip-nav .ts-arrow{width:40px;height:40px;font-size:17px}
+.strip-nav .sn-count{min-width:44px;text-align:center;color:var(--tx);font-size:12px}
+dialog.case.wide .case-strip{scroll-snap-type:x mandatory;scrollbar-width:none;padding-bottom:64px}
+dialog.case.wide .case-strip::-webkit-scrollbar{display:none}
+dialog.case.wide .case-strip img,dialog.case.wide .case-strip video{max-width:92%;object-fit:contain}
+@media (max-width:760px){.strip-nav{bottom:8px}.strip-nav .ts-arrow{width:34px;height:34px}dialog.case.wide .case-strip{padding-bottom:52px}}
+dialog.case.wide .case-strip{gap:0;padding:0 0 62px;box-sizing:border-box}
+dialog.case.wide .case-strip>img,dialog.case.wide .case-strip>video{flex:0 0 100%;width:100%!important;max-width:none;height:100%;object-fit:contain;border-radius:0;scroll-snap-align:center;background:transparent}
+@media (max-width:760px){dialog.case.wide .case-strip{padding-bottom:50px}}

@@ -238,6 +238,7 @@
     var m = $('#case-media'); m.innerHTML = '';
     if (c.video) m.innerHTML = '<video src="' + c.video + '" poster="' + c.poster + '" muted loop playsinline controls ' + (RM ? '' : 'autoplay') + ' aria-label="The IPL auction draft in progress"></video>';
     else if (c.imgs) m.innerHTML = '<div class="case-strip">' + c.imgs.map(function (i) { return /\.mp4$/.test(i) ? '<video src="' + i + '" muted loop playsinline controls preload="metadata"' + (RM ? '' : ' autoplay') + '></video>' : '<img src="' + i + '" alt="" loading="lazy">'; }).join('') + '</div>';
+    if (c.imgs && c.imgs.length > 1) stripNav(m);
     else if (c.decks) m.innerHTML = $('#dbm-tpl').innerHTML;
     else if (c.group) {
       m.innerHTML = '<div class="decks subs">' + c.group.map(function (lab) {
@@ -256,6 +257,21 @@
     if (!dlg.open) { dlg.showModal ? dlg.showModal() : dlg.setAttribute('open', ''); }
     dlg.scrollTop = 0; var dc = dlg.querySelector('.case-body, .case-in'); if (dc) dc.scrollTop = 0;
     fitCase(); $$('img', m).forEach(function (im) { if (!im.complete) im.addEventListener('load', fitCase, { once: true }); });
+  }
+  // photo strips: arrows and a counter so visitors know there is more to see
+  function stripNav(m) {
+    var st = $('.case-strip', m); if (!st) return;
+    var items = [].slice.call(st.children), n = items.length;
+    var nav = document.createElement('div'); nav.className = 'strip-nav';
+    nav.innerHTML = '<button type="button" class="ts-arrow sn-prev" aria-label="Previous photo">←</button><span class="mono sn-count">1 / ' + n + '</span><button type="button" class="ts-arrow sn-next" aria-label="Next photo">→</button>';
+    m.appendChild(nav);
+    var at = function () { return Math.max(0, Math.min(n - 1, Math.round(st.scrollLeft / (st.clientWidth || 1)))); };
+    var paintN = function () { var i = at(); $('.sn-count', nav).textContent = (i + 1) + ' / ' + n; $('.sn-prev', nav).disabled = i === 0; $('.sn-next', nav).disabled = i === n - 1; };
+    var goN = function (d) { var i = Math.max(0, Math.min(n - 1, at() + d)); st.scrollTo({ left: i * st.clientWidth, behavior: RM ? 'auto' : 'smooth' }); };
+    $('.sn-prev', nav).addEventListener('click', function () { goN(-1); });
+    $('.sn-next', nav).addEventListener('click', function () { goN(1); });
+    var tt; st.addEventListener('scroll', function () { clearTimeout(tt); tt = setTimeout(paintN, 60); }, { passive: true });
+    setTimeout(paintN, 50);
   }
   // one static pop-up: shrink the text until everything fits, no scrolling
   function fitCase() {
@@ -516,7 +532,8 @@
     { obj: 'clipboard', left: 52, bottom: 47.8, w: 6, label: 'Pepperfry', cat: 'strategy', kicker: 'Consumer behaviour · Pepperfry', title: 'Scouting the shopper.',
       text: 'A Furniture Experience Index across 19 brands and 7 touchpoints, from 19 store visits and 30 customer interviews. Pepperfry ranked #6 of 19.', nums: [['19', 'stores visited'], ['30', 'interviews'], ['73.0', 'Pepperfry score vs 66.5 average']], role: 'My role: ran the mystery shopping and customer interviews, and built the index scoring (team project).', link: 'media/docs/pepperfry-odc.pdf' },
     { obj: 'trophy', left: 61, bottom: 47.8, w: 5, label: 'Esports', cat: 'personal', kicker: 'Player · Valorant and Counter-Strike', title: 'In-game leader.',
-      text: 'I played Valorant and Counter-Strike competitively in 2021–22, as in-game leader with TITANS IBS.', nums: [['1st', 'Valorant tournament'], ['2nd', 'Counter-Strike tournament']], role: 'My role: player and in-game leader.' },
+      text: 'I played Valorant and Counter-Strike competitively as in-game leader with TITANS IBS. At Arena Sports Club, the official sports club of IBS Hyderabad, my team won the Valorant event and finished runner-up in CS:GO (2020–21).', nums: [['Winner', 'Valorant, Arena Sports Club'], ['Runner-up', 'CS:GO, Arena Sports Club']], role: 'My role: player and in-game leader.',
+      imgs: ['media/photos/titans-jersey.webp', 'media/projects/esports/cert-valorant.webp', 'media/projects/esports/cert-csgo.webp'] },
     { obj: 'headset', left: 69.5, bottom: 47.8, w: 9.5, label: 'TITANS IBS', cat: 'events', kicker: 'Community · TITANS IBS', title: 'Match nights, every week.',
       text: 'Coordinated the esports club’s tournaments, from brackets to match-night community. Moving promotion to college dashboards grew registrations about four times.', nums: [['10+', 'tournaments'], ['250+', 'participants'], ['9 → 40', 'registrations']], role: 'My role: event coordinator.' },
     { obj: 'racket', left: 84, bottom: 47.8, w: 7, label: 'Badminton', cat: 'personal', kicker: 'Player · Badminton', title: 'Telangana, on court.',
