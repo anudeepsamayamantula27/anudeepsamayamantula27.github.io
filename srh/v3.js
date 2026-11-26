@@ -146,9 +146,23 @@
   io($$('[data-reveal]'), function (el) { el.classList.add('in'); }, { threshold: 0.15 });
 
   /* ============================ case dialog ============================ */
+  /* projects that used to open their own page now open in the same pop-up */
+  var CASE_PDF = { 'one-orange-army': ['media/docs/one-orange-army.pdf', 'Open the full plan (PDF)'], 'nivia-india-jersey': ['media/docs/nivia-gtm.pdf', 'Open the deck'], 'gostops-off-season': ['media/docs/gostops-gtm.pdf', 'Open the deck'] };
+  var portfolioP = null;
+  function openPage(slug) {
+    portfolioP = portfolioP || fetch('content/portfolio.json').then(function (r) { return r.json(); });
+    portfolioP.then(function (d) {
+      var p = (d.projects || []).filter(function (x) { return x.slug === slug; })[0], pg = (d.project_pages || {})[slug] || {};
+      if (!p) return;
+      var nums = (pg.results || []).slice(0, 3).map(function (r) { return [r.value, r.metric]; });
+      var text = p.summary + (pg.problem ? ' ' + pg.problem : '');
+      var pdf = CASE_PDF[slug];
+      openCase({ kicker: p.org + (p.year ? ' · ' + p.year : ''), title: p.title, text: text, nums: nums, role: 'My role: ' + (pg.my_role || p.role), img: 'media/' + p.thumbnail, link: pdf && pdf[0], linkText: pdf && pdf[1] });
+    });
+  }
   var dlg = $('#case');
   function openCase(c) {
-    if (c.page) { location.href = 'case.html?p=' + encodeURIComponent(c.page); return; }
+    if (c.page) { openPage(c.page === true ? c.slug : c.page); return; }
     $('#case-kicker').textContent = c.kicker || ''; $('#case-title').textContent = c.title || ''; $('#case-text').textContent = c.text || '';
     $('#case-nums').innerHTML = numsHTML(c.nums || []);
     $('#case-role').textContent = c.role || '';
@@ -366,14 +380,16 @@
   ];
   var STORE = { slug: 'better-store', type: 'Dropshipping', title: 'The Better Store: grades in rupees', org: 'Masters’ Union · dropshipping store', big: '₹2L+', res: 'in revenue from a dropshipping store', img: 'media/projects/better-store/stall-crouch.webp',
       kicker: 'Dropshipping · Masters’ Union', text: 'A dropshipping store run from a stall on campus, where the stall is the classroom and the grades are in rupees. We sold massage guns, steam irons, humidifiers, gadgets and handmade gifts face to face. When Meta ads started burning too much money, selling through Meesho instead was my idea.', nums: [['₹2L+', 'revenue'], ['Meesho', 'my idea to replace costly Meta ads']], role: 'My role: picked the products, negotiated with suppliers, set the prices, ran the social media marketing and sold to customers at the stall.', imgs: ['media/projects/better-store/stall-crouch.webp', 'media/projects/better-store/stall-table.webp', 'media/projects/better-store/stall-customer.webp', 'media/projects/better-store/stall-pitch.webp', 'media/projects/better-store/stall-team.webp'] };
+  $$('[data-open-page]').forEach(function (b) { b.addEventListener('click', function () { openPage(b.getAttribute('data-open-page')); }); });
   $$('[data-open="store"]').forEach(function (b) { b.addEventListener('click', function () { openCase(STORE); }); });
   var vTrack = $('#vault-track');
   WORK.forEach(function (w) {
-    var el = document.createElement(w.page ? 'a' : 'button');
+    var el = document.createElement('button');
     el.className = 'news';
-    if (w.page) el.href = 'case.html?p=' + w.slug; else { el.type = 'button'; el.addEventListener('click', function () { openCase({ kicker: w.kicker, title: w.title, text: w.text, nums: w.nums, role: w.role, img: w.img, imgs: w.imgs, video: w.video, poster: w.poster, link: w.link }); }); }
+    el.type = 'button';
+    if (w.page) el.addEventListener('click', function () { openPage(w.slug); }); else { el.addEventListener('click', function () { openCase({ kicker: w.kicker, title: w.title, text: w.text, nums: w.nums, role: w.role, img: w.img, imgs: w.imgs, video: w.video, poster: w.poster, link: w.link }); }); }
     el.innerHTML = '<div class="news-img"><img class="bg pre" src="' + blurOf(w.img) + '" alt="" loading="lazy" aria-hidden="true"><img class="fg' + (w.fit ? ' fit' : '') + '" src="' + w.img + '" alt="" loading="lazy"><span class="news-type">' + esc(w.type) + '</span></div>' +
-      '<div class="news-body"><span class="news-org">' + esc(w.org) + '</span><h3>' + esc(w.title) + '</h3><div class="news-res"><b>' + esc(w.big) + '</b><span>' + esc(w.res) + '</span></div><span class="news-more">' + (w.page ? 'Read the case →' : 'Read more →') + '</span></div>';
+      '<div class="news-body"><span class="news-org">' + esc(w.org) + '</span><h3>' + esc(w.title) + '</h3><div class="news-res"><b>' + esc(w.big) + '</b><span>' + esc(w.res) + '</span></div><span class="news-more">' + ('Read more →') + '</span></div>';
     vTrack.appendChild(el);
   });
   if (window.gsap && !RM) gsap.from('.news', { y: 60, opacity: 0, duration: .8, ease: 'power3.out', stagger: .07, scrollTrigger: { trigger: '#vault-track', start: 'top 88%' } });
@@ -428,7 +444,7 @@
       b.innerHTML = '<span class="tv-box"><video muted loop playsinline preload="none" poster="' + c.poster + '" data-src="' + c.video + '" aria-hidden="true"></video><span class="tv-live mono"><i class="live" aria-hidden="true"></i>Live · Auction night</span><span class="tv-cap"><b>I ran an IPL auction for 60 students.</b><span>Tap to watch →</span></span></span><span class="tv-feet" aria-hidden="true"><i></i><i></i></span>';
       tvVid = b.querySelector('video');
     } else b.innerHTML = SVG[c.obj] + '<span class="obj-lab">' + esc(c.label) + '</span>';
-    var open = function () { if (c.store) openCase(STORE); else if (c.page) location.href = 'case.html?p=' + c.page; else openCase(c); };
+    var open = function () { if (c.store) openCase(STORE); else if (c.page) openPage(c.page); else openCase(c); };
     b.addEventListener('click', open);
     objs.appendChild(b);
     var lb = document.createElement('button'); lb.type = 'button';
