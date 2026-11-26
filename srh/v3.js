@@ -111,23 +111,29 @@
     if (RM) return;
     var seen = true;
     if ('IntersectionObserver' in window) new IntersectionObserver(function (es) { seen = es[0].isIntersecting; }, { threshold: .25 }).observe(hero);
-    var zap = $('#hero-zap'), flashEl = $('#hero-flash'), zp = $$('path', zap);
+    var zap = $('#hero-zap'), zp = $$('path', zap), zipping = false;
+    zap.style.webkitMaskImage = zap.style.maskImage = 'url(' + me.src + '), url(' + me2.src + ')';
     function place(el) { el.style.left = me.offsetLeft + 'px'; el.style.top = me.offsetTop + 'px'; el.style.width = me.offsetWidth + 'px'; el.style.height = me.offsetHeight + 'px'; }
-    function bolt() {   // a fresh jagged bolt every strike: top of the frame down through the body
-      var x = 38 + Math.random() * 24, y = 0, d = 'M' + x + ' 0', pts = [];
-      while (y < 100) { y = Math.min(100, y + 7 + Math.random() * 9); x = Math.max(14, Math.min(86, x + (Math.random() - .5) * 22)); d += ' L' + x.toFixed(1) + ' ' + y.toFixed(1); pts.push([x, y]); }
-      var p = pts[2 + Math.floor(Math.random() * 3)], bx = p[0], by = p[1], b = 'M' + bx + ' ' + by;
-      for (var i = 0; i < 3; i++) { bx += (Math.random() < .5 ? -1 : 1) * (6 + Math.random() * 10); by += 6 + Math.random() * 8; b += ' L' + bx.toFixed(1) + ' ' + by.toFixed(1); }
-      zp[0].setAttribute('d', d); zp[1].setAttribute('d', d); zp[2].setAttribute('d', b); zp[3].setAttribute('d', b);
-    }
+    // a slim lightning seam zips down through the photo; the new pose is revealed above it
     function strike() {
-      sync(); place(zap); place(flashEl); bolt();
-      [zap, flashEl].forEach(function (el) { el.classList.remove('go'); void el.offsetWidth; el.classList.add('go'); });
-      $$('.hero-me', hero).forEach(function (im) { im.classList.remove('zapped'); void im.offsetWidth; im.classList.add('zapped'); });
-      setTimeout(function () {
-        hero.classList.toggle('alt-on');
-        var r = me.getBoundingClientRect(); if (typeof burst === 'function') burst(r.left + r.width / 2, r.top + r.height * .38, 80, 1.4);
-      }, 170);
+      if (zipping) return; zipping = true; sync(); place(zap);
+      var toAlt = !hero.classList.contains('alt-on'), N = 14, base = [], T = 720, t0 = 0;
+      for (var i = 0; i <= N; i++) base.push((Math.random() - .5) * 9);
+      hero.classList.add('zipping'); zap.classList.add('on');
+      function frame(ts) {
+        if (!t0) t0 = ts; var k = Math.min(1, (ts - t0) / T), e = k < .5 ? 2 * k * k : 1 - Math.pow(-2 * k + 2, 2) / 2;
+        var y0 = -12 + e * 124, pts = [];
+        for (var i = 0; i <= N; i++) pts.push([(i / N * 100), y0 + base[i] + (Math.random() - .5) * 1.6]);
+        var edge = pts.map(function (p) { return p[0].toFixed(2) + '% ' + p[1].toFixed(2) + '%'; });
+        var above = 'polygon(0% -20%, 100% -20%, ' + edge.slice().reverse().join(', ') + ')';
+        var below = 'polygon(' + edge.join(', ') + ', 100% 120%, 0% 120%)';
+        me2.style.clipPath = me2.style.webkitClipPath = toAlt ? above : below;
+        var d = 'M' + pts.map(function (p) { return p[0].toFixed(2) + ' ' + p[1].toFixed(2); }).join(' L');
+        zp[0].setAttribute('d', d); zp[1].setAttribute('d', d);
+        if (k < 1) requestAnimationFrame(frame);
+        else { hero.classList.toggle('alt-on', toAlt); me2.style.clipPath = me2.style.webkitClipPath = ''; hero.classList.remove('zipping'); zap.classList.remove('on'); zipping = false; }
+      }
+      requestAnimationFrame(frame);
     }
     setTimeout(function () { hero.classList.add('swapping'); }, 3200);
     setInterval(function () { if (!seen || document.hidden || !hero.classList.contains('swapping')) return; strike(); }, 4500);
