@@ -98,7 +98,22 @@
   });
 
   /* ============================ hero: intro + embers + parallax ============================ */
-  var hero = $('.hero'), me = $('.hero-me'), word = $('.hero-word');
+  var hero = $('.hero'), me = $('.hero-me'), me2 = $('.hero-alt'), word = $('.hero-word');
+  // two poses, swapping while the hero is on screen
+  (function () {
+    if (!me2) return;
+    var phone = function () { return innerWidth <= 760; };
+    function sync() {
+      if (phone()) { me2.style.top = me.offsetTop + 'px'; me2.style.left = me.offsetLeft + 'px'; me2.style.width = me.offsetWidth + 'px'; me2.style.height = me.offsetHeight + 'px'; }
+      else { me2.style.top = me2.style.left = me2.style.width = me2.style.height = ''; }
+    }
+    sync(); addEventListener('resize', sync); addEventListener('load', sync); me.addEventListener('load', sync);
+    if (RM) return;
+    var seen = true;
+    if ('IntersectionObserver' in window) new IntersectionObserver(function (es) { seen = es[0].isIntersecting; }, { threshold: .25 }).observe(hero);
+    setTimeout(function () { hero.classList.add('swapping'); }, 3200);
+    setInterval(function () { if (!seen || document.hidden || !hero.classList.contains('swapping')) return; sync(); hero.classList.toggle('alt-on'); }, 4200);
+  })();
   function go() { document.body.classList.add('ready'); }
   if (RM) go();
   else {
@@ -137,7 +152,7 @@
     requestAnimationFrame(emLoop);
     if (!MOBILE) hero.addEventListener('pointermove', function (e) {
       var r = hero.getBoundingClientRect(), dx = (e.clientX - r.left) / r.width - .5, dy = (e.clientY - r.top) / r.height - .5;
-      me.style.translate = (dx * -18) + 'px ' + (dy * -8) + 'px';
+      me.style.translate = me2.style.translate = (dx * -18) + 'px ' + (dy * -8) + 'px';
       word.style.translate = (dx * 30) + 'px ' + (dy * 14) + 'px';
     });
   }
@@ -179,6 +194,7 @@
     }
     else if (c.img) m.innerHTML = '<img class="bg" src="' + c.img + '" alt=""><img class="fg" src="' + c.img + '" alt="">';
     m.hidden = !(c.video || c.img || c.imgs || c.decks || c.group); m.classList.toggle('strip', !!(c.imgs || c.decks || c.group)); m.classList.toggle('decks-on', !!(c.decks || c.group));
+    $('#case-kitnav').hidden = !c.kit;
     var a = $('#case-link'); if (c.link) { a.href = c.link; a.textContent = c.linkText || 'Open the deck'; a.hidden = false; } else a.hidden = true;
     if (lenis) lenis.stop();
     if (!dlg.open) { dlg.showModal ? dlg.showModal() : dlg.setAttribute('open', ''); }
@@ -214,82 +230,21 @@
       text: 'That’s me at Uppal about 11 years ago, Sunrisers headband on. Hyderabad-raised and Orange Army ever since. Now I want to help the Sunrisers keep their fans all year, across all three teams.',
       nums: [['11 yrs', 'in the Orange Army'], ['3', 'Sunrisers teams']] }
   ];
-  var walk = $('#walkout'), frame = $('#walk-frame'), wcopy = $('#walk-copy'), wbar = $('#walk-bar'), wnum = $('#walk-num'), flash = $('.walk-flash', frame);
+  var krow = $('#kits-row'), kitAt = -1;
   KITS.forEach(function (k, i) {
-    var s = document.createElement('div'); s.className = 'walk-shot'; s.style.zIndex = i + 1;
-    s.innerHTML = '<img class="bg pre" src="' + blurOf(k.img) + '" alt="" aria-hidden="true"><img class="fg" src="' + k.img + '" alt="Anudeep in ' + esc(k.tag.split(' · ')[1].replace('The ', 'the ')) + ' kit">';
-    frame.insertBefore(s, wnum);
-    var c = document.createElement('article'); c.className = 'walk-ch';
-    c.innerHTML = '<p class="mono">' + esc(k.tag) + '</p><h3>' + esc(k.title) + '</h3><p class="t">' + esc(k.text) + '</p><div class="nums">' + numsHTML(k.nums) + '</div>';
-    wcopy.appendChild(c); wbar.appendChild(document.createElement('i'));
+    var b = document.createElement('button'); b.type = 'button'; b.className = 'kit';
+    b.setAttribute('aria-label', k.tag + ': ' + k.title);
+    b.innerHTML = '<img src="' + k.img + '" alt="" loading="lazy"><span>' + esc((function (n) { return n.charAt(0).toUpperCase() + n.slice(1); })(k.tag.split(' · ')[1].replace('The ', ''))) + '</span>';
+    b.addEventListener('click', function () { openKit(i); });
+    krow.appendChild(b);
   });
-  var shots = $$('.walk-shot', frame), chs = $$('.walk-ch', wcopy), segs = $$('i', wbar), cur = -1;
-  function setKit(idx) {
-    if (idx === cur) return; var prev = cur; cur = idx;
-    shots.forEach(function (s, i) { s.classList.toggle('on', i === idx); s.classList.toggle('past', i < idx); });
-    chs.forEach(function (c, i) { c.classList.toggle('on', i === idx); });
-    segs.forEach(function (s, i) { s.classList.toggle('on', i <= idx); });
-    wnum.textContent = KITS[idx].num;
-    if (prev >= 0 && !RM) { flash.classList.remove('go'); void flash.offsetWidth; flash.classList.add('go'); }
-    if (idx === KITS.length - 1 && prev !== -1) { var r = frame.getBoundingClientRect(); burst(r.left + r.width / 2, r.top + r.height * .4, 70, 1.2); }
+  function openKit(i) {
+    kitAt = (i + KITS.length) % KITS.length; var k = KITS[kitAt];
+    openCase({ kicker: k.tag, title: k.title, text: k.text, nums: k.nums, img: k.img, kit: true });
+    $('#kit-count').textContent = String(kitAt + 1).padStart(2, '0') + ' / ' + String(KITS.length).padStart(2, '0');
   }
-  setKit(0);
-  if (!RM && window.ScrollTrigger) {
-    var N = KITS.length, wasActive = false, locking = false, trig = null;
-    var idxAt = function (p) { return Math.min(N - 1, Math.floor(p * N * 0.999)); };
-    var kitPos = function (i) { return trig.start + (trig.end - trig.start) * ((i + 0.5) / N); };
-    // move to one kit and settle there
-    var lastDone = 0, goId = 0, lastWheel = 0, used = false, quiet = null, root = document.documentElement;
-    var coarse = window.matchMedia && matchMedia('(pointer: coarse)').matches;
-    var hush = function () { used = true; lastWheel = Date.now(); clearTimeout(quiet); quiet = setTimeout(function () { used = false; }, 260); };
-    var go = function (i) {
-      locking = true; setKit(i); hush();
-      if (coarse) { root.classList.add('walk-hold'); setTimeout(function () { root.classList.remove('walk-hold'); }, 450); }   // stops phone momentum
-      var my = ++goId, done = function () { if (my === goId && locking) { locking = false; lastDone = Date.now(); peakSince = 0; } };   // only the latest move unlocks
-      if (lenis) lenis.scrollTo(kitPos(i), { duration: 0.35, force: true, lock: true, onComplete: done });
-      else { window.scrollTo({ top: kitPos(i), behavior: 'auto' }); setTimeout(done, 400); }
-      setTimeout(done, 1000);
-    };
-    trig = ScrollTrigger.create({ trigger: walk, start: 'top top', end: function () { return '+=' + innerHeight * 2.4; }, pin: '.walk-pin', anticipatePin: 1, invalidateOnRefresh: true,
-      onUpdate: function (st) {
-        var t = idxAt(st.progress);
-        if (navJump || (!st.isActive && !wasActive)) { wasActive = st.isActive; if (!locking) setKit(t); return; }
-        var entering = st.isActive && !wasActive; wasActive = st.isActive;
-        if (locking) return;
-        var edge = st.direction > 0 ? 0 : N - 1;
-        if (entering) { go(edge); return; }   // scrolling in always stops on the first (or last) kit
-        if (t === cur) return;
-        go(cur + (t > cur ? 1 : -1));       // any other change moves one kit and stops there, so momentum can't skip kits
-      } });
-    // one kit per gesture: wheel/trackpad flick or touch swipe
-    var inWalk = function () { return trig && trig.isActive && !navJump; };
-    // one kit per wheel gesture. A new gesture starts after a short pause, a fresh push, or steady scrolling that
-    // isn't fading like trackpad momentum, so repeated scrolls keep switching kits but one hard flick moves only one.
-    var lastAbs = 0, peakSince = 0;
-    window.addEventListener('wheel', function (e) {
-      if (!inWalk() || !e.deltaY) return;
-      var now = Date.now(), gap = now - lastWheel, abs = Math.abs(e.deltaY), prev = lastAbs;
-      lastWheel = now; lastAbs = abs;
-      if (!locking && now - lastDone > 0) peakSince = Math.max(peakSince, abs);
-      var fresh = gap > 180 || (abs > prev * 1.4 && abs > 8) || (now - lastDone > 450 && abs >= 20 && abs >= peakSince * 0.9);
-      var next = cur + (e.deltaY > 0 ? 1 : -1);
-      if (locking || !fresh) { e.preventDefault(); e.stopImmediatePropagation(); return; }
-      if (next < 0 || next > N - 1) return;               // let the page move on past the first or last kit
-      e.preventDefault(); e.stopImmediatePropagation();
-      go(next);
-    }, { capture: true, passive: false });
-    var ty0 = null, tUsed = false;
-    window.addEventListener('touchstart', function (e) { ty0 = inWalk() ? e.touches[0].clientY : null; tUsed = false; }, { passive: true });
-    window.addEventListener('touchmove', function (e) {
-      if (ty0 === null || !inWalk()) return;
-      var dy = ty0 - e.touches[0].clientY; if (Math.abs(dy) < 6) return;
-      var next = cur + (dy > 0 ? 1 : -1);
-      if (!tUsed && (next < 0 || next > N - 1)) { ty0 = null; return; }
-      e.preventDefault();
-      if (!tUsed && !locking && Math.abs(dy) > 28) { tUsed = true; go(next); }
-    }, { passive: false });
-    window.addEventListener('touchend', function () { ty0 = null; tUsed = false; }, { passive: true });
-  } else { walk.classList.add('static'); setKit(KITS.length - 1); chs.forEach(function (c) { c.classList.add('on'); }); }
+  $('#kit-prev').addEventListener('click', function () { openKit(kitAt - 1); });
+  $('#kit-next').addEventListener('click', function () { openKit(kitAt + 1); });
 
   /* ============================ 2. SQUAD ============================ */
   var RACKET = '<svg viewBox="0 0 200 220" aria-hidden="true"><g transform="rotate(-30 100 110)"><ellipse cx="100" cy="62" rx="38" ry="52" fill="rgba(255,255,255,.06)" stroke="#f26522" stroke-width="6"/><g stroke="#f3e9df" stroke-width="1.2" opacity=".75"><path d="M76 24V100M88 14V110M100 10V114M112 14V110M124 24V100"/><path d="M64 40H136M62 54H138M62 68H138M64 82H136M70 96H130"/></g><rect x="96" y="114" width="8" height="58" fill="#c9ccd3"/><rect x="92" y="170" width="16" height="44" rx="6" fill="#16171c"/></g><g transform="translate(152 44) rotate(25)"><path d="M0 0 L-14 -32 H14Z" fill="#f3e9df"/><circle cx="0" cy="6" r="8" fill="#f26522"/></g></svg>';

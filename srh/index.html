@@ -13,7 +13,7 @@
 <link rel="preload" href="fonts/anton-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="media/photos/hero-hips.webp?v=1795635861" as="image">
 <link rel="stylesheet" href="fonts/fonts.css">
-<link rel="stylesheet" href="v3.css?v=1795683443">
+<link rel="stylesheet" href="v3.css?v=1795688507">
 <noscript><style>.hero-copy>*,.hero-me,.hero-heat,.hero-word,.hero-shards,[data-reveal],.bids li{opacity:1!important;transform:none!important}</style></noscript>
 </head>
 <body class="intro">
@@ -49,7 +49,8 @@
   <div class="lights" aria-hidden="true"><i class="beam b1"></i><i class="beam b2"></i><i class="beam b3"></i><i class="beam b4"></i></div>
   <canvas class="embers" id="embers" aria-hidden="true"></canvas>
   <div class="hero-word" aria-hidden="true"><span>ORANGE</span><span>ARMY</span></div>
-  <img class="hero-me" src="media/photos/hero-hips.webp?v=1795635861" alt="Anudeep Gupta in the Sunrisers Hyderabad jersey, hands on hips" width="1033" height="1209">
+  <img class="hero-me" src="media/photos/hero-hips.webp?v=2" alt="Anudeep Gupta in the Sunrisers Hyderabad jersey" width="1033" height="1209">
+  <img class="hero-me hero-alt" src="media/photos/hero-arms.webp?v=2" alt="" aria-hidden="true" width="1033" height="1209" loading="eager">
   <div class="hero-copy">
     <div class="crest-row"><img class="hero-crest" src="media/logos/srh-logo.webp" alt="Sunrisers Hyderabad" width="640" height="481"><p class="tag"><i class="live" aria-hidden="true"></i>Breaking · New signing</p></div>
     <h1><span class="h1-a">Welcome to the Orange Army,</span><span class="h1-b">Anudeep <em>Gupta</em></span></h1>
@@ -58,8 +59,12 @@
       <a class="btn btn-fire" href="#fixtures">See my thesis for the Sunrisers</a>
       <a class="btn btn-ghost" href="#proposal">Where I'd fit</a>
     </div>
+    <div class="kits" aria-label="Five kits, one player">
+      <p class="kits-lab mono">Five kits. One player. <span>Tap one →</span></p>
+      <div class="kits-row" id="kits-row"></div>
+    </div>
   </div>
-  <a class="scroll-cue" href="#walkout"><span>Scroll down</span><i aria-hidden="true"></i></a>
+  <a class="scroll-cue" href="#tldr"><span>Scroll down</span><i aria-hidden="true"></i></a>
   <div class="ticker" aria-label="Career highlights">
     <span class="tk-live"><i aria-hidden="true"></i>Live</span>
     <div class="tk-win"><div class="tk-track" id="tk-track"></div></div>
@@ -109,22 +114,6 @@
 </section>
 
 <!-- ============================== WALK-OUT (kit change) ============================== -->
-<section class="walk" id="walkout" aria-labelledby="walk-h">
-  <div class="walk-pin">
-    <header class="sec-head walk-head">
-      <p class="eyebrow">The walk-out</p>
-      <h2 id="walk-h">Five kits. <span class="fire">One player.</span></h2>
-    </header>
-    <div class="walk-stage">
-      <div class="walk-frame" id="walk-frame">
-        <span class="walk-num" id="walk-num" aria-hidden="true">01</span>
-        <span class="walk-flash" aria-hidden="true"></span>
-      </div>
-      <div class="walk-copy" id="walk-copy" aria-live="polite"></div>
-    </div>
-    <div class="walk-bar" id="walk-bar" aria-hidden="true"></div>
-  </div>
-</section>
 
 <!-- ============================== FIXTURES (the idea) ============================== -->
 <section class="sec fx" id="fixtures" aria-labelledby="fx-h">
@@ -427,6 +416,7 @@
     <div class="case-nums" id="case-nums"></div>
     <p class="case-role" id="case-role"></p>
     <a class="btn btn-fire" id="case-link" href="#" target="_blank" rel="noopener" hidden>Open the deck</a>
+    <div class="case-kitnav" id="case-kitnav" hidden><button type="button" class="ts-arrow" id="kit-prev" aria-label="Previous kit">←</button><span class="mono" id="kit-count"></span><button type="button" class="ts-arrow" id="kit-next" aria-label="Next kit">→</button></div>
   </div>
 </dialog>
 
@@ -453,6 +443,6 @@
 <script src="vendor/gsap.min.js"></script>
 <script src="vendor/ScrollTrigger.min.js"></script>
 <script src="vendor/lenis.min.js"></script>
-<script src="v3.js?v=1795683443"></script>
+<script src="v3.js?v=1795688507"></script>
 </body>
 </html>
