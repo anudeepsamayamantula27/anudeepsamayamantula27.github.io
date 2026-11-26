@@ -1101,3 +1101,4 @@ a.bz:hover,.bz:has(button.bz-go:hover){border-color:var(--or);transform:translat
 .copy-keys .copy-key:first-child .ck-ic{font-size:18px}
 @media (max-width:760px){.copy-keys,.ck-row{width:100%}.ck-row .copy-key{flex:1 1 100%}.ck-wa{width:100%;justify-content:center}}
 .copy-key b{text-align:left}
+.hero-pins{display:none!important} /* paused: redesign pending */
