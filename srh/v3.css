@@ -1073,3 +1073,67 @@ a.bz:hover,.bz:has(button.bz-go:hover){border-color:var(--or);transform:translat
 .copy-keys .copy-key:first-child .ck-ic{font-size:18px}
 @media (max-width:760px){.copy-keys,.ck-row{width:100%}.ck-row .copy-key{flex:1 1 100%}.ck-wa{width:100%;justify-content:center}}
 .copy-key b{text-align:left}
+
+/* hypothesis deck: a book with turning pages */
+.ts-track{display:grid;overflow:visible;scroll-snap-type:none;perspective:2400px;perspective-origin:50% 50%;touch-action:pan-y}
+.tslide{grid-area:1/1;flex:none;width:auto;visibility:hidden;transform-origin:left center;backface-visibility:hidden;-webkit-backface-visibility:hidden;position:relative}
+.tslide.on{visibility:visible;z-index:2;box-shadow:5px 5px 0 -1px #1d1511,10px 10px 0 -2px #150f0c,0 30px 50px -30px rgba(0,0,0,.9)}
+.tslide.under{z-index:1}
+.tslide.flip-out{z-index:3;animation:pageOut .76s cubic-bezier(.55,.05,.35,1) forwards}
+.tslide.flip-in{z-index:3;animation:pageIn .76s cubic-bezier(.55,.05,.35,1) both}
+.tslide::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;background:linear-gradient(90deg,rgba(0,0,0,.0) 0%,rgba(0,0,0,.55) 70%,rgba(242,101,34,.25) 100%)}
+.tslide.flip-out::after{animation:pageShade .76s ease forwards}
+.tslide.flip-in::after{animation:pageShade .76s ease reverse both}
+@keyframes pageOut{0%{transform:rotateY(0);opacity:1}80%{opacity:1}100%{transform:rotateY(-118deg);opacity:0}}
+@keyframes pageIn{0%{transform:rotateY(-118deg);opacity:0}20%{opacity:1}100%{transform:rotateY(0);opacity:1}}
+@keyframes pageShade{0%{opacity:0}100%{opacity:1}}
+.tdeck{overflow:visible}
+
+/* ===== pop-ups: one static view, media beside the story ===== */
+dialog.case.split,dialog.case.wide,dialog.case.solo{overflow:hidden}
+dialog.case.split[open],dialog.case.wide[open]{display:grid;width:min(1120px,calc(100vw - 48px));height:min(640px,calc(100svh - 48px));max-height:none}
+dialog.case.split[open]{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr)}
+dialog.case.wide[open]{grid-template-columns:minmax(0,1.3fr) minmax(0,1fr)}
+dialog.case.solo[open]{display:grid;width:min(760px,calc(100vw - 48px));max-height:min(640px,calc(100svh - 48px))}
+dialog.case .case-media,dialog.case .case-media:not(.strip){height:auto;min-height:0;aspect-ratio:auto}
+dialog.case.split .case-media,dialog.case.wide .case-media{height:100%;overflow:hidden}
+dialog.case.wide .case-media.decks-on{overflow:auto;display:flex;align-items:center}
+dialog.case.wide .case-media.decks-on>.decks{width:100%}
+dialog.case.wide .case-strip{height:100%;align-items:stretch;padding:10px}
+dialog.case.wide .case-strip img,dialog.case.wide .case-strip video{height:100%;max-height:none}
+dialog.case.wide .case-media video{width:100%;height:100%;object-fit:contain;background:#000}
+dialog.case .case-body{--k:1;display:flex;flex-direction:column;justify-content:center;min-height:0;overflow:hidden;padding:calc(30px * var(--k)) calc(32px * var(--k))}
+dialog.case.solo .case-body{padding-top:44px}
+dialog.case .case-body.overflow{overflow-y:auto;justify-content:flex-start}
+dialog.case .case-body .eyebrow{font-size:calc(11px * var(--k));margin-bottom:calc(10px * var(--k))}
+dialog.case .case-body h3{font-size:calc(clamp(30px,3.3vw,50px) * var(--k));margin-bottom:calc(12px * var(--k))}
+dialog.case .case-body>p{font-size:calc(16px * var(--k));line-height:1.5}
+dialog.case .case-nums{margin:calc(16px * var(--k)) 0;gap:calc(10px * var(--k))}
+dialog.case .case-nums div{padding:calc(12px * var(--k)) calc(15px * var(--k));min-width:0;flex:1 1 120px}
+dialog.case .case-nums b{font-size:calc(30px * var(--k))}
+dialog.case .case-nums span{font-size:calc(13px * var(--k))}
+dialog.case .case-role{font-size:calc(14.5px * var(--k));margin-bottom:calc(14px * var(--k))}
+dialog.case #case-link{align-self:flex-start}
+dialog.case .case-x{z-index:4}
+.case-kitnav{z-index:4}
+dialog.case.wide .decks{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+dialog.case.wide .deck{padding:8px}
+dialog.case.wide .deck b{font-size:17px}
+dialog.case.wide .deck small{font-size:12px}
+dialog.case.wide .subs{grid-template-columns:repeat(auto-fit,minmax(170px,1fr))}
+@media (max-width:760px){
+  dialog.case.split[open],dialog.case.wide[open]{width:calc(100vw - 16px);height:calc(100svh - 20px);grid-template-columns:1fr;grid-template-rows:minmax(0,42%) minmax(0,1fr)}
+  dialog.case.solo[open]{width:calc(100vw - 16px);max-height:calc(100svh - 20px)}
+  dialog.case .case-body{justify-content:flex-start;padding:calc(18px * var(--k)) calc(18px * var(--k)) calc(20px * var(--k))}
+  dialog.case .case-body h3{font-size:calc(30px * var(--k))}
+  dialog.case .case-body>p{font-size:calc(14.5px * var(--k))}
+  dialog.case .case-nums b{font-size:calc(24px * var(--k))}
+  dialog.case.wide .decks{grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+  dialog.case.wide .deck small,dialog.case.wide .deck .mono{display:none}
+  dialog.case.wide .deck b{font-size:12px}
+  dialog.case.wide .deck{padding:5px}
+  dialog.case.wide .subs{grid-template-columns:repeat(3,minmax(0,1fr))}
+  dialog.case.wide .sub small,dialog.case.wide .sub .mono,dialog.case.wide .sub .sub-go{display:none}
+  dialog.case.wide .sub b{font-size:13px}
+}
+dialog.case.split .case-media:not(.strip) img.bg{filter:blur(24px) brightness(.62) saturate(1.2)}
