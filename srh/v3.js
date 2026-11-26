@@ -564,28 +564,28 @@
     { row: 2, obj: 'vinyl', left: 42, bottom: 13, w: 10.5, label: 'Vaadyle', cat: 'ai', kicker: 'Built with AI tools · daily music puzzle', title: 'Vaadyle.', text: 'An Indian-music daily puzzle. Everyone gets the same song, revealed one instrument at a time, with streaks and a share card, like Wordle.', nums: [['Daily', 'one song for everyone'], ['Stems', 'every song split by instrument']], role: 'I built the game and the landing page, and split every song into stems.', link: 'https://vaadyle.lovable.app', linkText: 'Play Vaadyle' },
     { row: 2, obj: 'ashta', left: 54.5, bottom: 13, w: 10.5, label: 'Ashta Chamma', cat: 'ai', kicker: 'Built with AI tools · browser game', title: 'Ashta Chamma.', text: 'The ancient Indian board game, a lot like Ludo, rebuilt so anyone can play it in the browser.', nums: [['Online', 'the board game, playable in the browser']], role: 'I built the game end to end.', link: 'https://ashta-chamma.lovable.app', linkText: 'Play Ashta Chamma' },
     { row: 2, obj: 'binders', left: 71, bottom: 13, w: 23, label: 'Decoding Business Models', cat: 'strategy', kicker: 'Strategy · Masters’ Union coursework', title: 'Six businesses. All graded A.', text: 'Decoding Business Models: six businesses my teams designed and pitched, one per business model. Tap a deck to open it.', decks: true },
-    { obj: 'beyond', label: 'Beyond sports', cat: 'strategy', kicker: 'Strategy · non-sports brands', title: 'Beyond sports.', text: 'Strategy for two brands outside sport: filling a hostel chain’s empty beds in the off-season, and scoring how furniture brands treat their shoppers. Tap one to open it.', group: ['goSTOPS', 'Pepperfry'] },
+    { obj: 'beyond', stack: true, label: 'Beyond sports', cat: 'strategy', kicker: 'Strategy · non-sports brands', title: 'Beyond sports.', text: 'Strategy for two brands outside sport: filling a hostel chain’s empty beds in the off-season, and scoring how furniture brands treat their shoppers. Tap one to open it.', group: ['goSTOPS', 'Pepperfry'] },
     { obj: 'idcard', label: 'Examate', cat: 'strategy', kicker: 'Internship · Examate, Hyderabad · May–Jul 2021', title: 'Business development intern.', text: 'I ran 2 social media campaigns for Examate’s CAT and JEE courses and converted 10 students from 70+ qualified leads. I also recruited 5 interns through screening and phone interviews.', nums: [['70+', 'qualified leads'], ['10', 'students enrolled'], ['+20%', 'team size, 5 interns hired']], role: 'My role: Business Development Intern.', img: 'media/projects/internships/examate-cert.webp' },
     { obj: 'idcard', label: 'Unschool', cat: 'strategy', kicker: 'Internship · Unschool (online) · Dec 2020', title: 'Social media marketing intern.', text: 'A two-week online internship in the Unschool Community Program. I drove ₹45K+ in course sales from 40+ conversions and earned a Certificate of Excellence.', nums: [['₹45K+', 'in course sales'], ['40+', 'conversions']], role: 'My role: Social Media Marketing Intern.', img: 'media/projects/internships/unschool-cert.webp' },
     { obj: 'idcard', label: 'IMUN', cat: 'strategy', kicker: 'Internship · International Model United Nations · 2021', title: 'Campus ambassador.', text: 'As an IMUN Campus Ambassador, I created digital content for its sustainability campaigns on the UN Sustainable Development Goals, and promoted IMUN’s online conferences.', nums: [], role: 'My role: Campus Ambassador Intern.' },
     { obj: 'idcard', label: 'Internships', cat: 'strategy', kicker: 'Work · internships before TBRC', title: 'Three internships, early.', text: 'Business development, social media marketing and campus outreach, all before my first full-time job. Tap one to open it.', group: ['Examate', 'Unschool', 'IMUN'] },
     { obj: 'certframe', label: 'Certifications', cat: 'strategy', kicker: 'Learning · tests and certificates', title: 'Always learning.', text: 'Marketing, data and finance courses I took on my own, plus my GRE.', nums: [['328', 'GRE · Quant 165 · Verbal 163'], ['9', 'certificates: Google, IBM, Bloomberg, MyCaptain']], certs: true },
-    { obj: 'venture', label: 'Entrepreneurship', cat: 'business', kicker: 'Entrepreneurship · built from scratch', title: 'Two businesses, from zero.', text: 'A dropshipping store that sold ₹2L+, and a focus-shot startup now in testing. Tap one to open it.', group: ['The Better Store', 'Vortilix'] },
+    { obj: 'venture', stack: true, label: 'Entrepreneurship', cat: 'business', kicker: 'Entrepreneurship · built from scratch', title: 'Two businesses, from zero.', text: 'A dropshipping store that sold ₹2L+, and a focus-shot startup now in testing. Tap one to open it.', group: ['The Better Store', 'Vortilix'] },
     { obj: 'apps', label: 'Apps I built', cat: 'ai', kicker: 'Apps I built · with AI tools', title: 'Three apps, all live.', text: 'A meeting-to-task-tracker tool, a daily Indian-music puzzle and an online version of an ancient board game. Tap one to open it.', group: ['Meet2Tracker', 'Vaadyle', 'Ashta Chamma'] },
   ];
   var rlist = $('#room-list'), tvVid = null;
   var WALLS = {
     L: [['Work', ['Market research', 'Internships']], ['Strategy & research', ['Astralis', 'NIVIA launch', 'Beyond sports']]],
-    B: [['The player', ['About me', 'Badminton', 'Esports']], ['', ['IPL auction draft']], ['Fans & events', ['One Orange Army', 'HYROX Delhi', 'TITANS IBS']]],
+    B: [['The player', ['Badminton', 'Esports']], ['', ['IPL auction draft', 'About me']], ['Fans & events', ['One Orange Army', 'HYROX Delhi', 'TITANS IBS']]],
     R: [['Learning', ['Decoding Business Models', 'Certifications']], ['Built by me', ['Entrepreneurship', 'Apps I built']]]
   };
-  var SHORT = { 'Decoding Business Models': 'Business models', 'Market research': 'Research',  'The Better Store': 'Better Store', 'IPL auction draft': 'IPL auction', 'Market research': 'Market research' };
+  var SHORT = { 'Decoding Business Models': 'Business models', 'Internships': 'Intern\u00ADships', 'Entrepreneurship': 'Entrepre\u00ADneurship', 'Certifications': 'Certifi\u00ADcations',  'The Better Store': 'Better Store', 'IPL auction draft': 'IPL auction', 'Market research': 'Market research' };
   var byLabel = {}; ROOM.forEach(function (c) { byLabel[c.label] = c; });
   var openOf = function (c) { return function () { if (c.store) openCase(STORE); else if (c.page) openPage(c.page); else openCase(c); }; };
   Object.keys(WALLS).forEach(function (w) {
     var wall = $('#lr-' + w);
     WALLS[w].forEach(function (g) {
-      var grp = document.createElement('div'); grp.className = 'lr-grp' + (g[0] ? '' : ' lr-grp-tv'); grp.style.flexGrow = g[1].length * (g[0] ? 1 : 3);
+      var grp = document.createElement('div'); grp.className = 'lr-grp' + (g[0] ? '' : ' lr-grp-tv'); grp.style.flexGrow = g[0] ? g[1].length : 3;
       grp.innerHTML = '<p class="lr-tag mono">' + esc(g[0]) + '</p><div class="lr-lks"></div>';
       var row = grp.querySelector('.lr-lks');
       g[1].forEach(function (lab) {
@@ -593,11 +593,13 @@
         var b = document.createElement('button'); b.type = 'button';
         b.className = 'lk' + (c.obj === 'tv' ? ' lk-tv' : '');
         b.setAttribute('aria-label', c.label + (c.page ? ': open the full case' : ': open'));
-        var pl = SHORT[lab] || lab, plate = '<span class="lk-plate' + (/^\S{12,}$/.test(pl) ? ' long' : '') + '"><b>' + esc(pl) + '</b></span>';
+        var pl = SHORT[lab] || lab, plate = '<span class="lk-plate' + (/^[^\s\u00AD]{12,}$/.test(pl) ? ' long' : '') + '"><b>' + esc(pl) + '</b></span>';
         if (c.obj === 'tv') {
           b.innerHTML = plate + '<span class="lk-cub"><span class="tv-box"><video muted loop playsinline preload="none" poster="' + c.poster + '" data-src="' + c.video + '" aria-hidden="true"></video><span class="tv-live mono"><i class="live" aria-hidden="true"></i>Live · Auction night</span><span class="tv-cap"><b>I ran an IPL auction for 60 students.</b><span>Tap to watch →</span></span></span></span>';
           tvVid = b.querySelector('video');
-        } else b.innerHTML = plate + '<span class="lk-cub"><i class="lk-rod" aria-hidden="true"></i>' + SVG[c.obj] + '</span><span class="lk-seat" aria-hidden="true"></span>';
+        } else if (c.stack) b.innerHTML = plate + '<span class="lk-cub lk-rack"><i class="lk-rod" aria-hidden="true"></i>' + c.group.map(function (l) { return '<span class="lk-shelf">' + SVG[byLabel[l].obj] + '</span>'; }).join('') + '</span><span class="lk-seat" aria-hidden="true"></span>';
+        else b.innerHTML = plate + '<span class="lk-cub"><i class="lk-rod" aria-hidden="true"></i>' + SVG[c.obj] + '</span><span class="lk-seat" aria-hidden="true"></span>';
+        if (lab === 'About me') b.classList.add('lk-hero');
         b.dataset.cat = c.cat || '';
         b.addEventListener('click', openOf(c));
         row.appendChild(b);
