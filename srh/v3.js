@@ -111,27 +111,57 @@
     if (RM) return;
     var seen = true;
     if ('IntersectionObserver' in window) new IntersectionObserver(function (es) { seen = es[0].isIntersecting; }, { threshold: .25 }).observe(hero);
-    var zap = $('#hero-zap'), zp = $$('path', zap), zipping = false;
-    zap.style.webkitMaskImage = zap.style.maskImage = 'url(' + me.src + '), url(' + me2.src + ')';
+    // glitch swap: the figure breaks into slices of the old and new pose, with orange/gold fringes
+    // and slim orange crackles, then settles on the new pose (all inside the silhouette)
+    var cv = $('#hero-glitch'), cx = cv.getContext('2d'), W = 0, H = 0, dpr = 1, plates = [], ghosts = {}, busy = false, rnd = Math.random;
     function place(el) { el.style.left = me.offsetLeft + 'px'; el.style.top = me.offsetTop + 'px'; el.style.width = me.offsetWidth + 'px'; el.style.height = me.offsetHeight + 'px'; }
-    // a slim lightning seam zips down through the photo; the new pose is revealed above it
+    function build() {
+      dpr = Math.min(window.devicePixelRatio || 1, 1.75);
+      var w = Math.round(me.offsetWidth * dpr), h = Math.round(me.offsetHeight * dpr);
+      if (w === W && h === H && plates.length) return; W = cv.width = w; H = cv.height = h; ghosts = {};
+      plates = [me, me2].map(function (im) { var c = document.createElement('canvas'); c.width = W; c.height = H; c.getContext('2d').drawImage(im, 0, 0, W, H); return c; });
+    }
+    function ghost(k, col) {
+      var key = k + col; if (ghosts[key]) return ghosts[key];
+      var c = document.createElement('canvas'); c.width = W; c.height = H; var g = c.getContext('2d');
+      g.drawImage(plates[k], 0, 0); g.globalCompositeOperation = 'source-in'; g.fillStyle = col; g.fillRect(0, 0, W, H);
+      return (ghosts[key] = c);
+    }
+    function crackle(y) {   // one slim jagged line of orange lightning across the figure
+      cx.beginPath(); var x = 0; cx.moveTo(0, y);
+      while (x < W) { x += (6 + rnd() * 18) * dpr; cx.lineTo(x, y + (rnd() - .5) * 14 * dpr); }
+      cx.strokeStyle = 'rgba(255,186,90,1)'; cx.lineWidth = 1.7 * dpr; cx.shadowColor = '#f26522'; cx.shadowBlur = 10 * dpr; cx.stroke(); cx.shadowBlur = 0;
+    }
+    function paint(from, to, g, m) {
+      cx.clearRect(0, 0, W, H);
+      if (g < 0.02) { cx.drawImage(plates[m >= .5 ? to : from], 0, 0); return; }
+      var off = Math.round((6 + rnd() * 12) * g * dpr), base = m >= .5 ? to : from;
+      cx.globalAlpha = .65 * g; cx.drawImage(ghost(base, '#F26522'), -off, 0); cx.drawImage(ghost(base, '#FFB000'), off, Math.round(off * .3)); cx.globalAlpha = 1;
+      var y = 0;
+      while (y < H) {
+        var h = Math.max(2, Math.round((3 + rnd() * (rnd() < .2 ? 60 : 18)) * dpr));
+        var src = rnd() < m ? to : from, dx = rnd() < .45 * g ? Math.round((rnd() - .5) * W * .16 * g) : 0;
+        cx.drawImage(plates[src], 0, y, W, h, dx, y, W, h); y += h;
+      }
+      cx.globalCompositeOperation = 'source-atop';
+      for (var i = 0; i < 4 * g; i++) { cx.fillStyle = 'rgba(' + (rnd() < .5 ? '242,101,34' : '255,176,0') + ',' + (.4 * g) + ')'; cx.fillRect(0, rnd() * H, W, (1 + rnd() * 3) * dpr); }
+      for (var j = 0; j < 2 + 3 * g; j++) if (rnd() < .85) crackle(rnd() * H);
+      if (rnd() < g) { cx.fillStyle = 'rgba(10,8,8,' + (.22 * g) + ')'; cx.fillRect(rnd() * W * .6, rnd() * H, W * (.2 + rnd() * .4), (6 + rnd() * 18) * dpr); }
+      cx.globalCompositeOperation = 'source-over';
+    }
     function strike() {
-      if (zipping) return; zipping = true; sync(); place(zap);
-      var toAlt = !hero.classList.contains('alt-on'), N = 14, base = [], T = 720, t0 = 0;
-      for (var i = 0; i <= N; i++) base.push((Math.random() - .5) * 9);
-      hero.classList.add('zipping'); zap.classList.add('on');
+      if (busy || !me.complete || !me2.complete) return; busy = true; sync(); place(cv); build();
+      var from = hero.classList.contains('alt-on') ? 1 : 0, to = 1 - from, T = 640, t0 = 0, last = 0;
+      hero.classList.add('glitching');
       function frame(ts) {
-        if (!t0) t0 = ts; var k = Math.min(1, (ts - t0) / T), e = k < .5 ? 2 * k * k : 1 - Math.pow(-2 * k + 2, 2) / 2;
-        var y0 = -12 + e * 124, pts = [];
-        for (var i = 0; i <= N; i++) pts.push([(i / N * 100), y0 + base[i] + (Math.random() - .5) * 1.6]);
-        var edge = pts.map(function (p) { return p[0].toFixed(2) + '% ' + p[1].toFixed(2) + '%'; });
-        var above = 'polygon(0% -20%, 100% -20%, ' + edge.slice().reverse().join(', ') + ')';
-        var below = 'polygon(' + edge.join(', ') + ', 100% 120%, 0% 120%)';
-        me2.style.clipPath = me2.style.webkitClipPath = toAlt ? above : below;
-        var d = 'M' + pts.map(function (p) { return p[0].toFixed(2) + ' ' + p[1].toFixed(2); }).join(' L');
-        zp[0].setAttribute('d', d); zp[1].setAttribute('d', d);
+        if (!t0) t0 = ts; var k = Math.min(1, (ts - t0) / T);
+        if (ts - last > 33 || k === 1) {   // ~30fps reads as a glitch, not a smear
+          last = ts;
+          var g = Math.sin(Math.PI * k), m = k < .35 ? k * .6 : k > .65 ? 1 - (1 - k) * .6 : .21 + (k - .35) * 1.93;
+          paint(from, to, k === 1 ? 0 : g, k === 1 ? 1 : m);
+        }
         if (k < 1) requestAnimationFrame(frame);
-        else { hero.classList.toggle('alt-on', toAlt); me2.style.clipPath = me2.style.webkitClipPath = ''; hero.classList.remove('zipping'); zap.classList.remove('on'); zipping = false; }
+        else { hero.classList.toggle('alt-on', to === 1); hero.classList.remove('glitching'); cx.clearRect(0, 0, W, H); busy = false; }
       }
       requestAnimationFrame(frame);
     }
@@ -176,7 +206,7 @@
     requestAnimationFrame(emLoop);
     if (!MOBILE) hero.addEventListener('pointermove', function (e) {
       var r = hero.getBoundingClientRect(), dx = (e.clientX - r.left) / r.width - .5, dy = (e.clientY - r.top) / r.height - .5;
-      me.style.translate = me2.style.translate = (dx * -18) + 'px ' + (dy * -8) + 'px';
+      me.style.translate = me2.style.translate = $('#hero-glitch').style.translate = (dx * -18) + 'px ' + (dy * -8) + 'px';
       word.style.translate = (dx * 30) + 'px ' + (dy * 14) + 'px';
     });
   }
