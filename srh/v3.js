@@ -111,8 +111,26 @@
     if (RM) return;
     var seen = true;
     if ('IntersectionObserver' in window) new IntersectionObserver(function (es) { seen = es[0].isIntersecting; }, { threshold: .25 }).observe(hero);
+    var zap = $('#hero-zap'), flashEl = $('#hero-flash'), zp = $$('path', zap);
+    function place(el) { el.style.left = me.offsetLeft + 'px'; el.style.top = me.offsetTop + 'px'; el.style.width = me.offsetWidth + 'px'; el.style.height = me.offsetHeight + 'px'; }
+    function bolt() {   // a fresh jagged bolt every strike: top of the frame down through the body
+      var x = 38 + Math.random() * 24, y = 0, d = 'M' + x + ' 0', pts = [];
+      while (y < 100) { y = Math.min(100, y + 7 + Math.random() * 9); x = Math.max(14, Math.min(86, x + (Math.random() - .5) * 22)); d += ' L' + x.toFixed(1) + ' ' + y.toFixed(1); pts.push([x, y]); }
+      var p = pts[2 + Math.floor(Math.random() * 3)], bx = p[0], by = p[1], b = 'M' + bx + ' ' + by;
+      for (var i = 0; i < 3; i++) { bx += (Math.random() < .5 ? -1 : 1) * (6 + Math.random() * 10); by += 6 + Math.random() * 8; b += ' L' + bx.toFixed(1) + ' ' + by.toFixed(1); }
+      zp[0].setAttribute('d', d); zp[1].setAttribute('d', d); zp[2].setAttribute('d', b); zp[3].setAttribute('d', b);
+    }
+    function strike() {
+      sync(); place(zap); place(flashEl); bolt();
+      [zap, flashEl].forEach(function (el) { el.classList.remove('go'); void el.offsetWidth; el.classList.add('go'); });
+      $$('.hero-me', hero).forEach(function (im) { im.classList.remove('zapped'); void im.offsetWidth; im.classList.add('zapped'); });
+      setTimeout(function () {
+        hero.classList.toggle('alt-on');
+        var r = me.getBoundingClientRect(); if (typeof burst === 'function') burst(r.left + r.width / 2, r.top + r.height * .38, 80, 1.4);
+      }, 170);
+    }
     setTimeout(function () { hero.classList.add('swapping'); }, 3200);
-    setInterval(function () { if (!seen || document.hidden || !hero.classList.contains('swapping')) return; sync(); hero.classList.toggle('alt-on'); }, 4200);
+    setInterval(function () { if (!seen || document.hidden || !hero.classList.contains('swapping')) return; strike(); }, 4500);
   })();
   function go() { document.body.classList.add('ready'); }
   if (RM) go();
