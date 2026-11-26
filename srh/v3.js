@@ -240,6 +240,7 @@
     else if (c.imgs) m.innerHTML = '<div class="case-strip">' + c.imgs.map(function (i) { return /\.mp4$/.test(i) ? '<video src="' + i + '" muted loop playsinline controls preload="metadata"' + (RM ? '' : ' autoplay') + '></video>' : '<img src="' + i + '" alt="" loading="lazy">'; }).join('') + '</div>';
     if (c.imgs && c.imgs.length > 1) stripNav(m);
     else if (c.decks) m.innerHTML = $('#dbm-tpl').innerHTML;
+    else if (c.certs) m.innerHTML = CERTS_HTML;
     else if (c.group) {
       m.innerHTML = '<div class="decks subs">' + c.group.map(function (lab) {
         var x = byLabel[lab], d = x.store ? STORE : x, n = (d.nums && d.nums[0]) || ['', ''];
@@ -248,9 +249,9 @@
       $$('[data-sub]', m).forEach(function (bt) { bt.addEventListener('click', function () { openOf(byLabel[bt.dataset.sub])(); }); });
     }
     else if (c.img) m.innerHTML = '<img class="bg" src="' + c.img + '" alt=""><img class="fg" src="' + c.img + '" alt="">';
-    m.hidden = !(c.video || c.img || c.imgs || c.decks || c.group); m.classList.toggle('strip', !!(c.imgs || c.decks || c.group)); m.classList.toggle('decks-on', !!(c.decks || c.group));
+    m.hidden = !(c.video || c.img || c.imgs || c.decks || c.group || c.certs); m.classList.toggle('strip', !!(c.imgs || c.decks || c.group || c.certs)); m.classList.toggle('decks-on', !!(c.decks || c.group || c.certs));
     dlg.classList.remove('split', 'wide', 'solo');
-    dlg.classList.add(m.hidden ? 'solo' : (c.video || c.imgs || c.decks || c.group) ? 'wide' : 'split');
+    dlg.classList.add(m.hidden ? 'solo' : (c.video || c.imgs || c.decks || c.group || c.certs) ? 'wide' : 'split');
     $('#case-kitnav').hidden = !c.kit;
     var a = $('#case-link'); if (c.link) { a.href = c.link; a.textContent = c.linkText || 'Open the deck'; a.hidden = false; } else a.hidden = true;
     if (lenis) lenis.stop();
@@ -516,6 +517,19 @@
     + '<rect x="26" y="74" width="30" height="30" rx="8" fill="#e9d7b5"/><path d="M36 74v30M46 74v30M26 84h30M26 94h30" stroke="#8a5330" stroke-width="2"/><path d="M38 86l6 6M44 86l-6 6" stroke="#d8341b" stroke-width="2"/>'
     + '<rect x="64" y="74" width="30" height="30" rx="8" fill="none" stroke="#3a3d47" stroke-width="2" stroke-dasharray="4 3"/><path d="M79 82v14M72 89h14" stroke="#3a3d47" stroke-width="2.5"/>'
     + '<text x="60" y="138" text-anchor="middle" font-family="Anton,Impact,sans-serif" font-size="15" fill="#f3e9df" letter-spacing="1">3 APPS</text></svg>';
+  SVG.idcard = '<svg viewBox="0 0 120 190"><path d="M40 0 L60 70 L80 0" fill="none" stroke="#f26522" stroke-width="9"/><rect x="50" y="62" width="20" height="16" rx="3" fill="#9aa0aa"/><rect x="14" y="74" width="92" height="112" rx="10" fill="#F5F2EE" stroke="#2b2d35" stroke-width="3"/><rect x="14" y="74" width="92" height="26" rx="10" fill="#f26522"/><rect x="14" y="90" width="92" height="10" fill="#f26522"/><circle cx="60" cy="124" r="15" fill="#1f2a44"/><circle cx="60" cy="119" r="6" fill="#F5F2EE"/><path d="M49 134 a11 9 0 0 1 22 0" fill="#F5F2EE"/><rect x="30" y="148" width="60" height="6" rx="3" fill="#1f2a44"/><rect x="38" y="160" width="44" height="5" rx="2.5" fill="#9aa0aa"/><text x="60" y="93" text-anchor="middle" font-family="Anton,Impact,sans-serif" font-size="13" fill="#fff" letter-spacing="1">INTERN</text></svg>';
+  SVG.certframe = '<svg viewBox="0 0 150 140"><rect x="6" y="6" width="138" height="100" rx="4" fill="#8a5330"/><rect x="14" y="14" width="122" height="84" fill="#F5F2EE"/><rect x="30" y="26" width="90" height="7" rx="3" fill="#1f2a44"/><rect x="40" y="42" width="70" height="4" rx="2" fill="#9aa0aa"/><rect x="34" y="52" width="82" height="4" rx="2" fill="#9aa0aa"/><rect x="44" y="62" width="62" height="4" rx="2" fill="#9aa0aa"/><path d="M100 96 l-8 36 l12 -8 l8 12 l4 -38z" fill="#d8341b"/><circle cx="108" cy="88" r="17" fill="#f2b632" stroke="#c98f1c" stroke-width="3"/><path d="M100 88 l6 6 l10 -12" stroke="#fff" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  var CERTS_HTML = (function () {
+    var ibm = [['What is Data Science?', 'GMTYDWHUAJGJ'], ['Tools for Data Science', '45SHMAXSBZ96'], ['Data Science Methodology', 'QR3PQE5XLM3N'], ['Python for Data Science, AI & Development', '92NQBLSQN6TT'], ['Python Project for Data Science', '7LYQHYNYSLWM']];
+    var card = function (art, tag, name, sub) { return '<div class="deck cert"><span class="cert-art">' + art + '</span><span class="mono">' + tag + '</span><b>' + name + '</b><small>' + sub + '</small></div>'; };
+    return '<div class="decks certs">'
+      + card('<b class="gre">328</b>', 'Test · Oct 2025', 'GRE General Test', 'Quant 165 · Verbal 163')
+      + card('<img src="media/projects/certs/google-ads-search.webp" alt="Google Ads Search Certification" loading="lazy">', 'Google · Jun 2023', 'Google Ads Search', 'Building and optimising Search campaigns')
+      + card('<img src="media/projects/certs/google-ads-display.webp" alt="Google Ads Display Certification" loading="lazy">', 'Google · Jun 2023', 'Google Ads Display', 'Building and optimising Display campaigns')
+      + card('<b class="cert-ic">DM</b>', 'MyCaptain · 4-month course', 'Digital Marketing Pro', 'SEO, social media, Meta and Google ads')
+      + '<div class="deck cert cert-ibm"><span class="mono">IBM via Coursera · Jan–Feb 2022</span><b>Data science, 5 courses</b><ul>' + ibm.map(function (x) { return '<li><a href="https://coursera.org/verify/' + x[1] + '" target="_blank" rel="noopener">' + x[0] + ' <span>verify ↗</span></a></li>'; }).join('') + '</ul></div>'
+      + '</div>';
+  })();
   var ROOM = [
     { obj: 'hanging', left: 5, top: 2.2, w: 11, label: 'About me', cat: 'personal', kicker: 'About', title: 'Anudeep Gupta.',
       text: 'Hyderabad-raised Orange Army fan and founding-cohort student of Sports Management & Gaming at Masters’ Union. I speak English, Telugu and Hindi, with some Tamil.', nums: [['1 of 8', 'SMG Club core committee'], ['4', 'languages']], role: 'Open to a full-time role or internship, starting now.', link: 'media/resume.pdf', linkText: 'Open my resume', img: 'media/photos/portrait-arms.webp?v=1795635861' },
@@ -544,14 +558,19 @@
     { row: 2, obj: 'vinyl', left: 42, bottom: 13, w: 10.5, label: 'Vaadyle', cat: 'ai', kicker: 'Built with AI tools · daily music puzzle', title: 'Vaadyle.', text: 'An Indian-music daily puzzle. Everyone gets the same song, revealed one instrument at a time, with streaks and a share card, like Wordle.', nums: [['Daily', 'one song for everyone'], ['Stems', 'every song split by instrument']], role: 'I built the game and the landing page, and split every song into stems.', link: 'https://vaadyle.lovable.app', linkText: 'Play Vaadyle' },
     { row: 2, obj: 'ashta', left: 54.5, bottom: 13, w: 10.5, label: 'Ashta Chamma', cat: 'ai', kicker: 'Built with AI tools · browser game', title: 'Ashta Chamma.', text: 'The ancient Indian board game, a lot like Ludo, rebuilt so anyone can play it in the browser.', nums: [['Online', 'the board game, playable in the browser']], role: 'I built the game end to end.', link: 'https://ashta-chamma.lovable.app', linkText: 'Play Ashta Chamma' },
     { row: 2, obj: 'binders', left: 71, bottom: 13, w: 23, label: 'Decoding Business Models', cat: 'strategy', kicker: 'Strategy · Masters’ Union coursework', title: 'Six businesses. All graded A.', text: 'Decoding Business Models: six businesses my teams designed and pitched, one per business model. Tap a deck to open it.', decks: true },
+    { obj: 'idcard', label: 'Examate', cat: 'strategy', kicker: 'Internship · Examate, Hyderabad · May–Jul 2021', title: 'Business development intern.', text: 'I ran 2 social media campaigns for Examate’s CAT and JEE courses and converted 10 students from 70+ qualified leads. I also recruited 5 interns through screening and phone interviews.', nums: [['70+', 'qualified leads'], ['10', 'students enrolled'], ['+20%', 'team size, 5 interns hired']], role: 'My role: Business Development Intern.', img: 'media/projects/internships/examate-cert.webp' },
+    { obj: 'idcard', label: 'Unschool', cat: 'strategy', kicker: 'Internship · Unschool (online) · Dec 2020', title: 'Social media marketing intern.', text: 'A two-week online internship in the Unschool Community Program. I drove ₹45K+ in course sales from 40+ conversions and earned a Certificate of Excellence.', nums: [['₹45K+', 'in course sales'], ['40+', 'conversions']], role: 'My role: Social Media Marketing Intern.', img: 'media/projects/internships/unschool-cert.webp' },
+    { obj: 'idcard', label: 'IMUN', cat: 'strategy', kicker: 'Internship · International Model United Nations · 2021', title: 'Campus ambassador.', text: 'As an IMUN Campus Ambassador, I created digital content for its sustainability campaigns on the UN Sustainable Development Goals, and promoted IMUN’s online conferences.', nums: [], role: 'My role: Campus Ambassador Intern.' },
+    { obj: 'idcard', label: 'Internships', cat: 'strategy', kicker: 'Work · internships before TBRC', title: 'Three internships, early.', text: 'Business development, social media marketing and campus outreach, all before my first full-time job. Tap one to open it.', group: ['Examate', 'Unschool', 'IMUN'] },
+    { obj: 'certframe', label: 'Certifications', cat: 'strategy', kicker: 'Learning · tests and certificates', title: 'Always learning.', text: 'Marketing and data courses I took on my own, plus my GRE.', nums: [['328', 'GRE · Quant 165 · Verbal 163'], ['8', 'certificates: Google, IBM, MyCaptain']], certs: true },
     { obj: 'venture', label: 'Entrepreneurship', cat: 'business', kicker: 'Entrepreneurship · built from scratch', title: 'Two businesses, from zero.', text: 'A dropshipping store that sold ₹2L+, and a focus-shot startup now in testing. Tap one to open it.', group: ['The Better Store', 'Vortilix'] },
     { obj: 'apps', label: 'Apps I built', cat: 'ai', kicker: 'Apps I built · with AI tools', title: 'Three apps, all live.', text: 'A meeting-to-task-tracker tool, a daily Indian-music puzzle and an online version of an ancient board game. Tap one to open it.', group: ['Meet2Tracker', 'Vaadyle', 'Ashta Chamma'] },
   ];
   var rlist = $('#room-list'), tvVid = null;
   var WALLS = {
-    L: [['Strategy & research', ['Market research', 'Astralis', 'goSTOPS', 'NIVIA launch']]],
+    L: [['Work', ['Market research', 'Internships']], ['Strategy & research', ['Astralis', 'goSTOPS', 'NIVIA launch']]],
     B: [['The player', ['About me', 'Badminton', 'Esports']], ['', ['IPL auction draft']], ['Fans & events', ['One Orange Army', 'HYROX Delhi', 'TITANS IBS']]],
-    R: [['Coursework', ['Pepperfry', 'Decoding Business Models']], ['Built from scratch', ['Entrepreneurship', 'Apps I built']]]
+    R: [['Learning', ['Pepperfry', 'Decoding Business Models', 'Certifications']], ['Built by me', ['Entrepreneurship', 'Apps I built']]]
   };
   var SHORT = { 'Decoding Business Models': 'Business models', 'The Better Store': 'Better Store', 'IPL auction draft': 'IPL auction', 'Market research': 'Market research' };
   var byLabel = {}; ROOM.forEach(function (c) { byLabel[c.label] = c; });
@@ -670,7 +689,8 @@
     { w: 0.8, k: ['study', 'studied', 'education', 'qualification', 'academic'], a: 'Quick version: Class X at St. Martin’s (10/10 CGPA), Class XII at Avinash College (90.5%), a BBA at ICFAI Business School (9.75/10), and now the Sports Management & Gaming PGP at Masters’ Union. Ask about any of them for more.' },
     { k: ['how many years', 'years of experience', 'experience', 'how long', 'worked for', 'work ex', 'job', 'career', 'worked'], a: 'Nearly 3 years: I was an Associate Consultant at The Business Research Company (TBRC), Hyderabad, from July 2022 to April 2025. Before that I interned at Examate and Unschool.' },
     { w: 1.3, k: ['tbrc', 'business research', 'research company', 'consultant', 'research', 'report'], a: 'At TBRC I proposed a green hydrogen database that became a new product, bought by 2 clients at $10K each. I also proposed an automated drafting workflow that doubled weekly output from 2 to 4 reports, and cut delivery from 7 to 2–3 business days across 55+ reports in 10 industries.' },
-    { k: ['intern', 'examate', 'unschool'], a: 'Examate (2021): I converted 10 of 70+ qualified leads into course enrolments and helped grow the intern team 20%. Unschool: ₹45K+ in sales from 40+ course conversions, which earned a Certificate of Excellence.' },
+    { k: ['certificat', 'certified', 'google ads', 'coursera', 'ibm', 'gre'], a: 'GRE 328 (Quant 165, Verbal 163). Certificates: Google Ads Search and Display (2023), MyCaptain’s 4-month Digital Marketing Pro course, and 5 IBM data science courses on Coursera (2022). They’re in the Certifications locker.', href: '#room', link: 'Open the locker room' },
+    { k: ['intern', 'examate', 'unschool', 'imun'], a: 'Examate (2021): I converted 10 of 70+ qualified leads into course enrolments and helped grow the intern team 20%. Unschool: ₹45K+ in sales from 40+ course conversions, which earned a Certificate of Excellence.' },
     { k: ['hyrox'], a: 'At HYROX Delhi (10,500 athletes over 3 days) I took charge of the Masters’ Union zone. Wrong finisher time tags dropped from about 100 to zero after I pushed to use HYROX’s official timing data, and peak queues of 80–100 athletes cleared in 10–15 minutes.' },
     { k: ['nivia', 'jersey', 'football'], a: 'NIVIA live challenge: my team came Top 3 of 15 with a ₹50L launch plan for India’s football jersey, modelling 30K sales in 90 days.' },
     { k: ['gostops', 'hostel', 'occupancy'], a: 'goSTOPS one-day challenge: Top 5 of 93 teams, with a plan to lift July–September occupancy from 27.5% to 43.8%.' },

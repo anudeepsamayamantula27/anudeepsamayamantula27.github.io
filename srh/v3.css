@@ -974,9 +974,9 @@ a.bz:hover,.bz:has(button.bz-go:hover){border-color:var(--or);transform:translat
 .lr-floor{position:absolute;left:0;right:0;bottom:0;height:19%;background:radial-gradient(60% 90% at 50% 0%,rgba(242,101,34,.10),transparent 70%),linear-gradient(180deg,#2a2526,#141112)}
 .lr-stage{position:absolute;left:0;right:0;top:13%;height:68%;perspective:1300px;perspective-origin:50% 45%;z-index:1}
 .lr-wall{position:absolute;top:0;height:100%;display:flex;background:#121011}
-.lr-back{left:26%;width:48%}
-.lr-left{right:74%;width:23%;transform-origin:100% 50%;transform:rotateY(36deg)}
-.lr-right{left:74%;width:23%;transform-origin:0 50%;transform:rotateY(-36deg)}
+.lr-back{left:27.5%;width:45%}
+.lr-left{right:72.5%;width:25%;transform-origin:100% 50%;transform:rotateY(36deg)}
+.lr-right{left:72.5%;width:25%;transform-origin:0 50%;transform:rotateY(-36deg)}
 .lr-grp{display:flex;flex-direction:column;flex-basis:0;min-width:0}
 .lr-tag{height:12%;margin:0;display:flex;align-items:flex-start;justify-content:center;padding-top:.6%;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);white-space:nowrap;overflow:hidden;
   background:repeating-linear-gradient(90deg,rgba(242,101,34,.9) 0 7px,transparent 7px 19px) 0 100%/100% 7px no-repeat,repeating-linear-gradient(90deg,rgba(242,101,34,.45) 0 7px,transparent 7px 27px) 9px calc(100% - 9px)/100% 7px no-repeat,repeating-linear-gradient(90deg,rgba(242,101,34,.2) 0 7px,transparent 7px 41px) 23px calc(100% - 18px)/100% 7px no-repeat,linear-gradient(#141113,#0c0a0b)}
@@ -1150,3 +1150,34 @@ dialog.case.wide .case-strip img,dialog.case.wide .case-strip video{max-width:92
 dialog.case.wide .case-strip{gap:0;padding:0 0 62px;box-sizing:border-box}
 dialog.case.wide .case-strip>img,dialog.case.wide .case-strip>video{flex:0 0 100%;width:100%!important;max-width:none;height:100%;object-fit:contain;border-radius:0;scroll-snap-align:center;background:transparent}
 @media (max-width:760px){dialog.case.wide .case-strip{padding-bottom:50px}}
+
+/* certifications pop-up */
+.certs{grid-template-columns:repeat(3,minmax(0,1fr))}
+.cert{display:flex;flex-direction:column;gap:4px}
+.cert-art{display:grid;place-items:center;aspect-ratio:16/9;border-radius:8px;background:#fff;overflow:hidden;margin-bottom:6px}
+.cert-art img{width:100%;height:100%;object-fit:contain;margin:0;aspect-ratio:auto;background:#fff}
+.cert-art .gre,.cert-art .cert-ic{font:400 54px/1 var(--disp);color:var(--or)}
+.cert-art .cert-ic{font-size:40px;color:#fff;background:var(--or);width:72px;height:72px;border-radius:16px;display:grid;place-items:center}
+.cert-ibm{grid-column:span 2}
+.cert-ibm ul{list-style:none;margin:6px 0 0;padding:0;display:grid;gap:4px}
+.cert-ibm a{display:flex;justify-content:space-between;gap:10px;color:#d6d2cc;text-decoration:none;font-size:13px;padding:6px 8px;border-radius:8px;background:rgba(255,255,255,.03);border:1px solid var(--line)}
+.cert-ibm a:hover{border-color:var(--or)}
+.cert-ibm a span{color:var(--or);flex:none;font-size:12px}
+@media (max-width:760px){.certs{grid-template-columns:repeat(2,minmax(0,1fr))}.cert-ibm{grid-column:span 2}.cert-art .gre{font-size:36px}.cert-ibm a{font-size:11px;padding:4px 6px}dialog.case.wide .cert small,dialog.case.wide .cert .mono{display:block;font-size:9.5px}}
+.lk-plate.long b{font-size:clamp(7px,.62vw,10.5px)}
+dialog.case .cert .cert-art{display:grid;place-items:center;width:100%;aspect-ratio:16/9;height:auto;background:#fff;border-radius:8px;margin-bottom:6px}
+dialog.case .cert .cert-art b.gre{font:400 clamp(40px,4vw,60px)/1 var(--disp);color:var(--or)}
+dialog.case .cert .cert-art b.cert-ic{width:64px;height:64px;border-radius:16px;background:var(--or);color:#fff;display:grid;place-items:center;font:400 30px/1 var(--disp)}
+@media (max-width:760px){
+  dialog.case .cert .cert-art{display:none}
+  dialog.case.wide .certs{gap:5px}
+  dialog.case.wide .cert{padding:6px}
+  dialog.case.wide .cert b{font-size:13px}
+  .cert-ibm ul{gap:3px}
+  .cert-ibm a{font-size:10.5px;padding:3px 6px}
+}
+dialog.case.wide .case-media.decks-on{align-items:safe center}
+@media (max-width:760px){
+  dialog.case.wide[open]:has(.certs),dialog.case.wide[open]:has(.decks:not(.subs)){grid-template-rows:minmax(0,62%) minmax(0,1fr)}
+  dialog.case.wide .case-media.decks-on{overflow:auto}
+}
